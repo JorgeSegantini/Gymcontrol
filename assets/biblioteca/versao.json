@@ -1,0 +1,17 @@
+{
+  "versao": 3,
+  "data": "2026-08-06",
+  "hash": null,
+  "quantidades": {
+    "grupos": 17,
+    "categoriasEquipamentos": 0,
+    "equipamentos": 0,
+    "padroesMotores": 0,
+    "movimentos": 0,
+    "variacoes": 0,
+    "niveis": 0,
+    "tags": 12,
+    "aliases": 475,
+    "exercicios": 165
+  }
+}

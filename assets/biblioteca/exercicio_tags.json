@@ -1,0 +1,370 @@
+[
+  {
+    "exercicioCodigo": "hiperextensao_lombar_banco_romano",
+    "tagCodigo": "isolado"
+  },
+  {
+    "exercicioCodigo": "hiperextensao_lombar_banco_romano",
+    "tagCodigo": "bilateral"
+  },
+  {
+    "exercicioCodigo": "hiperextensao_lombar_banco_romano",
+    "tagCodigo": "peso_corporal"
+  },
+  {
+    "exercicioCodigo": "extensao_lombar_maquina",
+    "tagCodigo": "isolado"
+  },
+  {
+    "exercicioCodigo": "extensao_lombar_maquina",
+    "tagCodigo": "bilateral"
+  },
+  {
+    "exercicioCodigo": "extensao_lombar_maquina",
+    "tagCodigo": "maquina"
+  },
+  {
+    "exercicioCodigo": "superman_peso_corporal",
+    "tagCodigo": "isolado"
+  },
+  {
+    "exercicioCodigo": "superman_peso_corporal",
+    "tagCodigo": "bilateral"
+  },
+  {
+    "exercicioCodigo": "superman_peso_corporal",
+    "tagCodigo": "peso_corporal"
+  },
+  {
+    "exercicioCodigo": "superman_peso_corporal",
+    "tagCodigo": "estabilidade"
+  },
+  {
+    "exercicioCodigo": "bird_dog_peso_corporal",
+    "tagCodigo": "unilateral"
+  },
+  {
+    "exercicioCodigo": "bird_dog_peso_corporal",
+    "tagCodigo": "peso_corporal"
+  },
+  {
+    "exercicioCodigo": "bird_dog_peso_corporal",
+    "tagCodigo": "estabilidade"
+  },
+  {
+    "exercicioCodigo": "reverse_hyper_maquina",
+    "tagCodigo": "composto"
+  },
+  {
+    "exercicioCodigo": "reverse_hyper_maquina",
+    "tagCodigo": "bilateral"
+  },
+  {
+    "exercicioCodigo": "reverse_hyper_maquina",
+    "tagCodigo": "maquina"
+  },
+  {
+    "exercicioCodigo": "encolhimento_barra",
+    "tagCodigo": "isolado"
+  },
+  {
+    "exercicioCodigo": "encolhimento_barra",
+    "tagCodigo": "bilateral"
+  },
+  {
+    "exercicioCodigo": "encolhimento_barra",
+    "tagCodigo": "barra"
+  },
+  {
+    "exercicioCodigo": "encolhimento_halteres",
+    "tagCodigo": "isolado"
+  },
+  {
+    "exercicioCodigo": "encolhimento_halteres",
+    "tagCodigo": "bilateral"
+  },
+  {
+    "exercicioCodigo": "encolhimento_halteres",
+    "tagCodigo": "halteres"
+  },
+  {
+    "exercicioCodigo": "encolhimento_smith",
+    "tagCodigo": "isolado"
+  },
+  {
+    "exercicioCodigo": "encolhimento_smith",
+    "tagCodigo": "bilateral"
+  },
+  {
+    "exercicioCodigo": "encolhimento_smith",
+    "tagCodigo": "maquina"
+  },
+  {
+    "exercicioCodigo": "rosca_punho_barra",
+    "tagCodigo": "isolado"
+  },
+  {
+    "exercicioCodigo": "rosca_punho_barra",
+    "tagCodigo": "bilateral"
+  },
+  {
+    "exercicioCodigo": "rosca_punho_barra",
+    "tagCodigo": "barra"
+  },
+  {
+    "exercicioCodigo": "rosca_punho_barra",
+    "tagCodigo": "pegada"
+  },
+  {
+    "exercicioCodigo": "rosca_punho_halteres",
+    "tagCodigo": "isolado"
+  },
+  {
+    "exercicioCodigo": "rosca_punho_halteres",
+    "tagCodigo": "bilateral"
+  },
+  {
+    "exercicioCodigo": "rosca_punho_halteres",
+    "tagCodigo": "halteres"
+  },
+  {
+    "exercicioCodigo": "rosca_punho_halteres",
+    "tagCodigo": "pegada"
+  },
+  {
+    "exercicioCodigo": "rosca_punho_inversa_barra",
+    "tagCodigo": "isolado"
+  },
+  {
+    "exercicioCodigo": "rosca_punho_inversa_barra",
+    "tagCodigo": "bilateral"
+  },
+  {
+    "exercicioCodigo": "rosca_punho_inversa_barra",
+    "tagCodigo": "barra"
+  },
+  {
+    "exercicioCodigo": "rosca_punho_inversa_barra",
+    "tagCodigo": "pegada"
+  },
+  {
+    "exercicioCodigo": "wrist_roller",
+    "tagCodigo": "isolado"
+  },
+  {
+    "exercicioCodigo": "wrist_roller",
+    "tagCodigo": "bilateral"
+  },
+  {
+    "exercicioCodigo": "wrist_roller",
+    "tagCodigo": "pegada"
+  },
+  {
+    "exercicioCodigo": "dead_hang_barra_fixa",
+    "tagCodigo": "composto"
+  },
+  {
+    "exercicioCodigo": "dead_hang_barra_fixa",
+    "tagCodigo": "bilateral"
+  },
+  {
+    "exercicioCodigo": "dead_hang_barra_fixa",
+    "tagCodigo": "peso_corporal"
+  },
+  {
+    "exercicioCodigo": "dead_hang_barra_fixa",
+    "tagCodigo": "pegada"
+  },
+  {
+    "exercicioCodigo": "pegada_estatica_halteres",
+    "tagCodigo": "isolado"
+  },
+  {
+    "exercicioCodigo": "pegada_estatica_halteres",
+    "tagCodigo": "bilateral"
+  },
+  {
+    "exercicioCodigo": "pegada_estatica_halteres",
+    "tagCodigo": "halteres"
+  },
+  {
+    "exercicioCodigo": "pegada_estatica_halteres",
+    "tagCodigo": "pegada"
+  },
+  {
+    "exercicioCodigo": "flexao_cervical_peso_corporal",
+    "tagCodigo": "isolado"
+  },
+  {
+    "exercicioCodigo": "flexao_cervical_peso_corporal",
+    "tagCodigo": "bilateral"
+  },
+  {
+    "exercicioCodigo": "flexao_cervical_peso_corporal",
+    "tagCodigo": "peso_corporal"
+  },
+  {
+    "exercicioCodigo": "flexao_cervical_peso_corporal",
+    "tagCodigo": "mobilidade"
+  },
+  {
+    "exercicioCodigo": "extensao_cervical_peso_corporal",
+    "tagCodigo": "isolado"
+  },
+  {
+    "exercicioCodigo": "extensao_cervical_peso_corporal",
+    "tagCodigo": "bilateral"
+  },
+  {
+    "exercicioCodigo": "extensao_cervical_peso_corporal",
+    "tagCodigo": "peso_corporal"
+  },
+  {
+    "exercicioCodigo": "extensao_cervical_peso_corporal",
+    "tagCodigo": "mobilidade"
+  },
+  {
+    "exercicioCodigo": "flexao_lateral_cervical",
+    "tagCodigo": "isolado"
+  },
+  {
+    "exercicioCodigo": "flexao_lateral_cervical",
+    "tagCodigo": "unilateral"
+  },
+  {
+    "exercicioCodigo": "flexao_lateral_cervical",
+    "tagCodigo": "peso_corporal"
+  },
+  {
+    "exercicioCodigo": "flexao_lateral_cervical",
+    "tagCodigo": "mobilidade"
+  },
+  {
+    "exercicioCodigo": "face_pull_polia",
+    "tagCodigo": "isolado"
+  },
+  {
+    "exercicioCodigo": "face_pull_polia",
+    "tagCodigo": "bilateral"
+  },
+  {
+    "exercicioCodigo": "face_pull_polia",
+    "tagCodigo": "cabo"
+  },
+  {
+    "exercicioCodigo": "remada_alta_barra",
+    "tagCodigo": "composto"
+  },
+  {
+    "exercicioCodigo": "remada_alta_barra",
+    "tagCodigo": "bilateral"
+  },
+  {
+    "exercicioCodigo": "remada_alta_barra",
+    "tagCodigo": "barra"
+  },
+  {
+    "exercicioCodigo": "remada_alta_polia_ombros",
+    "tagCodigo": "composto"
+  },
+  {
+    "exercicioCodigo": "remada_alta_polia_ombros",
+    "tagCodigo": "bilateral"
+  },
+  {
+    "exercicioCodigo": "remada_alta_polia_ombros",
+    "tagCodigo": "cabo"
+  },
+  {
+    "exercicioCodigo": "farmers_walk_halteres",
+    "tagCodigo": "composto"
+  },
+  {
+    "exercicioCodigo": "farmers_walk_halteres",
+    "tagCodigo": "bilateral"
+  },
+  {
+    "exercicioCodigo": "farmers_walk_halteres",
+    "tagCodigo": "halteres"
+  },
+  {
+    "exercicioCodigo": "farmers_walk_halteres",
+    "tagCodigo": "pegada"
+  },
+  {
+    "exercicioCodigo": "good_morning_barra",
+    "tagCodigo": "composto"
+  },
+  {
+    "exercicioCodigo": "good_morning_barra",
+    "tagCodigo": "bilateral"
+  },
+  {
+    "exercicioCodigo": "good_morning_barra",
+    "tagCodigo": "barra"
+  },
+  {
+    "exercicioCodigo": "rack_pull_barra",
+    "tagCodigo": "composto"
+  },
+  {
+    "exercicioCodigo": "rack_pull_barra",
+    "tagCodigo": "bilateral"
+  },
+  {
+    "exercicioCodigo": "rack_pull_barra",
+    "tagCodigo": "barra"
+  },
+  {
+    "exercicioCodigo": "rack_pull_barra",
+    "tagCodigo": "pegada"
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_halteres",
+    "tagCodigo": "isolado"
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_halteres",
+    "tagCodigo": "bilateral"
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_halteres",
+    "tagCodigo": "halteres"
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_halteres",
+    "tagCodigo": "pegada"
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_cruzada",
+    "tagCodigo": "isolado"
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_cruzada",
+    "tagCodigo": "unilateral"
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_cruzada",
+    "tagCodigo": "halteres"
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_cruzada",
+    "tagCodigo": "pegada"
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_corda",
+    "tagCodigo": "isolado"
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_corda",
+    "tagCodigo": "bilateral"
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_corda",
+    "tagCodigo": "cabo"
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_corda",
+    "tagCodigo": "pegada"
+  }
+]

@@ -1,0 +1,2852 @@
+[
+  {
+    "codigo": "supino_reto_barra_alias_0001",
+    "nome": "Bench Press",
+    "nomeNormalizado": "bench press",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_reto_barra_alias_0002",
+    "nome": "Barbell Bench Press",
+    "nomeNormalizado": "barbell bench press",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_reto_barra_alias_0003",
+    "nome": "Flat Bench Press",
+    "nomeNormalizado": "flat bench press",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_reto_barra_alias_0004",
+    "nome": "Supino com barra",
+    "nomeNormalizado": "supino com barra",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_reto_halteres_alias_0005",
+    "nome": "Dumbbell Bench Press",
+    "nomeNormalizado": "dumbbell bench press",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_reto_halteres_alias_0006",
+    "nome": "Flat Dumbbell Press",
+    "nomeNormalizado": "flat dumbbell press",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_reto_halteres_alias_0007",
+    "nome": "Supino com halteres",
+    "nomeNormalizado": "supino com halteres",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_reto_maquina_alias_0008",
+    "nome": "Machine Chest Press",
+    "nomeNormalizado": "machine chest press",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_reto_maquina_alias_0009",
+    "nome": "Supino máquina",
+    "nomeNormalizado": "supino maquina",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_reto_maquina_alias_0010",
+    "nome": "Máquina de supino reto",
+    "nomeNormalizado": "maquina de supino reto",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_reto_maquina_alias_0011",
+    "nome": "Supino articulado",
+    "nomeNormalizado": "supino articulado",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_reto_maquina_alias_0012",
+    "nome": "Supino convergente",
+    "nomeNormalizado": "supino convergente",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_inclinado_barra_alias_0013",
+    "nome": "Incline Bench Press",
+    "nomeNormalizado": "incline bench press",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_inclinado_barra_alias_0014",
+    "nome": "Incline Barbell Bench Press",
+    "nomeNormalizado": "incline barbell bench press",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_inclinado_barra_alias_0015",
+    "nome": "Supino inclinado com barra",
+    "nomeNormalizado": "supino inclinado com barra",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_inclinado_halteres_alias_0016",
+    "nome": "Incline Dumbbell Press",
+    "nomeNormalizado": "incline dumbbell press",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_inclinado_halteres_alias_0017",
+    "nome": "Incline Dumbbell Bench Press",
+    "nomeNormalizado": "incline dumbbell bench press",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_inclinado_halteres_alias_0018",
+    "nome": "Supino inclinado com halteres",
+    "nomeNormalizado": "supino inclinado com halteres",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_inclinado_maquina_alias_0019",
+    "nome": "Incline Machine Press",
+    "nomeNormalizado": "incline machine press",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_inclinado_maquina_alias_0020",
+    "nome": "Incline Chest Press",
+    "nomeNormalizado": "incline chest press",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_inclinado_maquina_alias_0021",
+    "nome": "Máquina de supino inclinado",
+    "nomeNormalizado": "maquina de supino inclinado",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_inclinado_maquina_alias_0022",
+    "nome": "Supino inclinado articulado",
+    "nomeNormalizado": "supino inclinado articulado",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_declinado_barra_alias_0023",
+    "nome": "Decline Bench Press",
+    "nomeNormalizado": "decline bench press",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_declinado_barra_alias_0024",
+    "nome": "Decline Barbell Bench Press",
+    "nomeNormalizado": "decline barbell bench press",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_declinado_barra_alias_0025",
+    "nome": "Supino declinado com barra",
+    "nomeNormalizado": "supino declinado com barra",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_declinado_halteres_alias_0026",
+    "nome": "Decline Dumbbell Press",
+    "nomeNormalizado": "decline dumbbell press",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_declinado_halteres_alias_0027",
+    "nome": "Decline Dumbbell Bench Press",
+    "nomeNormalizado": "decline dumbbell bench press",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_declinado_halteres_alias_0028",
+    "nome": "Supino declinado com halteres",
+    "nomeNormalizado": "supino declinado com halteres",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_declinado_maquina_alias_0029",
+    "nome": "Decline Machine Press",
+    "nomeNormalizado": "decline machine press",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_declinado_maquina_alias_0030",
+    "nome": "Decline Chest Press",
+    "nomeNormalizado": "decline chest press",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_declinado_maquina_alias_0031",
+    "nome": "Máquina de supino declinado",
+    "nomeNormalizado": "maquina de supino declinado",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_declinado_maquina_alias_0032",
+    "nome": "Supino declinado articulado",
+    "nomeNormalizado": "supino declinado articulado",
+    "ativo": true
+  },
+  {
+    "codigo": "crucifixo_reto_halteres_alias_0033",
+    "nome": "Dumbbell Fly",
+    "nomeNormalizado": "dumbbell fly",
+    "ativo": true
+  },
+  {
+    "codigo": "crucifixo_reto_halteres_alias_0034",
+    "nome": "Flat Dumbbell Fly",
+    "nomeNormalizado": "flat dumbbell fly",
+    "ativo": true
+  },
+  {
+    "codigo": "crucifixo_reto_halteres_alias_0035",
+    "nome": "Crucifixo com halteres",
+    "nomeNormalizado": "crucifixo com halteres",
+    "ativo": true
+  },
+  {
+    "codigo": "crucifixo_inclinado_halteres_alias_0036",
+    "nome": "Incline Dumbbell Fly",
+    "nomeNormalizado": "incline dumbbell fly",
+    "ativo": true
+  },
+  {
+    "codigo": "crucifixo_inclinado_halteres_alias_0037",
+    "nome": "Crucifixo inclinado com halteres",
+    "nomeNormalizado": "crucifixo inclinado com halteres",
+    "ativo": true
+  },
+  {
+    "codigo": "crucifixo_declinado_halteres_alias_0038",
+    "nome": "Decline Dumbbell Fly",
+    "nomeNormalizado": "decline dumbbell fly",
+    "ativo": true
+  },
+  {
+    "codigo": "crucifixo_declinado_halteres_alias_0039",
+    "nome": "Crucifixo declinado com halteres",
+    "nomeNormalizado": "crucifixo declinado com halteres",
+    "ativo": true
+  },
+  {
+    "codigo": "crucifixo_cabo_alias_0040",
+    "nome": "Cable Fly",
+    "nomeNormalizado": "cable fly",
+    "ativo": true
+  },
+  {
+    "codigo": "crucifixo_cabo_alias_0041",
+    "nome": "Cable Crossover",
+    "nomeNormalizado": "cable crossover",
+    "ativo": true
+  },
+  {
+    "codigo": "crucifixo_cabo_alias_0042",
+    "nome": "Crossover",
+    "nomeNormalizado": "crossover",
+    "ativo": true
+  },
+  {
+    "codigo": "crucifixo_cabo_alias_0043",
+    "nome": "Crucifixo na polia",
+    "nomeNormalizado": "crucifixo na polia",
+    "ativo": true
+  },
+  {
+    "codigo": "crucifixo_inclinado_cabo_alias_0044",
+    "nome": "Incline Cable Fly",
+    "nomeNormalizado": "incline cable fly",
+    "ativo": true
+  },
+  {
+    "codigo": "crucifixo_inclinado_cabo_alias_0045",
+    "nome": "Low to High Cable Fly",
+    "nomeNormalizado": "low to high cable fly",
+    "ativo": true
+  },
+  {
+    "codigo": "crucifixo_inclinado_cabo_alias_0046",
+    "nome": "Crossover de baixo para cima",
+    "nomeNormalizado": "crossover de baixo para cima",
+    "ativo": true
+  },
+  {
+    "codigo": "voador_peck_deck_alias_0047",
+    "nome": "Peck Deck",
+    "nomeNormalizado": "peck deck",
+    "ativo": true
+  },
+  {
+    "codigo": "voador_peck_deck_alias_0048",
+    "nome": "Pec Deck",
+    "nomeNormalizado": "pec deck",
+    "ativo": true
+  },
+  {
+    "codigo": "voador_peck_deck_alias_0049",
+    "nome": "Fly Machine",
+    "nomeNormalizado": "fly machine",
+    "ativo": true
+  },
+  {
+    "codigo": "voador_peck_deck_alias_0050",
+    "nome": "Crucifixo máquina",
+    "nomeNormalizado": "crucifixo maquina",
+    "ativo": true
+  },
+  {
+    "codigo": "flexao_braco_alias_0051",
+    "nome": "Push-up",
+    "nomeNormalizado": "push-up",
+    "ativo": true
+  },
+  {
+    "codigo": "flexao_braco_alias_0052",
+    "nome": "Pushup",
+    "nomeNormalizado": "pushup",
+    "ativo": true
+  },
+  {
+    "codigo": "flexao_braco_alias_0053",
+    "nome": "Flexão",
+    "nomeNormalizado": "flexao",
+    "ativo": true
+  },
+  {
+    "codigo": "flexao_inclinada_alias_0054",
+    "nome": "Incline Push-up",
+    "nomeNormalizado": "incline push-up",
+    "ativo": true
+  },
+  {
+    "codigo": "flexao_inclinada_alias_0055",
+    "nome": "Flexão com mãos elevadas",
+    "nomeNormalizado": "flexao com maos elevadas",
+    "ativo": true
+  },
+  {
+    "codigo": "flexao_declinada_alias_0056",
+    "nome": "Decline Push-up",
+    "nomeNormalizado": "decline push-up",
+    "ativo": true
+  },
+  {
+    "codigo": "flexao_declinada_alias_0057",
+    "nome": "Flexão com pés elevados",
+    "nomeNormalizado": "flexao com pes elevados",
+    "ativo": true
+  },
+  {
+    "codigo": "pulover_halter_alias_0058",
+    "nome": "Pullover",
+    "nomeNormalizado": "pullover",
+    "ativo": true
+  },
+  {
+    "codigo": "pulover_halter_alias_0059",
+    "nome": "Dumbbell Pullover",
+    "nomeNormalizado": "dumbbell pullover",
+    "ativo": true
+  },
+  {
+    "codigo": "pulover_halter_alias_0060",
+    "nome": "Pulôver com halter",
+    "nomeNormalizado": "pulover com halter",
+    "ativo": true
+  },
+  {
+    "codigo": "svend_press_anilha_alias_0061",
+    "nome": "Plate Press",
+    "nomeNormalizado": "plate press",
+    "ativo": true
+  },
+  {
+    "codigo": "svend_press_anilha_alias_0062",
+    "nome": "Plate Squeeze Press",
+    "nomeNormalizado": "plate squeeze press",
+    "ativo": true
+  },
+  {
+    "codigo": "svend_press_anilha_alias_0063",
+    "nome": "Press com anilha",
+    "nomeNormalizado": "press com anilha",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_curvada_barra_alias_0064",
+    "nome": "Barbell Row",
+    "nomeNormalizado": "barbell row",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_curvada_barra_alias_0065",
+    "nome": "Bent Over Row",
+    "nomeNormalizado": "bent over row",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_curvada_barra_alias_0066",
+    "nome": "Remada com barra",
+    "nomeNormalizado": "remada com barra",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_curvada_halteres_alias_0067",
+    "nome": "Dumbbell Bent Over Row",
+    "nomeNormalizado": "dumbbell bent over row",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_curvada_halteres_alias_0068",
+    "nome": "Remada curvada com halteres",
+    "nomeNormalizado": "remada curvada com halteres",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_unilateral_halter_alias_0069",
+    "nome": "One Arm Dumbbell Row",
+    "nomeNormalizado": "one arm dumbbell row",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_unilateral_halter_alias_0070",
+    "nome": "Dumbbell Row",
+    "nomeNormalizado": "dumbbell row",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_unilateral_halter_alias_0071",
+    "nome": "Serrote",
+    "nomeNormalizado": "serrote",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_baixa_polia_alias_0072",
+    "nome": "Seated Cable Row",
+    "nomeNormalizado": "seated cable row",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_baixa_polia_alias_0073",
+    "nome": "Cable Row",
+    "nomeNormalizado": "cable row",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_baixa_polia_alias_0074",
+    "nome": "Remada sentada",
+    "nomeNormalizado": "remada sentada",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_baixa_pegada_neutra_alias_0075",
+    "nome": "Neutral Grip Cable Row",
+    "nomeNormalizado": "neutral grip cable row",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_baixa_pegada_neutra_alias_0076",
+    "nome": "Remada triângulo",
+    "nomeNormalizado": "remada triangulo",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_maquina_alias_0077",
+    "nome": "Machine Row",
+    "nomeNormalizado": "machine row",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_maquina_alias_0078",
+    "nome": "Remada articulada",
+    "nomeNormalizado": "remada articulada",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_maquina_alias_0079",
+    "nome": "Remada convergente",
+    "nomeNormalizado": "remada convergente",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_cavalinho_barra_alias_0080",
+    "nome": "T-Bar Row",
+    "nomeNormalizado": "t-bar row",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_cavalinho_barra_alias_0081",
+    "nome": "Landmine Row",
+    "nomeNormalizado": "landmine row",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_cavalinho_barra_alias_0082",
+    "nome": "Remada T",
+    "nomeNormalizado": "remada t",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_cavalinho_maquina_alias_0083",
+    "nome": "Machine T-Bar Row",
+    "nomeNormalizado": "machine t-bar row",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_cavalinho_maquina_alias_0084",
+    "nome": "Remada T máquina",
+    "nomeNormalizado": "remada t maquina",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_alta_polia_alias_0085",
+    "nome": "High Cable Row",
+    "nomeNormalizado": "high cable row",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_alta_polia_alias_0086",
+    "nome": "Remada alta sentada",
+    "nomeNormalizado": "remada alta sentada",
+    "ativo": true
+  },
+  {
+    "codigo": "puxada_frente_aberta_alias_0087",
+    "nome": "Lat Pulldown",
+    "nomeNormalizado": "lat pulldown",
+    "ativo": true
+  },
+  {
+    "codigo": "puxada_frente_aberta_alias_0088",
+    "nome": "Wide Grip Lat Pulldown",
+    "nomeNormalizado": "wide grip lat pulldown",
+    "ativo": true
+  },
+  {
+    "codigo": "puxada_frente_aberta_alias_0089",
+    "nome": "Puxada aberta",
+    "nomeNormalizado": "puxada aberta",
+    "ativo": true
+  },
+  {
+    "codigo": "puxada_frente_fechada_alias_0090",
+    "nome": "Close Grip Lat Pulldown",
+    "nomeNormalizado": "close grip lat pulldown",
+    "ativo": true
+  },
+  {
+    "codigo": "puxada_frente_fechada_alias_0091",
+    "nome": "Puxada fechada",
+    "nomeNormalizado": "puxada fechada",
+    "ativo": true
+  },
+  {
+    "codigo": "puxada_frente_neutra_alias_0092",
+    "nome": "Neutral Grip Lat Pulldown",
+    "nomeNormalizado": "neutral grip lat pulldown",
+    "ativo": true
+  },
+  {
+    "codigo": "puxada_frente_neutra_alias_0093",
+    "nome": "Puxada triângulo",
+    "nomeNormalizado": "puxada triangulo",
+    "ativo": true
+  },
+  {
+    "codigo": "puxada_supinada_alias_0094",
+    "nome": "Reverse Grip Lat Pulldown",
+    "nomeNormalizado": "reverse grip lat pulldown",
+    "ativo": true
+  },
+  {
+    "codigo": "puxada_supinada_alias_0095",
+    "nome": "Underhand Lat Pulldown",
+    "nomeNormalizado": "underhand lat pulldown",
+    "ativo": true
+  },
+  {
+    "codigo": "puxada_unilateral_polia_alias_0096",
+    "nome": "Single Arm Lat Pulldown",
+    "nomeNormalizado": "single arm lat pulldown",
+    "ativo": true
+  },
+  {
+    "codigo": "puxada_unilateral_polia_alias_0097",
+    "nome": "One Arm Lat Pulldown",
+    "nomeNormalizado": "one arm lat pulldown",
+    "ativo": true
+  },
+  {
+    "codigo": "barra_fixa_pronada_alias_0098",
+    "nome": "Pull-up",
+    "nomeNormalizado": "pull-up",
+    "ativo": true
+  },
+  {
+    "codigo": "barra_fixa_pronada_alias_0099",
+    "nome": "Pullup",
+    "nomeNormalizado": "pullup",
+    "ativo": true
+  },
+  {
+    "codigo": "barra_fixa_pronada_alias_0100",
+    "nome": "Barra fixa aberta",
+    "nomeNormalizado": "barra fixa aberta",
+    "ativo": true
+  },
+  {
+    "codigo": "barra_fixa_supinada_alias_0101",
+    "nome": "Chin-up",
+    "nomeNormalizado": "chin-up",
+    "ativo": true
+  },
+  {
+    "codigo": "barra_fixa_supinada_alias_0102",
+    "nome": "Chinup",
+    "nomeNormalizado": "chinup",
+    "ativo": true
+  },
+  {
+    "codigo": "barra_fixa_supinada_alias_0103",
+    "nome": "Barra fixa supinada",
+    "nomeNormalizado": "barra fixa supinada",
+    "ativo": true
+  },
+  {
+    "codigo": "barra_fixa_assistida_alias_0104",
+    "nome": "Assisted Pull-up",
+    "nomeNormalizado": "assisted pull-up",
+    "ativo": true
+  },
+  {
+    "codigo": "barra_fixa_assistida_alias_0105",
+    "nome": "Graviton",
+    "nomeNormalizado": "graviton",
+    "ativo": true
+  },
+  {
+    "codigo": "barra_fixa_assistida_alias_0106",
+    "nome": "Barra fixa no gravitron",
+    "nomeNormalizado": "barra fixa no gravitron",
+    "ativo": true
+  },
+  {
+    "codigo": "pulldown_reto_polia_alias_0107",
+    "nome": "Straight Arm Pulldown",
+    "nomeNormalizado": "straight arm pulldown",
+    "ativo": true
+  },
+  {
+    "codigo": "pulldown_reto_polia_alias_0108",
+    "nome": "Pullover na polia",
+    "nomeNormalizado": "pullover na polia",
+    "ativo": true
+  },
+  {
+    "codigo": "pulldown_reto_polia_alias_0109",
+    "nome": "Pulldown braços retos",
+    "nomeNormalizado": "pulldown bracos retos",
+    "ativo": true
+  },
+  {
+    "codigo": "pulldown_unilateral_polia_alias_0110",
+    "nome": "Single Arm Straight Arm Pulldown",
+    "nomeNormalizado": "single arm straight arm pulldown",
+    "ativo": true
+  },
+  {
+    "codigo": "pulldown_unilateral_polia_alias_0111",
+    "nome": "Pullover unilateral na polia",
+    "nomeNormalizado": "pullover unilateral na polia",
+    "ativo": true
+  },
+  {
+    "codigo": "levantamento_terra_barra_alias_0112",
+    "nome": "Deadlift",
+    "nomeNormalizado": "deadlift",
+    "ativo": true
+  },
+  {
+    "codigo": "levantamento_terra_barra_alias_0113",
+    "nome": "Conventional Deadlift",
+    "nomeNormalizado": "conventional deadlift",
+    "ativo": true
+  },
+  {
+    "codigo": "levantamento_terra_barra_alias_0114",
+    "nome": "Terra",
+    "nomeNormalizado": "terra",
+    "ativo": true
+  },
+  {
+    "codigo": "rack_pull_barra_alias_0115",
+    "nome": "Rack Deadlift",
+    "nomeNormalizado": "rack deadlift",
+    "ativo": true
+  },
+  {
+    "codigo": "rack_pull_barra_alias_0116",
+    "nome": "Levantamento terra parcial",
+    "nomeNormalizado": "levantamento terra parcial",
+    "ativo": true
+  },
+  {
+    "codigo": "encolhimento_escapular_polia_alias_0117",
+    "nome": "Scapular Pulldown",
+    "nomeNormalizado": "scapular pulldown",
+    "ativo": true
+  },
+  {
+    "codigo": "encolhimento_escapular_polia_alias_0118",
+    "nome": "Straight Arm Scapular Pulldown",
+    "nomeNormalizado": "straight arm scapular pulldown",
+    "ativo": true
+  },
+  {
+    "codigo": "desenvolvimento_militar_barra_alias_0119",
+    "nome": "Military Press",
+    "nomeNormalizado": "military press",
+    "ativo": true
+  },
+  {
+    "codigo": "desenvolvimento_militar_barra_alias_0120",
+    "nome": "Barbell Overhead Press",
+    "nomeNormalizado": "barbell overhead press",
+    "ativo": true
+  },
+  {
+    "codigo": "desenvolvimento_militar_barra_alias_0121",
+    "nome": "Overhead Press",
+    "nomeNormalizado": "overhead press",
+    "ativo": true
+  },
+  {
+    "codigo": "desenvolvimento_militar_barra_alias_0122",
+    "nome": "OHP",
+    "nomeNormalizado": "ohp",
+    "ativo": true
+  },
+  {
+    "codigo": "desenvolvimento_militar_halteres_alias_0123",
+    "nome": "Dumbbell Shoulder Press",
+    "nomeNormalizado": "dumbbell shoulder press",
+    "ativo": true
+  },
+  {
+    "codigo": "desenvolvimento_militar_halteres_alias_0124",
+    "nome": "Dumbbell Overhead Press",
+    "nomeNormalizado": "dumbbell overhead press",
+    "ativo": true
+  },
+  {
+    "codigo": "desenvolvimento_militar_halteres_alias_0125",
+    "nome": "Desenvolvimento com halteres",
+    "nomeNormalizado": "desenvolvimento com halteres",
+    "ativo": true
+  },
+  {
+    "codigo": "desenvolvimento_smith_alias_0126",
+    "nome": "Smith Machine Shoulder Press",
+    "nomeNormalizado": "smith machine shoulder press",
+    "ativo": true
+  },
+  {
+    "codigo": "desenvolvimento_smith_alias_0127",
+    "nome": "Smith Overhead Press",
+    "nomeNormalizado": "smith overhead press",
+    "ativo": true
+  },
+  {
+    "codigo": "desenvolvimento_smith_alias_0128",
+    "nome": "Desenvolvimento no Smith",
+    "nomeNormalizado": "desenvolvimento no smith",
+    "ativo": true
+  },
+  {
+    "codigo": "desenvolvimento_maquina_alias_0129",
+    "nome": "Machine Shoulder Press",
+    "nomeNormalizado": "machine shoulder press",
+    "ativo": true
+  },
+  {
+    "codigo": "desenvolvimento_maquina_alias_0130",
+    "nome": "Shoulder Press Machine",
+    "nomeNormalizado": "shoulder press machine",
+    "ativo": true
+  },
+  {
+    "codigo": "desenvolvimento_maquina_alias_0131",
+    "nome": "Desenvolvimento articulado",
+    "nomeNormalizado": "desenvolvimento articulado",
+    "ativo": true
+  },
+  {
+    "codigo": "desenvolvimento_unilateral_halter_alias_0132",
+    "nome": "Single Arm Dumbbell Shoulder Press",
+    "nomeNormalizado": "single arm dumbbell shoulder press",
+    "ativo": true
+  },
+  {
+    "codigo": "desenvolvimento_unilateral_halter_alias_0133",
+    "nome": "One Arm Shoulder Press",
+    "nomeNormalizado": "one arm shoulder press",
+    "ativo": true
+  },
+  {
+    "codigo": "arnold_press_alias_0134",
+    "nome": "Arnold Dumbbell Press",
+    "nomeNormalizado": "arnold dumbbell press",
+    "ativo": true
+  },
+  {
+    "codigo": "arnold_press_alias_0135",
+    "nome": "Desenvolvimento Arnold",
+    "nomeNormalizado": "desenvolvimento arnold",
+    "ativo": true
+  },
+  {
+    "codigo": "elevacao_lateral_halteres_alias_0136",
+    "nome": "Dumbbell Lateral Raise",
+    "nomeNormalizado": "dumbbell lateral raise",
+    "ativo": true
+  },
+  {
+    "codigo": "elevacao_lateral_halteres_alias_0137",
+    "nome": "Side Lateral Raise",
+    "nomeNormalizado": "side lateral raise",
+    "ativo": true
+  },
+  {
+    "codigo": "elevacao_lateral_halteres_alias_0138",
+    "nome": "Elevação lateral",
+    "nomeNormalizado": "elevacao lateral",
+    "ativo": true
+  },
+  {
+    "codigo": "elevacao_lateral_unilateral_halter_alias_0139",
+    "nome": "Single Arm Dumbbell Lateral Raise",
+    "nomeNormalizado": "single arm dumbbell lateral raise",
+    "ativo": true
+  },
+  {
+    "codigo": "elevacao_lateral_unilateral_halter_alias_0140",
+    "nome": "One Arm Lateral Raise",
+    "nomeNormalizado": "one arm lateral raise",
+    "ativo": true
+  },
+  {
+    "codigo": "elevacao_lateral_polia_alias_0141",
+    "nome": "Cable Lateral Raise",
+    "nomeNormalizado": "cable lateral raise",
+    "ativo": true
+  },
+  {
+    "codigo": "elevacao_lateral_polia_alias_0142",
+    "nome": "Elevação lateral no cabo",
+    "nomeNormalizado": "elevacao lateral no cabo",
+    "ativo": true
+  },
+  {
+    "codigo": "elevacao_lateral_maquina_alias_0143",
+    "nome": "Machine Lateral Raise",
+    "nomeNormalizado": "machine lateral raise",
+    "ativo": true
+  },
+  {
+    "codigo": "elevacao_lateral_maquina_alias_0144",
+    "nome": "Lateral Raise Machine",
+    "nomeNormalizado": "lateral raise machine",
+    "ativo": true
+  },
+  {
+    "codigo": "elevacao_lateral_maquina_alias_0145",
+    "nome": "Elevação lateral articulada",
+    "nomeNormalizado": "elevacao lateral articulada",
+    "ativo": true
+  },
+  {
+    "codigo": "elevacao_frontal_barra_alias_0146",
+    "nome": "Barbell Front Raise",
+    "nomeNormalizado": "barbell front raise",
+    "ativo": true
+  },
+  {
+    "codigo": "elevacao_frontal_barra_alias_0147",
+    "nome": "Elevação frontal com barra",
+    "nomeNormalizado": "elevacao frontal com barra",
+    "ativo": true
+  },
+  {
+    "codigo": "elevacao_frontal_halteres_alias_0148",
+    "nome": "Dumbbell Front Raise",
+    "nomeNormalizado": "dumbbell front raise",
+    "ativo": true
+  },
+  {
+    "codigo": "elevacao_frontal_halteres_alias_0149",
+    "nome": "Elevação frontal com halteres",
+    "nomeNormalizado": "elevacao frontal com halteres",
+    "ativo": true
+  },
+  {
+    "codigo": "elevacao_frontal_polia_alias_0150",
+    "nome": "Cable Front Raise",
+    "nomeNormalizado": "cable front raise",
+    "ativo": true
+  },
+  {
+    "codigo": "elevacao_frontal_polia_alias_0151",
+    "nome": "Elevação frontal no cabo",
+    "nomeNormalizado": "elevacao frontal no cabo",
+    "ativo": true
+  },
+  {
+    "codigo": "crucifixo_invertido_halteres_alias_0152",
+    "nome": "Reverse Dumbbell Fly",
+    "nomeNormalizado": "reverse dumbbell fly",
+    "ativo": true
+  },
+  {
+    "codigo": "crucifixo_invertido_halteres_alias_0153",
+    "nome": "Bent Over Reverse Fly",
+    "nomeNormalizado": "bent over reverse fly",
+    "ativo": true
+  },
+  {
+    "codigo": "crucifixo_invertido_halteres_alias_0154",
+    "nome": "Crucifixo inverso",
+    "nomeNormalizado": "crucifixo inverso",
+    "ativo": true
+  },
+  {
+    "codigo": "crucifixo_invertido_maquina_alias_0155",
+    "nome": "Reverse Peck Deck",
+    "nomeNormalizado": "reverse peck deck",
+    "ativo": true
+  },
+  {
+    "codigo": "crucifixo_invertido_maquina_alias_0156",
+    "nome": "Reverse Fly Machine",
+    "nomeNormalizado": "reverse fly machine",
+    "ativo": true
+  },
+  {
+    "codigo": "crucifixo_invertido_maquina_alias_0157",
+    "nome": "Voador inverso",
+    "nomeNormalizado": "voador inverso",
+    "ativo": true
+  },
+  {
+    "codigo": "face_pull_polia_alias_0158",
+    "nome": "Face Pull",
+    "nomeNormalizado": "face pull",
+    "ativo": true
+  },
+  {
+    "codigo": "face_pull_polia_alias_0159",
+    "nome": "Cable Face Pull",
+    "nomeNormalizado": "cable face pull",
+    "ativo": true
+  },
+  {
+    "codigo": "face_pull_polia_alias_0160",
+    "nome": "Puxada para o rosto",
+    "nomeNormalizado": "puxada para o rosto",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_alta_barra_alias_0161",
+    "nome": "Barbell Upright Row",
+    "nomeNormalizado": "barbell upright row",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_alta_barra_alias_0162",
+    "nome": "Upright Row",
+    "nomeNormalizado": "upright row",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_alta_barra_alias_0163",
+    "nome": "Remada vertical",
+    "nomeNormalizado": "remada vertical",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_alta_polia_ombros_alias_0164",
+    "nome": "Cable Upright Row",
+    "nomeNormalizado": "cable upright row",
+    "ativo": true
+  },
+  {
+    "codigo": "remada_alta_polia_ombros_alias_0165",
+    "nome": "Remada alta no cabo",
+    "nomeNormalizado": "remada alta no cabo",
+    "ativo": true
+  },
+  {
+    "codigo": "cuban_press_halteres_alias_0166",
+    "nome": "Cuban Press",
+    "nomeNormalizado": "cuban press",
+    "ativo": true
+  },
+  {
+    "codigo": "cuban_press_halteres_alias_0167",
+    "nome": "Dumbbell Cuban Press",
+    "nomeNormalizado": "dumbbell cuban press",
+    "ativo": true
+  },
+  {
+    "codigo": "cuban_press_halteres_alias_0168",
+    "nome": "Rotação cubana",
+    "nomeNormalizado": "rotacao cubana",
+    "ativo": true
+  },
+  {
+    "codigo": "y_raise_halteres_alias_0169",
+    "nome": "Y Raise",
+    "nomeNormalizado": "y raise",
+    "ativo": true
+  },
+  {
+    "codigo": "y_raise_halteres_alias_0170",
+    "nome": "Dumbbell Y Raise",
+    "nomeNormalizado": "dumbbell y raise",
+    "ativo": true
+  },
+  {
+    "codigo": "y_raise_halteres_alias_0171",
+    "nome": "Elevação em Y",
+    "nomeNormalizado": "elevacao em y",
+    "ativo": true
+  },
+  {
+    "codigo": "y_raise_halteres_alias_0172",
+    "nome": "Trap-3 Raise",
+    "nomeNormalizado": "trap-3 raise",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_direta_barra_alias_0173",
+    "nome": "Barbell Curl",
+    "nomeNormalizado": "barbell curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_direta_barra_alias_0174",
+    "nome": "Standing Barbell Curl",
+    "nomeNormalizado": "standing barbell curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_direta_barra_alias_0175",
+    "nome": "Rosca com barra",
+    "nomeNormalizado": "rosca com barra",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_direta_barra_w_alias_0176",
+    "nome": "EZ Bar Curl",
+    "nomeNormalizado": "ez bar curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_direta_barra_w_alias_0177",
+    "nome": "EZ Curl",
+    "nomeNormalizado": "ez curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_direta_barra_w_alias_0178",
+    "nome": "Rosca direta barra EZ",
+    "nomeNormalizado": "rosca direta barra ez",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_direta_halteres_alias_0179",
+    "nome": "Dumbbell Curl",
+    "nomeNormalizado": "dumbbell curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_direta_halteres_alias_0180",
+    "nome": "Standing Dumbbell Curl",
+    "nomeNormalizado": "standing dumbbell curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_direta_halteres_alias_0181",
+    "nome": "Rosca com halteres",
+    "nomeNormalizado": "rosca com halteres",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_alternada_halteres_alias_0182",
+    "nome": "Alternating Dumbbell Curl",
+    "nomeNormalizado": "alternating dumbbell curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_alternada_halteres_alias_0183",
+    "nome": "Alternate Dumbbell Curl",
+    "nomeNormalizado": "alternate dumbbell curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_alternada_halteres_alias_0184",
+    "nome": "Rosca alternada",
+    "nomeNormalizado": "rosca alternada",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_alternada_sentada_alias_0185",
+    "nome": "Seated Alternating Dumbbell Curl",
+    "nomeNormalizado": "seated alternating dumbbell curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_alternada_sentada_alias_0186",
+    "nome": "Seated Dumbbell Curl",
+    "nomeNormalizado": "seated dumbbell curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_alternada_inclinada_alias_0187",
+    "nome": "Incline Dumbbell Curl",
+    "nomeNormalizado": "incline dumbbell curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_alternada_inclinada_alias_0188",
+    "nome": "Incline Alternating Dumbbell Curl",
+    "nomeNormalizado": "incline alternating dumbbell curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_alternada_inclinada_alias_0189",
+    "nome": "Rosca inclinada",
+    "nomeNormalizado": "rosca inclinada",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_martelo_halteres_alias_0190",
+    "nome": "Hammer Curl",
+    "nomeNormalizado": "hammer curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_martelo_halteres_alias_0191",
+    "nome": "Dumbbell Hammer Curl",
+    "nomeNormalizado": "dumbbell hammer curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_martelo_halteres_alias_0192",
+    "nome": "Rosca neutra",
+    "nomeNormalizado": "rosca neutra",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_martelo_cruzada_alias_0193",
+    "nome": "Cross Body Hammer Curl",
+    "nomeNormalizado": "cross body hammer curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_martelo_cruzada_alias_0194",
+    "nome": "Cross Hammer Curl",
+    "nomeNormalizado": "cross hammer curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_martelo_cruzada_alias_0195",
+    "nome": "Rosca martelo transversal",
+    "nomeNormalizado": "rosca martelo transversal",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_martelo_corda_alias_0196",
+    "nome": "Rope Hammer Curl",
+    "nomeNormalizado": "rope hammer curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_martelo_corda_alias_0197",
+    "nome": "Cable Rope Hammer Curl",
+    "nomeNormalizado": "cable rope hammer curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_martelo_corda_alias_0198",
+    "nome": "Rosca martelo na polia",
+    "nomeNormalizado": "rosca martelo na polia",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_scott_barra_w_alias_0199",
+    "nome": "EZ Bar Preacher Curl",
+    "nomeNormalizado": "ez bar preacher curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_scott_barra_w_alias_0200",
+    "nome": "Preacher Curl",
+    "nomeNormalizado": "preacher curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_scott_barra_w_alias_0201",
+    "nome": "Rosca no banco Scott",
+    "nomeNormalizado": "rosca no banco scott",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_scott_maquina_alias_0202",
+    "nome": "Machine Preacher Curl",
+    "nomeNormalizado": "machine preacher curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_scott_maquina_alias_0203",
+    "nome": "Preacher Curl Machine",
+    "nomeNormalizado": "preacher curl machine",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_scott_maquina_alias_0204",
+    "nome": "Rosca Scott articulada",
+    "nomeNormalizado": "rosca scott articulada",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_scott_unilateral_alias_0205",
+    "nome": "Single Arm Preacher Curl",
+    "nomeNormalizado": "single arm preacher curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_scott_unilateral_alias_0206",
+    "nome": "One Arm Preacher Curl",
+    "nomeNormalizado": "one arm preacher curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_scott_unilateral_alias_0207",
+    "nome": "Rosca Scott com halter",
+    "nomeNormalizado": "rosca scott com halter",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_concentrada_halter_alias_0208",
+    "nome": "Concentration Curl",
+    "nomeNormalizado": "concentration curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_concentrada_halter_alias_0209",
+    "nome": "Dumbbell Concentration Curl",
+    "nomeNormalizado": "dumbbell concentration curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_concentrada_polia_alias_0210",
+    "nome": "Cable Concentration Curl",
+    "nomeNormalizado": "cable concentration curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_concentrada_polia_alias_0211",
+    "nome": "Concentration Cable Curl",
+    "nomeNormalizado": "concentration cable curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_baixa_barra_reta_alias_0212",
+    "nome": "Straight Bar Cable Curl",
+    "nomeNormalizado": "straight bar cable curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_baixa_barra_reta_alias_0213",
+    "nome": "Cable Curl",
+    "nomeNormalizado": "cable curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_baixa_barra_reta_alias_0214",
+    "nome": "Rosca na polia baixa",
+    "nomeNormalizado": "rosca na polia baixa",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_baixa_barra_w_alias_0215",
+    "nome": "EZ Bar Cable Curl",
+    "nomeNormalizado": "ez bar cable curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_baixa_barra_w_alias_0216",
+    "nome": "Cable EZ Curl",
+    "nomeNormalizado": "cable ez curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_baixa_barra_w_alias_0217",
+    "nome": "Rosca baixa barra EZ",
+    "nomeNormalizado": "rosca baixa barra ez",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_baixa_corda_alias_0218",
+    "nome": "Rope Cable Curl",
+    "nomeNormalizado": "rope cable curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_baixa_corda_alias_0219",
+    "nome": "Cable Rope Curl",
+    "nomeNormalizado": "cable rope curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_baixa_corda_alias_0220",
+    "nome": "Rosca com corda",
+    "nomeNormalizado": "rosca com corda",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_inversa_barra_alias_0221",
+    "nome": "Reverse Barbell Curl",
+    "nomeNormalizado": "reverse barbell curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_inversa_barra_alias_0222",
+    "nome": "Reverse Curl",
+    "nomeNormalizado": "reverse curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_inversa_barra_alias_0223",
+    "nome": "Rosca pronada",
+    "nomeNormalizado": "rosca pronada",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_corda_polia_alias_0224",
+    "nome": "Rope Pushdown",
+    "nomeNormalizado": "rope pushdown",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_corda_polia_alias_0225",
+    "nome": "Cable Rope Pushdown",
+    "nomeNormalizado": "cable rope pushdown",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_corda_polia_alias_0226",
+    "nome": "Tríceps na corda",
+    "nomeNormalizado": "triceps na corda",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_barra_reta_polia_alias_0227",
+    "nome": "Straight Bar Pushdown",
+    "nomeNormalizado": "straight bar pushdown",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_barra_reta_polia_alias_0228",
+    "nome": "Cable Triceps Pushdown",
+    "nomeNormalizado": "cable triceps pushdown",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_barra_reta_polia_alias_0229",
+    "nome": "Tríceps pulley",
+    "nomeNormalizado": "triceps pulley",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_barra_v_polia_alias_0230",
+    "nome": "V-Bar Pushdown",
+    "nomeNormalizado": "v-bar pushdown",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_barra_v_polia_alias_0231",
+    "nome": "Cable V-Bar Pushdown",
+    "nomeNormalizado": "cable v-bar pushdown",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_barra_v_polia_alias_0232",
+    "nome": "Tríceps no puxador V",
+    "nomeNormalizado": "triceps no puxador v",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_unilateral_polia_alias_0233",
+    "nome": "Single Arm Cable Pushdown",
+    "nomeNormalizado": "single arm cable pushdown",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_unilateral_polia_alias_0234",
+    "nome": "One Arm Triceps Pushdown",
+    "nomeNormalizado": "one arm triceps pushdown",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_unilateral_polia_alias_0235",
+    "nome": "Tríceps unilateral no cabo",
+    "nomeNormalizado": "triceps unilateral no cabo",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_pegada_supinada_polia_alias_0236",
+    "nome": "Reverse Grip Pushdown",
+    "nomeNormalizado": "reverse grip pushdown",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_pegada_supinada_polia_alias_0237",
+    "nome": "Underhand Triceps Pushdown",
+    "nomeNormalizado": "underhand triceps pushdown",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_pegada_supinada_polia_alias_0238",
+    "nome": "Tríceps inverso",
+    "nomeNormalizado": "triceps inverso",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_frances_halter_alias_0239",
+    "nome": "Dumbbell Overhead Triceps Extension",
+    "nomeNormalizado": "dumbbell overhead triceps extension",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_frances_halter_alias_0240",
+    "nome": "French Press Dumbbell",
+    "nomeNormalizado": "french press dumbbell",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_frances_halter_alias_0241",
+    "nome": "Extensão de tríceps acima da cabeça",
+    "nomeNormalizado": "extensao de triceps acima da cabeca",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_frances_unilateral_halter_alias_0242",
+    "nome": "Single Arm Overhead Triceps Extension",
+    "nomeNormalizado": "single arm overhead triceps extension",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_frances_unilateral_halter_alias_0243",
+    "nome": "One Arm Dumbbell Triceps Extension",
+    "nomeNormalizado": "one arm dumbbell triceps extension",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_frances_corda_polia_alias_0244",
+    "nome": "Overhead Rope Triceps Extension",
+    "nomeNormalizado": "overhead rope triceps extension",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_frances_corda_polia_alias_0245",
+    "nome": "Cable Overhead Triceps Extension",
+    "nomeNormalizado": "cable overhead triceps extension",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_frances_corda_polia_alias_0246",
+    "nome": "Tríceps francês na polia",
+    "nomeNormalizado": "triceps frances na polia",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_testa_barra_w_alias_0247",
+    "nome": "EZ Bar Skull Crusher",
+    "nomeNormalizado": "ez bar skull crusher",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_testa_barra_w_alias_0248",
+    "nome": "Lying Triceps Extension",
+    "nomeNormalizado": "lying triceps extension",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_testa_barra_w_alias_0249",
+    "nome": "Skull Crusher",
+    "nomeNormalizado": "skull crusher",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_testa_barra_reta_alias_0250",
+    "nome": "Barbell Skull Crusher",
+    "nomeNormalizado": "barbell skull crusher",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_testa_barra_reta_alias_0251",
+    "nome": "Straight Bar Lying Triceps Extension",
+    "nomeNormalizado": "straight bar lying triceps extension",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_testa_halteres_alias_0252",
+    "nome": "Dumbbell Skull Crusher",
+    "nomeNormalizado": "dumbbell skull crusher",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_testa_halteres_alias_0253",
+    "nome": "Dumbbell Lying Triceps Extension",
+    "nomeNormalizado": "dumbbell lying triceps extension",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_testa_polia_alias_0254",
+    "nome": "Cable Skull Crusher",
+    "nomeNormalizado": "cable skull crusher",
+    "ativo": true
+  },
+  {
+    "codigo": "triceps_testa_polia_alias_0255",
+    "nome": "Cable Lying Triceps Extension",
+    "nomeNormalizado": "cable lying triceps extension",
+    "ativo": true
+  },
+  {
+    "codigo": "coice_triceps_halter_alias_0256",
+    "nome": "Dumbbell Triceps Kickback",
+    "nomeNormalizado": "dumbbell triceps kickback",
+    "ativo": true
+  },
+  {
+    "codigo": "coice_triceps_halter_alias_0257",
+    "nome": "Triceps Kickback",
+    "nomeNormalizado": "triceps kickback",
+    "ativo": true
+  },
+  {
+    "codigo": "coice_triceps_halter_alias_0258",
+    "nome": "Coice com halter",
+    "nomeNormalizado": "coice com halter",
+    "ativo": true
+  },
+  {
+    "codigo": "coice_triceps_polia_alias_0259",
+    "nome": "Cable Triceps Kickback",
+    "nomeNormalizado": "cable triceps kickback",
+    "ativo": true
+  },
+  {
+    "codigo": "coice_triceps_polia_alias_0260",
+    "nome": "Triceps Kickback Cable",
+    "nomeNormalizado": "triceps kickback cable",
+    "ativo": true
+  },
+  {
+    "codigo": "coice_triceps_polia_alias_0261",
+    "nome": "Coice no cabo",
+    "nomeNormalizado": "coice no cabo",
+    "ativo": true
+  },
+  {
+    "codigo": "paralelas_peso_corporal_alias_0262",
+    "nome": "Dips",
+    "nomeNormalizado": "dips",
+    "ativo": true
+  },
+  {
+    "codigo": "paralelas_peso_corporal_alias_0263",
+    "nome": "Parallel Bar Dips",
+    "nomeNormalizado": "parallel bar dips",
+    "ativo": true
+  },
+  {
+    "codigo": "paralelas_peso_corporal_alias_0264",
+    "nome": "Triceps Dips",
+    "nomeNormalizado": "triceps dips",
+    "ativo": true
+  },
+  {
+    "codigo": "paralelas_peso_corporal_alias_0265",
+    "nome": "Mergulho nas paralelas",
+    "nomeNormalizado": "mergulho nas paralelas",
+    "ativo": true
+  },
+  {
+    "codigo": "paralelas_assistida_maquina_alias_0266",
+    "nome": "Assisted Dips",
+    "nomeNormalizado": "assisted dips",
+    "ativo": true
+  },
+  {
+    "codigo": "paralelas_assistida_maquina_alias_0267",
+    "nome": "Machine Assisted Dips",
+    "nomeNormalizado": "machine assisted dips",
+    "ativo": true
+  },
+  {
+    "codigo": "paralelas_assistida_maquina_alias_0268",
+    "nome": "Paralelas no gravitron",
+    "nomeNormalizado": "paralelas no gravitron",
+    "ativo": true
+  },
+  {
+    "codigo": "mergulho_banco_alias_0269",
+    "nome": "Bench Dips",
+    "nomeNormalizado": "bench dips",
+    "ativo": true
+  },
+  {
+    "codigo": "mergulho_banco_alias_0270",
+    "nome": "Triceps Bench Dips",
+    "nomeNormalizado": "triceps bench dips",
+    "ativo": true
+  },
+  {
+    "codigo": "mergulho_banco_alias_0271",
+    "nome": "Tríceps banco",
+    "nomeNormalizado": "triceps banco",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_fechado_barra_alias_0272",
+    "nome": "Close Grip Bench Press",
+    "nomeNormalizado": "close grip bench press",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_fechado_barra_alias_0273",
+    "nome": "Narrow Grip Bench Press",
+    "nomeNormalizado": "narrow grip bench press",
+    "ativo": true
+  },
+  {
+    "codigo": "supino_fechado_barra_alias_0274",
+    "nome": "Supino pegada fechada",
+    "nomeNormalizado": "supino pegada fechada",
+    "ativo": true
+  },
+  {
+    "codigo": "agachamento_livre_barra_alias_0001",
+    "nome": "Barbell Squat",
+    "nomeNormalizado": "barbell squat",
+    "ativo": true
+  },
+  {
+    "codigo": "agachamento_livre_barra_alias_0002",
+    "nome": "Squat",
+    "nomeNormalizado": "squat",
+    "ativo": true
+  },
+  {
+    "codigo": "agachamento_livre_barra_alias_0003",
+    "nome": "Agachamento com barra",
+    "nomeNormalizado": "agachamento com barra",
+    "ativo": true
+  },
+  {
+    "codigo": "agachamento_frontal_barra_alias_0001",
+    "nome": "Front Squat",
+    "nomeNormalizado": "front squat",
+    "ativo": true
+  },
+  {
+    "codigo": "agachamento_frontal_barra_alias_0002",
+    "nome": "Agachamento frontal com barra",
+    "nomeNormalizado": "agachamento frontal com barra",
+    "ativo": true
+  },
+  {
+    "codigo": "agachamento_frontal_barra_alias_0003",
+    "nome": "Front Barbell Squat",
+    "nomeNormalizado": "front barbell squat",
+    "ativo": true
+  },
+  {
+    "codigo": "agachamento_smith_alias_0001",
+    "nome": "Smith Squat",
+    "nomeNormalizado": "smith squat",
+    "ativo": true
+  },
+  {
+    "codigo": "agachamento_smith_alias_0002",
+    "nome": "Agachamento no Smith",
+    "nomeNormalizado": "agachamento no smith",
+    "ativo": true
+  },
+  {
+    "codigo": "agachamento_smith_alias_0003",
+    "nome": "Agachamento guiado",
+    "nomeNormalizado": "agachamento guiado",
+    "ativo": true
+  },
+  {
+    "codigo": "agachamento_hack_alias_0001",
+    "nome": "Hack Squat",
+    "nomeNormalizado": "hack squat",
+    "ativo": true
+  },
+  {
+    "codigo": "agachamento_hack_alias_0002",
+    "nome": "Agachamento na Hack",
+    "nomeNormalizado": "agachamento na hack",
+    "ativo": true
+  },
+  {
+    "codigo": "agachamento_hack_alias_0003",
+    "nome": "Hack Machine Squat",
+    "nomeNormalizado": "hack machine squat",
+    "ativo": true
+  },
+  {
+    "codigo": "leg_press_45_alias_0001",
+    "nome": "Leg Press 45",
+    "nomeNormalizado": "leg press 45",
+    "ativo": true
+  },
+  {
+    "codigo": "leg_press_45_alias_0002",
+    "nome": "Leg Press inclinado",
+    "nomeNormalizado": "leg press inclinado",
+    "ativo": true
+  },
+  {
+    "codigo": "leg_press_45_alias_0003",
+    "nome": "45 Degree Leg Press",
+    "nomeNormalizado": "45 degree leg press",
+    "ativo": true
+  },
+  {
+    "codigo": "leg_press_horizontal_alias_0001",
+    "nome": "Horizontal Leg Press",
+    "nomeNormalizado": "horizontal leg press",
+    "ativo": true
+  },
+  {
+    "codigo": "leg_press_horizontal_alias_0002",
+    "nome": "Leg Press sentado",
+    "nomeNormalizado": "leg press sentado",
+    "ativo": true
+  },
+  {
+    "codigo": "leg_press_horizontal_alias_0003",
+    "nome": "Leg Press 90 graus",
+    "nomeNormalizado": "leg press 90 graus",
+    "ativo": true
+  },
+  {
+    "codigo": "cadeira_extensora_alias_0001",
+    "nome": "Leg Extension",
+    "nomeNormalizado": "leg extension",
+    "ativo": true
+  },
+  {
+    "codigo": "cadeira_extensora_alias_0002",
+    "nome": "Extensora",
+    "nomeNormalizado": "extensora",
+    "ativo": true
+  },
+  {
+    "codigo": "cadeira_extensora_alias_0003",
+    "nome": "Extensão de joelho na máquina",
+    "nomeNormalizado": "extensao de joelho na maquina",
+    "ativo": true
+  },
+  {
+    "codigo": "agachamento_bulgaro_halteres_alias_0001",
+    "nome": "Bulgarian Split Squat",
+    "nomeNormalizado": "bulgarian split squat",
+    "ativo": true
+  },
+  {
+    "codigo": "agachamento_bulgaro_halteres_alias_0002",
+    "nome": "Afundo búlgaro",
+    "nomeNormalizado": "afundo bulgaro",
+    "ativo": true
+  },
+  {
+    "codigo": "agachamento_bulgaro_halteres_alias_0003",
+    "nome": "Agachamento unilateral búlgaro",
+    "nomeNormalizado": "agachamento unilateral bulgaro",
+    "ativo": true
+  },
+  {
+    "codigo": "afundo_halteres_alias_0001",
+    "nome": "Lunge",
+    "nomeNormalizado": "lunge",
+    "ativo": true
+  },
+  {
+    "codigo": "afundo_halteres_alias_0002",
+    "nome": "Afundo com halteres",
+    "nomeNormalizado": "afundo com halteres",
+    "ativo": true
+  },
+  {
+    "codigo": "afundo_halteres_alias_0003",
+    "nome": "Passada estática",
+    "nomeNormalizado": "passada estatica",
+    "ativo": true
+  },
+  {
+    "codigo": "passada_halteres_alias_0001",
+    "nome": "Walking Lunge",
+    "nomeNormalizado": "walking lunge",
+    "ativo": true
+  },
+  {
+    "codigo": "passada_halteres_alias_0002",
+    "nome": "Passada com halteres",
+    "nomeNormalizado": "passada com halteres",
+    "ativo": true
+  },
+  {
+    "codigo": "passada_halteres_alias_0003",
+    "nome": "Avanço caminhando",
+    "nomeNormalizado": "avanco caminhando",
+    "ativo": true
+  },
+  {
+    "codigo": "step_up_halteres_alias_0001",
+    "nome": "Step Up",
+    "nomeNormalizado": "step up",
+    "ativo": true
+  },
+  {
+    "codigo": "step_up_halteres_alias_0002",
+    "nome": "Subida no banco",
+    "nomeNormalizado": "subida no banco",
+    "ativo": true
+  },
+  {
+    "codigo": "step_up_halteres_alias_0003",
+    "nome": "Subida na caixa",
+    "nomeNormalizado": "subida na caixa",
+    "ativo": true
+  },
+  {
+    "codigo": "sissy_squat_peso_corporal_alias_0001",
+    "nome": "Sissy Squat",
+    "nomeNormalizado": "sissy squat",
+    "ativo": true
+  },
+  {
+    "codigo": "sissy_squat_peso_corporal_alias_0002",
+    "nome": "Agachamento sissy",
+    "nomeNormalizado": "agachamento sissy",
+    "ativo": true
+  },
+  {
+    "codigo": "sissy_squat_peso_corporal_alias_0003",
+    "nome": "Agachamento de joelhos à frente",
+    "nomeNormalizado": "agachamento de joelhos a frente",
+    "ativo": true
+  },
+  {
+    "codigo": "agachamento_goblet_halter_alias_0001",
+    "nome": "Goblet Squat",
+    "nomeNormalizado": "goblet squat",
+    "ativo": true
+  },
+  {
+    "codigo": "agachamento_goblet_halter_alias_0002",
+    "nome": "Agachamento taça",
+    "nomeNormalizado": "agachamento taca",
+    "ativo": true
+  },
+  {
+    "codigo": "agachamento_goblet_halter_alias_0003",
+    "nome": "Agachamento com halter no peito",
+    "nomeNormalizado": "agachamento com halter no peito",
+    "ativo": true
+  },
+  {
+    "codigo": "agachamento_caixa_barra_alias_0001",
+    "nome": "Box Squat",
+    "nomeNormalizado": "box squat",
+    "ativo": true
+  },
+  {
+    "codigo": "agachamento_caixa_barra_alias_0002",
+    "nome": "Agachamento caixa",
+    "nomeNormalizado": "agachamento caixa",
+    "ativo": true
+  },
+  {
+    "codigo": "agachamento_caixa_barra_alias_0003",
+    "nome": "Agachamento no box",
+    "nomeNormalizado": "agachamento no box",
+    "ativo": true
+  },
+  {
+    "codigo": "stiff_barra_alias_0001",
+    "nome": "Stiff Leg Deadlift",
+    "nomeNormalizado": "stiff leg deadlift",
+    "ativo": true
+  },
+  {
+    "codigo": "stiff_barra_alias_0002",
+    "nome": "Stiff com barra",
+    "nomeNormalizado": "stiff com barra",
+    "ativo": true
+  },
+  {
+    "codigo": "stiff_barra_alias_0003",
+    "nome": "Levantamento stiff",
+    "nomeNormalizado": "levantamento stiff",
+    "ativo": true
+  },
+  {
+    "codigo": "stiff_halteres_alias_0001",
+    "nome": "Dumbbell Stiff",
+    "nomeNormalizado": "dumbbell stiff",
+    "ativo": true
+  },
+  {
+    "codigo": "stiff_halteres_alias_0002",
+    "nome": "Stiff com halteres",
+    "nomeNormalizado": "stiff com halteres",
+    "ativo": true
+  },
+  {
+    "codigo": "stiff_halteres_alias_0003",
+    "nome": "Stiff dumbbell",
+    "nomeNormalizado": "stiff dumbbell",
+    "ativo": true
+  },
+  {
+    "codigo": "terra_romeno_barra_alias_0001",
+    "nome": "Romanian Deadlift",
+    "nomeNormalizado": "romanian deadlift",
+    "ativo": true
+  },
+  {
+    "codigo": "terra_romeno_barra_alias_0002",
+    "nome": "RDL",
+    "nomeNormalizado": "rdl",
+    "ativo": true
+  },
+  {
+    "codigo": "terra_romeno_barra_alias_0003",
+    "nome": "Terra romeno",
+    "nomeNormalizado": "terra romeno",
+    "ativo": true
+  },
+  {
+    "codigo": "terra_romeno_halteres_alias_0001",
+    "nome": "Dumbbell Romanian Deadlift",
+    "nomeNormalizado": "dumbbell romanian deadlift",
+    "ativo": true
+  },
+  {
+    "codigo": "terra_romeno_halteres_alias_0002",
+    "nome": "RDL com halteres",
+    "nomeNormalizado": "rdl com halteres",
+    "ativo": true
+  },
+  {
+    "codigo": "terra_romeno_halteres_alias_0003",
+    "nome": "Terra romeno com halteres",
+    "nomeNormalizado": "terra romeno com halteres",
+    "ativo": true
+  },
+  {
+    "codigo": "mesa_flexora_alias_0001",
+    "nome": "Lying Leg Curl",
+    "nomeNormalizado": "lying leg curl",
+    "ativo": true
+  },
+  {
+    "codigo": "mesa_flexora_alias_0002",
+    "nome": "Flexora deitada",
+    "nomeNormalizado": "flexora deitada",
+    "ativo": true
+  },
+  {
+    "codigo": "mesa_flexora_alias_0003",
+    "nome": "Leg Curl deitado",
+    "nomeNormalizado": "leg curl deitado",
+    "ativo": true
+  },
+  {
+    "codigo": "cadeira_flexora_alias_0001",
+    "nome": "Seated Leg Curl",
+    "nomeNormalizado": "seated leg curl",
+    "ativo": true
+  },
+  {
+    "codigo": "cadeira_flexora_alias_0002",
+    "nome": "Flexora sentada",
+    "nomeNormalizado": "flexora sentada",
+    "ativo": true
+  },
+  {
+    "codigo": "cadeira_flexora_alias_0003",
+    "nome": "Leg Curl sentado",
+    "nomeNormalizado": "leg curl sentado",
+    "ativo": true
+  },
+  {
+    "codigo": "flexora_em_pe_maquina_alias_0001",
+    "nome": "Standing Leg Curl",
+    "nomeNormalizado": "standing leg curl",
+    "ativo": true
+  },
+  {
+    "codigo": "flexora_em_pe_maquina_alias_0002",
+    "nome": "Flexora unilateral em pé",
+    "nomeNormalizado": "flexora unilateral em pe",
+    "ativo": true
+  },
+  {
+    "codigo": "flexora_em_pe_maquina_alias_0003",
+    "nome": "Leg Curl em pé",
+    "nomeNormalizado": "leg curl em pe",
+    "ativo": true
+  },
+  {
+    "codigo": "flexora_unilateral_polia_alias_0001",
+    "nome": "Cable Leg Curl",
+    "nomeNormalizado": "cable leg curl",
+    "ativo": true
+  },
+  {
+    "codigo": "flexora_unilateral_polia_alias_0002",
+    "nome": "Flexora no cabo",
+    "nomeNormalizado": "flexora no cabo",
+    "ativo": true
+  },
+  {
+    "codigo": "flexora_unilateral_polia_alias_0003",
+    "nome": "Flexão de joelho na polia",
+    "nomeNormalizado": "flexao de joelho na polia",
+    "ativo": true
+  },
+  {
+    "codigo": "good_morning_barra_alias_0001",
+    "nome": "Good Morning",
+    "nomeNormalizado": "good morning",
+    "ativo": true
+  },
+  {
+    "codigo": "good_morning_barra_alias_0002",
+    "nome": "Bom dia com barra",
+    "nomeNormalizado": "bom dia com barra",
+    "ativo": true
+  },
+  {
+    "codigo": "good_morning_barra_alias_0003",
+    "nome": "Inclinação de tronco com barra",
+    "nomeNormalizado": "inclinacao de tronco com barra",
+    "ativo": true
+  },
+  {
+    "codigo": "nordic_curl_alias_0001",
+    "nome": "Nordic Hamstring Curl",
+    "nomeNormalizado": "nordic hamstring curl",
+    "ativo": true
+  },
+  {
+    "codigo": "nordic_curl_alias_0002",
+    "nome": "Flexão nórdica",
+    "nomeNormalizado": "flexao nordica",
+    "ativo": true
+  },
+  {
+    "codigo": "nordic_curl_alias_0003",
+    "nome": "Rosca nórdica",
+    "nomeNormalizado": "rosca nordica",
+    "ativo": true
+  },
+  {
+    "codigo": "elevacao_pelvica_barra_alias_0001",
+    "nome": "Hip Thrust",
+    "nomeNormalizado": "hip thrust",
+    "ativo": true
+  },
+  {
+    "codigo": "elevacao_pelvica_barra_alias_0002",
+    "nome": "Elevação de quadril com barra",
+    "nomeNormalizado": "elevacao de quadril com barra",
+    "ativo": true
+  },
+  {
+    "codigo": "elevacao_pelvica_barra_alias_0003",
+    "nome": "Elevação pélvica com barra",
+    "nomeNormalizado": "elevacao pelvica com barra",
+    "ativo": true
+  },
+  {
+    "codigo": "elevacao_pelvica_maquina_alias_0001",
+    "nome": "Hip Thrust Machine",
+    "nomeNormalizado": "hip thrust machine",
+    "ativo": true
+  },
+  {
+    "codigo": "elevacao_pelvica_maquina_alias_0002",
+    "nome": "Elevação pélvica na máquina",
+    "nomeNormalizado": "elevacao pelvica na maquina",
+    "ativo": true
+  },
+  {
+    "codigo": "elevacao_pelvica_maquina_alias_0003",
+    "nome": "Glute Drive",
+    "nomeNormalizado": "glute drive",
+    "ativo": true
+  },
+  {
+    "codigo": "ponte_gluteo_peso_corporal_alias_0001",
+    "nome": "Glute Bridge",
+    "nomeNormalizado": "glute bridge",
+    "ativo": true
+  },
+  {
+    "codigo": "ponte_gluteo_peso_corporal_alias_0002",
+    "nome": "Ponte de quadril",
+    "nomeNormalizado": "ponte de quadril",
+    "ativo": true
+  },
+  {
+    "codigo": "ponte_gluteo_peso_corporal_alias_0003",
+    "nome": "Elevação de quadril no chão",
+    "nomeNormalizado": "elevacao de quadril no chao",
+    "ativo": true
+  },
+  {
+    "codigo": "gluteo_quatro_apoios_peso_corporal_alias_0001",
+    "nome": "Donkey Kick",
+    "nomeNormalizado": "donkey kick",
+    "ativo": true
+  },
+  {
+    "codigo": "gluteo_quatro_apoios_peso_corporal_alias_0002",
+    "nome": "Coice no chão",
+    "nomeNormalizado": "coice no chao",
+    "ativo": true
+  },
+  {
+    "codigo": "gluteo_quatro_apoios_peso_corporal_alias_0003",
+    "nome": "Extensão de quadril quatro apoios",
+    "nomeNormalizado": "extensao de quadril quatro apoios",
+    "ativo": true
+  },
+  {
+    "codigo": "coice_gluteo_polia_alias_0001",
+    "nome": "Cable Kickback",
+    "nomeNormalizado": "cable kickback",
+    "ativo": true
+  },
+  {
+    "codigo": "coice_gluteo_polia_alias_0002",
+    "nome": "Glúteo no cabo",
+    "nomeNormalizado": "gluteo no cabo",
+    "ativo": true
+  },
+  {
+    "codigo": "coice_gluteo_polia_alias_0003",
+    "nome": "Coice na polia",
+    "nomeNormalizado": "coice na polia",
+    "ativo": true
+  },
+  {
+    "codigo": "coice_gluteo_maquina_alias_0001",
+    "nome": "Glute Kickback Machine",
+    "nomeNormalizado": "glute kickback machine",
+    "ativo": true
+  },
+  {
+    "codigo": "coice_gluteo_maquina_alias_0002",
+    "nome": "Coice na máquina",
+    "nomeNormalizado": "coice na maquina",
+    "ativo": true
+  },
+  {
+    "codigo": "coice_gluteo_maquina_alias_0003",
+    "nome": "Máquina de glúteo",
+    "nomeNormalizado": "maquina de gluteo",
+    "ativo": true
+  },
+  {
+    "codigo": "frog_pump_alias_0001",
+    "nome": "Frog Pumps",
+    "nomeNormalizado": "frog pumps",
+    "ativo": true
+  },
+  {
+    "codigo": "frog_pump_alias_0002",
+    "nome": "Ponte borboleta",
+    "nomeNormalizado": "ponte borboleta",
+    "ativo": true
+  },
+  {
+    "codigo": "frog_pump_alias_0003",
+    "nome": "Elevação pélvica frog",
+    "nomeNormalizado": "elevacao pelvica frog",
+    "ativo": true
+  },
+  {
+    "codigo": "pull_through_polia_alias_0001",
+    "nome": "Cable Pull Through",
+    "nomeNormalizado": "cable pull through",
+    "ativo": true
+  },
+  {
+    "codigo": "pull_through_polia_alias_0002",
+    "nome": "Puxada entre as pernas",
+    "nomeNormalizado": "puxada entre as pernas",
+    "ativo": true
+  },
+  {
+    "codigo": "pull_through_polia_alias_0003",
+    "nome": "Extensão de quadril no cabo",
+    "nomeNormalizado": "extensao de quadril no cabo",
+    "ativo": true
+  },
+  {
+    "codigo": "panturrilha_em_pe_maquina_alias_0001",
+    "nome": "Standing Calf Raise",
+    "nomeNormalizado": "standing calf raise",
+    "ativo": true
+  },
+  {
+    "codigo": "panturrilha_em_pe_maquina_alias_0002",
+    "nome": "Gêmeos em pé",
+    "nomeNormalizado": "gemeos em pe",
+    "ativo": true
+  },
+  {
+    "codigo": "panturrilha_em_pe_maquina_alias_0003",
+    "nome": "Panturrilha na máquina em pé",
+    "nomeNormalizado": "panturrilha na maquina em pe",
+    "ativo": true
+  },
+  {
+    "codigo": "panturrilha_sentado_maquina_alias_0001",
+    "nome": "Seated Calf Raise",
+    "nomeNormalizado": "seated calf raise",
+    "ativo": true
+  },
+  {
+    "codigo": "panturrilha_sentado_maquina_alias_0002",
+    "nome": "Gêmeos sentado",
+    "nomeNormalizado": "gemeos sentado",
+    "ativo": true
+  },
+  {
+    "codigo": "panturrilha_sentado_maquina_alias_0003",
+    "nome": "Panturrilha na máquina sentado",
+    "nomeNormalizado": "panturrilha na maquina sentado",
+    "ativo": true
+  },
+  {
+    "codigo": "panturrilha_leg_press_alias_0001",
+    "nome": "Leg Press Calf Raise",
+    "nomeNormalizado": "leg press calf raise",
+    "ativo": true
+  },
+  {
+    "codigo": "panturrilha_leg_press_alias_0002",
+    "nome": "Panturrilha no leg",
+    "nomeNormalizado": "panturrilha no leg",
+    "ativo": true
+  },
+  {
+    "codigo": "panturrilha_leg_press_alias_0003",
+    "nome": "Gêmeos no Leg Press",
+    "nomeNormalizado": "gemeos no leg press",
+    "ativo": true
+  },
+  {
+    "codigo": "panturrilha_smith_alias_0001",
+    "nome": "Smith Calf Raise",
+    "nomeNormalizado": "smith calf raise",
+    "ativo": true
+  },
+  {
+    "codigo": "panturrilha_smith_alias_0002",
+    "nome": "Panturrilha no Smith",
+    "nomeNormalizado": "panturrilha no smith",
+    "ativo": true
+  },
+  {
+    "codigo": "panturrilha_smith_alias_0003",
+    "nome": "Gêmeos no Smith",
+    "nomeNormalizado": "gemeos no smith",
+    "ativo": true
+  },
+  {
+    "codigo": "panturrilha_unilateral_halter_alias_0001",
+    "nome": "Single Leg Calf Raise",
+    "nomeNormalizado": "single leg calf raise",
+    "ativo": true
+  },
+  {
+    "codigo": "panturrilha_unilateral_halter_alias_0002",
+    "nome": "Panturrilha unilateral com halter",
+    "nomeNormalizado": "panturrilha unilateral com halter",
+    "ativo": true
+  },
+  {
+    "codigo": "panturrilha_unilateral_halter_alias_0003",
+    "nome": "Gêmeos unilateral",
+    "nomeNormalizado": "gemeos unilateral",
+    "ativo": true
+  },
+  {
+    "codigo": "panturrilha_peso_corporal_alias_0001",
+    "nome": "Bodyweight Calf Raise",
+    "nomeNormalizado": "bodyweight calf raise",
+    "ativo": true
+  },
+  {
+    "codigo": "panturrilha_peso_corporal_alias_0002",
+    "nome": "Elevação de panturrilha",
+    "nomeNormalizado": "elevacao de panturrilha",
+    "ativo": true
+  },
+  {
+    "codigo": "panturrilha_peso_corporal_alias_0003",
+    "nome": "Gêmeos em pé livre",
+    "nomeNormalizado": "gemeos em pe livre",
+    "ativo": true
+  },
+  {
+    "codigo": "donkey_calf_raise_alias_0001",
+    "nome": "Donkey Raise",
+    "nomeNormalizado": "donkey raise",
+    "ativo": true
+  },
+  {
+    "codigo": "donkey_calf_raise_alias_0002",
+    "nome": "Panturrilha donkey",
+    "nomeNormalizado": "panturrilha donkey",
+    "ativo": true
+  },
+  {
+    "codigo": "donkey_calf_raise_alias_0003",
+    "nome": "Gêmeos inclinado",
+    "nomeNormalizado": "gemeos inclinado",
+    "ativo": true
+  },
+  {
+    "codigo": "cadeira_adutora_alias_0001",
+    "nome": "Hip Adduction Machine",
+    "nomeNormalizado": "hip adduction machine",
+    "ativo": true
+  },
+  {
+    "codigo": "cadeira_adutora_alias_0002",
+    "nome": "Adutora",
+    "nomeNormalizado": "adutora",
+    "ativo": true
+  },
+  {
+    "codigo": "cadeira_adutora_alias_0003",
+    "nome": "Máquina adutora",
+    "nomeNormalizado": "maquina adutora",
+    "ativo": true
+  },
+  {
+    "codigo": "aducao_quadril_polia_alias_0001",
+    "nome": "Cable Hip Adduction",
+    "nomeNormalizado": "cable hip adduction",
+    "ativo": true
+  },
+  {
+    "codigo": "aducao_quadril_polia_alias_0002",
+    "nome": "Adução no cabo",
+    "nomeNormalizado": "aducao no cabo",
+    "ativo": true
+  },
+  {
+    "codigo": "aducao_quadril_polia_alias_0003",
+    "nome": "Adutor na polia",
+    "nomeNormalizado": "adutor na polia",
+    "ativo": true
+  },
+  {
+    "codigo": "agachamento_sumo_halter_alias_0001",
+    "nome": "Sumo Squat",
+    "nomeNormalizado": "sumo squat",
+    "ativo": true
+  },
+  {
+    "codigo": "agachamento_sumo_halter_alias_0002",
+    "nome": "Agachamento sumô com halter",
+    "nomeNormalizado": "agachamento sumo com halter",
+    "ativo": true
+  },
+  {
+    "codigo": "agachamento_sumo_halter_alias_0003",
+    "nome": "Goblet sumô",
+    "nomeNormalizado": "goblet sumo",
+    "ativo": true
+  },
+  {
+    "codigo": "terra_sumo_barra_alias_0001",
+    "nome": "Sumo Deadlift",
+    "nomeNormalizado": "sumo deadlift",
+    "ativo": true
+  },
+  {
+    "codigo": "terra_sumo_barra_alias_0002",
+    "nome": "Terra sumô",
+    "nomeNormalizado": "terra sumo",
+    "ativo": true
+  },
+  {
+    "codigo": "terra_sumo_barra_alias_0003",
+    "nome": "Levantamento sumô",
+    "nomeNormalizado": "levantamento sumo",
+    "ativo": true
+  },
+  {
+    "codigo": "cadeira_abdutora_alias_0001",
+    "nome": "Hip Abduction Machine",
+    "nomeNormalizado": "hip abduction machine",
+    "ativo": true
+  },
+  {
+    "codigo": "cadeira_abdutora_alias_0002",
+    "nome": "Abdutora",
+    "nomeNormalizado": "abdutora",
+    "ativo": true
+  },
+  {
+    "codigo": "cadeira_abdutora_alias_0003",
+    "nome": "Máquina abdutora",
+    "nomeNormalizado": "maquina abdutora",
+    "ativo": true
+  },
+  {
+    "codigo": "abducao_quadril_polia_alias_0001",
+    "nome": "Cable Hip Abduction",
+    "nomeNormalizado": "cable hip abduction",
+    "ativo": true
+  },
+  {
+    "codigo": "abducao_quadril_polia_alias_0002",
+    "nome": "Abdução no cabo",
+    "nomeNormalizado": "abducao no cabo",
+    "ativo": true
+  },
+  {
+    "codigo": "abducao_quadril_polia_alias_0003",
+    "nome": "Abdutor na polia",
+    "nomeNormalizado": "abdutor na polia",
+    "ativo": true
+  },
+  {
+    "codigo": "abducao_lateral_elastico_alias_0001",
+    "nome": "Band Hip Abduction",
+    "nomeNormalizado": "band hip abduction",
+    "ativo": true
+  },
+  {
+    "codigo": "abducao_lateral_elastico_alias_0002",
+    "nome": "Abdução com elástico",
+    "nomeNormalizado": "abducao com elastico",
+    "ativo": true
+  },
+  {
+    "codigo": "abducao_lateral_elastico_alias_0003",
+    "nome": "Elevação lateral da perna",
+    "nomeNormalizado": "elevacao lateral da perna",
+    "ativo": true
+  },
+  {
+    "codigo": "caminhada_lateral_elastico_alias_0001",
+    "nome": "Lateral Band Walk",
+    "nomeNormalizado": "lateral band walk",
+    "ativo": true
+  },
+  {
+    "codigo": "caminhada_lateral_elastico_alias_0002",
+    "nome": "Caminhada do monstro",
+    "nomeNormalizado": "caminhada do monstro",
+    "ativo": true
+  },
+  {
+    "codigo": "caminhada_lateral_elastico_alias_0003",
+    "nome": "Monster Walk",
+    "nomeNormalizado": "monster walk",
+    "ativo": true
+  },
+  {
+    "codigo": "farmers_walk_halteres_alias_0001",
+    "nome": "Farmer Walk",
+    "nomeNormalizado": "farmer walk",
+    "ativo": true
+  },
+  {
+    "codigo": "farmers_walk_halteres_alias_0002",
+    "nome": "Farmers Carry",
+    "nomeNormalizado": "farmers carry",
+    "ativo": true
+  },
+  {
+    "codigo": "farmers_walk_halteres_alias_0003",
+    "nome": "Caminhada com halteres",
+    "nomeNormalizado": "caminhada com halteres",
+    "ativo": true
+  },
+  {
+    "codigo": "thruster_halteres_alias_0001",
+    "nome": "Dumbbell Thruster",
+    "nomeNormalizado": "dumbbell thruster",
+    "ativo": true
+  },
+  {
+    "codigo": "thruster_halteres_alias_0002",
+    "nome": "Agachamento com desenvolvimento",
+    "nomeNormalizado": "agachamento com desenvolvimento",
+    "ativo": true
+  },
+  {
+    "codigo": "thruster_halteres_alias_0003",
+    "nome": "Thruster com halteres",
+    "nomeNormalizado": "thruster com halteres",
+    "ativo": true
+  },
+  {
+    "codigo": "thruster_barra_alias_0001",
+    "nome": "Barbell Thruster",
+    "nomeNormalizado": "barbell thruster",
+    "ativo": true
+  },
+  {
+    "codigo": "thruster_barra_alias_0002",
+    "nome": "Thruster com barra",
+    "nomeNormalizado": "thruster com barra",
+    "ativo": true
+  },
+  {
+    "codigo": "thruster_barra_alias_0003",
+    "nome": "Agachamento frontal com desenvolvimento",
+    "nomeNormalizado": "agachamento frontal com desenvolvimento",
+    "ativo": true
+  },
+  {
+    "codigo": "hiperextensao_lombar_banco_romano_alias_0001",
+    "nome": "Extensão lombar no banco romano",
+    "nomeNormalizado": "extensao lombar no banco romano",
+    "ativo": true
+  },
+  {
+    "codigo": "hiperextensao_lombar_banco_romano_alias_0002",
+    "nome": "Back Extension",
+    "nomeNormalizado": "back extension",
+    "ativo": true
+  },
+  {
+    "codigo": "hiperextensao_lombar_banco_romano_alias_0003",
+    "nome": "Roman Chair Back Extension",
+    "nomeNormalizado": "roman chair back extension",
+    "ativo": true
+  },
+  {
+    "codigo": "extensao_lombar_maquina_alias_0001",
+    "nome": "Máquina de lombar",
+    "nomeNormalizado": "maquina de lombar",
+    "ativo": true
+  },
+  {
+    "codigo": "extensao_lombar_maquina_alias_0002",
+    "nome": "Machine Back Extension",
+    "nomeNormalizado": "machine back extension",
+    "ativo": true
+  },
+  {
+    "codigo": "extensao_lombar_maquina_alias_0003",
+    "nome": "Lombar na máquina",
+    "nomeNormalizado": "lombar na maquina",
+    "ativo": true
+  },
+  {
+    "codigo": "superman_peso_corporal_alias_0001",
+    "nome": "Superman exercício",
+    "nomeNormalizado": "superman exercicio",
+    "ativo": true
+  },
+  {
+    "codigo": "superman_peso_corporal_alias_0002",
+    "nome": "Superman Exercise",
+    "nomeNormalizado": "superman exercise",
+    "ativo": true
+  },
+  {
+    "codigo": "superman_peso_corporal_alias_0003",
+    "nome": "Extensão lombar no chão",
+    "nomeNormalizado": "extensao lombar no chao",
+    "ativo": true
+  },
+  {
+    "codigo": "bird_dog_peso_corporal_alias_0001",
+    "nome": "Cão de caça",
+    "nomeNormalizado": "cao de caca",
+    "ativo": true
+  },
+  {
+    "codigo": "bird_dog_peso_corporal_alias_0002",
+    "nome": "Bird-Dog",
+    "nomeNormalizado": "bird-dog",
+    "ativo": true
+  },
+  {
+    "codigo": "bird_dog_peso_corporal_alias_0003",
+    "nome": "Extensão alternada em quatro apoios",
+    "nomeNormalizado": "extensao alternada em quatro apoios",
+    "ativo": true
+  },
+  {
+    "codigo": "reverse_hyper_maquina_alias_0001",
+    "nome": "Hiperextensão reversa",
+    "nomeNormalizado": "hiperextensao reversa",
+    "ativo": true
+  },
+  {
+    "codigo": "reverse_hyper_maquina_alias_0002",
+    "nome": "Reverse Hyperextension",
+    "nomeNormalizado": "reverse hyperextension",
+    "ativo": true
+  },
+  {
+    "codigo": "reverse_hyper_maquina_alias_0003",
+    "nome": "Reverse Hyper Machine",
+    "nomeNormalizado": "reverse hyper machine",
+    "ativo": true
+  },
+  {
+    "codigo": "encolhimento_barra_alias_0001",
+    "nome": "Encolhimento com barra",
+    "nomeNormalizado": "encolhimento com barra",
+    "ativo": true
+  },
+  {
+    "codigo": "encolhimento_barra_alias_0002",
+    "nome": "Barbell Shrug",
+    "nomeNormalizado": "barbell shrug",
+    "ativo": true
+  },
+  {
+    "codigo": "encolhimento_barra_alias_0003",
+    "nome": "Shrug com barra",
+    "nomeNormalizado": "shrug com barra",
+    "ativo": true
+  },
+  {
+    "codigo": "encolhimento_halteres_alias_0001",
+    "nome": "Encolhimento com halteres",
+    "nomeNormalizado": "encolhimento com halteres",
+    "ativo": true
+  },
+  {
+    "codigo": "encolhimento_halteres_alias_0002",
+    "nome": "Dumbbell Shrug",
+    "nomeNormalizado": "dumbbell shrug",
+    "ativo": true
+  },
+  {
+    "codigo": "encolhimento_halteres_alias_0003",
+    "nome": "Shrug com halteres",
+    "nomeNormalizado": "shrug com halteres",
+    "ativo": true
+  },
+  {
+    "codigo": "encolhimento_smith_alias_0001",
+    "nome": "Encolhimento no Smith",
+    "nomeNormalizado": "encolhimento no smith",
+    "ativo": true
+  },
+  {
+    "codigo": "encolhimento_smith_alias_0002",
+    "nome": "Smith Machine Shrug",
+    "nomeNormalizado": "smith machine shrug",
+    "ativo": true
+  },
+  {
+    "codigo": "encolhimento_smith_alias_0003",
+    "nome": "Shrug no Smith",
+    "nomeNormalizado": "shrug no smith",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_punho_barra_alias_0001",
+    "nome": "Flexão de punho com barra",
+    "nomeNormalizado": "flexao de punho com barra",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_punho_barra_alias_0002",
+    "nome": "Barbell Wrist Curl",
+    "nomeNormalizado": "barbell wrist curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_punho_barra_alias_0003",
+    "nome": "Wrist Curl barra",
+    "nomeNormalizado": "wrist curl barra",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_punho_halteres_alias_0001",
+    "nome": "Flexão de punho com halteres",
+    "nomeNormalizado": "flexao de punho com halteres",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_punho_halteres_alias_0002",
+    "nome": "Dumbbell Wrist Curl",
+    "nomeNormalizado": "dumbbell wrist curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_punho_halteres_alias_0003",
+    "nome": "Wrist Curl halteres",
+    "nomeNormalizado": "wrist curl halteres",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_punho_inversa_barra_alias_0001",
+    "nome": "Extensão de punho com barra",
+    "nomeNormalizado": "extensao de punho com barra",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_punho_inversa_barra_alias_0002",
+    "nome": "Reverse Wrist Curl",
+    "nomeNormalizado": "reverse wrist curl",
+    "ativo": true
+  },
+  {
+    "codigo": "rosca_punho_inversa_barra_alias_0003",
+    "nome": "Wrist Extension barra",
+    "nomeNormalizado": "wrist extension barra",
+    "ativo": true
+  },
+  {
+    "codigo": "wrist_roller_alias_0001",
+    "nome": "Rolo de punho",
+    "nomeNormalizado": "rolo de punho",
+    "ativo": true
+  },
+  {
+    "codigo": "wrist_roller_alias_0002",
+    "nome": "Enrolador de punho",
+    "nomeNormalizado": "enrolador de punho",
+    "ativo": true
+  },
+  {
+    "codigo": "wrist_roller_alias_0003",
+    "nome": "Wrist Roller Exercise",
+    "nomeNormalizado": "wrist roller exercise",
+    "ativo": true
+  },
+  {
+    "codigo": "dead_hang_barra_fixa_alias_0001",
+    "nome": "Dead Hang",
+    "nomeNormalizado": "dead hang",
+    "ativo": true
+  },
+  {
+    "codigo": "dead_hang_barra_fixa_alias_0002",
+    "nome": "Suspensão na barra fixa",
+    "nomeNormalizado": "suspensao na barra fixa",
+    "ativo": true
+  },
+  {
+    "codigo": "dead_hang_barra_fixa_alias_0003",
+    "nome": "Hang na barra",
+    "nomeNormalizado": "hang na barra",
+    "ativo": true
+  },
+  {
+    "codigo": "pegada_estatica_halteres_alias_0001",
+    "nome": "Static Dumbbell Hold",
+    "nomeNormalizado": "static dumbbell hold",
+    "ativo": true
+  },
+  {
+    "codigo": "pegada_estatica_halteres_alias_0002",
+    "nome": "Sustentação com halteres",
+    "nomeNormalizado": "sustentacao com halteres",
+    "ativo": true
+  },
+  {
+    "codigo": "pegada_estatica_halteres_alias_0003",
+    "nome": "Isometria de pegada",
+    "nomeNormalizado": "isometria de pegada",
+    "ativo": true
+  },
+  {
+    "codigo": "flexao_cervical_peso_corporal_alias_0001",
+    "nome": "Neck Flexion",
+    "nomeNormalizado": "neck flexion",
+    "ativo": true
+  },
+  {
+    "codigo": "flexao_cervical_peso_corporal_alias_0002",
+    "nome": "Flexão do pescoço",
+    "nomeNormalizado": "flexao do pescoco",
+    "ativo": true
+  },
+  {
+    "codigo": "flexao_cervical_peso_corporal_alias_0003",
+    "nome": "Cervical flexion",
+    "nomeNormalizado": "cervical flexion",
+    "ativo": true
+  },
+  {
+    "codigo": "extensao_cervical_peso_corporal_alias_0001",
+    "nome": "Neck Extension",
+    "nomeNormalizado": "neck extension",
+    "ativo": true
+  },
+  {
+    "codigo": "extensao_cervical_peso_corporal_alias_0002",
+    "nome": "Extensão do pescoço",
+    "nomeNormalizado": "extensao do pescoco",
+    "ativo": true
+  },
+  {
+    "codigo": "extensao_cervical_peso_corporal_alias_0003",
+    "nome": "Cervical extension",
+    "nomeNormalizado": "cervical extension",
+    "ativo": true
+  },
+  {
+    "codigo": "flexao_lateral_cervical_alias_0001",
+    "nome": "Lateral Neck Flexion",
+    "nomeNormalizado": "lateral neck flexion",
+    "ativo": true
+  },
+  {
+    "codigo": "flexao_lateral_cervical_alias_0002",
+    "nome": "Inclinação lateral do pescoço",
+    "nomeNormalizado": "inclinacao lateral do pescoco",
+    "ativo": true
+  },
+  {
+    "codigo": "flexao_lateral_cervical_alias_0003",
+    "nome": "Flexão lateral do pescoço",
+    "nomeNormalizado": "flexao lateral do pescoco",
+    "ativo": true
+  }
+]

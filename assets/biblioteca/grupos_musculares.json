@@ -1,0 +1,121 @@
+[
+  {
+    "codigo": "peitoral",
+    "nome": "Peitoral",
+    "nomeNormalizado": "peitoral",
+    "ordem": 1,
+    "ativo": true
+  },
+  {
+    "codigo": "costas",
+    "nome": "Costas",
+    "nomeNormalizado": "costas",
+    "ordem": 2,
+    "ativo": true
+  },
+  {
+    "codigo": "ombros",
+    "nome": "Ombros",
+    "nomeNormalizado": "ombros",
+    "ordem": 3,
+    "ativo": true
+  },
+  {
+    "codigo": "biceps",
+    "nome": "Bíceps",
+    "nomeNormalizado": "biceps",
+    "ordem": 4,
+    "ativo": true
+  },
+  {
+    "codigo": "triceps",
+    "nome": "Tríceps",
+    "nomeNormalizado": "triceps",
+    "ordem": 5,
+    "ativo": true
+  },
+  {
+    "codigo": "antebracos",
+    "nome": "Antebraços",
+    "nomeNormalizado": "antebracos",
+    "ordem": 6,
+    "ativo": true
+  },
+  {
+    "codigo": "quadriceps",
+    "nome": "Quadríceps",
+    "nomeNormalizado": "quadriceps",
+    "ordem": 7,
+    "ativo": true
+  },
+  {
+    "codigo": "posteriores_coxa",
+    "nome": "Posteriores de Coxa",
+    "nomeNormalizado": "posteriores de coxa",
+    "ordem": 8,
+    "ativo": true
+  },
+  {
+    "codigo": "gluteos",
+    "nome": "Glúteos",
+    "nomeNormalizado": "gluteos",
+    "ordem": 9,
+    "ativo": true
+  },
+  {
+    "codigo": "panturrilhas",
+    "nome": "Panturrilhas",
+    "nomeNormalizado": "panturrilhas",
+    "ordem": 10,
+    "ativo": true
+  },
+  {
+    "codigo": "adutores",
+    "nome": "Adutores",
+    "nomeNormalizado": "adutores",
+    "ordem": 11,
+    "ativo": true
+  },
+  {
+    "codigo": "abdutores",
+    "nome": "Abdutores",
+    "nomeNormalizado": "abdutores",
+    "ordem": 12,
+    "ativo": true
+  },
+  {
+    "codigo": "abdomen",
+    "nome": "Abdômen",
+    "nomeNormalizado": "abdomen",
+    "ordem": 13,
+    "ativo": true
+  },
+  {
+    "codigo": "lombar",
+    "nome": "Lombar",
+    "nomeNormalizado": "lombar",
+    "ordem": 14,
+    "ativo": true
+  },
+  {
+    "codigo": "corpo_inteiro",
+    "nome": "Corpo Inteiro",
+    "nomeNormalizado": "corpo inteiro",
+    "ordem": 15,
+    "ativo": true
+  },
+  {
+    "codigo": "trapezio",
+    "nome": "Trapézio",
+    "nomeNormalizado": "trapezio",
+    "ordem": 16,
+    "ativo": true
+  },
+  {
+    "codigo": "pescoco",
+    "nome": "Pescoço",
+    "nomeNormalizado": "pescoco",
+    "ordem": 17,
+    "ativo": true
+  }
+]

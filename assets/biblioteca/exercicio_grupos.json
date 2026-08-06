@@ -1,0 +1,2144 @@
+[
+  {
+    "exercicioCodigo": "supino_reto_barra",
+    "grupoCodigo": "peitoral",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "supino_reto_barra",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "supino_reto_barra",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "supino_reto_halteres",
+    "grupoCodigo": "peitoral",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "supino_reto_halteres",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "supino_reto_halteres",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "supino_reto_maquina",
+    "grupoCodigo": "peitoral",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "supino_reto_maquina",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "supino_reto_maquina",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "supino_inclinado_barra",
+    "grupoCodigo": "peitoral",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "supino_inclinado_barra",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "supino_inclinado_barra",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "supino_inclinado_halteres",
+    "grupoCodigo": "peitoral",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "supino_inclinado_halteres",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "supino_inclinado_halteres",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "supino_inclinado_maquina",
+    "grupoCodigo": "peitoral",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "supino_inclinado_maquina",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "supino_inclinado_maquina",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "supino_declinado_barra",
+    "grupoCodigo": "peitoral",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "supino_declinado_barra",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "supino_declinado_barra",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "supino_declinado_halteres",
+    "grupoCodigo": "peitoral",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "supino_declinado_halteres",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "supino_declinado_halteres",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "supino_declinado_maquina",
+    "grupoCodigo": "peitoral",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "supino_declinado_maquina",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "supino_declinado_maquina",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "crucifixo_reto_halteres",
+    "grupoCodigo": "peitoral",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "crucifixo_reto_halteres",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "crucifixo_inclinado_halteres",
+    "grupoCodigo": "peitoral",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "crucifixo_inclinado_halteres",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "crucifixo_declinado_halteres",
+    "grupoCodigo": "peitoral",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "crucifixo_declinado_halteres",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "crucifixo_cabo",
+    "grupoCodigo": "peitoral",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "crucifixo_cabo",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "crucifixo_inclinado_cabo",
+    "grupoCodigo": "peitoral",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "crucifixo_inclinado_cabo",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "voador_peck_deck",
+    "grupoCodigo": "peitoral",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "voador_peck_deck",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "flexao_braco",
+    "grupoCodigo": "peitoral",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "flexao_braco",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "flexao_braco",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "flexao_inclinada",
+    "grupoCodigo": "peitoral",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "flexao_inclinada",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "flexao_inclinada",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "flexao_declinada",
+    "grupoCodigo": "peitoral",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "flexao_declinada",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "flexao_declinada",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "pulover_halter",
+    "grupoCodigo": "peitoral",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "pulover_halter",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "svend_press_anilha",
+    "grupoCodigo": "peitoral",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "svend_press_anilha",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "svend_press_anilha",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "remada_curvada_barra",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "remada_curvada_barra",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "remada_curvada_barra",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "remada_curvada_barra",
+    "grupoCodigo": "lombar",
+    "tipoParticipacao": "secundario",
+    "ordem": 3
+  },
+  {
+    "exercicioCodigo": "remada_curvada_halteres",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "remada_curvada_halteres",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "remada_curvada_halteres",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "remada_curvada_halteres",
+    "grupoCodigo": "lombar",
+    "tipoParticipacao": "secundario",
+    "ordem": 3
+  },
+  {
+    "exercicioCodigo": "remada_unilateral_halter",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "remada_unilateral_halter",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "remada_unilateral_halter",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "remada_baixa_polia",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "remada_baixa_polia",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "remada_baixa_polia",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "remada_baixa_pegada_neutra",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "remada_baixa_pegada_neutra",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "remada_baixa_pegada_neutra",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "remada_maquina",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "remada_maquina",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "remada_maquina",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "remada_cavalinho_barra",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "remada_cavalinho_barra",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "remada_cavalinho_barra",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "remada_cavalinho_barra",
+    "grupoCodigo": "lombar",
+    "tipoParticipacao": "secundario",
+    "ordem": 3
+  },
+  {
+    "exercicioCodigo": "remada_cavalinho_maquina",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "remada_cavalinho_maquina",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "remada_cavalinho_maquina",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "remada_alta_polia",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "remada_alta_polia",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "remada_alta_polia",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "puxada_frente_aberta",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "puxada_frente_aberta",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "puxada_frente_aberta",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "puxada_frente_fechada",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "puxada_frente_fechada",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "puxada_frente_fechada",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "puxada_frente_neutra",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "puxada_frente_neutra",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "puxada_frente_neutra",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "puxada_supinada",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "puxada_supinada",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "puxada_supinada",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "puxada_unilateral_polia",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "puxada_unilateral_polia",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "puxada_unilateral_polia",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "barra_fixa_pronada",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "barra_fixa_pronada",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "barra_fixa_pronada",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "barra_fixa_supinada",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "barra_fixa_supinada",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "barra_fixa_supinada",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "barra_fixa_assistida",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "barra_fixa_assistida",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "barra_fixa_assistida",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "pulldown_reto_polia",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "pulldown_reto_polia",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "pulldown_reto_polia",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "pulldown_unilateral_polia",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "pulldown_unilateral_polia",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "pulldown_unilateral_polia",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "levantamento_terra_barra",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "levantamento_terra_barra",
+    "grupoCodigo": "lombar",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "levantamento_terra_barra",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "levantamento_terra_barra",
+    "grupoCodigo": "posteriores_coxa",
+    "tipoParticipacao": "secundario",
+    "ordem": 3
+  },
+  {
+    "exercicioCodigo": "levantamento_terra_barra",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 4
+  },
+  {
+    "exercicioCodigo": "rack_pull_barra",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "rack_pull_barra",
+    "grupoCodigo": "lombar",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "rack_pull_barra",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "rack_pull_barra",
+    "grupoCodigo": "posteriores_coxa",
+    "tipoParticipacao": "secundario",
+    "ordem": 3
+  },
+  {
+    "exercicioCodigo": "rack_pull_barra",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 4
+  },
+  {
+    "exercicioCodigo": "encolhimento_escapular_polia",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "encolhimento_escapular_polia",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_militar_barra",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_militar_barra",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_militar_barra",
+    "grupoCodigo": "corpo_inteiro",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_militar_halteres",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_militar_halteres",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_smith",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_smith",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_maquina",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_maquina",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_unilateral_halter",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_unilateral_halter",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "arnold_press",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "arnold_press",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "elevacao_lateral_halteres",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "elevacao_lateral_unilateral_halter",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "elevacao_lateral_polia",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "elevacao_lateral_maquina",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "elevacao_frontal_barra",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "elevacao_frontal_halteres",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "elevacao_frontal_polia",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "crucifixo_invertido_halteres",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "crucifixo_invertido_halteres",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "crucifixo_invertido_maquina",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "crucifixo_invertido_maquina",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "face_pull_polia",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "face_pull_polia",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "remada_alta_barra",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "remada_alta_barra",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "remada_alta_barra",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "remada_alta_polia_ombros",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "remada_alta_polia_ombros",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "remada_alta_polia_ombros",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "cuban_press_halteres",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "cuban_press_halteres",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "y_raise_halteres",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "y_raise_halteres",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "rosca_direta_barra",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "rosca_direta_barra",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "rosca_direta_barra_w",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "rosca_direta_barra_w",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "rosca_direta_halteres",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "rosca_direta_halteres",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "rosca_alternada_halteres",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "rosca_alternada_halteres",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "rosca_alternada_sentada",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "rosca_alternada_sentada",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "rosca_alternada_inclinada",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "rosca_alternada_inclinada",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_halteres",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_halteres",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_cruzada",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_cruzada",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_corda",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_corda",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "rosca_scott_barra_w",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "rosca_scott_barra_w",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "rosca_scott_maquina",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "rosca_scott_maquina",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "rosca_scott_unilateral",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "rosca_scott_unilateral",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "rosca_concentrada_halter",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "rosca_concentrada_halter",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "rosca_concentrada_polia",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "rosca_concentrada_polia",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "rosca_baixa_barra_reta",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "rosca_baixa_barra_reta",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "rosca_baixa_barra_w",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "rosca_baixa_barra_w",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "rosca_baixa_corda",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "rosca_baixa_corda",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "rosca_inversa_barra",
+    "grupoCodigo": "biceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "rosca_inversa_barra",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "triceps_corda_polia",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "triceps_corda_polia",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "triceps_barra_reta_polia",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "triceps_barra_reta_polia",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "triceps_barra_v_polia",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "triceps_barra_v_polia",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "triceps_unilateral_polia",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "triceps_unilateral_polia",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "triceps_pegada_supinada_polia",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "triceps_pegada_supinada_polia",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "triceps_frances_halter",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "triceps_frances_unilateral_halter",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "triceps_frances_corda_polia",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "triceps_testa_barra_w",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "triceps_testa_barra_reta",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "triceps_testa_halteres",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "triceps_testa_polia",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "coice_triceps_halter",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "coice_triceps_polia",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "paralelas_peso_corporal",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "paralelas_peso_corporal",
+    "grupoCodigo": "peitoral",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "paralelas_peso_corporal",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "paralelas_assistida_maquina",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "paralelas_assistida_maquina",
+    "grupoCodigo": "peitoral",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "paralelas_assistida_maquina",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "mergulho_banco",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "mergulho_banco",
+    "grupoCodigo": "peitoral",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "mergulho_banco",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "supino_fechado_barra",
+    "grupoCodigo": "triceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "supino_fechado_barra",
+    "grupoCodigo": "peitoral",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "supino_fechado_barra",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "agachamento_livre_barra",
+    "grupoCodigo": "quadriceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "agachamento_livre_barra",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "agachamento_livre_barra",
+    "grupoCodigo": "posteriores_coxa",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "agachamento_livre_barra",
+    "grupoCodigo": "lombar",
+    "tipoParticipacao": "secundario",
+    "ordem": 3
+  },
+  {
+    "exercicioCodigo": "agachamento_frontal_barra",
+    "grupoCodigo": "quadriceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "agachamento_frontal_barra",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "agachamento_frontal_barra",
+    "grupoCodigo": "lombar",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "agachamento_smith",
+    "grupoCodigo": "quadriceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "agachamento_smith",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "agachamento_hack",
+    "grupoCodigo": "quadriceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "agachamento_hack",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "leg_press_45",
+    "grupoCodigo": "quadriceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "leg_press_45",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "leg_press_45",
+    "grupoCodigo": "posteriores_coxa",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "leg_press_horizontal",
+    "grupoCodigo": "quadriceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "leg_press_horizontal",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "cadeira_extensora",
+    "grupoCodigo": "quadriceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "agachamento_bulgaro_halteres",
+    "grupoCodigo": "quadriceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "agachamento_bulgaro_halteres",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "agachamento_bulgaro_halteres",
+    "grupoCodigo": "posteriores_coxa",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "afundo_halteres",
+    "grupoCodigo": "quadriceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "afundo_halteres",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "passada_halteres",
+    "grupoCodigo": "quadriceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "passada_halteres",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "passada_halteres",
+    "grupoCodigo": "posteriores_coxa",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "step_up_halteres",
+    "grupoCodigo": "quadriceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "step_up_halteres",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "sissy_squat_peso_corporal",
+    "grupoCodigo": "quadriceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "agachamento_goblet_halter",
+    "grupoCodigo": "quadriceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "agachamento_goblet_halter",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "agachamento_caixa_barra",
+    "grupoCodigo": "quadriceps",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "agachamento_caixa_barra",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "agachamento_caixa_barra",
+    "grupoCodigo": "posteriores_coxa",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "stiff_barra",
+    "grupoCodigo": "posteriores_coxa",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "stiff_barra",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "stiff_barra",
+    "grupoCodigo": "lombar",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "stiff_halteres",
+    "grupoCodigo": "posteriores_coxa",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "stiff_halteres",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "stiff_halteres",
+    "grupoCodigo": "lombar",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "terra_romeno_barra",
+    "grupoCodigo": "posteriores_coxa",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "terra_romeno_barra",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "terra_romeno_barra",
+    "grupoCodigo": "lombar",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "terra_romeno_halteres",
+    "grupoCodigo": "posteriores_coxa",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "terra_romeno_halteres",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "mesa_flexora",
+    "grupoCodigo": "posteriores_coxa",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "cadeira_flexora",
+    "grupoCodigo": "posteriores_coxa",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "flexora_em_pe_maquina",
+    "grupoCodigo": "posteriores_coxa",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "flexora_unilateral_polia",
+    "grupoCodigo": "posteriores_coxa",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "good_morning_barra",
+    "grupoCodigo": "posteriores_coxa",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "good_morning_barra",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "good_morning_barra",
+    "grupoCodigo": "lombar",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "nordic_curl",
+    "grupoCodigo": "posteriores_coxa",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "elevacao_pelvica_barra",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "elevacao_pelvica_barra",
+    "grupoCodigo": "posteriores_coxa",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "elevacao_pelvica_maquina",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "elevacao_pelvica_maquina",
+    "grupoCodigo": "posteriores_coxa",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "ponte_gluteo_peso_corporal",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "ponte_gluteo_peso_corporal",
+    "grupoCodigo": "posteriores_coxa",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "gluteo_quatro_apoios_peso_corporal",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "coice_gluteo_polia",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "coice_gluteo_maquina",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "frog_pump",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "pull_through_polia",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "pull_through_polia",
+    "grupoCodigo": "posteriores_coxa",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "panturrilha_em_pe_maquina",
+    "grupoCodigo": "panturrilhas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "panturrilha_sentado_maquina",
+    "grupoCodigo": "panturrilhas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "panturrilha_leg_press",
+    "grupoCodigo": "panturrilhas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "panturrilha_smith",
+    "grupoCodigo": "panturrilhas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "panturrilha_unilateral_halter",
+    "grupoCodigo": "panturrilhas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "panturrilha_peso_corporal",
+    "grupoCodigo": "panturrilhas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "donkey_calf_raise",
+    "grupoCodigo": "panturrilhas",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "cadeira_adutora",
+    "grupoCodigo": "adutores",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "aducao_quadril_polia",
+    "grupoCodigo": "adutores",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "agachamento_sumo_halter",
+    "grupoCodigo": "adutores",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "agachamento_sumo_halter",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "agachamento_sumo_halter",
+    "grupoCodigo": "quadriceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "terra_sumo_barra",
+    "grupoCodigo": "adutores",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "terra_sumo_barra",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "terra_sumo_barra",
+    "grupoCodigo": "quadriceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "terra_sumo_barra",
+    "grupoCodigo": "posteriores_coxa",
+    "tipoParticipacao": "secundario",
+    "ordem": 3
+  },
+  {
+    "exercicioCodigo": "cadeira_abdutora",
+    "grupoCodigo": "abdutores",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "cadeira_abdutora",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "abducao_quadril_polia",
+    "grupoCodigo": "abdutores",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "abducao_quadril_polia",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "abducao_lateral_elastico",
+    "grupoCodigo": "abdutores",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "abducao_lateral_elastico",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "caminhada_lateral_elastico",
+    "grupoCodigo": "abdutores",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "caminhada_lateral_elastico",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "farmers_walk_halteres",
+    "grupoCodigo": "corpo_inteiro",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "farmers_walk_halteres",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "farmers_walk_halteres",
+    "grupoCodigo": "lombar",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "thruster_halteres",
+    "grupoCodigo": "corpo_inteiro",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "thruster_halteres",
+    "grupoCodigo": "quadriceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "thruster_halteres",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "thruster_halteres",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 3
+  },
+  {
+    "exercicioCodigo": "thruster_barra",
+    "grupoCodigo": "corpo_inteiro",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "thruster_barra",
+    "grupoCodigo": "quadriceps",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "thruster_barra",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "thruster_barra",
+    "grupoCodigo": "ombros",
+    "tipoParticipacao": "secundario",
+    "ordem": 3
+  },
+  {
+    "exercicioCodigo": "hiperextensao_lombar_banco_romano",
+    "grupoCodigo": "lombar",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "hiperextensao_lombar_banco_romano",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "hiperextensao_lombar_banco_romano",
+    "grupoCodigo": "posteriores_coxa",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "extensao_lombar_maquina",
+    "grupoCodigo": "lombar",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "extensao_lombar_maquina",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "superman_peso_corporal",
+    "grupoCodigo": "lombar",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "superman_peso_corporal",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "bird_dog_peso_corporal",
+    "grupoCodigo": "lombar",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "bird_dog_peso_corporal",
+    "grupoCodigo": "abdomen",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "bird_dog_peso_corporal",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "reverse_hyper_maquina",
+    "grupoCodigo": "lombar",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "reverse_hyper_maquina",
+    "grupoCodigo": "gluteos",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "reverse_hyper_maquina",
+    "grupoCodigo": "posteriores_coxa",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "encolhimento_barra",
+    "grupoCodigo": "trapezio",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "encolhimento_halteres",
+    "grupoCodigo": "trapezio",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "encolhimento_smith",
+    "grupoCodigo": "trapezio",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "face_pull_polia",
+    "grupoCodigo": "trapezio",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "remada_alta_barra",
+    "grupoCodigo": "trapezio",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "remada_alta_polia_ombros",
+    "grupoCodigo": "trapezio",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "farmers_walk_halteres",
+    "grupoCodigo": "trapezio",
+    "tipoParticipacao": "secundario",
+    "ordem": 2
+  },
+  {
+    "exercicioCodigo": "rosca_punho_barra",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "rosca_punho_halteres",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "rosca_punho_inversa_barra",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "wrist_roller",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "dead_hang_barra_fixa",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "dead_hang_barra_fixa",
+    "grupoCodigo": "costas",
+    "tipoParticipacao": "secundario",
+    "ordem": 1
+  },
+  {
+    "exercicioCodigo": "pegada_estatica_halteres",
+    "grupoCodigo": "antebracos",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "flexao_cervical_peso_corporal",
+    "grupoCodigo": "pescoco",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "extensao_cervical_peso_corporal",
+    "grupoCodigo": "pescoco",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  },
+  {
+    "exercicioCodigo": "flexao_lateral_cervical",
+    "grupoCodigo": "pescoco",
+    "tipoParticipacao": "principal",
+    "ordem": 0
+  }
+]

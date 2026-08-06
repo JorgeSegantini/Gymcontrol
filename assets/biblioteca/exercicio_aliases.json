@@ -1,0 +1,1902 @@
+[
+  {
+    "exercicioCodigo": "supino_reto_barra",
+    "aliasCodigo": "supino_reto_barra_alias_0001"
+  },
+  {
+    "exercicioCodigo": "supino_reto_barra",
+    "aliasCodigo": "supino_reto_barra_alias_0002"
+  },
+  {
+    "exercicioCodigo": "supino_reto_barra",
+    "aliasCodigo": "supino_reto_barra_alias_0003"
+  },
+  {
+    "exercicioCodigo": "supino_reto_barra",
+    "aliasCodigo": "supino_reto_barra_alias_0004"
+  },
+  {
+    "exercicioCodigo": "supino_reto_halteres",
+    "aliasCodigo": "supino_reto_halteres_alias_0005"
+  },
+  {
+    "exercicioCodigo": "supino_reto_halteres",
+    "aliasCodigo": "supino_reto_halteres_alias_0006"
+  },
+  {
+    "exercicioCodigo": "supino_reto_halteres",
+    "aliasCodigo": "supino_reto_halteres_alias_0007"
+  },
+  {
+    "exercicioCodigo": "supino_reto_maquina",
+    "aliasCodigo": "supino_reto_maquina_alias_0008"
+  },
+  {
+    "exercicioCodigo": "supino_reto_maquina",
+    "aliasCodigo": "supino_reto_maquina_alias_0009"
+  },
+  {
+    "exercicioCodigo": "supino_reto_maquina",
+    "aliasCodigo": "supino_reto_maquina_alias_0010"
+  },
+  {
+    "exercicioCodigo": "supino_reto_maquina",
+    "aliasCodigo": "supino_reto_maquina_alias_0011"
+  },
+  {
+    "exercicioCodigo": "supino_reto_maquina",
+    "aliasCodigo": "supino_reto_maquina_alias_0012"
+  },
+  {
+    "exercicioCodigo": "supino_inclinado_barra",
+    "aliasCodigo": "supino_inclinado_barra_alias_0013"
+  },
+  {
+    "exercicioCodigo": "supino_inclinado_barra",
+    "aliasCodigo": "supino_inclinado_barra_alias_0014"
+  },
+  {
+    "exercicioCodigo": "supino_inclinado_barra",
+    "aliasCodigo": "supino_inclinado_barra_alias_0015"
+  },
+  {
+    "exercicioCodigo": "supino_inclinado_halteres",
+    "aliasCodigo": "supino_inclinado_halteres_alias_0016"
+  },
+  {
+    "exercicioCodigo": "supino_inclinado_halteres",
+    "aliasCodigo": "supino_inclinado_halteres_alias_0017"
+  },
+  {
+    "exercicioCodigo": "supino_inclinado_halteres",
+    "aliasCodigo": "supino_inclinado_halteres_alias_0018"
+  },
+  {
+    "exercicioCodigo": "supino_inclinado_maquina",
+    "aliasCodigo": "supino_inclinado_maquina_alias_0019"
+  },
+  {
+    "exercicioCodigo": "supino_inclinado_maquina",
+    "aliasCodigo": "supino_inclinado_maquina_alias_0020"
+  },
+  {
+    "exercicioCodigo": "supino_inclinado_maquina",
+    "aliasCodigo": "supino_inclinado_maquina_alias_0021"
+  },
+  {
+    "exercicioCodigo": "supino_inclinado_maquina",
+    "aliasCodigo": "supino_inclinado_maquina_alias_0022"
+  },
+  {
+    "exercicioCodigo": "supino_declinado_barra",
+    "aliasCodigo": "supino_declinado_barra_alias_0023"
+  },
+  {
+    "exercicioCodigo": "supino_declinado_barra",
+    "aliasCodigo": "supino_declinado_barra_alias_0024"
+  },
+  {
+    "exercicioCodigo": "supino_declinado_barra",
+    "aliasCodigo": "supino_declinado_barra_alias_0025"
+  },
+  {
+    "exercicioCodigo": "supino_declinado_halteres",
+    "aliasCodigo": "supino_declinado_halteres_alias_0026"
+  },
+  {
+    "exercicioCodigo": "supino_declinado_halteres",
+    "aliasCodigo": "supino_declinado_halteres_alias_0027"
+  },
+  {
+    "exercicioCodigo": "supino_declinado_halteres",
+    "aliasCodigo": "supino_declinado_halteres_alias_0028"
+  },
+  {
+    "exercicioCodigo": "supino_declinado_maquina",
+    "aliasCodigo": "supino_declinado_maquina_alias_0029"
+  },
+  {
+    "exercicioCodigo": "supino_declinado_maquina",
+    "aliasCodigo": "supino_declinado_maquina_alias_0030"
+  },
+  {
+    "exercicioCodigo": "supino_declinado_maquina",
+    "aliasCodigo": "supino_declinado_maquina_alias_0031"
+  },
+  {
+    "exercicioCodigo": "supino_declinado_maquina",
+    "aliasCodigo": "supino_declinado_maquina_alias_0032"
+  },
+  {
+    "exercicioCodigo": "crucifixo_reto_halteres",
+    "aliasCodigo": "crucifixo_reto_halteres_alias_0033"
+  },
+  {
+    "exercicioCodigo": "crucifixo_reto_halteres",
+    "aliasCodigo": "crucifixo_reto_halteres_alias_0034"
+  },
+  {
+    "exercicioCodigo": "crucifixo_reto_halteres",
+    "aliasCodigo": "crucifixo_reto_halteres_alias_0035"
+  },
+  {
+    "exercicioCodigo": "crucifixo_inclinado_halteres",
+    "aliasCodigo": "crucifixo_inclinado_halteres_alias_0036"
+  },
+  {
+    "exercicioCodigo": "crucifixo_inclinado_halteres",
+    "aliasCodigo": "crucifixo_inclinado_halteres_alias_0037"
+  },
+  {
+    "exercicioCodigo": "crucifixo_declinado_halteres",
+    "aliasCodigo": "crucifixo_declinado_halteres_alias_0038"
+  },
+  {
+    "exercicioCodigo": "crucifixo_declinado_halteres",
+    "aliasCodigo": "crucifixo_declinado_halteres_alias_0039"
+  },
+  {
+    "exercicioCodigo": "crucifixo_cabo",
+    "aliasCodigo": "crucifixo_cabo_alias_0040"
+  },
+  {
+    "exercicioCodigo": "crucifixo_cabo",
+    "aliasCodigo": "crucifixo_cabo_alias_0041"
+  },
+  {
+    "exercicioCodigo": "crucifixo_cabo",
+    "aliasCodigo": "crucifixo_cabo_alias_0042"
+  },
+  {
+    "exercicioCodigo": "crucifixo_cabo",
+    "aliasCodigo": "crucifixo_cabo_alias_0043"
+  },
+  {
+    "exercicioCodigo": "crucifixo_inclinado_cabo",
+    "aliasCodigo": "crucifixo_inclinado_cabo_alias_0044"
+  },
+  {
+    "exercicioCodigo": "crucifixo_inclinado_cabo",
+    "aliasCodigo": "crucifixo_inclinado_cabo_alias_0045"
+  },
+  {
+    "exercicioCodigo": "crucifixo_inclinado_cabo",
+    "aliasCodigo": "crucifixo_inclinado_cabo_alias_0046"
+  },
+  {
+    "exercicioCodigo": "voador_peck_deck",
+    "aliasCodigo": "voador_peck_deck_alias_0047"
+  },
+  {
+    "exercicioCodigo": "voador_peck_deck",
+    "aliasCodigo": "voador_peck_deck_alias_0048"
+  },
+  {
+    "exercicioCodigo": "voador_peck_deck",
+    "aliasCodigo": "voador_peck_deck_alias_0049"
+  },
+  {
+    "exercicioCodigo": "voador_peck_deck",
+    "aliasCodigo": "voador_peck_deck_alias_0050"
+  },
+  {
+    "exercicioCodigo": "flexao_braco",
+    "aliasCodigo": "flexao_braco_alias_0051"
+  },
+  {
+    "exercicioCodigo": "flexao_braco",
+    "aliasCodigo": "flexao_braco_alias_0052"
+  },
+  {
+    "exercicioCodigo": "flexao_braco",
+    "aliasCodigo": "flexao_braco_alias_0053"
+  },
+  {
+    "exercicioCodigo": "flexao_inclinada",
+    "aliasCodigo": "flexao_inclinada_alias_0054"
+  },
+  {
+    "exercicioCodigo": "flexao_inclinada",
+    "aliasCodigo": "flexao_inclinada_alias_0055"
+  },
+  {
+    "exercicioCodigo": "flexao_declinada",
+    "aliasCodigo": "flexao_declinada_alias_0056"
+  },
+  {
+    "exercicioCodigo": "flexao_declinada",
+    "aliasCodigo": "flexao_declinada_alias_0057"
+  },
+  {
+    "exercicioCodigo": "pulover_halter",
+    "aliasCodigo": "pulover_halter_alias_0058"
+  },
+  {
+    "exercicioCodigo": "pulover_halter",
+    "aliasCodigo": "pulover_halter_alias_0059"
+  },
+  {
+    "exercicioCodigo": "pulover_halter",
+    "aliasCodigo": "pulover_halter_alias_0060"
+  },
+  {
+    "exercicioCodigo": "svend_press_anilha",
+    "aliasCodigo": "svend_press_anilha_alias_0061"
+  },
+  {
+    "exercicioCodigo": "svend_press_anilha",
+    "aliasCodigo": "svend_press_anilha_alias_0062"
+  },
+  {
+    "exercicioCodigo": "svend_press_anilha",
+    "aliasCodigo": "svend_press_anilha_alias_0063"
+  },
+  {
+    "exercicioCodigo": "remada_curvada_barra",
+    "aliasCodigo": "remada_curvada_barra_alias_0064"
+  },
+  {
+    "exercicioCodigo": "remada_curvada_barra",
+    "aliasCodigo": "remada_curvada_barra_alias_0065"
+  },
+  {
+    "exercicioCodigo": "remada_curvada_barra",
+    "aliasCodigo": "remada_curvada_barra_alias_0066"
+  },
+  {
+    "exercicioCodigo": "remada_curvada_halteres",
+    "aliasCodigo": "remada_curvada_halteres_alias_0067"
+  },
+  {
+    "exercicioCodigo": "remada_curvada_halteres",
+    "aliasCodigo": "remada_curvada_halteres_alias_0068"
+  },
+  {
+    "exercicioCodigo": "remada_unilateral_halter",
+    "aliasCodigo": "remada_unilateral_halter_alias_0069"
+  },
+  {
+    "exercicioCodigo": "remada_unilateral_halter",
+    "aliasCodigo": "remada_unilateral_halter_alias_0070"
+  },
+  {
+    "exercicioCodigo": "remada_unilateral_halter",
+    "aliasCodigo": "remada_unilateral_halter_alias_0071"
+  },
+  {
+    "exercicioCodigo": "remada_baixa_polia",
+    "aliasCodigo": "remada_baixa_polia_alias_0072"
+  },
+  {
+    "exercicioCodigo": "remada_baixa_polia",
+    "aliasCodigo": "remada_baixa_polia_alias_0073"
+  },
+  {
+    "exercicioCodigo": "remada_baixa_polia",
+    "aliasCodigo": "remada_baixa_polia_alias_0074"
+  },
+  {
+    "exercicioCodigo": "remada_baixa_pegada_neutra",
+    "aliasCodigo": "remada_baixa_pegada_neutra_alias_0075"
+  },
+  {
+    "exercicioCodigo": "remada_baixa_pegada_neutra",
+    "aliasCodigo": "remada_baixa_pegada_neutra_alias_0076"
+  },
+  {
+    "exercicioCodigo": "remada_maquina",
+    "aliasCodigo": "remada_maquina_alias_0077"
+  },
+  {
+    "exercicioCodigo": "remada_maquina",
+    "aliasCodigo": "remada_maquina_alias_0078"
+  },
+  {
+    "exercicioCodigo": "remada_maquina",
+    "aliasCodigo": "remada_maquina_alias_0079"
+  },
+  {
+    "exercicioCodigo": "remada_cavalinho_barra",
+    "aliasCodigo": "remada_cavalinho_barra_alias_0080"
+  },
+  {
+    "exercicioCodigo": "remada_cavalinho_barra",
+    "aliasCodigo": "remada_cavalinho_barra_alias_0081"
+  },
+  {
+    "exercicioCodigo": "remada_cavalinho_barra",
+    "aliasCodigo": "remada_cavalinho_barra_alias_0082"
+  },
+  {
+    "exercicioCodigo": "remada_cavalinho_maquina",
+    "aliasCodigo": "remada_cavalinho_maquina_alias_0083"
+  },
+  {
+    "exercicioCodigo": "remada_cavalinho_maquina",
+    "aliasCodigo": "remada_cavalinho_maquina_alias_0084"
+  },
+  {
+    "exercicioCodigo": "remada_alta_polia",
+    "aliasCodigo": "remada_alta_polia_alias_0085"
+  },
+  {
+    "exercicioCodigo": "remada_alta_polia",
+    "aliasCodigo": "remada_alta_polia_alias_0086"
+  },
+  {
+    "exercicioCodigo": "puxada_frente_aberta",
+    "aliasCodigo": "puxada_frente_aberta_alias_0087"
+  },
+  {
+    "exercicioCodigo": "puxada_frente_aberta",
+    "aliasCodigo": "puxada_frente_aberta_alias_0088"
+  },
+  {
+    "exercicioCodigo": "puxada_frente_aberta",
+    "aliasCodigo": "puxada_frente_aberta_alias_0089"
+  },
+  {
+    "exercicioCodigo": "puxada_frente_fechada",
+    "aliasCodigo": "puxada_frente_fechada_alias_0090"
+  },
+  {
+    "exercicioCodigo": "puxada_frente_fechada",
+    "aliasCodigo": "puxada_frente_fechada_alias_0091"
+  },
+  {
+    "exercicioCodigo": "puxada_frente_neutra",
+    "aliasCodigo": "puxada_frente_neutra_alias_0092"
+  },
+  {
+    "exercicioCodigo": "puxada_frente_neutra",
+    "aliasCodigo": "puxada_frente_neutra_alias_0093"
+  },
+  {
+    "exercicioCodigo": "puxada_supinada",
+    "aliasCodigo": "puxada_supinada_alias_0094"
+  },
+  {
+    "exercicioCodigo": "puxada_supinada",
+    "aliasCodigo": "puxada_supinada_alias_0095"
+  },
+  {
+    "exercicioCodigo": "puxada_unilateral_polia",
+    "aliasCodigo": "puxada_unilateral_polia_alias_0096"
+  },
+  {
+    "exercicioCodigo": "puxada_unilateral_polia",
+    "aliasCodigo": "puxada_unilateral_polia_alias_0097"
+  },
+  {
+    "exercicioCodigo": "barra_fixa_pronada",
+    "aliasCodigo": "barra_fixa_pronada_alias_0098"
+  },
+  {
+    "exercicioCodigo": "barra_fixa_pronada",
+    "aliasCodigo": "barra_fixa_pronada_alias_0099"
+  },
+  {
+    "exercicioCodigo": "barra_fixa_pronada",
+    "aliasCodigo": "barra_fixa_pronada_alias_0100"
+  },
+  {
+    "exercicioCodigo": "barra_fixa_supinada",
+    "aliasCodigo": "barra_fixa_supinada_alias_0101"
+  },
+  {
+    "exercicioCodigo": "barra_fixa_supinada",
+    "aliasCodigo": "barra_fixa_supinada_alias_0102"
+  },
+  {
+    "exercicioCodigo": "barra_fixa_supinada",
+    "aliasCodigo": "barra_fixa_supinada_alias_0103"
+  },
+  {
+    "exercicioCodigo": "barra_fixa_assistida",
+    "aliasCodigo": "barra_fixa_assistida_alias_0104"
+  },
+  {
+    "exercicioCodigo": "barra_fixa_assistida",
+    "aliasCodigo": "barra_fixa_assistida_alias_0105"
+  },
+  {
+    "exercicioCodigo": "barra_fixa_assistida",
+    "aliasCodigo": "barra_fixa_assistida_alias_0106"
+  },
+  {
+    "exercicioCodigo": "pulldown_reto_polia",
+    "aliasCodigo": "pulldown_reto_polia_alias_0107"
+  },
+  {
+    "exercicioCodigo": "pulldown_reto_polia",
+    "aliasCodigo": "pulldown_reto_polia_alias_0108"
+  },
+  {
+    "exercicioCodigo": "pulldown_reto_polia",
+    "aliasCodigo": "pulldown_reto_polia_alias_0109"
+  },
+  {
+    "exercicioCodigo": "pulldown_unilateral_polia",
+    "aliasCodigo": "pulldown_unilateral_polia_alias_0110"
+  },
+  {
+    "exercicioCodigo": "pulldown_unilateral_polia",
+    "aliasCodigo": "pulldown_unilateral_polia_alias_0111"
+  },
+  {
+    "exercicioCodigo": "levantamento_terra_barra",
+    "aliasCodigo": "levantamento_terra_barra_alias_0112"
+  },
+  {
+    "exercicioCodigo": "levantamento_terra_barra",
+    "aliasCodigo": "levantamento_terra_barra_alias_0113"
+  },
+  {
+    "exercicioCodigo": "levantamento_terra_barra",
+    "aliasCodigo": "levantamento_terra_barra_alias_0114"
+  },
+  {
+    "exercicioCodigo": "rack_pull_barra",
+    "aliasCodigo": "rack_pull_barra_alias_0115"
+  },
+  {
+    "exercicioCodigo": "rack_pull_barra",
+    "aliasCodigo": "rack_pull_barra_alias_0116"
+  },
+  {
+    "exercicioCodigo": "encolhimento_escapular_polia",
+    "aliasCodigo": "encolhimento_escapular_polia_alias_0117"
+  },
+  {
+    "exercicioCodigo": "encolhimento_escapular_polia",
+    "aliasCodigo": "encolhimento_escapular_polia_alias_0118"
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_militar_barra",
+    "aliasCodigo": "desenvolvimento_militar_barra_alias_0119"
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_militar_barra",
+    "aliasCodigo": "desenvolvimento_militar_barra_alias_0120"
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_militar_barra",
+    "aliasCodigo": "desenvolvimento_militar_barra_alias_0121"
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_militar_barra",
+    "aliasCodigo": "desenvolvimento_militar_barra_alias_0122"
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_militar_halteres",
+    "aliasCodigo": "desenvolvimento_militar_halteres_alias_0123"
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_militar_halteres",
+    "aliasCodigo": "desenvolvimento_militar_halteres_alias_0124"
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_militar_halteres",
+    "aliasCodigo": "desenvolvimento_militar_halteres_alias_0125"
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_smith",
+    "aliasCodigo": "desenvolvimento_smith_alias_0126"
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_smith",
+    "aliasCodigo": "desenvolvimento_smith_alias_0127"
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_smith",
+    "aliasCodigo": "desenvolvimento_smith_alias_0128"
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_maquina",
+    "aliasCodigo": "desenvolvimento_maquina_alias_0129"
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_maquina",
+    "aliasCodigo": "desenvolvimento_maquina_alias_0130"
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_maquina",
+    "aliasCodigo": "desenvolvimento_maquina_alias_0131"
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_unilateral_halter",
+    "aliasCodigo": "desenvolvimento_unilateral_halter_alias_0132"
+  },
+  {
+    "exercicioCodigo": "desenvolvimento_unilateral_halter",
+    "aliasCodigo": "desenvolvimento_unilateral_halter_alias_0133"
+  },
+  {
+    "exercicioCodigo": "arnold_press",
+    "aliasCodigo": "arnold_press_alias_0134"
+  },
+  {
+    "exercicioCodigo": "arnold_press",
+    "aliasCodigo": "arnold_press_alias_0135"
+  },
+  {
+    "exercicioCodigo": "elevacao_lateral_halteres",
+    "aliasCodigo": "elevacao_lateral_halteres_alias_0136"
+  },
+  {
+    "exercicioCodigo": "elevacao_lateral_halteres",
+    "aliasCodigo": "elevacao_lateral_halteres_alias_0137"
+  },
+  {
+    "exercicioCodigo": "elevacao_lateral_halteres",
+    "aliasCodigo": "elevacao_lateral_halteres_alias_0138"
+  },
+  {
+    "exercicioCodigo": "elevacao_lateral_unilateral_halter",
+    "aliasCodigo": "elevacao_lateral_unilateral_halter_alias_0139"
+  },
+  {
+    "exercicioCodigo": "elevacao_lateral_unilateral_halter",
+    "aliasCodigo": "elevacao_lateral_unilateral_halter_alias_0140"
+  },
+  {
+    "exercicioCodigo": "elevacao_lateral_polia",
+    "aliasCodigo": "elevacao_lateral_polia_alias_0141"
+  },
+  {
+    "exercicioCodigo": "elevacao_lateral_polia",
+    "aliasCodigo": "elevacao_lateral_polia_alias_0142"
+  },
+  {
+    "exercicioCodigo": "elevacao_lateral_maquina",
+    "aliasCodigo": "elevacao_lateral_maquina_alias_0143"
+  },
+  {
+    "exercicioCodigo": "elevacao_lateral_maquina",
+    "aliasCodigo": "elevacao_lateral_maquina_alias_0144"
+  },
+  {
+    "exercicioCodigo": "elevacao_lateral_maquina",
+    "aliasCodigo": "elevacao_lateral_maquina_alias_0145"
+  },
+  {
+    "exercicioCodigo": "elevacao_frontal_barra",
+    "aliasCodigo": "elevacao_frontal_barra_alias_0146"
+  },
+  {
+    "exercicioCodigo": "elevacao_frontal_barra",
+    "aliasCodigo": "elevacao_frontal_barra_alias_0147"
+  },
+  {
+    "exercicioCodigo": "elevacao_frontal_halteres",
+    "aliasCodigo": "elevacao_frontal_halteres_alias_0148"
+  },
+  {
+    "exercicioCodigo": "elevacao_frontal_halteres",
+    "aliasCodigo": "elevacao_frontal_halteres_alias_0149"
+  },
+  {
+    "exercicioCodigo": "elevacao_frontal_polia",
+    "aliasCodigo": "elevacao_frontal_polia_alias_0150"
+  },
+  {
+    "exercicioCodigo": "elevacao_frontal_polia",
+    "aliasCodigo": "elevacao_frontal_polia_alias_0151"
+  },
+  {
+    "exercicioCodigo": "crucifixo_invertido_halteres",
+    "aliasCodigo": "crucifixo_invertido_halteres_alias_0152"
+  },
+  {
+    "exercicioCodigo": "crucifixo_invertido_halteres",
+    "aliasCodigo": "crucifixo_invertido_halteres_alias_0153"
+  },
+  {
+    "exercicioCodigo": "crucifixo_invertido_halteres",
+    "aliasCodigo": "crucifixo_invertido_halteres_alias_0154"
+  },
+  {
+    "exercicioCodigo": "crucifixo_invertido_maquina",
+    "aliasCodigo": "crucifixo_invertido_maquina_alias_0155"
+  },
+  {
+    "exercicioCodigo": "crucifixo_invertido_maquina",
+    "aliasCodigo": "crucifixo_invertido_maquina_alias_0156"
+  },
+  {
+    "exercicioCodigo": "crucifixo_invertido_maquina",
+    "aliasCodigo": "crucifixo_invertido_maquina_alias_0157"
+  },
+  {
+    "exercicioCodigo": "face_pull_polia",
+    "aliasCodigo": "face_pull_polia_alias_0158"
+  },
+  {
+    "exercicioCodigo": "face_pull_polia",
+    "aliasCodigo": "face_pull_polia_alias_0159"
+  },
+  {
+    "exercicioCodigo": "face_pull_polia",
+    "aliasCodigo": "face_pull_polia_alias_0160"
+  },
+  {
+    "exercicioCodigo": "remada_alta_barra",
+    "aliasCodigo": "remada_alta_barra_alias_0161"
+  },
+  {
+    "exercicioCodigo": "remada_alta_barra",
+    "aliasCodigo": "remada_alta_barra_alias_0162"
+  },
+  {
+    "exercicioCodigo": "remada_alta_barra",
+    "aliasCodigo": "remada_alta_barra_alias_0163"
+  },
+  {
+    "exercicioCodigo": "remada_alta_polia_ombros",
+    "aliasCodigo": "remada_alta_polia_ombros_alias_0164"
+  },
+  {
+    "exercicioCodigo": "remada_alta_polia_ombros",
+    "aliasCodigo": "remada_alta_polia_ombros_alias_0165"
+  },
+  {
+    "exercicioCodigo": "cuban_press_halteres",
+    "aliasCodigo": "cuban_press_halteres_alias_0166"
+  },
+  {
+    "exercicioCodigo": "cuban_press_halteres",
+    "aliasCodigo": "cuban_press_halteres_alias_0167"
+  },
+  {
+    "exercicioCodigo": "cuban_press_halteres",
+    "aliasCodigo": "cuban_press_halteres_alias_0168"
+  },
+  {
+    "exercicioCodigo": "y_raise_halteres",
+    "aliasCodigo": "y_raise_halteres_alias_0169"
+  },
+  {
+    "exercicioCodigo": "y_raise_halteres",
+    "aliasCodigo": "y_raise_halteres_alias_0170"
+  },
+  {
+    "exercicioCodigo": "y_raise_halteres",
+    "aliasCodigo": "y_raise_halteres_alias_0171"
+  },
+  {
+    "exercicioCodigo": "y_raise_halteres",
+    "aliasCodigo": "y_raise_halteres_alias_0172"
+  },
+  {
+    "exercicioCodigo": "rosca_direta_barra",
+    "aliasCodigo": "rosca_direta_barra_alias_0173"
+  },
+  {
+    "exercicioCodigo": "rosca_direta_barra",
+    "aliasCodigo": "rosca_direta_barra_alias_0174"
+  },
+  {
+    "exercicioCodigo": "rosca_direta_barra",
+    "aliasCodigo": "rosca_direta_barra_alias_0175"
+  },
+  {
+    "exercicioCodigo": "rosca_direta_barra_w",
+    "aliasCodigo": "rosca_direta_barra_w_alias_0176"
+  },
+  {
+    "exercicioCodigo": "rosca_direta_barra_w",
+    "aliasCodigo": "rosca_direta_barra_w_alias_0177"
+  },
+  {
+    "exercicioCodigo": "rosca_direta_barra_w",
+    "aliasCodigo": "rosca_direta_barra_w_alias_0178"
+  },
+  {
+    "exercicioCodigo": "rosca_direta_halteres",
+    "aliasCodigo": "rosca_direta_halteres_alias_0179"
+  },
+  {
+    "exercicioCodigo": "rosca_direta_halteres",
+    "aliasCodigo": "rosca_direta_halteres_alias_0180"
+  },
+  {
+    "exercicioCodigo": "rosca_direta_halteres",
+    "aliasCodigo": "rosca_direta_halteres_alias_0181"
+  },
+  {
+    "exercicioCodigo": "rosca_alternada_halteres",
+    "aliasCodigo": "rosca_alternada_halteres_alias_0182"
+  },
+  {
+    "exercicioCodigo": "rosca_alternada_halteres",
+    "aliasCodigo": "rosca_alternada_halteres_alias_0183"
+  },
+  {
+    "exercicioCodigo": "rosca_alternada_halteres",
+    "aliasCodigo": "rosca_alternada_halteres_alias_0184"
+  },
+  {
+    "exercicioCodigo": "rosca_alternada_sentada",
+    "aliasCodigo": "rosca_alternada_sentada_alias_0185"
+  },
+  {
+    "exercicioCodigo": "rosca_alternada_sentada",
+    "aliasCodigo": "rosca_alternada_sentada_alias_0186"
+  },
+  {
+    "exercicioCodigo": "rosca_alternada_inclinada",
+    "aliasCodigo": "rosca_alternada_inclinada_alias_0187"
+  },
+  {
+    "exercicioCodigo": "rosca_alternada_inclinada",
+    "aliasCodigo": "rosca_alternada_inclinada_alias_0188"
+  },
+  {
+    "exercicioCodigo": "rosca_alternada_inclinada",
+    "aliasCodigo": "rosca_alternada_inclinada_alias_0189"
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_halteres",
+    "aliasCodigo": "rosca_martelo_halteres_alias_0190"
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_halteres",
+    "aliasCodigo": "rosca_martelo_halteres_alias_0191"
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_halteres",
+    "aliasCodigo": "rosca_martelo_halteres_alias_0192"
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_cruzada",
+    "aliasCodigo": "rosca_martelo_cruzada_alias_0193"
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_cruzada",
+    "aliasCodigo": "rosca_martelo_cruzada_alias_0194"
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_cruzada",
+    "aliasCodigo": "rosca_martelo_cruzada_alias_0195"
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_corda",
+    "aliasCodigo": "rosca_martelo_corda_alias_0196"
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_corda",
+    "aliasCodigo": "rosca_martelo_corda_alias_0197"
+  },
+  {
+    "exercicioCodigo": "rosca_martelo_corda",
+    "aliasCodigo": "rosca_martelo_corda_alias_0198"
+  },
+  {
+    "exercicioCodigo": "rosca_scott_barra_w",
+    "aliasCodigo": "rosca_scott_barra_w_alias_0199"
+  },
+  {
+    "exercicioCodigo": "rosca_scott_barra_w",
+    "aliasCodigo": "rosca_scott_barra_w_alias_0200"
+  },
+  {
+    "exercicioCodigo": "rosca_scott_barra_w",
+    "aliasCodigo": "rosca_scott_barra_w_alias_0201"
+  },
+  {
+    "exercicioCodigo": "rosca_scott_maquina",
+    "aliasCodigo": "rosca_scott_maquina_alias_0202"
+  },
+  {
+    "exercicioCodigo": "rosca_scott_maquina",
+    "aliasCodigo": "rosca_scott_maquina_alias_0203"
+  },
+  {
+    "exercicioCodigo": "rosca_scott_maquina",
+    "aliasCodigo": "rosca_scott_maquina_alias_0204"
+  },
+  {
+    "exercicioCodigo": "rosca_scott_unilateral",
+    "aliasCodigo": "rosca_scott_unilateral_alias_0205"
+  },
+  {
+    "exercicioCodigo": "rosca_scott_unilateral",
+    "aliasCodigo": "rosca_scott_unilateral_alias_0206"
+  },
+  {
+    "exercicioCodigo": "rosca_scott_unilateral",
+    "aliasCodigo": "rosca_scott_unilateral_alias_0207"
+  },
+  {
+    "exercicioCodigo": "rosca_concentrada_halter",
+    "aliasCodigo": "rosca_concentrada_halter_alias_0208"
+  },
+  {
+    "exercicioCodigo": "rosca_concentrada_halter",
+    "aliasCodigo": "rosca_concentrada_halter_alias_0209"
+  },
+  {
+    "exercicioCodigo": "rosca_concentrada_polia",
+    "aliasCodigo": "rosca_concentrada_polia_alias_0210"
+  },
+  {
+    "exercicioCodigo": "rosca_concentrada_polia",
+    "aliasCodigo": "rosca_concentrada_polia_alias_0211"
+  },
+  {
+    "exercicioCodigo": "rosca_baixa_barra_reta",
+    "aliasCodigo": "rosca_baixa_barra_reta_alias_0212"
+  },
+  {
+    "exercicioCodigo": "rosca_baixa_barra_reta",
+    "aliasCodigo": "rosca_baixa_barra_reta_alias_0213"
+  },
+  {
+    "exercicioCodigo": "rosca_baixa_barra_reta",
+    "aliasCodigo": "rosca_baixa_barra_reta_alias_0214"
+  },
+  {
+    "exercicioCodigo": "rosca_baixa_barra_w",
+    "aliasCodigo": "rosca_baixa_barra_w_alias_0215"
+  },
+  {
+    "exercicioCodigo": "rosca_baixa_barra_w",
+    "aliasCodigo": "rosca_baixa_barra_w_alias_0216"
+  },
+  {
+    "exercicioCodigo": "rosca_baixa_barra_w",
+    "aliasCodigo": "rosca_baixa_barra_w_alias_0217"
+  },
+  {
+    "exercicioCodigo": "rosca_baixa_corda",
+    "aliasCodigo": "rosca_baixa_corda_alias_0218"
+  },
+  {
+    "exercicioCodigo": "rosca_baixa_corda",
+    "aliasCodigo": "rosca_baixa_corda_alias_0219"
+  },
+  {
+    "exercicioCodigo": "rosca_baixa_corda",
+    "aliasCodigo": "rosca_baixa_corda_alias_0220"
+  },
+  {
+    "exercicioCodigo": "rosca_inversa_barra",
+    "aliasCodigo": "rosca_inversa_barra_alias_0221"
+  },
+  {
+    "exercicioCodigo": "rosca_inversa_barra",
+    "aliasCodigo": "rosca_inversa_barra_alias_0222"
+  },
+  {
+    "exercicioCodigo": "rosca_inversa_barra",
+    "aliasCodigo": "rosca_inversa_barra_alias_0223"
+  },
+  {
+    "exercicioCodigo": "triceps_corda_polia",
+    "aliasCodigo": "triceps_corda_polia_alias_0224"
+  },
+  {
+    "exercicioCodigo": "triceps_corda_polia",
+    "aliasCodigo": "triceps_corda_polia_alias_0225"
+  },
+  {
+    "exercicioCodigo": "triceps_corda_polia",
+    "aliasCodigo": "triceps_corda_polia_alias_0226"
+  },
+  {
+    "exercicioCodigo": "triceps_barra_reta_polia",
+    "aliasCodigo": "triceps_barra_reta_polia_alias_0227"
+  },
+  {
+    "exercicioCodigo": "triceps_barra_reta_polia",
+    "aliasCodigo": "triceps_barra_reta_polia_alias_0228"
+  },
+  {
+    "exercicioCodigo": "triceps_barra_reta_polia",
+    "aliasCodigo": "triceps_barra_reta_polia_alias_0229"
+  },
+  {
+    "exercicioCodigo": "triceps_barra_v_polia",
+    "aliasCodigo": "triceps_barra_v_polia_alias_0230"
+  },
+  {
+    "exercicioCodigo": "triceps_barra_v_polia",
+    "aliasCodigo": "triceps_barra_v_polia_alias_0231"
+  },
+  {
+    "exercicioCodigo": "triceps_barra_v_polia",
+    "aliasCodigo": "triceps_barra_v_polia_alias_0232"
+  },
+  {
+    "exercicioCodigo": "triceps_unilateral_polia",
+    "aliasCodigo": "triceps_unilateral_polia_alias_0233"
+  },
+  {
+    "exercicioCodigo": "triceps_unilateral_polia",
+    "aliasCodigo": "triceps_unilateral_polia_alias_0234"
+  },
+  {
+    "exercicioCodigo": "triceps_unilateral_polia",
+    "aliasCodigo": "triceps_unilateral_polia_alias_0235"
+  },
+  {
+    "exercicioCodigo": "triceps_pegada_supinada_polia",
+    "aliasCodigo": "triceps_pegada_supinada_polia_alias_0236"
+  },
+  {
+    "exercicioCodigo": "triceps_pegada_supinada_polia",
+    "aliasCodigo": "triceps_pegada_supinada_polia_alias_0237"
+  },
+  {
+    "exercicioCodigo": "triceps_pegada_supinada_polia",
+    "aliasCodigo": "triceps_pegada_supinada_polia_alias_0238"
+  },
+  {
+    "exercicioCodigo": "triceps_frances_halter",
+    "aliasCodigo": "triceps_frances_halter_alias_0239"
+  },
+  {
+    "exercicioCodigo": "triceps_frances_halter",
+    "aliasCodigo": "triceps_frances_halter_alias_0240"
+  },
+  {
+    "exercicioCodigo": "triceps_frances_halter",
+    "aliasCodigo": "triceps_frances_halter_alias_0241"
+  },
+  {
+    "exercicioCodigo": "triceps_frances_unilateral_halter",
+    "aliasCodigo": "triceps_frances_unilateral_halter_alias_0242"
+  },
+  {
+    "exercicioCodigo": "triceps_frances_unilateral_halter",
+    "aliasCodigo": "triceps_frances_unilateral_halter_alias_0243"
+  },
+  {
+    "exercicioCodigo": "triceps_frances_corda_polia",
+    "aliasCodigo": "triceps_frances_corda_polia_alias_0244"
+  },
+  {
+    "exercicioCodigo": "triceps_frances_corda_polia",
+    "aliasCodigo": "triceps_frances_corda_polia_alias_0245"
+  },
+  {
+    "exercicioCodigo": "triceps_frances_corda_polia",
+    "aliasCodigo": "triceps_frances_corda_polia_alias_0246"
+  },
+  {
+    "exercicioCodigo": "triceps_testa_barra_w",
+    "aliasCodigo": "triceps_testa_barra_w_alias_0247"
+  },
+  {
+    "exercicioCodigo": "triceps_testa_barra_w",
+    "aliasCodigo": "triceps_testa_barra_w_alias_0248"
+  },
+  {
+    "exercicioCodigo": "triceps_testa_barra_w",
+    "aliasCodigo": "triceps_testa_barra_w_alias_0249"
+  },
+  {
+    "exercicioCodigo": "triceps_testa_barra_reta",
+    "aliasCodigo": "triceps_testa_barra_reta_alias_0250"
+  },
+  {
+    "exercicioCodigo": "triceps_testa_barra_reta",
+    "aliasCodigo": "triceps_testa_barra_reta_alias_0251"
+  },
+  {
+    "exercicioCodigo": "triceps_testa_halteres",
+    "aliasCodigo": "triceps_testa_halteres_alias_0252"
+  },
+  {
+    "exercicioCodigo": "triceps_testa_halteres",
+    "aliasCodigo": "triceps_testa_halteres_alias_0253"
+  },
+  {
+    "exercicioCodigo": "triceps_testa_polia",
+    "aliasCodigo": "triceps_testa_polia_alias_0254"
+  },
+  {
+    "exercicioCodigo": "triceps_testa_polia",
+    "aliasCodigo": "triceps_testa_polia_alias_0255"
+  },
+  {
+    "exercicioCodigo": "coice_triceps_halter",
+    "aliasCodigo": "coice_triceps_halter_alias_0256"
+  },
+  {
+    "exercicioCodigo": "coice_triceps_halter",
+    "aliasCodigo": "coice_triceps_halter_alias_0257"
+  },
+  {
+    "exercicioCodigo": "coice_triceps_halter",
+    "aliasCodigo": "coice_triceps_halter_alias_0258"
+  },
+  {
+    "exercicioCodigo": "coice_triceps_polia",
+    "aliasCodigo": "coice_triceps_polia_alias_0259"
+  },
+  {
+    "exercicioCodigo": "coice_triceps_polia",
+    "aliasCodigo": "coice_triceps_polia_alias_0260"
+  },
+  {
+    "exercicioCodigo": "coice_triceps_polia",
+    "aliasCodigo": "coice_triceps_polia_alias_0261"
+  },
+  {
+    "exercicioCodigo": "paralelas_peso_corporal",
+    "aliasCodigo": "paralelas_peso_corporal_alias_0262"
+  },
+  {
+    "exercicioCodigo": "paralelas_peso_corporal",
+    "aliasCodigo": "paralelas_peso_corporal_alias_0263"
+  },
+  {
+    "exercicioCodigo": "paralelas_peso_corporal",
+    "aliasCodigo": "paralelas_peso_corporal_alias_0264"
+  },
+  {
+    "exercicioCodigo": "paralelas_peso_corporal",
+    "aliasCodigo": "paralelas_peso_corporal_alias_0265"
+  },
+  {
+    "exercicioCodigo": "paralelas_assistida_maquina",
+    "aliasCodigo": "paralelas_assistida_maquina_alias_0266"
+  },
+  {
+    "exercicioCodigo": "paralelas_assistida_maquina",
+    "aliasCodigo": "paralelas_assistida_maquina_alias_0267"
+  },
+  {
+    "exercicioCodigo": "paralelas_assistida_maquina",
+    "aliasCodigo": "paralelas_assistida_maquina_alias_0268"
+  },
+  {
+    "exercicioCodigo": "mergulho_banco",
+    "aliasCodigo": "mergulho_banco_alias_0269"
+  },
+  {
+    "exercicioCodigo": "mergulho_banco",
+    "aliasCodigo": "mergulho_banco_alias_0270"
+  },
+  {
+    "exercicioCodigo": "mergulho_banco",
+    "aliasCodigo": "mergulho_banco_alias_0271"
+  },
+  {
+    "exercicioCodigo": "supino_fechado_barra",
+    "aliasCodigo": "supino_fechado_barra_alias_0272"
+  },
+  {
+    "exercicioCodigo": "supino_fechado_barra",
+    "aliasCodigo": "supino_fechado_barra_alias_0273"
+  },
+  {
+    "exercicioCodigo": "supino_fechado_barra",
+    "aliasCodigo": "supino_fechado_barra_alias_0274"
+  },
+  {
+    "exercicioCodigo": "agachamento_livre_barra",
+    "aliasCodigo": "agachamento_livre_barra_alias_0001"
+  },
+  {
+    "exercicioCodigo": "agachamento_livre_barra",
+    "aliasCodigo": "agachamento_livre_barra_alias_0002"
+  },
+  {
+    "exercicioCodigo": "agachamento_livre_barra",
+    "aliasCodigo": "agachamento_livre_barra_alias_0003"
+  },
+  {
+    "exercicioCodigo": "agachamento_frontal_barra",
+    "aliasCodigo": "agachamento_frontal_barra_alias_0001"
+  },
+  {
+    "exercicioCodigo": "agachamento_frontal_barra",
+    "aliasCodigo": "agachamento_frontal_barra_alias_0002"
+  },
+  {
+    "exercicioCodigo": "agachamento_frontal_barra",
+    "aliasCodigo": "agachamento_frontal_barra_alias_0003"
+  },
+  {
+    "exercicioCodigo": "agachamento_smith",
+    "aliasCodigo": "agachamento_smith_alias_0001"
+  },
+  {
+    "exercicioCodigo": "agachamento_smith",
+    "aliasCodigo": "agachamento_smith_alias_0002"
+  },
+  {
+    "exercicioCodigo": "agachamento_smith",
+    "aliasCodigo": "agachamento_smith_alias_0003"
+  },
+  {
+    "exercicioCodigo": "agachamento_hack",
+    "aliasCodigo": "agachamento_hack_alias_0001"
+  },
+  {
+    "exercicioCodigo": "agachamento_hack",
+    "aliasCodigo": "agachamento_hack_alias_0002"
+  },
+  {
+    "exercicioCodigo": "agachamento_hack",
+    "aliasCodigo": "agachamento_hack_alias_0003"
+  },
+  {
+    "exercicioCodigo": "leg_press_45",
+    "aliasCodigo": "leg_press_45_alias_0001"
+  },
+  {
+    "exercicioCodigo": "leg_press_45",
+    "aliasCodigo": "leg_press_45_alias_0002"
+  },
+  {
+    "exercicioCodigo": "leg_press_45",
+    "aliasCodigo": "leg_press_45_alias_0003"
+  },
+  {
+    "exercicioCodigo": "leg_press_horizontal",
+    "aliasCodigo": "leg_press_horizontal_alias_0001"
+  },
+  {
+    "exercicioCodigo": "leg_press_horizontal",
+    "aliasCodigo": "leg_press_horizontal_alias_0002"
+  },
+  {
+    "exercicioCodigo": "leg_press_horizontal",
+    "aliasCodigo": "leg_press_horizontal_alias_0003"
+  },
+  {
+    "exercicioCodigo": "cadeira_extensora",
+    "aliasCodigo": "cadeira_extensora_alias_0001"
+  },
+  {
+    "exercicioCodigo": "cadeira_extensora",
+    "aliasCodigo": "cadeira_extensora_alias_0002"
+  },
+  {
+    "exercicioCodigo": "cadeira_extensora",
+    "aliasCodigo": "cadeira_extensora_alias_0003"
+  },
+  {
+    "exercicioCodigo": "agachamento_bulgaro_halteres",
+    "aliasCodigo": "agachamento_bulgaro_halteres_alias_0001"
+  },
+  {
+    "exercicioCodigo": "agachamento_bulgaro_halteres",
+    "aliasCodigo": "agachamento_bulgaro_halteres_alias_0002"
+  },
+  {
+    "exercicioCodigo": "agachamento_bulgaro_halteres",
+    "aliasCodigo": "agachamento_bulgaro_halteres_alias_0003"
+  },
+  {
+    "exercicioCodigo": "afundo_halteres",
+    "aliasCodigo": "afundo_halteres_alias_0001"
+  },
+  {
+    "exercicioCodigo": "afundo_halteres",
+    "aliasCodigo": "afundo_halteres_alias_0002"
+  },
+  {
+    "exercicioCodigo": "afundo_halteres",
+    "aliasCodigo": "afundo_halteres_alias_0003"
+  },
+  {
+    "exercicioCodigo": "passada_halteres",
+    "aliasCodigo": "passada_halteres_alias_0001"
+  },
+  {
+    "exercicioCodigo": "passada_halteres",
+    "aliasCodigo": "passada_halteres_alias_0002"
+  },
+  {
+    "exercicioCodigo": "passada_halteres",
+    "aliasCodigo": "passada_halteres_alias_0003"
+  },
+  {
+    "exercicioCodigo": "step_up_halteres",
+    "aliasCodigo": "step_up_halteres_alias_0001"
+  },
+  {
+    "exercicioCodigo": "step_up_halteres",
+    "aliasCodigo": "step_up_halteres_alias_0002"
+  },
+  {
+    "exercicioCodigo": "step_up_halteres",
+    "aliasCodigo": "step_up_halteres_alias_0003"
+  },
+  {
+    "exercicioCodigo": "sissy_squat_peso_corporal",
+    "aliasCodigo": "sissy_squat_peso_corporal_alias_0001"
+  },
+  {
+    "exercicioCodigo": "sissy_squat_peso_corporal",
+    "aliasCodigo": "sissy_squat_peso_corporal_alias_0002"
+  },
+  {
+    "exercicioCodigo": "sissy_squat_peso_corporal",
+    "aliasCodigo": "sissy_squat_peso_corporal_alias_0003"
+  },
+  {
+    "exercicioCodigo": "agachamento_goblet_halter",
+    "aliasCodigo": "agachamento_goblet_halter_alias_0001"
+  },
+  {
+    "exercicioCodigo": "agachamento_goblet_halter",
+    "aliasCodigo": "agachamento_goblet_halter_alias_0002"
+  },
+  {
+    "exercicioCodigo": "agachamento_goblet_halter",
+    "aliasCodigo": "agachamento_goblet_halter_alias_0003"
+  },
+  {
+    "exercicioCodigo": "agachamento_caixa_barra",
+    "aliasCodigo": "agachamento_caixa_barra_alias_0001"
+  },
+  {
+    "exercicioCodigo": "agachamento_caixa_barra",
+    "aliasCodigo": "agachamento_caixa_barra_alias_0002"
+  },
+  {
+    "exercicioCodigo": "agachamento_caixa_barra",
+    "aliasCodigo": "agachamento_caixa_barra_alias_0003"
+  },
+  {
+    "exercicioCodigo": "stiff_barra",
+    "aliasCodigo": "stiff_barra_alias_0001"
+  },
+  {
+    "exercicioCodigo": "stiff_barra",
+    "aliasCodigo": "stiff_barra_alias_0002"
+  },
+  {
+    "exercicioCodigo": "stiff_barra",
+    "aliasCodigo": "stiff_barra_alias_0003"
+  },
+  {
+    "exercicioCodigo": "stiff_halteres",
+    "aliasCodigo": "stiff_halteres_alias_0001"
+  },
+  {
+    "exercicioCodigo": "stiff_halteres",
+    "aliasCodigo": "stiff_halteres_alias_0002"
+  },
+  {
+    "exercicioCodigo": "stiff_halteres",
+    "aliasCodigo": "stiff_halteres_alias_0003"
+  },
+  {
+    "exercicioCodigo": "terra_romeno_barra",
+    "aliasCodigo": "terra_romeno_barra_alias_0001"
+  },
+  {
+    "exercicioCodigo": "terra_romeno_barra",
+    "aliasCodigo": "terra_romeno_barra_alias_0002"
+  },
+  {
+    "exercicioCodigo": "terra_romeno_barra",
+    "aliasCodigo": "terra_romeno_barra_alias_0003"
+  },
+  {
+    "exercicioCodigo": "terra_romeno_halteres",
+    "aliasCodigo": "terra_romeno_halteres_alias_0001"
+  },
+  {
+    "exercicioCodigo": "terra_romeno_halteres",
+    "aliasCodigo": "terra_romeno_halteres_alias_0002"
+  },
+  {
+    "exercicioCodigo": "terra_romeno_halteres",
+    "aliasCodigo": "terra_romeno_halteres_alias_0003"
+  },
+  {
+    "exercicioCodigo": "mesa_flexora",
+    "aliasCodigo": "mesa_flexora_alias_0001"
+  },
+  {
+    "exercicioCodigo": "mesa_flexora",
+    "aliasCodigo": "mesa_flexora_alias_0002"
+  },
+  {
+    "exercicioCodigo": "mesa_flexora",
+    "aliasCodigo": "mesa_flexora_alias_0003"
+  },
+  {
+    "exercicioCodigo": "cadeira_flexora",
+    "aliasCodigo": "cadeira_flexora_alias_0001"
+  },
+  {
+    "exercicioCodigo": "cadeira_flexora",
+    "aliasCodigo": "cadeira_flexora_alias_0002"
+  },
+  {
+    "exercicioCodigo": "cadeira_flexora",
+    "aliasCodigo": "cadeira_flexora_alias_0003"
+  },
+  {
+    "exercicioCodigo": "flexora_em_pe_maquina",
+    "aliasCodigo": "flexora_em_pe_maquina_alias_0001"
+  },
+  {
+    "exercicioCodigo": "flexora_em_pe_maquina",
+    "aliasCodigo": "flexora_em_pe_maquina_alias_0002"
+  },
+  {
+    "exercicioCodigo": "flexora_em_pe_maquina",
+    "aliasCodigo": "flexora_em_pe_maquina_alias_0003"
+  },
+  {
+    "exercicioCodigo": "flexora_unilateral_polia",
+    "aliasCodigo": "flexora_unilateral_polia_alias_0001"
+  },
+  {
+    "exercicioCodigo": "flexora_unilateral_polia",
+    "aliasCodigo": "flexora_unilateral_polia_alias_0002"
+  },
+  {
+    "exercicioCodigo": "flexora_unilateral_polia",
+    "aliasCodigo": "flexora_unilateral_polia_alias_0003"
+  },
+  {
+    "exercicioCodigo": "good_morning_barra",
+    "aliasCodigo": "good_morning_barra_alias_0001"
+  },
+  {
+    "exercicioCodigo": "good_morning_barra",
+    "aliasCodigo": "good_morning_barra_alias_0002"
+  },
+  {
+    "exercicioCodigo": "good_morning_barra",
+    "aliasCodigo": "good_morning_barra_alias_0003"
+  },
+  {
+    "exercicioCodigo": "nordic_curl",
+    "aliasCodigo": "nordic_curl_alias_0001"
+  },
+  {
+    "exercicioCodigo": "nordic_curl",
+    "aliasCodigo": "nordic_curl_alias_0002"
+  },
+  {
+    "exercicioCodigo": "nordic_curl",
+    "aliasCodigo": "nordic_curl_alias_0003"
+  },
+  {
+    "exercicioCodigo": "elevacao_pelvica_barra",
+    "aliasCodigo": "elevacao_pelvica_barra_alias_0001"
+  },
+  {
+    "exercicioCodigo": "elevacao_pelvica_barra",
+    "aliasCodigo": "elevacao_pelvica_barra_alias_0002"
+  },
+  {
+    "exercicioCodigo": "elevacao_pelvica_barra",
+    "aliasCodigo": "elevacao_pelvica_barra_alias_0003"
+  },
+  {
+    "exercicioCodigo": "elevacao_pelvica_maquina",
+    "aliasCodigo": "elevacao_pelvica_maquina_alias_0001"
+  },
+  {
+    "exercicioCodigo": "elevacao_pelvica_maquina",
+    "aliasCodigo": "elevacao_pelvica_maquina_alias_0002"
+  },
+  {
+    "exercicioCodigo": "elevacao_pelvica_maquina",
+    "aliasCodigo": "elevacao_pelvica_maquina_alias_0003"
+  },
+  {
+    "exercicioCodigo": "ponte_gluteo_peso_corporal",
+    "aliasCodigo": "ponte_gluteo_peso_corporal_alias_0001"
+  },
+  {
+    "exercicioCodigo": "ponte_gluteo_peso_corporal",
+    "aliasCodigo": "ponte_gluteo_peso_corporal_alias_0002"
+  },
+  {
+    "exercicioCodigo": "ponte_gluteo_peso_corporal",
+    "aliasCodigo": "ponte_gluteo_peso_corporal_alias_0003"
+  },
+  {
+    "exercicioCodigo": "gluteo_quatro_apoios_peso_corporal",
+    "aliasCodigo": "gluteo_quatro_apoios_peso_corporal_alias_0001"
+  },
+  {
+    "exercicioCodigo": "gluteo_quatro_apoios_peso_corporal",
+    "aliasCodigo": "gluteo_quatro_apoios_peso_corporal_alias_0002"
+  },
+  {
+    "exercicioCodigo": "gluteo_quatro_apoios_peso_corporal",
+    "aliasCodigo": "gluteo_quatro_apoios_peso_corporal_alias_0003"
+  },
+  {
+    "exercicioCodigo": "coice_gluteo_polia",
+    "aliasCodigo": "coice_gluteo_polia_alias_0001"
+  },
+  {
+    "exercicioCodigo": "coice_gluteo_polia",
+    "aliasCodigo": "coice_gluteo_polia_alias_0002"
+  },
+  {
+    "exercicioCodigo": "coice_gluteo_polia",
+    "aliasCodigo": "coice_gluteo_polia_alias_0003"
+  },
+  {
+    "exercicioCodigo": "coice_gluteo_maquina",
+    "aliasCodigo": "coice_gluteo_maquina_alias_0001"
+  },
+  {
+    "exercicioCodigo": "coice_gluteo_maquina",
+    "aliasCodigo": "coice_gluteo_maquina_alias_0002"
+  },
+  {
+    "exercicioCodigo": "coice_gluteo_maquina",
+    "aliasCodigo": "coice_gluteo_maquina_alias_0003"
+  },
+  {
+    "exercicioCodigo": "frog_pump",
+    "aliasCodigo": "frog_pump_alias_0001"
+  },
+  {
+    "exercicioCodigo": "frog_pump",
+    "aliasCodigo": "frog_pump_alias_0002"
+  },
+  {
+    "exercicioCodigo": "frog_pump",
+    "aliasCodigo": "frog_pump_alias_0003"
+  },
+  {
+    "exercicioCodigo": "pull_through_polia",
+    "aliasCodigo": "pull_through_polia_alias_0001"
+  },
+  {
+    "exercicioCodigo": "pull_through_polia",
+    "aliasCodigo": "pull_through_polia_alias_0002"
+  },
+  {
+    "exercicioCodigo": "pull_through_polia",
+    "aliasCodigo": "pull_through_polia_alias_0003"
+  },
+  {
+    "exercicioCodigo": "panturrilha_em_pe_maquina",
+    "aliasCodigo": "panturrilha_em_pe_maquina_alias_0001"
+  },
+  {
+    "exercicioCodigo": "panturrilha_em_pe_maquina",
+    "aliasCodigo": "panturrilha_em_pe_maquina_alias_0002"
+  },
+  {
+    "exercicioCodigo": "panturrilha_em_pe_maquina",
+    "aliasCodigo": "panturrilha_em_pe_maquina_alias_0003"
+  },
+  {
+    "exercicioCodigo": "panturrilha_sentado_maquina",
+    "aliasCodigo": "panturrilha_sentado_maquina_alias_0001"
+  },
+  {
+    "exercicioCodigo": "panturrilha_sentado_maquina",
+    "aliasCodigo": "panturrilha_sentado_maquina_alias_0002"
+  },
+  {
+    "exercicioCodigo": "panturrilha_sentado_maquina",
+    "aliasCodigo": "panturrilha_sentado_maquina_alias_0003"
+  },
+  {
+    "exercicioCodigo": "panturrilha_leg_press",
+    "aliasCodigo": "panturrilha_leg_press_alias_0001"
+  },
+  {
+    "exercicioCodigo": "panturrilha_leg_press",
+    "aliasCodigo": "panturrilha_leg_press_alias_0002"
+  },
+  {
+    "exercicioCodigo": "panturrilha_leg_press",
+    "aliasCodigo": "panturrilha_leg_press_alias_0003"
+  },
+  {
+    "exercicioCodigo": "panturrilha_smith",
+    "aliasCodigo": "panturrilha_smith_alias_0001"
+  },
+  {
+    "exercicioCodigo": "panturrilha_smith",
+    "aliasCodigo": "panturrilha_smith_alias_0002"
+  },
+  {
+    "exercicioCodigo": "panturrilha_smith",
+    "aliasCodigo": "panturrilha_smith_alias_0003"
+  },
+  {
+    "exercicioCodigo": "panturrilha_unilateral_halter",
+    "aliasCodigo": "panturrilha_unilateral_halter_alias_0001"
+  },
+  {
+    "exercicioCodigo": "panturrilha_unilateral_halter",
+    "aliasCodigo": "panturrilha_unilateral_halter_alias_0002"
+  },
+  {
+    "exercicioCodigo": "panturrilha_unilateral_halter",
+    "aliasCodigo": "panturrilha_unilateral_halter_alias_0003"
+  },
+  {
+    "exercicioCodigo": "panturrilha_peso_corporal",
+    "aliasCodigo": "panturrilha_peso_corporal_alias_0001"
+  },
+  {
+    "exercicioCodigo": "panturrilha_peso_corporal",
+    "aliasCodigo": "panturrilha_peso_corporal_alias_0002"
+  },
+  {
+    "exercicioCodigo": "panturrilha_peso_corporal",
+    "aliasCodigo": "panturrilha_peso_corporal_alias_0003"
+  },
+  {
+    "exercicioCodigo": "donkey_calf_raise",
+    "aliasCodigo": "donkey_calf_raise_alias_0001"
+  },
+  {
+    "exercicioCodigo": "donkey_calf_raise",
+    "aliasCodigo": "donkey_calf_raise_alias_0002"
+  },
+  {
+    "exercicioCodigo": "donkey_calf_raise",
+    "aliasCodigo": "donkey_calf_raise_alias_0003"
+  },
+  {
+    "exercicioCodigo": "cadeira_adutora",
+    "aliasCodigo": "cadeira_adutora_alias_0001"
+  },
+  {
+    "exercicioCodigo": "cadeira_adutora",
+    "aliasCodigo": "cadeira_adutora_alias_0002"
+  },
+  {
+    "exercicioCodigo": "cadeira_adutora",
+    "aliasCodigo": "cadeira_adutora_alias_0003"
+  },
+  {
+    "exercicioCodigo": "aducao_quadril_polia",
+    "aliasCodigo": "aducao_quadril_polia_alias_0001"
+  },
+  {
+    "exercicioCodigo": "aducao_quadril_polia",
+    "aliasCodigo": "aducao_quadril_polia_alias_0002"
+  },
+  {
+    "exercicioCodigo": "aducao_quadril_polia",
+    "aliasCodigo": "aducao_quadril_polia_alias_0003"
+  },
+  {
+    "exercicioCodigo": "agachamento_sumo_halter",
+    "aliasCodigo": "agachamento_sumo_halter_alias_0001"
+  },
+  {
+    "exercicioCodigo": "agachamento_sumo_halter",
+    "aliasCodigo": "agachamento_sumo_halter_alias_0002"
+  },
+  {
+    "exercicioCodigo": "agachamento_sumo_halter",
+    "aliasCodigo": "agachamento_sumo_halter_alias_0003"
+  },
+  {
+    "exercicioCodigo": "terra_sumo_barra",
+    "aliasCodigo": "terra_sumo_barra_alias_0001"
+  },
+  {
+    "exercicioCodigo": "terra_sumo_barra",
+    "aliasCodigo": "terra_sumo_barra_alias_0002"
+  },
+  {
+    "exercicioCodigo": "terra_sumo_barra",
+    "aliasCodigo": "terra_sumo_barra_alias_0003"
+  },
+  {
+    "exercicioCodigo": "cadeira_abdutora",
+    "aliasCodigo": "cadeira_abdutora_alias_0001"
+  },
+  {
+    "exercicioCodigo": "cadeira_abdutora",
+    "aliasCodigo": "cadeira_abdutora_alias_0002"
+  },
+  {
+    "exercicioCodigo": "cadeira_abdutora",
+    "aliasCodigo": "cadeira_abdutora_alias_0003"
+  },
+  {
+    "exercicioCodigo": "abducao_quadril_polia",
+    "aliasCodigo": "abducao_quadril_polia_alias_0001"
+  },
+  {
+    "exercicioCodigo": "abducao_quadril_polia",
+    "aliasCodigo": "abducao_quadril_polia_alias_0002"
+  },
+  {
+    "exercicioCodigo": "abducao_quadril_polia",
+    "aliasCodigo": "abducao_quadril_polia_alias_0003"
+  },
+  {
+    "exercicioCodigo": "abducao_lateral_elastico",
+    "aliasCodigo": "abducao_lateral_elastico_alias_0001"
+  },
+  {
+    "exercicioCodigo": "abducao_lateral_elastico",
+    "aliasCodigo": "abducao_lateral_elastico_alias_0002"
+  },
+  {
+    "exercicioCodigo": "abducao_lateral_elastico",
+    "aliasCodigo": "abducao_lateral_elastico_alias_0003"
+  },
+  {
+    "exercicioCodigo": "caminhada_lateral_elastico",
+    "aliasCodigo": "caminhada_lateral_elastico_alias_0001"
+  },
+  {
+    "exercicioCodigo": "caminhada_lateral_elastico",
+    "aliasCodigo": "caminhada_lateral_elastico_alias_0002"
+  },
+  {
+    "exercicioCodigo": "caminhada_lateral_elastico",
+    "aliasCodigo": "caminhada_lateral_elastico_alias_0003"
+  },
+  {
+    "exercicioCodigo": "farmers_walk_halteres",
+    "aliasCodigo": "farmers_walk_halteres_alias_0001"
+  },
+  {
+    "exercicioCodigo": "farmers_walk_halteres",
+    "aliasCodigo": "farmers_walk_halteres_alias_0002"
+  },
+  {
+    "exercicioCodigo": "farmers_walk_halteres",
+    "aliasCodigo": "farmers_walk_halteres_alias_0003"
+  },
+  {
+    "exercicioCodigo": "thruster_halteres",
+    "aliasCodigo": "thruster_halteres_alias_0001"
+  },
+  {
+    "exercicioCodigo": "thruster_halteres",
+    "aliasCodigo": "thruster_halteres_alias_0002"
+  },
+  {
+    "exercicioCodigo": "thruster_halteres",
+    "aliasCodigo": "thruster_halteres_alias_0003"
+  },
+  {
+    "exercicioCodigo": "thruster_barra",
+    "aliasCodigo": "thruster_barra_alias_0001"
+  },
+  {
+    "exercicioCodigo": "thruster_barra",
+    "aliasCodigo": "thruster_barra_alias_0002"
+  },
+  {
+    "exercicioCodigo": "thruster_barra",
+    "aliasCodigo": "thruster_barra_alias_0003"
+  },
+  {
+    "exercicioCodigo": "hiperextensao_lombar_banco_romano",
+    "aliasCodigo": "hiperextensao_lombar_banco_romano_alias_0001"
+  },
+  {
+    "exercicioCodigo": "hiperextensao_lombar_banco_romano",
+    "aliasCodigo": "hiperextensao_lombar_banco_romano_alias_0002"
+  },
+  {
+    "exercicioCodigo": "hiperextensao_lombar_banco_romano",
+    "aliasCodigo": "hiperextensao_lombar_banco_romano_alias_0003"
+  },
+  {
+    "exercicioCodigo": "extensao_lombar_maquina",
+    "aliasCodigo": "extensao_lombar_maquina_alias_0001"
+  },
+  {
+    "exercicioCodigo": "extensao_lombar_maquina",
+    "aliasCodigo": "extensao_lombar_maquina_alias_0002"
+  },
+  {
+    "exercicioCodigo": "extensao_lombar_maquina",
+    "aliasCodigo": "extensao_lombar_maquina_alias_0003"
+  },
+  {
+    "exercicioCodigo": "superman_peso_corporal",
+    "aliasCodigo": "superman_peso_corporal_alias_0001"
+  },
+  {
+    "exercicioCodigo": "superman_peso_corporal",
+    "aliasCodigo": "superman_peso_corporal_alias_0002"
+  },
+  {
+    "exercicioCodigo": "superman_peso_corporal",
+    "aliasCodigo": "superman_peso_corporal_alias_0003"
+  },
+  {
+    "exercicioCodigo": "bird_dog_peso_corporal",
+    "aliasCodigo": "bird_dog_peso_corporal_alias_0001"
+  },
+  {
+    "exercicioCodigo": "bird_dog_peso_corporal",
+    "aliasCodigo": "bird_dog_peso_corporal_alias_0002"
+  },
+  {
+    "exercicioCodigo": "bird_dog_peso_corporal",
+    "aliasCodigo": "bird_dog_peso_corporal_alias_0003"
+  },
+  {
+    "exercicioCodigo": "reverse_hyper_maquina",
+    "aliasCodigo": "reverse_hyper_maquina_alias_0001"
+  },
+  {
+    "exercicioCodigo": "reverse_hyper_maquina",
+    "aliasCodigo": "reverse_hyper_maquina_alias_0002"
+  },
+  {
+    "exercicioCodigo": "reverse_hyper_maquina",
+    "aliasCodigo": "reverse_hyper_maquina_alias_0003"
+  },
+  {
+    "exercicioCodigo": "encolhimento_barra",
+    "aliasCodigo": "encolhimento_barra_alias_0001"
+  },
+  {
+    "exercicioCodigo": "encolhimento_barra",
+    "aliasCodigo": "encolhimento_barra_alias_0002"
+  },
+  {
+    "exercicioCodigo": "encolhimento_barra",
+    "aliasCodigo": "encolhimento_barra_alias_0003"
+  },
+  {
+    "exercicioCodigo": "encolhimento_halteres",
+    "aliasCodigo": "encolhimento_halteres_alias_0001"
+  },
+  {
+    "exercicioCodigo": "encolhimento_halteres",
+    "aliasCodigo": "encolhimento_halteres_alias_0002"
+  },
+  {
+    "exercicioCodigo": "encolhimento_halteres",
+    "aliasCodigo": "encolhimento_halteres_alias_0003"
+  },
+  {
+    "exercicioCodigo": "encolhimento_smith",
+    "aliasCodigo": "encolhimento_smith_alias_0001"
+  },
+  {
+    "exercicioCodigo": "encolhimento_smith",
+    "aliasCodigo": "encolhimento_smith_alias_0002"
+  },
+  {
+    "exercicioCodigo": "encolhimento_smith",
+    "aliasCodigo": "encolhimento_smith_alias_0003"
+  },
+  {
+    "exercicioCodigo": "rosca_punho_barra",
+    "aliasCodigo": "rosca_punho_barra_alias_0001"
+  },
+  {
+    "exercicioCodigo": "rosca_punho_barra",
+    "aliasCodigo": "rosca_punho_barra_alias_0002"
+  },
+  {
+    "exercicioCodigo": "rosca_punho_barra",
+    "aliasCodigo": "rosca_punho_barra_alias_0003"
+  },
+  {
+    "exercicioCodigo": "rosca_punho_halteres",
+    "aliasCodigo": "rosca_punho_halteres_alias_0001"
+  },
+  {
+    "exercicioCodigo": "rosca_punho_halteres",
+    "aliasCodigo": "rosca_punho_halteres_alias_0002"
+  },
+  {
+    "exercicioCodigo": "rosca_punho_halteres",
+    "aliasCodigo": "rosca_punho_halteres_alias_0003"
+  },
+  {
+    "exercicioCodigo": "rosca_punho_inversa_barra",
+    "aliasCodigo": "rosca_punho_inversa_barra_alias_0001"
+  },
+  {
+    "exercicioCodigo": "rosca_punho_inversa_barra",
+    "aliasCodigo": "rosca_punho_inversa_barra_alias_0002"
+  },
+  {
+    "exercicioCodigo": "rosca_punho_inversa_barra",
+    "aliasCodigo": "rosca_punho_inversa_barra_alias_0003"
+  },
+  {
+    "exercicioCodigo": "wrist_roller",
+    "aliasCodigo": "wrist_roller_alias_0001"
+  },
+  {
+    "exercicioCodigo": "wrist_roller",
+    "aliasCodigo": "wrist_roller_alias_0002"
+  },
+  {
+    "exercicioCodigo": "wrist_roller",
+    "aliasCodigo": "wrist_roller_alias_0003"
+  },
+  {
+    "exercicioCodigo": "dead_hang_barra_fixa",
+    "aliasCodigo": "dead_hang_barra_fixa_alias_0001"
+  },
+  {
+    "exercicioCodigo": "dead_hang_barra_fixa",
+    "aliasCodigo": "dead_hang_barra_fixa_alias_0002"
+  },
+  {
+    "exercicioCodigo": "dead_hang_barra_fixa",
+    "aliasCodigo": "dead_hang_barra_fixa_alias_0003"
+  },
+  {
+    "exercicioCodigo": "pegada_estatica_halteres",
+    "aliasCodigo": "pegada_estatica_halteres_alias_0001"
+  },
+  {
+    "exercicioCodigo": "pegada_estatica_halteres",
+    "aliasCodigo": "pegada_estatica_halteres_alias_0002"
+  },
+  {
+    "exercicioCodigo": "pegada_estatica_halteres",
+    "aliasCodigo": "pegada_estatica_halteres_alias_0003"
+  },
+  {
+    "exercicioCodigo": "flexao_cervical_peso_corporal",
+    "aliasCodigo": "flexao_cervical_peso_corporal_alias_0001"
+  },
+  {
+    "exercicioCodigo": "flexao_cervical_peso_corporal",
+    "aliasCodigo": "flexao_cervical_peso_corporal_alias_0002"
+  },
+  {
+    "exercicioCodigo": "flexao_cervical_peso_corporal",
+    "aliasCodigo": "flexao_cervical_peso_corporal_alias_0003"
+  },
+  {
+    "exercicioCodigo": "extensao_cervical_peso_corporal",
+    "aliasCodigo": "extensao_cervical_peso_corporal_alias_0001"
+  },
+  {
+    "exercicioCodigo": "extensao_cervical_peso_corporal",
+    "aliasCodigo": "extensao_cervical_peso_corporal_alias_0002"
+  },
+  {
+    "exercicioCodigo": "extensao_cervical_peso_corporal",
+    "aliasCodigo": "extensao_cervical_peso_corporal_alias_0003"
+  },
+  {
+    "exercicioCodigo": "flexao_lateral_cervical",
+    "aliasCodigo": "flexao_lateral_cervical_alias_0001"
+  },
+  {
+    "exercicioCodigo": "flexao_lateral_cervical",
+    "aliasCodigo": "flexao_lateral_cervical_alias_0002"
+  },
+  {
+    "exercicioCodigo": "flexao_lateral_cervical",
+    "aliasCodigo": "flexao_lateral_cervical_alias_0003"
+  }
+]

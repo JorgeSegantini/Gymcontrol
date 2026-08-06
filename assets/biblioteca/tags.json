@@ -1,0 +1,74 @@
+[
+  {
+    "codigo": "composto",
+    "nome": "Composto",
+    "ordem": 1,
+    "ativo": true
+  },
+  {
+    "codigo": "isolado",
+    "nome": "Isolado",
+    "ordem": 2,
+    "ativo": true
+  },
+  {
+    "codigo": "bilateral",
+    "nome": "Bilateral",
+    "ordem": 3,
+    "ativo": true
+  },
+  {
+    "codigo": "unilateral",
+    "nome": "Unilateral",
+    "ordem": 4,
+    "ativo": true
+  },
+  {
+    "codigo": "peso_corporal",
+    "nome": "Peso corporal",
+    "ordem": 5,
+    "ativo": true
+  },
+  {
+    "codigo": "barra",
+    "nome": "Barra",
+    "ordem": 6,
+    "ativo": true
+  },
+  {
+    "codigo": "halteres",
+    "nome": "Halteres",
+    "ordem": 7,
+    "ativo": true
+  },
+  {
+    "codigo": "maquina",
+    "nome": "Máquina",
+    "ordem": 8,
+    "ativo": true
+  },
+  {
+    "codigo": "cabo",
+    "nome": "Cabo",
+    "ordem": 9,
+    "ativo": true
+  },
+  {
+    "codigo": "estabilidade",
+    "nome": "Estabilidade",
+    "ordem": 10,
+    "ativo": true
+  },
+  {
+    "codigo": "pegada",
+    "nome": "Pegada",
+    "ordem": 11,
+    "ativo": true
+  },
+  {
+    "codigo": "mobilidade",
+    "nome": "Mobilidade",
+    "ordem": 12,
+    "ativo": true
+  }
+]
