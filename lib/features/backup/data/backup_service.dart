@@ -50,15 +50,7 @@ class BackupService {
   }
 
   Future<BackupSelecionado?> selecionarEValidarBackup() async {
-    const grupoTipos = XTypeGroup(
-      label: 'Backup do GymControl',
-      extensions: ['gym'],
-      mimeTypes: ['application/zip', 'application/octet-stream'],
-    );
-
-    final arquivoSelecionado = await openFile(
-      acceptedTypeGroups: const [grupoTipos],
-    );
+    final arquivoSelecionado = await openFile();
 
     if (arquivoSelecionado == null) {
       return null;
@@ -411,10 +403,146 @@ class BackupService {
     }
   }
 
-  Never restaurarBackup() {
-    throw const BackupAindaNaoImplementadoException(
-      'A restauração será adicionada na Etapa 15.2.',
+  Future<void> restaurarBackup(BackupSelecionado backup) async {
+    final validado = await validarArquivoBackup(backup.arquivo);
+    final documentos = await getApplicationDocumentsDirectory();
+    final bancoAtual = File(path.join(documentos.path, 'gym_control.sqlite'));
+    final bancoTemporario = File(
+      path.join(documentos.path, 'gym_control.restore.sqlite'),
     );
+    final bancoSeguranca = File(
+      path.join(documentos.path, 'gym_control.before_restore.sqlite'),
+    );
+
+    if (!await bancoAtual.exists()) {
+      throw const BackupRestauracaoException(
+        'O banco atual do GymControl não foi encontrado.',
+      );
+    }
+
+    try {
+      await _apagarSeExistir(bancoTemporario);
+      await _apagarSeExistir(bancoSeguranca);
+
+      final pacote = ZipDecoder().decodeBytes(
+        await validado.arquivo.readAsBytes(),
+      );
+      final bancoArquivo = pacote.files.cast<ArchiveFile?>().firstWhere(
+        (item) => item?.name == 'database.sqlite',
+        orElse: () => null,
+      );
+      final bancoBytes = bancoArquivo?.readBytes();
+
+      if (bancoBytes == null || bancoBytes.isEmpty) {
+        throw const BackupRestauracaoException(
+          'O backup não contém dados válidos para restauração.',
+        );
+      }
+
+      if (!_possuiAssinaturaSqlite(bancoBytes)) {
+        throw const BackupRestauracaoException(
+          'O banco contido no backup não possui um formato SQLite válido.',
+        );
+      }
+
+      await bancoTemporario.writeAsBytes(bancoBytes, flush: true);
+
+      if (!await bancoTemporario.exists() ||
+          await bancoTemporario.length() <= 0) {
+        throw const BackupRestauracaoException(
+          'Não foi possível preparar o banco restaurado.',
+        );
+      }
+
+      await _database.customStatement('PRAGMA wal_checkpoint(FULL)');
+    } on BackupRestauracaoException {
+      await _apagarSeExistir(bancoTemporario);
+      rethrow;
+    } catch (erro) {
+      await _apagarSeExistir(bancoTemporario);
+      throw BackupRestauracaoException(
+        'Não foi possível preparar a restauração: $erro',
+      );
+    }
+
+    await _database.close();
+
+    try {
+      await _apagarArquivosAuxiliaresBanco(bancoAtual.path);
+      await bancoAtual.rename(bancoSeguranca.path);
+
+      try {
+        await bancoTemporario.rename(bancoAtual.path);
+      } catch (erro) {
+        if (await bancoAtual.exists()) {
+          await bancoAtual.delete();
+        }
+
+        if (await bancoSeguranca.exists()) {
+          await bancoSeguranca.rename(bancoAtual.path);
+        }
+
+        throw BackupRestauracaoException(
+          'Não foi possível substituir o banco atual: $erro',
+          exigeReinicio: true,
+        );
+      }
+
+      await _apagarSeExistir(bancoSeguranca);
+      await _apagarArquivosAuxiliaresBanco(bancoAtual.path);
+    } on BackupRestauracaoException {
+      await _apagarSeExistir(bancoTemporario);
+      rethrow;
+    } catch (erro) {
+      if (!await bancoAtual.exists() && await bancoSeguranca.exists()) {
+        await bancoSeguranca.rename(bancoAtual.path);
+      }
+
+      await _apagarSeExistir(bancoTemporario);
+      throw BackupRestauracaoException(
+        'A restauração não pôde ser concluída: $erro',
+        exigeReinicio: true,
+      );
+    }
+  }
+
+  bool _possuiAssinaturaSqlite(List<int> bytes) {
+    const assinatura = <int>[
+      83,
+      81,
+      76,
+      105,
+      116,
+      101,
+      32,
+      102,
+      111,
+      114,
+      109,
+      97,
+      116,
+      32,
+      51,
+      0,
+    ];
+
+    if (bytes.length < assinatura.length) {
+      return false;
+    }
+
+    for (var indice = 0; indice < assinatura.length; indice += 1) {
+      if (bytes[indice] != assinatura[indice]) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  Future<void> _apagarArquivosAuxiliaresBanco(String caminhoBanco) async {
+    await _apagarSeExistir(File('$caminhoBanco-wal'));
+    await _apagarSeExistir(File('$caminhoBanco-shm'));
+    await _apagarSeExistir(File('$caminhoBanco-journal'));
   }
 }
 
@@ -445,10 +573,11 @@ class BackupCompartilhamentoException implements Exception {
   String toString() => mensagem;
 }
 
-class BackupAindaNaoImplementadoException implements Exception {
-  const BackupAindaNaoImplementadoException(this.mensagem);
+class BackupRestauracaoException implements Exception {
+  const BackupRestauracaoException(this.mensagem, {this.exigeReinicio = false});
 
   final String mensagem;
+  final bool exigeReinicio;
 
   @override
   String toString() => mensagem;

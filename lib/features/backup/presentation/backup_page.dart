@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../../core/database/app_database.dart';
 import '../data/backup_info.dart';
@@ -30,6 +31,7 @@ class _BackupPageState extends State<BackupPage> {
   bool _limpandoHistorico = false;
   bool _criandoBackup = false;
   bool _selecionandoBackup = false;
+  bool _restaurandoBackup = false;
   BackupSelecionado? _backupSelecionado;
 
   @override
@@ -202,6 +204,147 @@ class _BackupPageState extends State<BackupPage> {
     }
   }
 
+  Future<void> _restaurarBackup() async {
+    final backup = _backupSelecionado;
+
+    if (backup == null || _restaurandoBackup) {
+      return;
+    }
+
+    final confirmar = await showDialog<bool>(
+      context: context,
+      barrierDismissible: false,
+      builder: (dialogContext) {
+        return AlertDialog(
+          icon: const Icon(Icons.restore_outlined),
+          title: const Text('Restaurar backup?'),
+          content: Text(
+            'Os dados atuais deste aparelho serão substituídos pelos dados de '
+            '${backup.nomeArquivo}.\n\n'
+            'Depois da restauração, o GymControl será fechado para que o banco '
+            'restaurado seja carregado com segurança na próxima abertura.',
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(dialogContext).pop(false),
+              child: const Text('Cancelar'),
+            ),
+            FilledButton(
+              onPressed: () => Navigator.of(dialogContext).pop(true),
+              child: const Text('Restaurar'),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (confirmar != true || !mounted) {
+      return;
+    }
+
+    setState(() {
+      _restaurandoBackup = true;
+    });
+
+    try {
+      await _service.restaurarBackup(backup);
+
+      if (!mounted) {
+        return;
+      }
+
+      await showDialog<void>(
+        context: context,
+        barrierDismissible: false,
+        builder: (dialogContext) {
+          return AlertDialog(
+            icon: const Icon(Icons.check_circle_outline),
+            title: const Text('Backup restaurado'),
+            content: const Text(
+              'A restauração foi concluída com sucesso. O GymControl será '
+              'fechado agora. Abra o aplicativo novamente para usar os dados '
+              'restaurados.',
+            ),
+            actions: [
+              FilledButton(
+                onPressed: () => Navigator.of(dialogContext).pop(),
+                child: const Text('Fechar GymControl'),
+              ),
+            ],
+          );
+        },
+      );
+
+      await SystemNavigator.pop();
+    } on BackupValidacaoException catch (erro) {
+      if (!mounted) {
+        return;
+      }
+
+      setState(() {
+        _restaurandoBackup = false;
+        _backupSelecionado = null;
+      });
+
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(SnackBar(content: Text(erro.mensagem)));
+    } on BackupRestauracaoException catch (erro) {
+      if (!mounted) {
+        return;
+      }
+
+      if (erro.exigeReinicio) {
+        await showDialog<void>(
+          context: context,
+          barrierDismissible: false,
+          builder: (dialogContext) {
+            return AlertDialog(
+              icon: const Icon(Icons.error_outline),
+              title: const Text('Restauração não concluída'),
+              content: Text(
+                '${erro.mensagem}\n\n'
+                'Por segurança, o GymControl será fechado. Abra o aplicativo '
+                'novamente antes de continuar usando.',
+              ),
+              actions: [
+                FilledButton(
+                  onPressed: () => Navigator.of(dialogContext).pop(),
+                  child: const Text('Fechar GymControl'),
+                ),
+              ],
+            );
+          },
+        );
+
+        await SystemNavigator.pop();
+        return;
+      }
+
+      setState(() {
+        _restaurandoBackup = false;
+      });
+
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(SnackBar(content: Text(erro.mensagem)));
+    } catch (erro) {
+      if (!mounted) {
+        return;
+      }
+
+      setState(() {
+        _restaurandoBackup = false;
+      });
+
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(
+          SnackBar(content: Text('Não foi possível restaurar o backup: $erro')),
+        );
+    }
+  }
+
   Future<void> _limparHistorico() async {
     final confirmar = await showDialog<bool>(
       context: context,
@@ -314,18 +457,16 @@ class _BackupPageState extends State<BackupPage> {
                 const SizedBox(height: 12),
                 BackupPreviewCard(backup: _backupSelecionado!),
                 const SizedBox(height: 10),
-                Card(
-                  child: ListTile(
-                    leading: const Icon(Icons.lock_clock_outlined),
-                    title: const Text(
-                      'Restauração ainda não executada',
-                      style: TextStyle(fontWeight: FontWeight.w800),
-                    ),
-                    subtitle: const Text(
-                      'O arquivo foi apenas selecionado e validado. '
-                      'A substituição do banco será adicionada na Etapa 15.2B.',
-                    ),
-                  ),
+                BackupActionButton(
+                  icon: Icons.restore_outlined,
+                  titulo: _restaurandoBackup
+                      ? 'Restaurando backup...'
+                      : 'Restaurar este backup',
+                  subtitulo: _restaurandoBackup
+                      ? 'Substituindo o banco local com segurança'
+                      : 'Substituir os dados atuais pelos dados validados',
+                  destaque: true,
+                  onPressed: _restaurandoBackup ? () {} : _restaurarBackup,
                 ),
               ],
               const SizedBox(height: 24),
