@@ -50,29 +50,32 @@ class FichaTreinoDao extends DatabaseAccessor<AppDatabase>
     )..where((tabela) => tabela.id.equals(id))).getSingleOrNull();
   }
 
-  Future<int> cadastrar({
-    required String nome,
-    String? descricao,
-    required int ordem,
-  }) {
-    final agora = DateTime.now();
+  Future<int> cadastrar({required String nome, String? descricao}) async {
+    return transaction(() async {
+      final maiorOrdemExpressao = fichasTreino.ordem.max();
+      final consulta = selectOnly(fichasTreino)
+        ..addColumns([maiorOrdemExpressao]);
 
-    return into(fichasTreino).insert(
-      FichasTreinoCompanion.insert(
-        nome: nome.trim(),
-        descricao: Value(_normalizarTextoOpcional(descricao)),
-        ordem: Value(ordem),
-        criadoEm: Value(agora),
-        atualizadoEm: Value(agora),
-      ),
-    );
+      final linha = await consulta.getSingle();
+      final maiorOrdem = linha.read(maiorOrdemExpressao) ?? 0;
+      final agora = DateTime.now();
+
+      return into(fichasTreino).insert(
+        FichasTreinoCompanion.insert(
+          nome: nome.trim(),
+          descricao: Value(_normalizarTextoOpcional(descricao)),
+          ordem: Value(maiorOrdem + 1),
+          criadoEm: Value(agora),
+          atualizadoEm: Value(agora),
+        ),
+      );
+    });
   }
 
   Future<bool> editar({
     required int id,
     required String nome,
     String? descricao,
-    required int ordem,
   }) async {
     final quantidadeAlterada =
         await (update(
@@ -81,12 +84,43 @@ class FichaTreinoDao extends DatabaseAccessor<AppDatabase>
           FichasTreinoCompanion(
             nome: Value(nome.trim()),
             descricao: Value(_normalizarTextoOpcional(descricao)),
-            ordem: Value(ordem),
             atualizadoEm: Value(DateTime.now()),
           ),
         );
 
     return quantidadeAlterada > 0;
+  }
+
+  Future<void> reordenarFichas({required List<int> fichaIds}) async {
+    await transaction(() async {
+      final fichasAtivas = await (select(
+        fichasTreino,
+      )..where((tabela) => tabela.ativo.equals(true))).get();
+
+      final idsExistentes = fichasAtivas.map((ficha) => ficha.id).toSet();
+      final idsRecebidos = fichaIds.toSet();
+
+      if (fichaIds.length != idsRecebidos.length ||
+          idsExistentes.length != idsRecebidos.length ||
+          !idsExistentes.containsAll(idsRecebidos)) {
+        throw ArgumentError(
+          'A lista de fichas não corresponde às fichas ativas.',
+        );
+      }
+
+      final agora = DateTime.now();
+
+      for (var indice = 0; indice < fichaIds.length; indice++) {
+        await (update(
+          fichasTreino,
+        )..where((tabela) => tabela.id.equals(fichaIds[indice]))).write(
+          FichasTreinoCompanion(
+            ordem: Value(indice + 1),
+            atualizadoEm: Value(agora),
+          ),
+        );
+      }
+    });
   }
 
   Future<bool> alterarSituacao({required int id, required bool ativo}) async {

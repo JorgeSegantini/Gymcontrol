@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../core/biblioteca/services/biblioteca_pesquisa_service.dart';
 import '../../../core/database/app_database.dart';
-import '../../../core/utils/codigo_formatador.dart';
+import 'exercicio_detalhes_page.dart';
 import 'exercicio_form_dialog.dart';
 import 'exercicio_opcoes_dialog.dart';
 
@@ -121,6 +121,17 @@ class _ExerciciosPageState extends State<ExerciciosPage> {
     }
   }
 
+  Future<void> _abrirDetalhes(BuildContext context, Exercicio exercicio) async {
+    await Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => ExercicioDetalhesPage(
+          database: widget.database,
+          exercicioId: exercicio.id,
+        ),
+      ),
+    );
+  }
+
   Future<void> _abrirOpcoes(BuildContext context, Exercicio exercicio) async {
     final acao = await showDialog<AcaoExercicio>(
       context: context,
@@ -167,6 +178,38 @@ class _ExerciciosPageState extends State<ExerciciosPage> {
       case TipoExercicio.alongamento:
         return 'Alongamento';
     }
+  }
+
+  String _nomeEquipamento(String equipamentoSalvo) {
+    final equipamento = widget.database.exercicioDao.converterEquipamento(
+      equipamentoSalvo,
+    );
+
+    return switch (equipamento) {
+      EquipamentoExercicio.barra => 'Barra',
+      EquipamentoExercicio.halteres => 'Halteres',
+      EquipamentoExercicio.maquina => 'Máquina',
+      EquipamentoExercicio.polia => 'Polia',
+      EquipamentoExercicio.smith => 'Smith',
+      EquipamentoExercicio.pesoCorporal => 'Peso corporal',
+      EquipamentoExercicio.kettlebell => 'Kettlebell',
+      EquipamentoExercicio.elastico => 'Elástico',
+      EquipamentoExercicio.bolaSuica => 'Bola suíça',
+      EquipamentoExercicio.trx => 'TRX',
+      EquipamentoExercicio.banco => 'Banco',
+      EquipamentoExercicio.outro => 'Outro',
+    };
+  }
+
+  IconData _iconeTipo(String tipoSalvo) {
+    final tipo = widget.database.exercicioDao.converterTipo(tipoSalvo);
+
+    return switch (tipo) {
+      TipoExercicio.musculacao => Icons.fitness_center_outlined,
+      TipoExercicio.cardio => Icons.directions_run_outlined,
+      TipoExercicio.mobilidade => Icons.self_improvement_outlined,
+      TipoExercicio.alongamento => Icons.accessibility_new_outlined,
+    };
   }
 
   Future<List<Exercicio>> _pesquisar(
@@ -217,13 +260,11 @@ class _ExerciciosPageState extends State<ExerciciosPage> {
               return Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+                    padding: const EdgeInsets.fromLTRB(16, 16, 16, 10),
                     child: TextField(
                       controller: _pesquisaController,
                       decoration: InputDecoration(
-                        labelText: 'Pesquisar',
-                        hintText:
-                            'Nome, alias, grupo, equipamento, tag ou código',
+                        hintText: 'Pesquisar exercícios',
                         prefixIcon: const Icon(Icons.search),
                         suffixIcon: _pesquisaController.text.isEmpty
                             ? null
@@ -233,52 +274,66 @@ class _ExerciciosPageState extends State<ExerciciosPage> {
                                 icon: const Icon(Icons.clear),
                               ),
                         border: const OutlineInputBorder(),
+                        isDense: true,
                       ),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: DropdownButtonFormField<int?>(
-                      key: ValueKey(_grupoMuscularId),
-                      initialValue: _grupoMuscularId,
-                      isExpanded: true,
-                      decoration: const InputDecoration(
-                        labelText: 'Grupo muscular',
-                        border: OutlineInputBorder(),
-                      ),
-                      items: [
-                        const DropdownMenuItem<int?>(
-                          value: null,
-                          child: Text('Todos os grupos'),
-                        ),
-                        ...grupos.map(
-                          (grupo) => DropdownMenuItem<int?>(
-                            value: grupo.id,
-                            child: Text(
-                              grupo.ativo
-                                  ? grupo.nome
-                                  : '${grupo.nome} — Inativo',
+                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: DropdownButtonFormField<int?>(
+                            key: ValueKey(_grupoMuscularId),
+                            initialValue: _grupoMuscularId,
+                            isExpanded: true,
+                            decoration: const InputDecoration(
+                              labelText: 'Grupo',
+                              border: OutlineInputBorder(),
+                              isDense: true,
                             ),
+                            items: [
+                              const DropdownMenuItem<int?>(
+                                value: null,
+                                child: Text('Todos os grupos'),
+                              ),
+                              ...grupos.map(
+                                (grupo) => DropdownMenuItem<int?>(
+                                  value: grupo.id,
+                                  child: Text(
+                                    grupo.ativo
+                                        ? grupo.nome
+                                        : '${grupo.nome} — Inativo',
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ),
+                            ],
+                            onChanged: (valor) {
+                              setState(() {
+                                _grupoMuscularId = valor;
+                              });
+                            },
                           ),
                         ),
+                        const SizedBox(width: 10),
+                        FilterChip(
+                          selected: _incluirInativos,
+                          label: const Text('Inativos'),
+                          avatar: Icon(
+                            _incluirInativos
+                                ? Icons.visibility_outlined
+                                : Icons.visibility_off_outlined,
+                            size: 18,
+                          ),
+                          onSelected: (selecionado) {
+                            setState(() {
+                              _incluirInativos = selecionado;
+                            });
+                          },
+                        ),
                       ],
-                      onChanged: (valor) {
-                        setState(() {
-                          _grupoMuscularId = valor;
-                        });
-                      },
                     ),
-                  ),
-                  CheckboxListTile(
-                    value: _incluirInativos,
-                    title: const Text('Mostrar exercícios inativos'),
-                    controlAffinity: ListTileControlAffinity.leading,
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-                    onChanged: (valor) {
-                      setState(() {
-                        _incluirInativos = valor ?? false;
-                      });
-                    },
                   ),
                   const Divider(height: 1),
                   Expanded(
@@ -327,22 +382,99 @@ class _ExerciciosPageState extends State<ExerciciosPage> {
                               grupos,
                             );
 
+                            final colorScheme = Theme.of(context).colorScheme;
+
                             return Card(
-                              child: ListTile(
-                                isThreeLine: true,
-                                leading: CircleAvatar(
-                                  child: Text('${exercicio.ordem}'),
-                                ),
-                                title: Text(exercicio.nome),
-                                subtitle: Text(
-                                  '${CodigoFormatador.exercicio(exercicio.id)}\n'
-                                  '$grupo • ${_nomeTipo(exercicio.tipo)}'
-                                  '${exercicio.ativo ? '' : ' • Inativo'}',
-                                ),
-                                trailing: const Icon(Icons.more_vert),
+                              clipBehavior: Clip.antiAlias,
+                              child: InkWell(
                                 onTap: () {
-                                  _abrirOpcoes(context, exercicio);
+                                  _abrirDetalhes(context, exercicio);
                                 },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(14),
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        width: 44,
+                                        height: 44,
+                                        alignment: Alignment.center,
+                                        decoration: BoxDecoration(
+                                          color: colorScheme.primaryContainer,
+                                          borderRadius: BorderRadius.circular(
+                                            12,
+                                          ),
+                                        ),
+                                        child: Icon(
+                                          _iconeTipo(exercicio.tipo),
+                                          size: 22,
+                                          color: colorScheme.onPrimaryContainer,
+                                        ),
+                                      ),
+                                      const SizedBox(width: 12),
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              exercicio.nome,
+                                              maxLines: 2,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .titleMedium
+                                                  ?.copyWith(
+                                                    fontWeight: FontWeight.w800,
+                                                  ),
+                                            ),
+                                            const SizedBox(height: 3),
+                                            Text(
+                                              grupo,
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyMedium
+                                                  ?.copyWith(
+                                                    color: colorScheme
+                                                        .onSurfaceVariant,
+                                                  ),
+                                            ),
+                                            const SizedBox(height: 8),
+                                            Wrap(
+                                              spacing: 6,
+                                              runSpacing: 6,
+                                              children: [
+                                                _ExercicioInfoChip(
+                                                  texto: _nomeTipo(
+                                                    exercicio.tipo,
+                                                  ),
+                                                ),
+                                                _ExercicioInfoChip(
+                                                  texto: _nomeEquipamento(
+                                                    exercicio.equipamento,
+                                                  ),
+                                                ),
+                                                if (!exercicio.ativo)
+                                                  const _ExercicioInfoChip(
+                                                    texto: 'Inativo',
+                                                    destaque: true,
+                                                  ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      IconButton(
+                                        tooltip: 'Opções',
+                                        onPressed: () {
+                                          _abrirOpcoes(context, exercicio);
+                                        },
+                                        icon: const Icon(Icons.more_vert),
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ),
                             );
                           },
@@ -362,6 +494,37 @@ class _ExerciciosPageState extends State<ExerciciosPage> {
         },
         icon: const Icon(Icons.add),
         label: const Text('Novo exercício'),
+      ),
+    );
+  }
+}
+
+class _ExercicioInfoChip extends StatelessWidget {
+  const _ExercicioInfoChip({required this.texto, this.destaque = false});
+
+  final String texto;
+  final bool destaque;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      decoration: BoxDecoration(
+        color: destaque
+            ? colorScheme.errorContainer
+            : colorScheme.surfaceContainerHighest,
+        borderRadius: BorderRadius.circular(999),
+      ),
+      child: Text(
+        texto,
+        style: Theme.of(context).textTheme.labelSmall?.copyWith(
+          color: destaque
+              ? colorScheme.onErrorContainer
+              : colorScheme.onSurfaceVariant,
+          fontWeight: FontWeight.w700,
+        ),
       ),
     );
   }

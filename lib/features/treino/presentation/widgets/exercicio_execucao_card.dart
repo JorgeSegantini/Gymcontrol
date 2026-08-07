@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/database/app_database.dart';
 import '../../../../core/database/models/serie_ultima_execucao.dart';
 import '../../../../core/database/treino_realizado_dao.dart';
+import '../../../exercicios/presentation/exercicio_detalhes_page.dart';
 import 'serie_execucao_card.dart';
 
 class ExercicioExecucaoCard extends StatefulWidget {
@@ -104,6 +105,30 @@ class _ExercicioExecucaoCardState extends State<ExercicioExecucaoCard> {
           );
   }
 
+  int get _seriesConcluidas {
+    return widget.series.where((detalhe) {
+      final situacao = detalhe.serie.situacao;
+      return situacao == 'concluida' || situacao == 'pulada';
+    }).length;
+  }
+
+  Future<void> _abrirDetalhesExercicio() async {
+    final exercicioOrigemId = widget.exercicio.exercicioOrigemId;
+
+    if (exercicioOrigemId == null) {
+      return;
+    }
+
+    await Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => ExercicioDetalhesPage(
+          database: widget.database,
+          exercicioId: exercicioOrigemId,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
@@ -149,17 +174,53 @@ class _ExercicioExecucaoCardState extends State<ExercicioExecucaoCard> {
                 ),
                 const SizedBox(width: 8),
                 Expanded(
-                  child: Text(
-                    widget.exercicio.nomeExercicioSnapshot,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 17,
-                      height: 1.15,
-                    ),
+                  child: Row(
+                    children: [
+                      Flexible(
+                        child: Text(
+                          widget.exercicio.nomeExercicioSnapshot,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 17,
+                            height: 1.15,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 7),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 7,
+                          vertical: 3,
+                        ),
+                        decoration: BoxDecoration(
+                          color: widget.concluido
+                              ? Colors.green.withValues(alpha: 0.16)
+                              : colorScheme.surfaceContainerHighest,
+                          borderRadius: BorderRadius.circular(999),
+                        ),
+                        child: Text(
+                          '$_seriesConcluidas/${widget.series.length}',
+                          style: Theme.of(context).textTheme.labelSmall
+                              ?.copyWith(
+                                fontWeight: FontWeight.w900,
+                                color: widget.concluido
+                                    ? Colors.green.shade800
+                                    : colorScheme.onSurfaceVariant,
+                              ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
+                if (widget.exercicio.exercicioOrigemId != null)
+                  IconButton(
+                    tooltip: 'Informações do exercício',
+                    visualDensity: VisualDensity.compact,
+                    onPressed: _abrirDetalhesExercicio,
+                    icon: const Icon(Icons.info_outline, size: 21),
+                  ),
               ],
             ),
             children: [

@@ -335,6 +335,25 @@ class ExercicioDao extends DatabaseAccessor<AppDatabase>
     return existente.id;
   }
 
+  Future<bool> salvarAnotacoesPessoais({
+    required int id,
+    String? anotacoesPessoais,
+  }) async {
+    final quantidadeAlterada =
+        await (update(
+          exercicios,
+        )..where((tabela) => tabela.id.equals(id))).write(
+          ExerciciosCompanion(
+            anotacoesPessoais: Value(
+              _normalizarTextoOpcional(anotacoesPessoais),
+            ),
+            atualizadoEm: Value(DateTime.now()),
+          ),
+        );
+
+    return quantidadeAlterada > 0;
+  }
+
   Future<bool> alterarSituacao({required int id, required bool ativo}) async {
     final quantidadeAlterada =
         await (update(

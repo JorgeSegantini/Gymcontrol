@@ -95,6 +95,48 @@ class _FichaTreinoEditorPageState extends State<FichaTreinoEditorPage> {
     }
   }
 
+  Future<void> _reordenarExercicios(
+    BuildContext context,
+    List<FichaExercicioDetalhe> exercicios,
+    int indiceAntigo,
+    int indiceNovo,
+  ) async {
+    final reordenados = List<FichaExercicioDetalhe>.of(exercicios);
+    final movido = reordenados.removeAt(indiceAntigo);
+    reordenados.insert(indiceNovo, movido);
+
+    try {
+      await database.fichaTreinoDao.reordenarExercicios(
+        fichaTreinoId: fichaTreino.id,
+        fichaExercicioIds: reordenados
+            .map((detalhe) => detalhe.fichaExercicio.id)
+            .toList(),
+      );
+    } on ArgumentError catch (erro) {
+      if (!context.mounted) {
+        return;
+      }
+
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(
+          SnackBar(content: Text(_mensagemDaExcecao(erro.message))),
+        );
+    } catch (_) {
+      if (!context.mounted) {
+        return;
+      }
+
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(
+          const SnackBar(
+            content: Text('Não foi possível alterar a ordem dos exercícios.'),
+          ),
+        );
+    }
+  }
+
   Future<void> _abrirSeletorRir(
     BuildContext context,
     FichaExercicioDetalhe detalhe,
@@ -377,35 +419,44 @@ class _FichaTreinoEditorPageState extends State<FichaTreinoEditorPage> {
                   return const _EstadoVazio();
                 }
 
-                return ListView.separated(
+                return ReorderableListView.builder(
                   padding: const EdgeInsets.fromLTRB(16, 16, 16, 96),
+                  buildDefaultDragHandles: true,
                   itemCount: exercicios.length,
-                  separatorBuilder: (context, index) {
-                    return const SizedBox(height: 8);
+                  onReorderItem: (indiceAntigo, indiceNovo) {
+                    _reordenarExercicios(
+                      context,
+                      exercicios,
+                      indiceAntigo,
+                      indiceNovo,
+                    );
                   },
                   itemBuilder: (context, index) {
                     final detalhe = exercicios[index];
                     final fichaExercicioId = detalhe.fichaExercicio.id;
 
-                    return _ExercicioExpansivelCard(
+                    return Padding(
                       key: ValueKey(fichaExercicioId),
-                      database: database,
-                      detalhe: detalhe,
-                      inicialmenteExpandido: _exerciciosExpandidos.contains(
-                        fichaExercicioId,
+                      padding: const EdgeInsets.only(bottom: 8),
+                      child: _ExercicioExpansivelCard(
+                        database: database,
+                        detalhe: detalhe,
+                        inicialmenteExpandido: _exerciciosExpandidos.contains(
+                          fichaExercicioId,
+                        ),
+                        onAlterarExpansao: (expandido) {
+                          _alterarExpansao(fichaExercicioId, expandido);
+                        },
+                        onEditarRir: () {
+                          _abrirSeletorRir(context, detalhe);
+                        },
+                        onAbrirEditor: () {
+                          _abrirEditorExercicio(context, detalhe);
+                        },
+                        onRemover: () {
+                          _removerExercicio(context, detalhe);
+                        },
                       ),
-                      onAlterarExpansao: (expandido) {
-                        _alterarExpansao(fichaExercicioId, expandido);
-                      },
-                      onEditarRir: () {
-                        _abrirSeletorRir(context, detalhe);
-                      },
-                      onAbrirEditor: () {
-                        _abrirEditorExercicio(context, detalhe);
-                      },
-                      onRemover: () {
-                        _removerExercicio(context, detalhe);
-                      },
                     );
                   },
                 );
@@ -436,7 +487,6 @@ class _ExercicioExpansivelCard extends StatelessWidget {
     required this.onEditarRir,
     required this.onAbrirEditor,
     required this.onRemover,
-    super.key,
   });
 
   final AppDatabase database;

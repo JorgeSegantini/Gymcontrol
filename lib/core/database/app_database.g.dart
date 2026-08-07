@@ -718,6 +718,18 @@ class $ExerciciosTable extends Exercicios
     type: DriftSqlType.string,
     requiredDuringInsert: false,
   );
+  static const VerificationMeta _anotacoesPessoaisMeta = const VerificationMeta(
+    'anotacoesPessoais',
+  );
+  @override
+  late final GeneratedColumn<String> anotacoesPessoais =
+      GeneratedColumn<String>(
+        'anotacoes_pessoais',
+        aliasedName,
+        true,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+      );
   static const VerificationMeta _ordemMeta = const VerificationMeta('ordem');
   @override
   late final GeneratedColumn<int> ordem = GeneratedColumn<int>(
@@ -783,6 +795,7 @@ class $ExerciciosTable extends Exercicios
     instrucoes,
     dicas,
     errosComuns,
+    anotacoesPessoais,
     ordem,
     ativo,
     criadoEm,
@@ -918,6 +931,15 @@ class $ExerciciosTable extends Exercicios
         ),
       );
     }
+    if (data.containsKey('anotacoes_pessoais')) {
+      context.handle(
+        _anotacoesPessoaisMeta,
+        anotacoesPessoais.isAcceptableOrUnknown(
+          data['anotacoes_pessoais']!,
+          _anotacoesPessoaisMeta,
+        ),
+      );
+    }
     if (data.containsKey('ordem')) {
       context.handle(
         _ordemMeta,
@@ -1022,6 +1044,10 @@ class $ExerciciosTable extends Exercicios
         DriftSqlType.string,
         data['${effectivePrefix}erros_comuns'],
       ),
+      anotacoesPessoais: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}anotacoes_pessoais'],
+      ),
       ordem: attachedDatabase.typeMapping.read(
         DriftSqlType.int,
         data['${effectivePrefix}ordem'],
@@ -1064,6 +1090,7 @@ class Exercicio extends DataClass implements Insertable<Exercicio> {
   final String? instrucoes;
   final String? dicas;
   final String? errosComuns;
+  final String? anotacoesPessoais;
   final int ordem;
   final bool ativo;
   final DateTime criadoEm;
@@ -1085,6 +1112,7 @@ class Exercicio extends DataClass implements Insertable<Exercicio> {
     this.instrucoes,
     this.dicas,
     this.errosComuns,
+    this.anotacoesPessoais,
     required this.ordem,
     required this.ativo,
     required this.criadoEm,
@@ -1122,6 +1150,9 @@ class Exercicio extends DataClass implements Insertable<Exercicio> {
     }
     if (!nullToAbsent || errosComuns != null) {
       map['erros_comuns'] = Variable<String>(errosComuns);
+    }
+    if (!nullToAbsent || anotacoesPessoais != null) {
+      map['anotacoes_pessoais'] = Variable<String>(anotacoesPessoais);
     }
     map['ordem'] = Variable<int>(ordem);
     map['ativo'] = Variable<bool>(ativo);
@@ -1162,6 +1193,9 @@ class Exercicio extends DataClass implements Insertable<Exercicio> {
       errosComuns: errosComuns == null && nullToAbsent
           ? const Value.absent()
           : Value(errosComuns),
+      anotacoesPessoais: anotacoesPessoais == null && nullToAbsent
+          ? const Value.absent()
+          : Value(anotacoesPessoais),
       ordem: Value(ordem),
       ativo: Value(ativo),
       criadoEm: Value(criadoEm),
@@ -1193,6 +1227,9 @@ class Exercicio extends DataClass implements Insertable<Exercicio> {
       instrucoes: serializer.fromJson<String?>(json['instrucoes']),
       dicas: serializer.fromJson<String?>(json['dicas']),
       errosComuns: serializer.fromJson<String?>(json['errosComuns']),
+      anotacoesPessoais: serializer.fromJson<String?>(
+        json['anotacoesPessoais'],
+      ),
       ordem: serializer.fromJson<int>(json['ordem']),
       ativo: serializer.fromJson<bool>(json['ativo']),
       criadoEm: serializer.fromJson<DateTime>(json['criadoEm']),
@@ -1219,6 +1256,7 @@ class Exercicio extends DataClass implements Insertable<Exercicio> {
       'instrucoes': serializer.toJson<String?>(instrucoes),
       'dicas': serializer.toJson<String?>(dicas),
       'errosComuns': serializer.toJson<String?>(errosComuns),
+      'anotacoesPessoais': serializer.toJson<String?>(anotacoesPessoais),
       'ordem': serializer.toJson<int>(ordem),
       'ativo': serializer.toJson<bool>(ativo),
       'criadoEm': serializer.toJson<DateTime>(criadoEm),
@@ -1243,6 +1281,7 @@ class Exercicio extends DataClass implements Insertable<Exercicio> {
     Value<String?> instrucoes = const Value.absent(),
     Value<String?> dicas = const Value.absent(),
     Value<String?> errosComuns = const Value.absent(),
+    Value<String?> anotacoesPessoais = const Value.absent(),
     int? ordem,
     bool? ativo,
     DateTime? criadoEm,
@@ -1266,6 +1305,9 @@ class Exercicio extends DataClass implements Insertable<Exercicio> {
     instrucoes: instrucoes.present ? instrucoes.value : this.instrucoes,
     dicas: dicas.present ? dicas.value : this.dicas,
     errosComuns: errosComuns.present ? errosComuns.value : this.errosComuns,
+    anotacoesPessoais: anotacoesPessoais.present
+        ? anotacoesPessoais.value
+        : this.anotacoesPessoais,
     ordem: ordem ?? this.ordem,
     ativo: ativo ?? this.ativo,
     criadoEm: criadoEm ?? this.criadoEm,
@@ -1305,6 +1347,9 @@ class Exercicio extends DataClass implements Insertable<Exercicio> {
       errosComuns: data.errosComuns.present
           ? data.errosComuns.value
           : this.errosComuns,
+      anotacoesPessoais: data.anotacoesPessoais.present
+          ? data.anotacoesPessoais.value
+          : this.anotacoesPessoais,
       ordem: data.ordem.present ? data.ordem.value : this.ordem,
       ativo: data.ativo.present ? data.ativo.value : this.ativo,
       criadoEm: data.criadoEm.present ? data.criadoEm.value : this.criadoEm,
@@ -1333,6 +1378,7 @@ class Exercicio extends DataClass implements Insertable<Exercicio> {
           ..write('instrucoes: $instrucoes, ')
           ..write('dicas: $dicas, ')
           ..write('errosComuns: $errosComuns, ')
+          ..write('anotacoesPessoais: $anotacoesPessoais, ')
           ..write('ordem: $ordem, ')
           ..write('ativo: $ativo, ')
           ..write('criadoEm: $criadoEm, ')
@@ -1342,7 +1388,7 @@ class Exercicio extends DataClass implements Insertable<Exercicio> {
   }
 
   @override
-  int get hashCode => Object.hash(
+  int get hashCode => Object.hashAll([
     id,
     grupoMuscularId,
     nome,
@@ -1359,11 +1405,12 @@ class Exercicio extends DataClass implements Insertable<Exercicio> {
     instrucoes,
     dicas,
     errosComuns,
+    anotacoesPessoais,
     ordem,
     ativo,
     criadoEm,
     atualizadoEm,
-  );
+  ]);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -1384,6 +1431,7 @@ class Exercicio extends DataClass implements Insertable<Exercicio> {
           other.instrucoes == this.instrucoes &&
           other.dicas == this.dicas &&
           other.errosComuns == this.errosComuns &&
+          other.anotacoesPessoais == this.anotacoesPessoais &&
           other.ordem == this.ordem &&
           other.ativo == this.ativo &&
           other.criadoEm == this.criadoEm &&
@@ -1407,6 +1455,7 @@ class ExerciciosCompanion extends UpdateCompanion<Exercicio> {
   final Value<String?> instrucoes;
   final Value<String?> dicas;
   final Value<String?> errosComuns;
+  final Value<String?> anotacoesPessoais;
   final Value<int> ordem;
   final Value<bool> ativo;
   final Value<DateTime> criadoEm;
@@ -1428,6 +1477,7 @@ class ExerciciosCompanion extends UpdateCompanion<Exercicio> {
     this.instrucoes = const Value.absent(),
     this.dicas = const Value.absent(),
     this.errosComuns = const Value.absent(),
+    this.anotacoesPessoais = const Value.absent(),
     this.ordem = const Value.absent(),
     this.ativo = const Value.absent(),
     this.criadoEm = const Value.absent(),
@@ -1450,6 +1500,7 @@ class ExerciciosCompanion extends UpdateCompanion<Exercicio> {
     this.instrucoes = const Value.absent(),
     this.dicas = const Value.absent(),
     this.errosComuns = const Value.absent(),
+    this.anotacoesPessoais = const Value.absent(),
     this.ordem = const Value.absent(),
     this.ativo = const Value.absent(),
     this.criadoEm = const Value.absent(),
@@ -1473,6 +1524,7 @@ class ExerciciosCompanion extends UpdateCompanion<Exercicio> {
     Expression<String>? instrucoes,
     Expression<String>? dicas,
     Expression<String>? errosComuns,
+    Expression<String>? anotacoesPessoais,
     Expression<int>? ordem,
     Expression<bool>? ativo,
     Expression<DateTime>? criadoEm,
@@ -1495,6 +1547,7 @@ class ExerciciosCompanion extends UpdateCompanion<Exercicio> {
       if (instrucoes != null) 'instrucoes': instrucoes,
       if (dicas != null) 'dicas': dicas,
       if (errosComuns != null) 'erros_comuns': errosComuns,
+      if (anotacoesPessoais != null) 'anotacoes_pessoais': anotacoesPessoais,
       if (ordem != null) 'ordem': ordem,
       if (ativo != null) 'ativo': ativo,
       if (criadoEm != null) 'criado_em': criadoEm,
@@ -1519,6 +1572,7 @@ class ExerciciosCompanion extends UpdateCompanion<Exercicio> {
     Value<String?>? instrucoes,
     Value<String?>? dicas,
     Value<String?>? errosComuns,
+    Value<String?>? anotacoesPessoais,
     Value<int>? ordem,
     Value<bool>? ativo,
     Value<DateTime>? criadoEm,
@@ -1541,6 +1595,7 @@ class ExerciciosCompanion extends UpdateCompanion<Exercicio> {
       instrucoes: instrucoes ?? this.instrucoes,
       dicas: dicas ?? this.dicas,
       errosComuns: errosComuns ?? this.errosComuns,
+      anotacoesPessoais: anotacoesPessoais ?? this.anotacoesPessoais,
       ordem: ordem ?? this.ordem,
       ativo: ativo ?? this.ativo,
       criadoEm: criadoEm ?? this.criadoEm,
@@ -1599,6 +1654,9 @@ class ExerciciosCompanion extends UpdateCompanion<Exercicio> {
     if (errosComuns.present) {
       map['erros_comuns'] = Variable<String>(errosComuns.value);
     }
+    if (anotacoesPessoais.present) {
+      map['anotacoes_pessoais'] = Variable<String>(anotacoesPessoais.value);
+    }
     if (ordem.present) {
       map['ordem'] = Variable<int>(ordem.value);
     }
@@ -1633,6 +1691,7 @@ class ExerciciosCompanion extends UpdateCompanion<Exercicio> {
           ..write('instrucoes: $instrucoes, ')
           ..write('dicas: $dicas, ')
           ..write('errosComuns: $errosComuns, ')
+          ..write('anotacoesPessoais: $anotacoesPessoais, ')
           ..write('ordem: $ordem, ')
           ..write('ativo: $ativo, ')
           ..write('criadoEm: $criadoEm, ')
@@ -19019,6 +19078,7 @@ typedef $$ExerciciosTableCreateCompanionBuilder =
       Value<String?> instrucoes,
       Value<String?> dicas,
       Value<String?> errosComuns,
+      Value<String?> anotacoesPessoais,
       Value<int> ordem,
       Value<bool> ativo,
       Value<DateTime> criadoEm,
@@ -19042,6 +19102,7 @@ typedef $$ExerciciosTableUpdateCompanionBuilder =
       Value<String?> instrucoes,
       Value<String?> dicas,
       Value<String?> errosComuns,
+      Value<String?> anotacoesPessoais,
       Value<int> ordem,
       Value<bool> ativo,
       Value<DateTime> criadoEm,
@@ -19172,6 +19233,11 @@ class $$ExerciciosTableFilterComposer
 
   ColumnFilters<String> get errosComuns => $composableBuilder(
     column: $table.errosComuns,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get anotacoesPessoais => $composableBuilder(
+    column: $table.anotacoesPessoais,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -19328,6 +19394,11 @@ class $$ExerciciosTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
+  ColumnOrderings<String> get anotacoesPessoais => $composableBuilder(
+    column: $table.anotacoesPessoais,
+    builder: (column) => ColumnOrderings(column),
+  );
+
   ColumnOrderings<int> get ordem => $composableBuilder(
     column: $table.ordem,
     builder: (column) => ColumnOrderings(column),
@@ -19437,6 +19508,11 @@ class $$ExerciciosTableAnnotationComposer
 
   GeneratedColumn<String> get errosComuns => $composableBuilder(
     column: $table.errosComuns,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get anotacoesPessoais => $composableBuilder(
+    column: $table.anotacoesPessoais,
     builder: (column) => column,
   );
 
@@ -19550,6 +19626,7 @@ class $$ExerciciosTableTableManager
                 Value<String?> instrucoes = const Value.absent(),
                 Value<String?> dicas = const Value.absent(),
                 Value<String?> errosComuns = const Value.absent(),
+                Value<String?> anotacoesPessoais = const Value.absent(),
                 Value<int> ordem = const Value.absent(),
                 Value<bool> ativo = const Value.absent(),
                 Value<DateTime> criadoEm = const Value.absent(),
@@ -19571,6 +19648,7 @@ class $$ExerciciosTableTableManager
                 instrucoes: instrucoes,
                 dicas: dicas,
                 errosComuns: errosComuns,
+                anotacoesPessoais: anotacoesPessoais,
                 ordem: ordem,
                 ativo: ativo,
                 criadoEm: criadoEm,
@@ -19594,6 +19672,7 @@ class $$ExerciciosTableTableManager
                 Value<String?> instrucoes = const Value.absent(),
                 Value<String?> dicas = const Value.absent(),
                 Value<String?> errosComuns = const Value.absent(),
+                Value<String?> anotacoesPessoais = const Value.absent(),
                 Value<int> ordem = const Value.absent(),
                 Value<bool> ativo = const Value.absent(),
                 Value<DateTime> criadoEm = const Value.absent(),
@@ -19615,6 +19694,7 @@ class $$ExerciciosTableTableManager
                 instrucoes: instrucoes,
                 dicas: dicas,
                 errosComuns: errosComuns,
+                anotacoesPessoais: anotacoesPessoais,
                 ordem: ordem,
                 ativo: ativo,
                 criadoEm: criadoEm,

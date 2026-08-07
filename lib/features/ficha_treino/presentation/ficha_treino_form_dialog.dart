@@ -21,7 +21,6 @@ class _FichaTreinoFormDialogState extends State<FichaTreinoFormDialog> {
 
   late final TextEditingController _nomeController;
   late final TextEditingController _descricaoController;
-  late final TextEditingController _ordemController;
 
   bool _salvando = false;
 
@@ -36,17 +35,12 @@ class _FichaTreinoFormDialogState extends State<FichaTreinoFormDialog> {
     _nomeController = TextEditingController(text: ficha?.nome ?? '');
 
     _descricaoController = TextEditingController(text: ficha?.descricao ?? '');
-
-    _ordemController = TextEditingController(
-      text: ficha?.ordem.toString() ?? '0',
-    );
   }
 
   @override
   void dispose() {
     _nomeController.dispose();
     _descricaoController.dispose();
-    _ordemController.dispose();
 
     super.dispose();
   }
@@ -75,20 +69,6 @@ class _FichaTreinoFormDialogState extends State<FichaTreinoFormDialog> {
     return null;
   }
 
-  String? _validarOrdem(String? valor) {
-    final ordem = int.tryParse(valor?.trim() ?? '');
-
-    if (ordem == null) {
-      return 'Informe uma ordem válida.';
-    }
-
-    if (ordem < 0) {
-      return 'A ordem não pode ser negativa.';
-    }
-
-    return null;
-  }
-
   Future<void> _salvar() async {
     if (_salvando || !_formKey.currentState!.validate()) {
       return;
@@ -100,7 +80,6 @@ class _FichaTreinoFormDialogState extends State<FichaTreinoFormDialog> {
 
     final nome = _nomeController.text.trim();
     final descricao = _descricaoController.text.trim();
-    final ordem = int.parse(_ordemController.text.trim());
 
     try {
       if (_editando) {
@@ -108,7 +87,6 @@ class _FichaTreinoFormDialogState extends State<FichaTreinoFormDialog> {
           id: widget.fichaTreino!.id,
           nome: nome,
           descricao: descricao,
-          ordem: ordem,
         );
 
         if (!alterado) {
@@ -118,7 +96,6 @@ class _FichaTreinoFormDialogState extends State<FichaTreinoFormDialog> {
         await widget.database.fichaTreinoDao.cadastrar(
           nome: nome,
           descricao: descricao,
-          ordem: ordem,
         );
       }
 
@@ -193,18 +170,6 @@ class _FichaTreinoFormDialogState extends State<FichaTreinoFormDialog> {
                     border: OutlineInputBorder(),
                   ),
                   validator: _validarDescricao,
-                ),
-                const SizedBox(height: 16),
-                TextFormField(
-                  controller: _ordemController,
-                  enabled: !_salvando,
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                    labelText: 'Ordem',
-                    hintText: '0',
-                    border: OutlineInputBorder(),
-                  ),
-                  validator: _validarOrdem,
                 ),
               ],
             ),

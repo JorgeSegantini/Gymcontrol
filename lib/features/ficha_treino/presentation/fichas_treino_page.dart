@@ -59,6 +59,35 @@ class _FichasTreinoPageState extends State<FichasTreinoPage> {
     }).toList();
   }
 
+  Future<void> _reordenarFichas(
+    BuildContext context,
+    List<FichaTreino> fichas,
+    int indiceAntigo,
+    int indiceNovo,
+  ) async {
+    final reordenadas = List<FichaTreino>.of(fichas);
+    final movida = reordenadas.removeAt(indiceAntigo);
+    reordenadas.insert(indiceNovo, movida);
+
+    try {
+      await widget.database.fichaTreinoDao.reordenarFichas(
+        fichaIds: reordenadas.map((ficha) => ficha.id).toList(),
+      );
+    } on ArgumentError catch (erro) {
+      if (!context.mounted) {
+        return;
+      }
+
+      _mostrarMensagem(context, _mensagemDaExcecao(erro.message));
+    } catch (_) {
+      if (!context.mounted) {
+        return;
+      }
+
+      _mostrarMensagem(context, 'Não foi possível alterar a ordem das fichas.');
+    }
+  }
+
   Future<void> _abrirFormularioCadastro(BuildContext context) async {
     final fichaCadastrada = await showDialog<bool>(
       context: context,
@@ -334,6 +363,44 @@ class _FichasTreinoPageState extends State<FichasTreinoPage> {
                           'Nenhuma ficha de treino encontrada.',
                           textAlign: TextAlign.center,
                         ),
+                      )
+                    : _pesquisaController.text.trim().isEmpty &&
+                          !_incluirInativas
+                    ? ReorderableListView.builder(
+                        padding: const EdgeInsets.fromLTRB(16, 16, 16, 96),
+                        buildDefaultDragHandles: true,
+                        itemCount: fichas.length,
+                        onReorderItem: (indiceAntigo, indiceNovo) {
+                          _reordenarFichas(
+                            context,
+                            fichas,
+                            indiceAntigo,
+                            indiceNovo,
+                          );
+                        },
+                        itemBuilder: (context, index) {
+                          final fichaTreino = fichas[index];
+
+                          return Padding(
+                            key: ValueKey(fichaTreino.id),
+                            padding: const EdgeInsets.only(bottom: 12),
+                            child: _FichaTreinoCard(
+                              fichaTreino: fichaTreino,
+                              iniciando: _fichaIniciandoId == fichaTreino.id,
+                              corDoConteudo: _corDoConteudo,
+                              descricao: _descricaoFicha(fichaTreino),
+                              onIniciar: () {
+                                _iniciarTreino(context, fichaTreino);
+                              },
+                              onMontar: () {
+                                _abrirEditor(context, fichaTreino);
+                              },
+                              onMaisOpcoes: () {
+                                _abrirOpcoes(context, fichaTreino);
+                              },
+                            ),
+                          );
+                        },
                       )
                     : ListView.separated(
                         padding: const EdgeInsets.fromLTRB(16, 16, 16, 96),

@@ -125,6 +125,8 @@ class Exercicios extends Table {
 
   TextColumn get errosComuns => text().nullable()();
 
+  TextColumn get anotacoesPessoais => text().nullable()();
+
   IntColumn get ordem => integer().withDefault(const Constant(0))();
 
   BoolColumn get ativo => boolean().withDefault(const Constant(true))();
@@ -441,7 +443,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(abrirConexaoBanco());
 
   @override
-  int get schemaVersion => 13;
+  int get schemaVersion => 14;
 
   @override
   MigrationStrategy get migration {
@@ -517,6 +519,10 @@ class AppDatabase extends _$AppDatabase {
 
         if (from < 13) {
           await migrator.createTable(medidasCorporais);
+        }
+
+        if (from < 14) {
+          await migrator.addColumn(exercicios, exercicios.anotacoesPessoais);
         }
       },
       beforeOpen: (details) async {
