@@ -269,106 +269,173 @@ class _PlanoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     final cor = Color(plano.corArgb);
+    final ativo = plano.situacao == SituacaoPlanoTreino.ativo.name;
+    final encerrado = plano.situacao == SituacaoPlanoTreino.encerrado.name;
+    final objetivo = plano.objetivo?.trim();
 
     return Card(
-      child: ListTile(
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        leading: CircleAvatar(
-          backgroundColor: cor,
-          foregroundColor:
-              ThemeData.estimateBrightnessForColor(cor) == Brightness.dark
-              ? Colors.white
-              : Colors.black,
-          child: const Icon(Icons.route_outlined),
-        ),
-        title: Row(
-          children: [
-            Expanded(
-              child: Text(
-                plano.nome,
-                style: const TextStyle(fontWeight: FontWeight.w700),
-              ),
-            ),
-            if (plano.situacao == SituacaoPlanoTreino.ativo.name)
-              const Padding(
-                padding: EdgeInsets.only(left: 8),
-                child: Chip(
-                  avatar: Icon(Icons.check_circle_outline, size: 18),
-                  label: Text('Ativo'),
-                  visualDensity: VisualDensity.compact,
+      clipBehavior: Clip.antiAlias,
+      color: ativo ? cor.withValues(alpha: 0.10) : null,
+      child: InkWell(
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(14, 14, 8, 14),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: 48,
+                height: 48,
+                decoration: BoxDecoration(
+                  color: ativo ? cor : colorScheme.surfaceContainerHighest,
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                alignment: Alignment.center,
+                child: Icon(
+                  Icons.route_outlined,
+                  color: ativo
+                      ? (ThemeData.estimateBrightnessForColor(cor) ==
+                                Brightness.dark
+                            ? Colors.white
+                            : Colors.black)
+                      : colorScheme.onSurfaceVariant,
                 ),
               ),
-            if (plano.favorito)
-              const Padding(
-                padding: EdgeInsets.only(left: 4),
-                child: Icon(Icons.star_rounded, size: 20),
-              ),
-          ],
-        ),
-        subtitle: Text(
-          [
-            if (plano.objetivo != null && plano.objetivo!.trim().isNotEmpty)
-              plano.objetivo!.trim(),
-            _nomeSituacao(plano.situacao),
-          ].join(' • '),
-        ),
-        trailing: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            PopupMenuButton<_AcaoPlano>(
-              tooltip: 'Ações do plano',
-              onSelected: (acao) {
-                switch (acao) {
-                  case _AcaoPlano.alterarSituacao:
-                    onAlterarSituacao();
-                  case _AcaoPlano.excluir:
-                    onExcluir();
-                }
-              },
-              itemBuilder: (context) {
-                final ativo = plano.situacao == SituacaoPlanoTreino.ativo.name;
-
-                return [
-                  PopupMenuItem(
-                    value: _AcaoPlano.alterarSituacao,
-                    child: ListTile(
-                      contentPadding: EdgeInsets.zero,
-                      leading: Icon(
-                        ativo
-                            ? Icons.pause_circle_outline
-                            : Icons.play_circle_outline,
+              const SizedBox(width: 12),
+              Expanded(
+                child: Opacity(
+                  opacity: encerrado ? 0.62 : 1,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              plano.nome,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: Theme.of(context).textTheme.titleMedium
+                                  ?.copyWith(fontWeight: FontWeight.w800),
+                            ),
+                          ),
+                          if (plano.favorito)
+                            const Padding(
+                              padding: EdgeInsets.only(left: 6),
+                              child: Icon(Icons.star_rounded, size: 20),
+                            ),
+                        ],
                       ),
-                      title: Text(ativo ? 'Pausar plano' : 'Ativar plano'),
-                    ),
+                      if (objetivo != null && objetivo.isNotEmpty) ...[
+                        const SizedBox(height: 4),
+                        Text(
+                          objetivo,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: Theme.of(context).textTheme.bodyMedium
+                              ?.copyWith(color: colorScheme.onSurfaceVariant),
+                        ),
+                      ],
+                      const SizedBox(height: 9),
+                      _SituacaoPlanoChip(situacao: plano.situacao, cor: cor),
+                    ],
                   ),
-                  const PopupMenuDivider(),
-                  const PopupMenuItem(
-                    value: _AcaoPlano.excluir,
-                    child: ListTile(
-                      contentPadding: EdgeInsets.zero,
-                      leading: Icon(Icons.delete_outline),
-                      title: Text('Excluir plano'),
+                ),
+              ),
+              PopupMenuButton<_AcaoPlano>(
+                tooltip: 'Ações do plano',
+                onSelected: (acao) {
+                  switch (acao) {
+                    case _AcaoPlano.alterarSituacao:
+                      onAlterarSituacao();
+                    case _AcaoPlano.excluir:
+                      onExcluir();
+                  }
+                },
+                itemBuilder: (context) {
+                  return [
+                    PopupMenuItem(
+                      value: _AcaoPlano.alterarSituacao,
+                      child: ListTile(
+                        contentPadding: EdgeInsets.zero,
+                        leading: Icon(
+                          ativo
+                              ? Icons.pause_circle_outline
+                              : Icons.play_circle_outline,
+                        ),
+                        title: Text(ativo ? 'Pausar plano' : 'Ativar plano'),
+                      ),
                     ),
-                  ),
-                ];
-              },
-            ),
-            const Icon(Icons.chevron_right),
-          ],
+                    const PopupMenuDivider(),
+                    const PopupMenuItem(
+                      value: _AcaoPlano.excluir,
+                      child: ListTile(
+                        contentPadding: EdgeInsets.zero,
+                        leading: Icon(Icons.delete_outline),
+                        title: Text('Excluir plano'),
+                      ),
+                    ),
+                  ];
+                },
+              ),
+            ],
+          ),
         ),
-        onTap: onTap,
       ),
     );
   }
+}
 
-  static String _nomeSituacao(String situacao) {
-    return switch (situacao) {
-      'ativo' => 'Ativo',
-      'pausado' => 'Pausado',
-      'encerrado' => 'Encerrado',
-      _ => situacao,
+class _SituacaoPlanoChip extends StatelessWidget {
+  const _SituacaoPlanoChip({required this.situacao, required this.cor});
+
+  final String situacao;
+  final Color cor;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final ativo = situacao == SituacaoPlanoTreino.ativo.name;
+
+    final (icone, texto) = switch (situacao) {
+      'ativo' => (Icons.check_circle_outline, 'Plano ativo'),
+      'pausado' => (Icons.pause_circle_outline, 'Pausado'),
+      'encerrado' => (Icons.archive_outlined, 'Encerrado'),
+      _ => (Icons.info_outline, situacao),
     };
+
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
+        decoration: BoxDecoration(
+          color: ativo
+              ? cor.withValues(alpha: 0.18)
+              : colorScheme.surfaceContainerHighest,
+          borderRadius: BorderRadius.circular(999),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              icone,
+              size: 16,
+              color: ativo ? cor : colorScheme.onSurfaceVariant,
+            ),
+            const SizedBox(width: 5),
+            Text(
+              texto,
+              style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                fontWeight: FontWeight.w800,
+                color: ativo ? cor : colorScheme.onSurfaceVariant,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
 

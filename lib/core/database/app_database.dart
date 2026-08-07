@@ -313,12 +313,14 @@ class PlanosTreinoExecucoes extends Table {
     onDelete: KeyAction.setNull,
   )();
 
+  @ReferenceName('planoExecucoesComoFichaPlanejada')
   IntColumn get fichaPlanejadaId => integer().nullable().references(
     FichasTreino,
     #id,
     onDelete: KeyAction.setNull,
   )();
 
+  @ReferenceName('planoExecucoesComoFichaExecutada')
   IntColumn get fichaExecutadaId => integer().nullable().references(
     FichasTreino,
     #id,

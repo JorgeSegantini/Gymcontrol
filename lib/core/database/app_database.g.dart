@@ -19860,6 +19860,58 @@ final class $$FichasTreinoTableReferences
       manager.$state.copyWith(prefetchedData: cache),
     );
   }
+
+  static MultiTypedResultKey<
+    $PlanosTreinoExecucoesTable,
+    List<PlanoTreinoExecucao>
+  >
+  _planoExecucoesComoFichaPlanejadaTable(_$AppDatabase db) =>
+      MultiTypedResultKey.fromTable(
+        db.planosTreinoExecucoes,
+        aliasName:
+            'fichas_treino__id__planos_treino_execucoes__ficha_planejada_id',
+      );
+
+  $$PlanosTreinoExecucoesTableProcessedTableManager
+  get planoExecucoesComoFichaPlanejada {
+    final manager = $$PlanosTreinoExecucoesTableTableManager(
+      $_db,
+      $_db.planosTreinoExecucoes,
+    ).filter((f) => f.fichaPlanejadaId.id.sqlEquals($_itemColumn<int>('id')!));
+
+    final cache = $_typedResult.readTableOrNull(
+      _planoExecucoesComoFichaPlanejadaTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+
+  static MultiTypedResultKey<
+    $PlanosTreinoExecucoesTable,
+    List<PlanoTreinoExecucao>
+  >
+  _planoExecucoesComoFichaExecutadaTable(_$AppDatabase db) =>
+      MultiTypedResultKey.fromTable(
+        db.planosTreinoExecucoes,
+        aliasName:
+            'fichas_treino__id__planos_treino_execucoes__ficha_executada_id',
+      );
+
+  $$PlanosTreinoExecucoesTableProcessedTableManager
+  get planoExecucoesComoFichaExecutada {
+    final manager = $$PlanosTreinoExecucoesTableTableManager(
+      $_db,
+      $_db.planosTreinoExecucoes,
+    ).filter((f) => f.fichaExecutadaId.id.sqlEquals($_itemColumn<int>('id')!));
+
+    final cache = $_typedResult.readTableOrNull(
+      _planoExecucoesComoFichaExecutadaTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
 }
 
 class $$FichasTreinoTableFilterComposer
@@ -19958,6 +20010,58 @@ class $$FichasTreinoTableFilterComposer
                 $removeJoinBuilderFromRootComposer,
           ),
     );
+    return f(composer);
+  }
+
+  Expression<bool> planoExecucoesComoFichaPlanejada(
+    Expression<bool> Function($$PlanosTreinoExecucoesTableFilterComposer f) f,
+  ) {
+    final $$PlanosTreinoExecucoesTableFilterComposer composer =
+        $composerBuilder(
+          composer: this,
+          getCurrentColumn: (t) => t.id,
+          referencedTable: $db.planosTreinoExecucoes,
+          getReferencedColumn: (t) => t.fichaPlanejadaId,
+          builder:
+              (
+                joinBuilder, {
+                $addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer,
+              }) => $$PlanosTreinoExecucoesTableFilterComposer(
+                $db: $db,
+                $table: $db.planosTreinoExecucoes,
+                $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                joinBuilder: joinBuilder,
+                $removeJoinBuilderFromRootComposer:
+                    $removeJoinBuilderFromRootComposer,
+              ),
+        );
+    return f(composer);
+  }
+
+  Expression<bool> planoExecucoesComoFichaExecutada(
+    Expression<bool> Function($$PlanosTreinoExecucoesTableFilterComposer f) f,
+  ) {
+    final $$PlanosTreinoExecucoesTableFilterComposer composer =
+        $composerBuilder(
+          composer: this,
+          getCurrentColumn: (t) => t.id,
+          referencedTable: $db.planosTreinoExecucoes,
+          getReferencedColumn: (t) => t.fichaExecutadaId,
+          builder:
+              (
+                joinBuilder, {
+                $addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer,
+              }) => $$PlanosTreinoExecucoesTableFilterComposer(
+                $db: $db,
+                $table: $db.planosTreinoExecucoes,
+                $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                joinBuilder: joinBuilder,
+                $removeJoinBuilderFromRootComposer:
+                    $removeJoinBuilderFromRootComposer,
+              ),
+        );
     return f(composer);
   }
 }
@@ -20097,6 +20201,58 @@ class $$FichasTreinoTableAnnotationComposer
         );
     return f(composer);
   }
+
+  Expression<T> planoExecucoesComoFichaPlanejada<T extends Object>(
+    Expression<T> Function($$PlanosTreinoExecucoesTableAnnotationComposer a) f,
+  ) {
+    final $$PlanosTreinoExecucoesTableAnnotationComposer composer =
+        $composerBuilder(
+          composer: this,
+          getCurrentColumn: (t) => t.id,
+          referencedTable: $db.planosTreinoExecucoes,
+          getReferencedColumn: (t) => t.fichaPlanejadaId,
+          builder:
+              (
+                joinBuilder, {
+                $addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer,
+              }) => $$PlanosTreinoExecucoesTableAnnotationComposer(
+                $db: $db,
+                $table: $db.planosTreinoExecucoes,
+                $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                joinBuilder: joinBuilder,
+                $removeJoinBuilderFromRootComposer:
+                    $removeJoinBuilderFromRootComposer,
+              ),
+        );
+    return f(composer);
+  }
+
+  Expression<T> planoExecucoesComoFichaExecutada<T extends Object>(
+    Expression<T> Function($$PlanosTreinoExecucoesTableAnnotationComposer a) f,
+  ) {
+    final $$PlanosTreinoExecucoesTableAnnotationComposer composer =
+        $composerBuilder(
+          composer: this,
+          getCurrentColumn: (t) => t.id,
+          referencedTable: $db.planosTreinoExecucoes,
+          getReferencedColumn: (t) => t.fichaExecutadaId,
+          builder:
+              (
+                joinBuilder, {
+                $addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer,
+              }) => $$PlanosTreinoExecucoesTableAnnotationComposer(
+                $db: $db,
+                $table: $db.planosTreinoExecucoes,
+                $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                joinBuilder: joinBuilder,
+                $removeJoinBuilderFromRootComposer:
+                    $removeJoinBuilderFromRootComposer,
+              ),
+        );
+    return f(composer);
+  }
 }
 
 class $$FichasTreinoTableTableManager
@@ -20115,6 +20271,8 @@ class $$FichasTreinoTableTableManager
           PrefetchHooks Function({
             bool fichasExerciciosRefs,
             bool planosTreinoItensRefs,
+            bool planoExecucoesComoFichaPlanejada,
+            bool planoExecucoesComoFichaExecutada,
           })
         > {
   $$FichasTreinoTableTableManager(_$AppDatabase db, $FichasTreinoTable table)
@@ -20177,12 +20335,21 @@ class $$FichasTreinoTableTableManager
               )
               .toList(),
           prefetchHooksCallback:
-              ({fichasExerciciosRefs = false, planosTreinoItensRefs = false}) {
+              ({
+                fichasExerciciosRefs = false,
+                planosTreinoItensRefs = false,
+                planoExecucoesComoFichaPlanejada = false,
+                planoExecucoesComoFichaExecutada = false,
+              }) {
                 return PrefetchHooks(
                   db: db,
                   explicitlyWatchedTables: [
                     if (fichasExerciciosRefs) db.fichasExercicios,
                     if (planosTreinoItensRefs) db.planosTreinoItens,
+                    if (planoExecucoesComoFichaPlanejada)
+                      db.planosTreinoExecucoes,
+                    if (planoExecucoesComoFichaExecutada)
+                      db.planosTreinoExecucoes,
                   ],
                   addJoins: null,
                   getPrefetchedDataCallback: (items) async {
@@ -20229,6 +20396,48 @@ class $$FichasTreinoTableTableManager
                               ),
                           typedResults: items,
                         ),
+                      if (planoExecucoesComoFichaPlanejada)
+                        await $_getPrefetchedData<
+                          FichaTreino,
+                          $FichasTreinoTable,
+                          PlanoTreinoExecucao
+                        >(
+                          currentTable: table,
+                          referencedTable: $$FichasTreinoTableReferences
+                              ._planoExecucoesComoFichaPlanejadaTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$FichasTreinoTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).planoExecucoesComoFichaPlanejada,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.fichaPlanejadaId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (planoExecucoesComoFichaExecutada)
+                        await $_getPrefetchedData<
+                          FichaTreino,
+                          $FichasTreinoTable,
+                          PlanoTreinoExecucao
+                        >(
+                          currentTable: table,
+                          referencedTable: $$FichasTreinoTableReferences
+                              ._planoExecucoesComoFichaExecutadaTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$FichasTreinoTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).planoExecucoesComoFichaExecutada,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.fichaExecutadaId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
                     ];
                   },
                 );
@@ -20252,6 +20461,8 @@ typedef $$FichasTreinoTableProcessedTableManager =
       PrefetchHooks Function({
         bool fichasExerciciosRefs,
         bool planosTreinoItensRefs,
+        bool planoExecucoesComoFichaPlanejada,
+        bool planoExecucoesComoFichaExecutada,
       })
     >;
 typedef $$FichasExerciciosTableCreateCompanionBuilder =

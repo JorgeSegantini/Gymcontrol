@@ -129,12 +129,16 @@ class HomePlanoHojeCard extends StatelessWidget {
                             ?.copyWith(fontWeight: FontWeight.w900),
                       ),
                       const SizedBox(height: 4),
-                      Text(
-                        possuiTroca
-                            ? 'Treino escolhido para hoje'
-                            : _nomeTipo(item.tipo),
-                        style: Theme.of(context).textTheme.labelLarge,
-                      ),
+                      if (possuiTroca)
+                        Text(
+                          'Treino escolhido para hoje',
+                          style: Theme.of(context).textTheme.labelLarge,
+                        )
+                      else if (!ehTreino)
+                        Text(
+                          _nomeTipo(item.tipo),
+                          style: Theme.of(context).textTheme.labelLarge,
+                        ),
                       if (possuiTroca) ...[
                         const SizedBox(height: 4),
                         Text(

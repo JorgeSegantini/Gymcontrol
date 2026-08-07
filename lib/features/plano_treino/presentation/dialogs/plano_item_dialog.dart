@@ -36,8 +36,11 @@ class _PlanoItemDialogState extends State<PlanoItemDialog> {
 
   late TipoPlanoTreinoItem _tipo;
   int? _fichaTreinoId;
+  String? _fichaTreinoNome;
+  String? _fichaTreinoDescricao;
 
   bool get _editando => widget.item != null;
+  bool get _ehTreino => _tipo == TipoPlanoTreinoItem.treino;
 
   @override
   void initState() {
@@ -74,10 +77,15 @@ class _PlanoItemDialogState extends State<PlanoItemDialog> {
 
       if (tipo != TipoPlanoTreinoItem.treino) {
         _fichaTreinoId = null;
-      }
+        _fichaTreinoNome = null;
+        _fichaTreinoDescricao = null;
 
-      if (_nomeController.text.trim().isEmpty) {
-        _nomeController.text = _nomePadrao(tipo);
+        if (_nomeController.text.trim().isEmpty ||
+            _nomeController.text.trim() == 'Treino') {
+          _nomeController.text = _nomePadrao(tipo);
+        }
+      } else {
+        _nomeController.clear();
       }
     });
   }
@@ -87,12 +95,29 @@ class _PlanoItemDialogState extends State<PlanoItemDialog> {
       return;
     }
 
+    final nome = _ehTreino
+        ? (_fichaTreinoNome ?? widget.item?.nome ?? '').trim()
+        : _nomeController.text.trim();
+
+    if (nome.isEmpty) {
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(
+          const SnackBar(
+            content: Text('Não foi possível identificar o nome da etapa.'),
+          ),
+        );
+      return;
+    }
+
     Navigator.of(context).pop(
       PlanoItemFormData(
         tipo: _tipo,
-        nome: _nomeController.text.trim(),
+        nome: nome,
         codigo: _textoOpcional(_codigoController.text),
-        descricao: _textoOpcional(_descricaoController.text),
+        descricao: _ehTreino
+            ? _textoOpcional(_fichaTreinoDescricao ?? '')
+            : _textoOpcional(_descricaoController.text),
         fichaTreinoId: _fichaTreinoId,
       ),
     );
@@ -111,18 +136,33 @@ class _PlanoItemDialogState extends State<PlanoItemDialog> {
             key: _formKey,
             child: Column(
               mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                Text(
+                  'O tipo define o ícone usado para identificar a etapa '
+                  'no plano e na Home.',
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
+                ),
+                const SizedBox(height: 10),
                 DropdownButtonFormField<TipoPlanoTreinoItem>(
                   initialValue: _tipo,
-                  decoration: const InputDecoration(
-                    labelText: 'Tipo',
-                    prefixIcon: Icon(Icons.category_outlined),
+                  decoration: InputDecoration(
+                    labelText: 'Tipo da etapa',
+                    prefixIcon: Icon(_iconeTipo(_tipo)),
                   ),
                   items: [
                     for (final tipo in TipoPlanoTreinoItem.values)
                       DropdownMenuItem(
                         value: tipo,
-                        child: Text(_nomeTipo(tipo)),
+                        child: Row(
+                          children: [
+                            Icon(_iconeTipo(tipo), size: 20),
+                            const SizedBox(width: 10),
+                            Text(_nomeTipo(tipo)),
+                          ],
+                        ),
                       ),
                   ],
                   onChanged: (tipo) {
@@ -132,17 +172,34 @@ class _PlanoItemDialogState extends State<PlanoItemDialog> {
                   },
                 ),
                 const SizedBox(height: 12),
-                if (_tipo == TipoPlanoTreinoItem.treino) ...[
+                if (_ehTreino) ...[
                   StreamBuilder<List<FichaTreino>>(
                     stream: widget.database.fichaTreinoDao.observarAtivas(),
                     builder: (context, snapshot) {
                       final fichas = snapshot.data ?? const <FichaTreino>[];
 
+                      FichaTreino? fichaSelecionada;
+                      for (final ficha in fichas) {
+                        if (ficha.id == _fichaTreinoId) {
+                          fichaSelecionada = ficha;
+                          break;
+                        }
+                      }
+
+                      if (fichaSelecionada != null) {
+                        _fichaTreinoNome = fichaSelecionada.nome;
+                        _fichaTreinoDescricao = fichaSelecionada.descricao;
+                      }
+
                       return DropdownButtonFormField<int>(
                         initialValue: _fichaTreinoId,
+                        isExpanded: true,
                         decoration: const InputDecoration(
-                          labelText: 'Ficha vinculada',
+                          labelText: 'Ficha de treino',
                           prefixIcon: Icon(Icons.assignment_outlined),
+                          helperText:
+                              'Nome e descrição da ficha serão usados '
+                              'automaticamente nesta etapa.',
                         ),
                         items: [
                           for (final ficha in fichas)
@@ -159,18 +216,22 @@ class _PlanoItemDialogState extends State<PlanoItemDialog> {
                                 setState(() {
                                   _fichaTreinoId = valor;
 
-                                  if (_nomeController.text.trim().isEmpty) {
-                                    final ficha = fichas.firstWhere(
-                                      (item) => item.id == valor,
-                                    );
-                                    _nomeController.text = ficha.nome;
+                                  if (valor == null) {
+                                    _fichaTreinoNome = null;
+                                    _fichaTreinoDescricao = null;
+                                    return;
                                   }
+
+                                  final ficha = fichas.firstWhere(
+                                    (item) => item.id == valor,
+                                  );
+                                  _fichaTreinoNome = ficha.nome;
+                                  _fichaTreinoDescricao = ficha.descricao;
                                 });
                               }
                             : null,
                         validator: (valor) {
-                          if (_tipo == TipoPlanoTreinoItem.treino &&
-                              valor == null) {
+                          if (_ehTreino && valor == null) {
                             return 'Selecione uma ficha de treino.';
                           }
 
@@ -186,40 +247,86 @@ class _PlanoItemDialogState extends State<PlanoItemDialog> {
                   maxLength: 20,
                   textCapitalization: TextCapitalization.characters,
                   decoration: const InputDecoration(
-                    labelText: 'Código opcional',
+                    labelText: 'Identificador opcional',
                     hintText: 'A, B, C...',
                     prefixIcon: Icon(Icons.tag_outlined),
+                    helperText:
+                        'Aparece no card da etapa para facilitar a '
+                        'identificação no plano.',
                   ),
                 ),
-                const SizedBox(height: 12),
-                TextFormField(
-                  controller: _nomeController,
-                  maxLength: 120,
-                  decoration: InputDecoration(
-                    labelText: 'Nome',
-                    hintText: _nomePadrao(_tipo),
-                    prefixIcon: const Icon(Icons.title),
-                  ),
-                  validator: (valor) {
-                    if (valor == null || valor.trim().isEmpty) {
-                      return 'Informe o nome da etapa.';
-                    }
+                if (!_ehTreino) ...[
+                  const SizedBox(height: 12),
+                  TextFormField(
+                    controller: _nomeController,
+                    maxLength: 120,
+                    decoration: InputDecoration(
+                      labelText: 'Nome da etapa',
+                      hintText: _nomePadrao(_tipo),
+                      prefixIcon: const Icon(Icons.title),
+                    ),
+                    validator: (valor) {
+                      if (!_ehTreino &&
+                          (valor == null || valor.trim().isEmpty)) {
+                        return 'Informe o nome da etapa.';
+                      }
 
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 12),
-                TextFormField(
-                  controller: _descricaoController,
-                  maxLength: 500,
-                  minLines: 2,
-                  maxLines: 4,
-                  decoration: const InputDecoration(
-                    labelText: 'Descrição opcional',
-                    hintText: 'Ex.: Peito, ombros e tríceps',
-                    prefixIcon: Icon(Icons.notes_outlined),
-                    alignLabelWithHint: true,
+                      return null;
+                    },
                   ),
+                ],
+                if (!_ehTreino) ...[
+                  const SizedBox(height: 12),
+                  TextFormField(
+                    controller: _descricaoController,
+                    maxLength: 500,
+                    minLines: 2,
+                    maxLines: 4,
+                    decoration: const InputDecoration(
+                      labelText: 'Descrição opcional',
+                      hintText: 'Ex.: caminhada leve, mobilidade de quadril...',
+                      prefixIcon: Icon(Icons.notes_outlined),
+                      alignLabelWithHint: true,
+                      helperText:
+                          'Aparece como informação complementar da etapa.',
+                    ),
+                  ),
+                ] else if (_fichaTreinoDescricao?.trim().isNotEmpty ==
+                    true) ...[
+                  const SizedBox(height: 10),
+                  Container(
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: Theme.of(context)
+                          .colorScheme
+                          .surfaceContainerHighest
+                          .withValues(alpha: 0.45),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Icon(Icons.notes_outlined, size: 20),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Text(
+                            _fichaTreinoDescricao!.trim(),
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+                const SizedBox(height: 14),
+                _PreviaEtapa(
+                  tipo: _tipo,
+                  codigo: _textoOpcional(_codigoController.text),
+                  nome: _ehTreino
+                      ? (_fichaTreinoNome ?? 'Selecione uma ficha')
+                      : (_nomeController.text.trim().isEmpty
+                            ? _nomePadrao(_tipo)
+                            : _nomeController.text.trim()),
                 ),
               ],
             ),
@@ -251,6 +358,16 @@ class _PlanoItemDialogState extends State<PlanoItemDialog> {
     };
   }
 
+  static IconData _iconeTipo(TipoPlanoTreinoItem tipo) {
+    return switch (tipo) {
+      TipoPlanoTreinoItem.treino => Icons.fitness_center_outlined,
+      TipoPlanoTreinoItem.descanso => Icons.bedtime_outlined,
+      TipoPlanoTreinoItem.cardio => Icons.directions_run_outlined,
+      TipoPlanoTreinoItem.mobilidade => Icons.self_improvement_outlined,
+      TipoPlanoTreinoItem.personalizado => Icons.tune_outlined,
+    };
+  }
+
   static String _nomePadrao(TipoPlanoTreinoItem tipo) {
     return switch (tipo) {
       TipoPlanoTreinoItem.treino => 'Treino',
@@ -261,8 +378,80 @@ class _PlanoItemDialogState extends State<PlanoItemDialog> {
     };
   }
 
-  static String? _textoOpcional(String valor) {
-    final tratado = valor.trim();
-    return tratado.isEmpty ? null : tratado;
+  static String? _textoOpcional(String texto) {
+    final valor = texto.trim();
+    return valor.isEmpty ? null : valor;
+  }
+}
+
+class _PreviaEtapa extends StatelessWidget {
+  const _PreviaEtapa({
+    required this.tipo,
+    required this.codigo,
+    required this.nome,
+  });
+
+  final TipoPlanoTreinoItem tipo;
+  final String? codigo;
+  final String nome;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: colorScheme.surfaceContainerHighest.withValues(alpha: 0.55),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 42,
+            height: 42,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: colorScheme.primaryContainer,
+              borderRadius: BorderRadius.circular(11),
+            ),
+            child: codigo == null
+                ? Icon(
+                    _PlanoItemDialogState._iconeTipo(tipo),
+                    color: colorScheme.onPrimaryContainer,
+                  )
+                : Text(
+                    codigo!,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(fontWeight: FontWeight.w900),
+                  ),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Prévia no plano',
+                  style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                    color: colorScheme.onSurfaceVariant,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  nome,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(
+                    context,
+                  ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w800),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

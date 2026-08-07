@@ -418,14 +418,40 @@ class _CabecalhoPlano extends StatelessWidget {
                       ),
                     ],
                     const SizedBox(height: 10),
-                    Chip(
-                      avatar: const Icon(Icons.format_list_numbered, size: 18),
-                      label: Text(
-                        quantidadeEtapas == 1
-                            ? '1 etapa'
-                            : '$quantidadeEtapas etapas',
-                      ),
-                      visualDensity: VisualDensity.compact,
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 6,
+                      children: [
+                        Chip(
+                          avatar: const Icon(
+                            Icons.format_list_numbered,
+                            size: 18,
+                          ),
+                          label: Text(
+                            quantidadeEtapas == 1
+                                ? '1 etapa'
+                                : '$quantidadeEtapas etapas',
+                          ),
+                          visualDensity: VisualDensity.compact,
+                        ),
+                        Chip(
+                          avatar: Icon(
+                            plano.situacao == SituacaoPlanoTreino.ativo.name
+                                ? Icons.check_circle_outline
+                                : Icons.pause_circle_outline,
+                            size: 18,
+                          ),
+                          label: Text(
+                            plano.situacao == SituacaoPlanoTreino.ativo.name
+                                ? 'Ativo'
+                                : plano.situacao ==
+                                      SituacaoPlanoTreino.pausado.name
+                                ? 'Pausado'
+                                : 'Encerrado',
+                          ),
+                          visualDensity: VisualDensity.compact,
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -496,36 +522,45 @@ class _EtapaResumidaCard extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               )
             : Text(_nomeTipo(item.tipo)),
-        trailing: PopupMenuButton<_AcaoEtapa>(
-          tooltip: 'Ações da etapa',
-          onSelected: (acao) {
-            switch (acao) {
-              case _AcaoEtapa.editar:
-                onEditar();
-              case _AcaoEtapa.remover:
-                onRemover();
-            }
-          },
-          itemBuilder: (context) {
-            return const [
-              PopupMenuItem(
-                value: _AcaoEtapa.editar,
-                child: ListTile(
-                  contentPadding: EdgeInsets.zero,
-                  leading: Icon(Icons.edit_outlined),
-                  title: Text('Editar etapa'),
-                ),
-              ),
-              PopupMenuItem(
-                value: _AcaoEtapa.remover,
-                child: ListTile(
-                  contentPadding: EdgeInsets.zero,
-                  leading: Icon(Icons.delete_outline),
-                  title: Text('Remover etapa'),
-                ),
-              ),
-            ];
-          },
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              Icons.drag_indicator,
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
+            ),
+            PopupMenuButton<_AcaoEtapa>(
+              tooltip: 'Ações da etapa',
+              onSelected: (acao) {
+                switch (acao) {
+                  case _AcaoEtapa.editar:
+                    onEditar();
+                  case _AcaoEtapa.remover:
+                    onRemover();
+                }
+              },
+              itemBuilder: (context) {
+                return const [
+                  PopupMenuItem(
+                    value: _AcaoEtapa.editar,
+                    child: ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: Icon(Icons.edit_outlined),
+                      title: Text('Editar etapa'),
+                    ),
+                  ),
+                  PopupMenuItem(
+                    value: _AcaoEtapa.remover,
+                    child: ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: Icon(Icons.delete_outline),
+                      title: Text('Remover etapa'),
+                    ),
+                  ),
+                ];
+              },
+            ),
+          ],
         ),
         onTap: onEditar,
       ),
