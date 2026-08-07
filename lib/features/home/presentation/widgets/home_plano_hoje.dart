@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/database/app_database.dart';
 import '../../../../core/database/plano_treino_dao.dart';
+import '../../data/frases_do_dia.dart';
 
 class HomePlanoHojeCard extends StatelessWidget {
   const HomePlanoHojeCard({
@@ -137,6 +138,33 @@ class HomePlanoHojeCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 16),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Icon(
+                  Icons.format_quote_rounded,
+                  size: 22,
+                  color: colorScheme.onSecondaryContainer.withValues(
+                    alpha: 0.72,
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    '“${FraseDoDia.paraData(DateTime.now())}”',
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      color: colorScheme.onSecondaryContainer.withValues(
+                        alpha: 0.82,
+                      ),
+                      fontStyle: FontStyle.italic,
+                      fontWeight: FontWeight.w500,
+                      height: 1.35,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 14),
             SizedBox(
               width: double.infinity,
               child: FilledButton.icon(

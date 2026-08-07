@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../core/database/app_database.dart';
 import '../features/home/presentation/home_page.dart';
+import '../features/perfil/data/perfil_local_controller.dart';
+import '../features/perfil/presentation/primeiro_acesso_page.dart';
 import '../shared/theme/dark_theme.dart';
 import '../shared/theme/light_theme.dart';
 import '../shared/theme/theme_controller.dart';
@@ -17,15 +19,18 @@ class GymControlApp extends StatefulWidget {
 
 class _GymControlAppState extends State<GymControlApp> {
   final ThemeController _themeController = ThemeController();
+  final PerfilLocalController _perfilController = PerfilLocalController();
 
   @override
   void initState() {
     super.initState();
     _themeController.carregar();
+    _perfilController.carregar();
   }
 
   @override
   void dispose() {
+    _perfilController.dispose();
     _themeController.dispose();
     super.dispose();
   }
@@ -41,10 +46,18 @@ class _GymControlAppState extends State<GymControlApp> {
           theme: GcLightTheme.build(),
           darkTheme: GcDarkTheme.build(),
           themeMode: _themeController.themeMode,
-          home: HomePage(
-            database: widget.database,
-            themeController: _themeController,
-          ),
+          home: _themeController.carregando || _perfilController.carregando
+              ? const Scaffold(body: Center(child: CircularProgressIndicator()))
+              : _perfilController.configurado
+              ? HomePage(
+                  database: widget.database,
+                  themeController: _themeController,
+                  perfilController: _perfilController,
+                )
+              : PrimeiroAcessoPage(
+                  perfilController: _perfilController,
+                  themeController: _themeController,
+                ),
         );
       },
     );

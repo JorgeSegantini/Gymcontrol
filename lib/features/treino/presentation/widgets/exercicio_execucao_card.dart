@@ -87,7 +87,7 @@ class _ExercicioExecucaoCardState extends State<ExercicioExecucaoCard> {
       await Scrollable.ensureVisible(
         context,
         alignment: 0,
-        duration: const Duration(milliseconds: 1100),
+        duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOutCubic,
         alignmentPolicy: ScrollPositionAlignmentPolicy.explicit,
       );

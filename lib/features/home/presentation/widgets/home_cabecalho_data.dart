@@ -1,54 +1,44 @@
 import 'package:flutter/material.dart';
 
+
 class HomeCabecalhoData extends StatelessWidget {
-  const HomeCabecalhoData({required this.data, super.key});
+  const HomeCabecalhoData({
+    required this.data,
+    required this.nome,
+    super.key,
+  });
 
   final DateTime data;
+  final String nome;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
+    final tema = Theme.of(context);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          width: 56,
-          height: 56,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primaryContainer,
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Text(
-            '${data.day}',
-            style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-              fontWeight: FontWeight.w900,
-              color: Theme.of(context).colorScheme.onPrimaryContainer,
-            ),
+        Text(
+          '${_saudacao(data.hour)}, $nome 👋',
+          style: tema.textTheme.headlineSmall?.copyWith(
+            fontWeight: FontWeight.w900,
           ),
         ),
-        const SizedBox(width: 14),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                _nomeDiaSemana(data.weekday),
-                style: Theme.of(
-                  context,
-                ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900),
-              ),
-              const SizedBox(height: 2),
-              Text(
-                '${data.day} de ${_nomeMes(data.month)} de ${data.year}',
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurfaceVariant,
-                ),
-              ),
-            ],
+        const SizedBox(height: 4),
+        Text(
+          '${_nomeDiaSemana(data.weekday)}, ${data.day} de ${_nomeMes(data.month)}',
+          style: tema.textTheme.bodyMedium?.copyWith(
+            color: tema.colorScheme.onSurfaceVariant,
           ),
         ),
       ],
     );
+  }
+
+  static String _saudacao(int hora) {
+    if (hora < 12) return 'Bom dia';
+    if (hora < 18) return 'Boa tarde';
+    return 'Boa noite';
   }
 
   static String _nomeDiaSemana(int dia) {

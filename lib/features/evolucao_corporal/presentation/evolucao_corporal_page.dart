@@ -455,7 +455,7 @@ class _GraficoPeso extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final selecionados = pesos.take(12).toList().reversed.toList();
+    final selecionados = pesos.take(5).toList().reversed.toList();
     final pontos = [
       for (final peso in selecionados)
         _GraficoPonto(data: peso.data, valor: peso.pesoGramas / 1000),
@@ -493,6 +493,8 @@ class _GraficoPeso extends StatelessWidget {
             child: _GraficoLinha(
               pontos: pontos,
               cor: Theme.of(context).colorScheme.primary,
+              referencias: const [50, 75, 100],
+              unidade: 'kg',
             ),
           ),
           const SizedBox(height: 8),
@@ -671,6 +673,8 @@ class _EvolucaoMedidasCardState extends State<_EvolucaoMedidasCard> {
                 child: _GraficoLinha(
                   pontos: registros,
                   cor: Theme.of(context).colorScheme.primary,
+                  referencias: _criarReferenciasMedidas(registros),
+                  unidade: 'cm',
                 ),
               ),
               const SizedBox(height: 8),
@@ -696,10 +700,17 @@ class _EvolucaoMedidasCardState extends State<_EvolucaoMedidasCard> {
 }
 
 class _GraficoLinha extends StatelessWidget {
-  const _GraficoLinha({required this.pontos, required this.cor});
+  const _GraficoLinha({
+    required this.pontos,
+    required this.cor,
+    required this.referencias,
+    required this.unidade,
+  });
 
   final List<_GraficoPonto> pontos;
   final Color cor;
+  final List<double> referencias;
+  final String unidade;
 
   @override
   Widget build(BuildContext context) {
@@ -708,6 +719,9 @@ class _GraficoLinha extends StatelessWidget {
         pontos: pontos,
         cor: cor,
         grade: Theme.of(context).colorScheme.outlineVariant,
+        texto: Theme.of(context).colorScheme.onSurfaceVariant,
+        referencias: referencias,
+        unidade: unidade,
       ),
     );
   }
@@ -718,11 +732,17 @@ class _GraficoLinhaPainter extends CustomPainter {
     required this.pontos,
     required this.cor,
     required this.grade,
+    required this.texto,
+    required this.referencias,
+    required this.unidade,
   });
 
   final List<_GraficoPonto> pontos;
   final Color cor;
   final Color grade;
+  final Color texto;
+  final List<double> referencias;
+  final String unidade;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -730,16 +750,22 @@ class _GraficoLinhaPainter extends CustomPainter {
       return;
     }
 
-    const margemHorizontal = 8.0;
-    const margemVertical = 10.0;
-    final largura = size.width - (margemHorizontal * 2);
-    final altura = size.height - (margemVertical * 2);
+    const margemEsquerda = 48.0;
+    const margemDireita = 8.0;
+    const margemSuperior = 26.0;
+    const margemInferior = 10.0;
+    final largura = size.width - margemEsquerda - margemDireita;
+    final altura = size.height - margemSuperior - margemInferior;
 
     var minimo = pontos.first.valor;
     var maximo = pontos.first.valor;
     for (final ponto in pontos.skip(1)) {
       if (ponto.valor < minimo) minimo = ponto.valor;
       if (ponto.valor > maximo) maximo = ponto.valor;
+    }
+    for (final referencia in referencias) {
+      if (referencia < minimo) minimo = referencia;
+      if (referencia > maximo) maximo = referencia;
     }
 
     var intervalo = maximo - minimo;
@@ -749,7 +775,7 @@ class _GraficoLinhaPainter extends CustomPainter {
       minimo -= intervalo;
       maximo += intervalo;
       intervalo = maximo - minimo;
-    } else {
+    } else if (referencias.isEmpty) {
       final folga = intervalo * 0.18;
       minimo -= folga;
       maximo += folga;
@@ -759,12 +785,35 @@ class _GraficoLinhaPainter extends CustomPainter {
     final tintaGrade = Paint()
       ..color = grade
       ..strokeWidth = 1;
-    for (var linha = 0; linha < 3; linha++) {
-      final y = margemVertical + (altura * linha / 2);
+
+    for (final referencia in referencias) {
+      final proporcaoY = (referencia - minimo) / intervalo;
+      final y = margemSuperior + altura - (proporcaoY * altura);
       canvas.drawLine(
-        Offset(margemHorizontal, y),
-        Offset(size.width - margemHorizontal, y),
+        Offset(margemEsquerda, y),
+        Offset(size.width - margemDireita, y),
         tintaGrade,
+      );
+
+      final rotulo = _formatarReferenciaGrafico(referencia, unidade);
+      final textPainter = TextPainter(
+        text: TextSpan(
+          text: rotulo,
+          style: TextStyle(
+            color: texto,
+            fontSize: 10,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        textDirection: TextDirection.ltr,
+        maxLines: 1,
+      )..layout(maxWidth: margemEsquerda - 6);
+      textPainter.paint(
+        canvas,
+        Offset(
+          margemEsquerda - textPainter.width - 6,
+          y - (textPainter.height / 2),
+        ),
       );
     }
 
@@ -772,10 +821,10 @@ class _GraficoLinhaPainter extends CustomPainter {
     final offsets = <Offset>[];
     for (var index = 0; index < pontos.length; index++) {
       final x = pontos.length == 1
-          ? size.width / 2
-          : margemHorizontal + (largura * index / (pontos.length - 1));
+          ? margemEsquerda + (largura / 2)
+          : margemEsquerda + (largura * index / (pontos.length - 1));
       final proporcaoY = (pontos[index].valor - minimo) / intervalo;
-      final y = margemVertical + altura - (proporcaoY * altura);
+      final y = margemSuperior + altura - (proporcaoY * altura);
       final offset = Offset(x, y);
       offsets.add(offset);
       if (index == 0) {
@@ -799,14 +848,114 @@ class _GraficoLinhaPainter extends CustomPainter {
     for (final offset in offsets) {
       canvas.drawCircle(offset, 3.5, tintaPonto);
     }
+
+    final indicesRotulados = _indicesParaRotularPontos(pontos.length);
+    for (final index in indicesRotulados) {
+      final offset = offsets[index];
+      final rotulo = _formatarValorPonto(pontos[index].valor);
+      final textPainter = TextPainter(
+        text: TextSpan(
+          text: rotulo,
+          style: TextStyle(
+            color: texto,
+            fontSize: 10,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        textDirection: TextDirection.ltr,
+        maxLines: 1,
+      )..layout();
+
+      var x = offset.dx - (textPainter.width / 2);
+      if (x < margemEsquerda) {
+        x = margemEsquerda;
+      } else if (x + textPainter.width > size.width - margemDireita) {
+        x = size.width - margemDireita - textPainter.width;
+      }
+
+      final y = (offset.dy - textPainter.height - 6).clamp(0.0, size.height);
+      textPainter.paint(canvas, Offset(x, y));
+    }
   }
 
   @override
   bool shouldRepaint(covariant _GraficoLinhaPainter oldDelegate) {
     return oldDelegate.pontos != pontos ||
         oldDelegate.cor != cor ||
-        oldDelegate.grade != grade;
+        oldDelegate.grade != grade ||
+        oldDelegate.texto != texto ||
+        oldDelegate.referencias != referencias ||
+        oldDelegate.unidade != unidade;
   }
+}
+
+Set<int> _indicesParaRotularPontos(int quantidade) {
+  if (quantidade <= 0) {
+    return const <int>{};
+  }
+
+  if (quantidade <= 6) {
+    return {for (var index = 0; index < quantidade; index++) index};
+  }
+
+  final passo = quantidade <= 9 ? 2 : 3;
+  final indices = <int>{0, quantidade - 1};
+  for (var index = passo; index < quantidade - 1; index += passo) {
+    indices.add(index);
+  }
+  return indices;
+}
+
+String _formatarValorPonto(double valor) {
+  return valor.toStringAsFixed(1).replaceAll('.', ',');
+}
+
+List<double> _criarReferenciasMedidas(List<_GraficoPonto> pontos) {
+  if (pontos.isEmpty) {
+    return const [];
+  }
+
+  var minimo = pontos.first.valor;
+  var maximo = pontos.first.valor;
+  for (final ponto in pontos.skip(1)) {
+    if (ponto.valor < minimo) minimo = ponto.valor;
+    if (ponto.valor > maximo) maximo = ponto.valor;
+  }
+
+  if (minimo == maximo) {
+    final margem = minimo.abs() * 0.03 < 1 ? 1.0 : minimo.abs() * 0.03;
+    minimo -= margem;
+    maximo += margem;
+  } else {
+    final margem = (maximo - minimo) * 0.2;
+    minimo -= margem;
+    maximo += margem;
+  }
+
+  final passoBruto = (maximo - minimo) / 2;
+  final passo = _arredondarPassoGrafico(passoBruto);
+  final centro = ((minimo + maximo) / 2 / passo).round() * passo;
+
+  return [centro - passo, centro, centro + passo];
+}
+
+double _arredondarPassoGrafico(double valor) {
+  if (valor <= 0.5) return 0.5;
+  if (valor <= 1) return 1;
+  if (valor <= 2) return 2;
+  if (valor <= 2.5) return 2.5;
+  if (valor <= 5) return 5;
+  if (valor <= 10) return 10;
+  if (valor <= 20) return 20;
+  return 25;
+}
+
+String _formatarReferenciaGrafico(double valor, String unidade) {
+  final inteiro = valor == valor.roundToDouble();
+  final texto = inteiro
+      ? valor.toStringAsFixed(0)
+      : valor.toStringAsFixed(1).replaceAll('.', ',');
+  return '$texto $unidade';
 }
 
 class _GraficoPonto {

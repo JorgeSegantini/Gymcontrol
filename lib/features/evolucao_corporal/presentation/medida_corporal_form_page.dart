@@ -8,8 +8,7 @@ class MedidaCorporalFormPage extends StatefulWidget {
   final AppDatabase database;
 
   @override
-  State<MedidaCorporalFormPage> createState() =>
-      _MedidaCorporalFormPageState();
+  State<MedidaCorporalFormPage> createState() => _MedidaCorporalFormPageState();
 }
 
 class _MedidaCorporalFormPageState extends State<MedidaCorporalFormPage> {
@@ -116,7 +115,9 @@ class _MedidaCorporalFormPageState extends State<MedidaCorporalFormPage> {
         ..hideCurrentSnackBar()
         ..showSnackBar(
           const SnackBar(
-            content: Text('Revise as medidas. Use apenas valores maiores que zero.'),
+            content: Text(
+              'Revise as medidas. Use apenas valores maiores que zero.',
+            ),
           ),
         );
       return;
@@ -126,7 +127,9 @@ class _MedidaCorporalFormPageState extends State<MedidaCorporalFormPage> {
       ScaffoldMessenger.of(context)
         ..hideCurrentSnackBar()
         ..showSnackBar(
-          const SnackBar(content: Text('Informe pelo menos uma medida corporal.')),
+          const SnackBar(
+            content: Text('Informe pelo menos uma medida corporal.'),
+          ),
         );
       return;
     }
@@ -194,7 +197,11 @@ class _MedidaCorporalFormPageState extends State<MedidaCorporalFormPage> {
 
       ScaffoldMessenger.of(context)
         ..hideCurrentSnackBar()
-        ..showSnackBar(SnackBar(content: Text(erro.message?.toString() ?? 'Dados inválidos.')));
+        ..showSnackBar(
+          SnackBar(
+            content: Text(erro.message?.toString() ?? 'Dados inválidos.'),
+          ),
+        );
     } catch (_) {
       if (!mounted) {
         return;
@@ -231,9 +238,8 @@ class _MedidaCorporalFormPageState extends State<MedidaCorporalFormPage> {
                       children: [
                         Text(
                           'Data da avaliação',
-                          style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                                fontWeight: FontWeight.w800,
-                              ),
+                          style: Theme.of(context).textTheme.titleMedium
+                              ?.copyWith(fontWeight: FontWeight.w800),
                         ),
                         const SizedBox(height: 8),
                         OutlinedButton.icon(
@@ -245,8 +251,11 @@ class _MedidaCorporalFormPageState extends State<MedidaCorporalFormPage> {
                           const SizedBox(height: 10),
                           Text(
                             'Já existe uma avaliação nesta data. Os campos foram preenchidos para atualização.',
-                            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                            style: Theme.of(context).textTheme.bodySmall
+                                ?.copyWith(
+                                  color: Theme.of(
+                                    context,
+                                  ).colorScheme.onSurfaceVariant,
                                 ),
                           ),
                         ],
@@ -257,19 +266,25 @@ class _MedidaCorporalFormPageState extends State<MedidaCorporalFormPage> {
                 const SizedBox(height: 16),
                 _GrupoFormulario(
                   titulo: 'Tronco',
-                  campos: _campos.where((c) => c.grupo == _Grupo.tronco).toList(),
+                  campos: _campos
+                      .where((c) => c.grupo == _Grupo.tronco)
+                      .toList(),
                   controllers: _controllers,
                 ),
                 const SizedBox(height: 12),
                 _GrupoFormulario(
                   titulo: 'Braços',
-                  campos: _campos.where((c) => c.grupo == _Grupo.bracos).toList(),
+                  campos: _campos
+                      .where((c) => c.grupo == _Grupo.bracos)
+                      .toList(),
                   controllers: _controllers,
                 ),
                 const SizedBox(height: 12),
                 _GrupoFormulario(
                   titulo: 'Pernas',
-                  campos: _campos.where((c) => c.grupo == _Grupo.pernas).toList(),
+                  campos: _campos
+                      .where((c) => c.grupo == _Grupo.pernas)
+                      .toList(),
                   controllers: _controllers,
                 ),
                 const SizedBox(height: 12),
@@ -305,8 +320,8 @@ class _MedidaCorporalFormPageState extends State<MedidaCorporalFormPage> {
                   'Você pode preencher somente as medidas que deseja acompanhar.',
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: Theme.of(context).colorScheme.onSurfaceVariant,
-                      ),
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
                 ),
               ],
             ),
@@ -335,15 +350,17 @@ class _GrupoFormulario extends StatelessWidget {
           children: [
             Text(
               titulo,
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w800,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
             ),
             const SizedBox(height: 14),
             for (var index = 0; index < campos.length; index++) ...[
               TextField(
                 controller: controllers[campos[index].chave],
-                keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                keyboardType: const TextInputType.numberWithOptions(
+                  decimal: true,
+                ),
                 decoration: InputDecoration(
                   labelText: campos[index].rotulo,
                   suffixText: 'cm',

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../shared/theme/app_radius.dart';
+import '../../../shared/theme/app_spacing.dart';
 import '../../../core/database/app_database.dart';
 import '../data/home_dashboard_models.dart';
 import '../data/home_dashboard_service.dart';
@@ -9,6 +11,7 @@ import 'widgets/home_timeline.dart';
 import 'widgets/home_resumo_semanal.dart';
 import 'widgets/home_calendario.dart';
 import '../../../shared/theme/theme_controller.dart';
+import '../../perfil/data/perfil_local_controller.dart';
 import '../../configuracoes/presentation/configuracoes_page.dart';
 import '../../exercicios/presentation/exercicios_page.dart';
 import '../../ficha_treino/presentation/fichas_treino_page.dart';
@@ -24,11 +27,13 @@ class HomePage extends StatefulWidget {
   const HomePage({
     required this.database,
     required this.themeController,
+    required this.perfilController,
     super.key,
   });
 
   final AppDatabase database;
   final ThemeController themeController;
+  final PerfilLocalController perfilController;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -42,6 +47,7 @@ class _HomePageState extends State<HomePage> {
 
   AppDatabase get database => widget.database;
   ThemeController get themeController => widget.themeController;
+  PerfilLocalController get perfilController => widget.perfilController;
 
   HomeDashboardService get _dashboardService => HomeDashboardService(database);
 
@@ -87,10 +93,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> _abrirCalendario(BuildContext context) async {
-    var mesSelecionado = DateTime(
-      DateTime.now().year,
-      DateTime.now().month,
-    );
+    var mesSelecionado = DateTime(DateTime.now().year, DateTime.now().month);
     var resumoFuture = _dashboardService.obterResumo(
       mesCalendario: mesSelecionado,
     );
@@ -145,9 +148,7 @@ class _HomePageState extends State<HomePage> {
                         );
                       }
 
-                      return const Center(
-                        child: CircularProgressIndicator(),
-                      );
+                      return const Center(child: CircularProgressIndicator());
                     }
 
                     final resumo = snapshot.data!;
@@ -196,6 +197,43 @@ class _HomePageState extends State<HomePage> {
         },
       ),
     );
+
+    if (mounted) {
+      _carregarDashboard();
+    }
+  }
+
+  Future<void> _continuarTreino(
+    BuildContext context,
+    TreinoRealizado treino,
+  ) async {
+    final treinoConcluido = await Navigator.of(context).push<bool>(
+      MaterialPageRoute<bool>(
+        builder: (_) {
+          return TreinoExecucaoPage(
+            database: database,
+            treinoRealizadoId: treino.id,
+          );
+        },
+      ),
+    );
+
+    if (!mounted) {
+      return;
+    }
+
+    if (treinoConcluido == true) {
+      final itemAtual = _resumo?.estadoPlano?.itemAtual;
+
+      if (itemAtual != null &&
+          itemAtual.tipo == TipoPlanoTreinoItem.treino.name &&
+          itemAtual.fichaTreinoId == treino.fichaTreinoOrigemId) {
+        await database.planoTreinoDao.registrarTreino(
+          planoTreinoItemId: itemAtual.id,
+          treinoRealizadoId: treino.id,
+        );
+      }
+    }
 
     if (mounted) {
       _carregarDashboard();
@@ -486,14 +524,21 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  void _abrirConfiguracoes(BuildContext context) {
-    Navigator.of(context).push(
+  Future<void> _abrirConfiguracoes(BuildContext context) async {
+    await Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (_) {
-          return ConfiguracoesPage(themeController: themeController);
+          return ConfiguracoesPage(
+            themeController: themeController,
+            perfilController: perfilController,
+          );
         },
       ),
     );
+
+    if (mounted) {
+      await perfilController.carregar();
+    }
   }
 
   @override
@@ -517,9 +562,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _construirCorpo(BuildContext context) {
     if (_carregandoDashboard && _resumo == null) {
-      return const Center(
-        child: CircularProgressIndicator(),
-      );
+      return const Center(child: CircularProgressIndicator());
     }
 
     if (_resumo == null) {
@@ -537,27 +580,50 @@ class _HomePageState extends State<HomePage> {
       controller: _scrollController,
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
       children: [
-          HomeCabecalhoData(data: DateTime.now()),
-          const SizedBox(height: 16),
-          _ResumoPlanoAtivo(
-            resumo: resumo,
-            onCalendarioTap: () {
-              _abrirCalendario(context);
-            },
-          ),
-          const SizedBox(height: 12),
-          if (resumo.estadoPlano == null ||
-              resumo.estadoPlano!.itemAtual == null)
-            HomeSemPlanoAtivoCard(
-              onAbrirPlanos: () {
-                _abrirPlanosTreino(context);
-              },
-              onEscolherFicha: () {
-                _abrirFichas(context);
-              },
-            )
-          else
-            HomePlanoHojeCard(
+        AnimatedBuilder(
+          animation: perfilController,
+          builder: (context, _) {
+            return HomeCabecalhoData(
+              data: DateTime.now(),
+              nome: perfilController.nome ?? '',
+            );
+          },
+        ),
+        const SizedBox(height: 16),
+        _ResumoPlanoAtivo(
+          resumo: resumo,
+          onCalendarioTap: () {
+            _abrirCalendario(context);
+          },
+        ),
+        const SizedBox(height: 12),
+        StreamBuilder<TreinoRealizado?>(
+          stream: database.treinoRealizadoDao.observarTreinoEmAndamento(),
+          builder: (context, treinoSnapshot) {
+            final treinoEmAndamento = treinoSnapshot.data;
+
+            if (treinoEmAndamento != null) {
+              return _TreinoEmAndamentoCard(
+                treino: treinoEmAndamento,
+                onContinuar: () {
+                  _continuarTreino(context, treinoEmAndamento);
+                },
+              );
+            }
+
+            if (resumo.estadoPlano == null ||
+                resumo.estadoPlano!.itemAtual == null) {
+              return HomeSemPlanoAtivoCard(
+                onAbrirPlanos: () {
+                  _abrirPlanosTreino(context);
+                },
+                onEscolherFicha: () {
+                  _abrirFichas(context);
+                },
+              );
+            }
+
+            return HomePlanoHojeCard(
               estado: resumo.estadoPlano!,
               onIniciarTreino: () {
                 _iniciarTreinoPlanejado(
@@ -574,139 +640,205 @@ class _HomePageState extends State<HomePage> {
               onAbrirPlanos: () {
                 _abrirPlanosTreino(context);
               },
-            ),
-          if (resumo.timeline.isNotEmpty) ...[
-            const SizedBox(height: 16),
-            HomeTimeline(
-              itens: resumo.timeline,
-              onItemTap: (item) {
-                if (item.etapa == HomeTimelineEtapa.atual) {
-                  final itemAtual = resumo.estadoPlano?.itemAtual;
+            );
+          },
+        ),
+        if (resumo.timeline.isNotEmpty) ...[
+          const SizedBox(height: 16),
+          HomeTimeline(
+            itens: resumo.timeline,
+            onItemTap: (item) {
+              if (item.etapa == HomeTimelineEtapa.atual) {
+                final itemAtual = resumo.estadoPlano?.itemAtual;
 
-                  if (itemAtual == null) {
-                    return;
-                  }
-
-                  if (itemAtual.tipo ==
-                      TipoPlanoTreinoItem.treino.name) {
-                    _iniciarTreinoPlanejado(context, itemAtual);
-                  } else {
-                    _concluirEtapaSemTreino(context, itemAtual);
-                  }
-
+                if (itemAtual == null) {
                   return;
                 }
 
+                if (itemAtual.tipo == TipoPlanoTreinoItem.treino.name) {
+                  _iniciarTreinoPlanejado(context, itemAtual);
+                } else {
+                  _concluirEtapaSemTreino(context, itemAtual);
+                }
+
+                return;
+              }
+
+              _abrirPlanosTreino(context);
+            },
+          ),
+        ],
+        const SizedBox(height: 16),
+        HomeResumoSemanal(resumo: resumo.resumoSemana),
+        const SizedBox(height: 16),
+
+        const SizedBox(height: AppSpacing.lg),
+        const _TituloSecao(
+          titulo: 'Treinos',
+          subtitulo: 'Monte e organize sua rotina',
+        ),
+        const SizedBox(height: AppSpacing.sm),
+        _MenuGrid(
+          itens: [
+            _MenuItem(
+              icon: Icons.assignment_outlined,
+              titulo: 'Fichas de treino',
+              onTap: () {
+                _abrirFichas(context);
+              },
+            ),
+            _MenuItem(
+              icon: Icons.route_outlined,
+              titulo: 'Planos de treino',
+              onTap: () {
                 _abrirPlanosTreino(context);
               },
             ),
           ],
-          const SizedBox(height: 16),
-          HomeResumoSemanal(resumo: resumo.resumoSemana),
-          const SizedBox(height: 16),
-
-          const SizedBox(height: 24),
-          const _TituloSecao(
-            titulo: 'Treinos',
-            subtitulo: 'Monte e organize sua rotina',
-          ),
-          const SizedBox(height: 10),
-          _MenuCard(
-            icon: Icons.assignment_outlined,
-            titulo: 'Fichas de treino',
-            subtitulo: 'Criar, editar e organizar exercícios',
-            onTap: () {
-              _abrirFichas(context);
-            },
-          ),
-          const SizedBox(height: 10),
-          _MenuCard(
-            icon: Icons.route_outlined,
-            titulo: 'Planos de treino',
-            subtitulo: 'Organizar a sequência A, B, descanso e outras etapas',
-            onTap: () {
-              _abrirPlanosTreino(context);
-            },
-          ),
-          const SizedBox(height: 24),
-          const _TituloSecao(
-            titulo: 'Cadastros',
-            subtitulo: 'Biblioteca e organização dos exercícios',
-          ),
-          const SizedBox(height: 10),
-          _MenuCard(
-            icon: Icons.sports_gymnastics_outlined,
-            titulo: 'Exercícios',
-            subtitulo: 'Consultar e cadastrar exercícios',
-            onTap: () {
-              _abrirExercicios(context);
-            },
-          ),
-          const SizedBox(height: 10),
-          _MenuCard(
-            icon: Icons.fitness_center_outlined,
-            titulo: 'Grupos musculares',
-            subtitulo: 'Organizar os exercícios por grupo',
-            onTap: () {
-              _abrirGruposMusculares(context);
-            },
-          ),
-          const SizedBox(height: 24),
-          const _TituloSecao(
-            titulo: 'Acompanhamento',
-            subtitulo: 'Veja sua evolução ao longo do tempo',
-          ),
-          const SizedBox(height: 10),
-          _MenuCard(
-            icon: Icons.history,
-            titulo: 'Histórico',
-            subtitulo: 'Revise todos os treinos realizados',
-            onTap: () {
-              _abrirHistorico(context);
-            },
-          ),
-          const SizedBox(height: 10),
-          _MenuCard(
-            icon: Icons.trending_up_outlined,
-            titulo: 'Evolução',
-            subtitulo: 'Acompanhe seu progresso por exercício',
-            onTap: () {
-              _abrirEvolucao(context);
-            },
-          ),
-          const SizedBox(height: 10),
-          _MenuCard(
-            icon: Icons.monitor_weight_outlined,
-            titulo: 'Evolução corporal',
-            subtitulo: 'Acompanhe peso, medidas e histórico corporal',
-            onTap: () {
-              _abrirEvolucaoCorporal(context);
-            },
-          ),
-          const SizedBox(height: 24),
-          const _TituloSecao(
-            titulo: 'Sistema',
-            subtitulo: 'Preferências e segurança dos dados',
-          ),
-          const SizedBox(height: 10),
-          _MenuCard(
-            icon: Icons.settings_outlined,
-            titulo: 'Configurações',
-            subtitulo: 'Personalize tema, unidades e comportamento',
-            onTap: () {
-              _abrirConfiguracoes(context);
-            },
-          ),
-          const SizedBox(height: 10),
-          _MenuCard(
-            icon: Icons.backup_outlined,
-            titulo: 'Backup',
-            subtitulo: 'Proteja e restaure seus dados localmente',
-            onTap: () {
-              _abrirBackup(context);
-            },
-          ),
+        ),
+        const SizedBox(height: AppSpacing.lg),
+        const _TituloSecao(
+          titulo: 'Cadastros',
+          subtitulo: 'Biblioteca e organização dos exercícios',
+        ),
+        const SizedBox(height: AppSpacing.sm),
+        _MenuGrid(
+          itens: [
+            _MenuItem(
+              icon: Icons.sports_gymnastics_outlined,
+              titulo: 'Exercícios',
+              onTap: () {
+                _abrirExercicios(context);
+              },
+            ),
+            _MenuItem(
+              icon: Icons.fitness_center_outlined,
+              titulo: 'Grupos musculares',
+              onTap: () {
+                _abrirGruposMusculares(context);
+              },
+            ),
+          ],
+        ),
+        const SizedBox(height: AppSpacing.lg),
+        const _TituloSecao(
+          titulo: 'Acompanhamento',
+          subtitulo: 'Veja sua evolução ao longo do tempo',
+        ),
+        const SizedBox(height: AppSpacing.sm),
+        _MenuGrid(
+          itens: [
+            _MenuItem(
+              icon: Icons.history,
+              titulo: 'Histórico',
+              onTap: () {
+                _abrirHistorico(context);
+              },
+            ),
+            _MenuItem(
+              icon: Icons.trending_up_outlined,
+              titulo: 'Evolução',
+              onTap: () {
+                _abrirEvolucao(context);
+              },
+            ),
+            _MenuItem(
+              icon: Icons.monitor_weight_outlined,
+              titulo: 'Evolução corporal',
+              onTap: () {
+                _abrirEvolucaoCorporal(context);
+              },
+            ),
+          ],
+        ),
+        const SizedBox(height: AppSpacing.lg),
+        const _TituloSecao(
+          titulo: 'Sistema',
+          subtitulo: 'Preferências e segurança dos dados',
+        ),
+        const SizedBox(height: AppSpacing.sm),
+        _MenuGrid(
+          itens: [
+            _MenuItem(
+              icon: Icons.settings_outlined,
+              titulo: 'Configurações',
+              onTap: () {
+                _abrirConfiguracoes(context);
+              },
+            ),
+            _MenuItem(
+              icon: Icons.backup_outlined,
+              titulo: 'Backup',
+              onTap: () {
+                _abrirBackup(context);
+              },
+            ),
+          ],
+        ),
       ],
+    );
+  }
+}
+
+class _TreinoEmAndamentoCard extends StatelessWidget {
+  const _TreinoEmAndamentoCard({
+    required this.treino,
+    required this.onContinuar,
+  });
+
+  final TreinoRealizado treino;
+  final VoidCallback onContinuar;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Icon(Icons.play_circle_outline, color: colorScheme.primary),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    'Treino em andamento',
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 8),
+            Text(
+              treino.nomeFichaSnapshot,
+              style: Theme.of(
+                context,
+              ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              'Seu progresso está salvo. Continue de onde parou.',
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: colorScheme.onSurfaceVariant,
+              ),
+            ),
+            const SizedBox(height: 14),
+            SizedBox(
+              width: double.infinity,
+              child: FilledButton.icon(
+                onPressed: onContinuar,
+                icon: const Icon(Icons.play_arrow),
+                label: const Text('Continuar treino'),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -729,29 +861,18 @@ class _ResumoPlanoAtivo extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  resumo.saudacao,
-                  style: Theme.of(
-                    context,
-                  ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900),
-                ),
-                const SizedBox(height: 2),
-                Text(
-                  plano == null
-                      ? 'Nenhum plano ativo'
-                      : 'Plano ativo • ${plano.nome}',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: Theme.of(context).colorScheme.onSurfaceVariant,
-                  ),
-                ),
-              ],
+            child: Text(
+              plano == null
+                  ? 'Nenhum plano ativo'
+                  : 'Plano ativo • ${plano.nome}',
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(
+                context,
+              ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900),
             ),
           ),
+          const SizedBox(width: 8),
           IconButton.filledTonal(
             tooltip: 'Abrir calendário',
             onPressed: onCalendarioTap,
@@ -795,38 +916,108 @@ class _TituloSecao extends StatelessWidget {
   }
 }
 
-class _MenuCard extends StatelessWidget {
-  const _MenuCard({
+class _MenuItem {
+  const _MenuItem({
     required this.icon,
     required this.titulo,
-    required this.subtitulo,
     required this.onTap,
   });
 
   final IconData icon;
   final String titulo;
-  final String subtitulo;
   final VoidCallback onTap;
+}
+
+class _MenuGrid extends StatelessWidget {
+  const _MenuGrid({required this.itens});
+
+  final List<_MenuItem> itens;
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        const espacamento = AppSpacing.sm;
+        final largura = (constraints.maxWidth - espacamento) / 2;
+
+        return Wrap(
+          spacing: espacamento,
+          runSpacing: espacamento,
+          children: [
+            for (final item in itens)
+              SizedBox(
+                width: largura,
+                child: _MenuTile(item: item),
+              ),
+          ],
+        );
+      },
+    );
+  }
+}
+
+class _MenuTile extends StatelessWidget {
+  const _MenuTile({required this.item});
+
+  final _MenuItem item;
 
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
 
     return Card(
-      child: ListTile(
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
-        leading: CircleAvatar(
-          backgroundColor: colorScheme.primaryContainer,
-          foregroundColor: colorScheme.onPrimaryContainer,
-          child: Icon(icon),
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: item.onTap,
+        child: Padding(
+          padding: const EdgeInsets.all(AppSpacing.md),
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(minHeight: 82),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: colorScheme.primaryContainer,
+                    borderRadius: AppRadius.md,
+                  ),
+                  alignment: Alignment.center,
+                  child: Icon(
+                    item.icon,
+                    size: 22,
+                    color: colorScheme.onPrimaryContainer,
+                  ),
+                ),
+                const SizedBox(height: AppSpacing.sm),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        item.titulo,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: textTheme.titleSmall?.copyWith(
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: AppSpacing.xs),
+                    Icon(
+                      Icons.chevron_right,
+                      size: 18,
+                      color: colorScheme.onSurfaceVariant,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ),
-        title: Text(
-          titulo,
-          style: const TextStyle(fontWeight: FontWeight.w700),
-        ),
-        subtitle: Text(subtitulo),
-        trailing: const Icon(Icons.chevron_right),
-        onTap: onTap,
       ),
     );
   }

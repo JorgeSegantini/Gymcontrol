@@ -101,7 +101,7 @@ class _SerieExecucaoCardState extends State<SerieExecucaoCard> {
       await Scrollable.ensureVisible(
         context,
         alignment: 0,
-        duration: const Duration(milliseconds: 1100),
+        duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOutCubic,
         alignmentPolicy: ScrollPositionAlignmentPolicy.explicit,
       );
@@ -127,6 +127,7 @@ class _SerieExecucaoCardState extends State<SerieExecucaoCard> {
     setState(() {
       _cargaGramas = (_cargaGramas + diferenca).clamp(0, 1000000).toInt();
     });
+    _salvarRascunho();
   }
 
   void _alterarRepeticoes(int diferenca) {
@@ -137,6 +138,24 @@ class _SerieExecucaoCardState extends State<SerieExecucaoCard> {
     setState(() {
       _repeticoes = (_repeticoes + diferenca).clamp(0, 999).toInt();
     });
+    _salvarRascunho();
+  }
+
+  Future<void> _salvarRascunho() async {
+    if (_concluida) {
+      return;
+    }
+
+    try {
+      await widget.database.treinoRealizadoDao.salvarRascunhoSerie(
+        id: serie.id,
+        cargaRealizadaGramas: _cargaGramas,
+        repeticoesRealizadas: _repeticoes,
+        rirRealizado: _rir,
+      );
+    } catch (_) {
+      // O botão "Concluir série" continua sendo a confirmação definitiva.
+    }
   }
 
   Future<void> _concluirSerie() async {
@@ -440,6 +459,7 @@ class _SerieExecucaoCardState extends State<SerieExecucaoCard> {
                                         setState(() {
                                           _rir = rir;
                                         });
+                                        _salvarRascunho();
                                       },
                               ),
                           ],

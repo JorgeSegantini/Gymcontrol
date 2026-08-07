@@ -33,6 +33,13 @@ class TreinoRealizadoDao extends DatabaseAccessor<AppDatabase>
 
   Future<int> iniciarTreinoDaFicha({required int fichaTreinoId}) async {
     return transaction(() async {
+      final treinoEmAndamento = await obterTreinoEmAndamento();
+
+      if (treinoEmAndamento != null) {
+        throw StateError(
+          'Já existe um treino em andamento. Continue o treino atual antes de iniciar outro.',
+        );
+      }
       final fichaTreino = await (select(
         fichasTreino,
       )..where((tabela) => tabela.id.equals(fichaTreinoId))).getSingleOrNull();
@@ -178,6 +185,70 @@ class TreinoRealizadoDao extends DatabaseAccessor<AppDatabase>
     return (select(
       treinosRealizados,
     )..where((tabela) => tabela.id.equals(id))).getSingleOrNull();
+  }
+
+  Future<TreinoRealizado?> obterTreinoEmAndamento() {
+    final consulta = select(treinosRealizados)
+      ..where(
+        (tabela) =>
+            tabela.situacao.equals(SituacaoTreinoRealizado.emAndamento.name),
+      )
+      ..orderBy([
+        (tabela) => OrderingTerm.desc(tabela.atualizadoEm),
+        (tabela) => OrderingTerm.desc(tabela.id),
+      ])
+      ..limit(1);
+
+    return consulta.getSingleOrNull();
+  }
+
+  Stream<TreinoRealizado?> observarTreinoEmAndamento() {
+    final consulta = select(treinosRealizados)
+      ..where(
+        (tabela) =>
+            tabela.situacao.equals(SituacaoTreinoRealizado.emAndamento.name),
+      )
+      ..orderBy([
+        (tabela) => OrderingTerm.desc(tabela.atualizadoEm),
+        (tabela) => OrderingTerm.desc(tabela.id),
+      ])
+      ..limit(1);
+
+    return consulta.watchSingleOrNull();
+  }
+
+  Future<bool> salvarRascunhoSerie({
+    required int id,
+    required int cargaRealizadaGramas,
+    required int repeticoesRealizadas,
+    required int rirRealizado,
+  }) async {
+    _validarExecucaoSerie(
+      cargaRealizadaGramas: cargaRealizadaGramas,
+      repeticoesRealizadas: repeticoesRealizadas,
+      rirRealizado: rirRealizado,
+    );
+
+    final agora = DateTime.now();
+
+    final alteradas =
+        await (update(seriesRealizadas)
+              ..where((tabela) => tabela.id.equals(id))
+              ..where(
+                (tabela) => tabela.situacao.equals(
+                  SituacaoSerieRealizada.pendente.name,
+                ),
+              ))
+            .write(
+              SeriesRealizadasCompanion(
+                cargaRealizadaGramas: Value(cargaRealizadaGramas),
+                repeticoesRealizadas: Value(repeticoesRealizadas),
+                rirRealizado: Value(rirRealizado),
+                atualizadoEm: Value(agora),
+              ),
+            );
+
+    return alteradas > 0;
   }
 
   Future<List<ExercicioRealizado>> listarExerciciosDoTreino(
