@@ -10,6 +10,9 @@ class HomePlanoHojeCard extends StatelessWidget {
     required this.onIniciarTreino,
     required this.onConcluirEtapa,
     required this.onAbrirPlanos,
+    required this.onTrocarTreino,
+    required this.onRestaurarTreinoPlanejado,
+    this.fichaAlternativaNome,
     super.key,
   });
 
@@ -17,12 +20,18 @@ class HomePlanoHojeCard extends StatelessWidget {
   final VoidCallback onIniciarTreino;
   final VoidCallback onConcluirEtapa;
   final VoidCallback onAbrirPlanos;
+  final VoidCallback onTrocarTreino;
+  final VoidCallback onRestaurarTreinoPlanejado;
+  final String? fichaAlternativaNome;
 
   @override
   Widget build(BuildContext context) {
     final item = estado.itemAtual!;
     final proximo = estado.proximoItem;
     final colorScheme = Theme.of(context).colorScheme;
+    final ehTreino = item.tipo == TipoPlanoTreinoItem.treino.name;
+    final possuiTroca =
+        fichaAlternativaNome != null && fichaAlternativaNome!.trim().isNotEmpty;
 
     return Card(
       color: colorScheme.secondaryContainer,
@@ -115,16 +124,28 @@ class HomePlanoHojeCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        item.nome,
+                        possuiTroca ? fichaAlternativaNome! : item.nome,
                         style: Theme.of(context).textTheme.headlineSmall
                             ?.copyWith(fontWeight: FontWeight.w900),
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        _nomeTipo(item.tipo),
+                        possuiTroca
+                            ? 'Treino escolhido para hoje'
+                            : _nomeTipo(item.tipo),
                         style: Theme.of(context).textTheme.labelLarge,
                       ),
-                      if (item.descricao?.trim().isNotEmpty == true) ...[
+                      if (possuiTroca) ...[
+                        const SizedBox(height: 4),
+                        Text(
+                          'Planejado: ${item.nome}',
+                          style: Theme.of(context).textTheme.bodySmall
+                              ?.copyWith(
+                                color: colorScheme.onSecondaryContainer
+                                    .withValues(alpha: 0.78),
+                              ),
+                        ),
+                      ] else if (item.descricao?.trim().isNotEmpty == true) ...[
                         const SizedBox(height: 4),
                         Text(
                           item.descricao!.trim(),
@@ -137,7 +158,27 @@ class HomePlanoHojeCard extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 10),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: TextButton.icon(
+                onPressed: possuiTroca
+                    ? onRestaurarTreinoPlanejado
+                    : onTrocarTreino,
+                icon: Icon(
+                  possuiTroca ? Icons.undo_rounded : Icons.swap_horiz_rounded,
+                  size: 20,
+                ),
+                label: Text(
+                  possuiTroca
+                      ? 'Usar etapa planejada'
+                      : ehTreino
+                      ? 'Trocar treino de hoje'
+                      : 'Treinar no lugar desta etapa',
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -168,15 +209,17 @@ class HomePlanoHojeCard extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: FilledButton.icon(
-                onPressed: item.tipo == TipoPlanoTreinoItem.treino.name
+                onPressed: ehTreino || possuiTroca
                     ? onIniciarTreino
                     : onConcluirEtapa,
                 icon: Icon(
-                  item.tipo == TipoPlanoTreinoItem.treino.name
+                  ehTreino || possuiTroca
                       ? Icons.play_arrow_rounded
                       : Icons.check_circle_outline,
                 ),
-                label: Text(_textoBotao(item.tipo)),
+                label: Text(
+                  possuiTroca ? 'Iniciar treino' : _textoBotao(item.tipo),
+                ),
               ),
             ),
             if (proximo != null) ...[

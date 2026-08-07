@@ -5,6 +5,7 @@ import '../../../shared/theme/app_spacing.dart';
 import '../../../core/database/app_database.dart';
 import '../data/home_dashboard_models.dart';
 import '../data/home_dashboard_service.dart';
+import '../data/treino_do_dia_controller.dart';
 import 'widgets/home_cabecalho_data.dart';
 import 'widgets/home_plano_hoje.dart';
 import 'widgets/home_timeline.dart';
@@ -21,7 +22,6 @@ import '../../plano_treino/presentation/planos_treino_page.dart';
 import '../../historico/presentation/historico_treinos_page.dart';
 import '../../evolucao/presentation/evolucao_page.dart';
 import '../../evolucao_corporal/presentation/evolucao_corporal_page.dart';
-import '../../backup/presentation/backup_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -41,6 +41,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final ScrollController _scrollController = ScrollController();
+  final TreinoDoDiaController _treinoDoDiaController = TreinoDoDiaController();
 
   HomeDashboardModel? _resumo;
   bool _carregandoDashboard = true;
@@ -54,6 +55,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+    _treinoDoDiaController.carregar();
     _carregarDashboard();
   }
 
@@ -185,6 +187,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void dispose() {
+    _treinoDoDiaController.dispose();
     _scrollController.dispose();
     super.dispose();
   }
@@ -201,6 +204,165 @@ class _HomePageState extends State<HomePage> {
     if (mounted) {
       _carregarDashboard();
     }
+  }
+
+  Future<void> _selecionarTreinoDoDia(
+    BuildContext context,
+    PlanoTreinoItem item,
+  ) async {
+    final fichaSelecionada = await showModalBottomSheet<FichaTreino>(
+      context: context,
+      showDragHandle: true,
+      isScrollControlled: true,
+      builder: (sheetContext) {
+        return SafeArea(
+          child: FractionallySizedBox(
+            heightFactor: 0.72,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 4, 20, 12),
+                  child: Text(
+                    'Trocar treino de hoje',
+                    style: Theme.of(sheetContext).textTheme.titleLarge
+                        ?.copyWith(fontWeight: FontWeight.w900),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Text(
+                    'A troca vale somente para hoje. A sequência do plano '
+                    'continua normalmente depois da conclusão.',
+                    style: Theme.of(sheetContext).textTheme.bodyMedium
+                        ?.copyWith(
+                          color: Theme.of(
+                            sheetContext,
+                          ).colorScheme.onSurfaceVariant,
+                        ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                Expanded(
+                  child: StreamBuilder<List<FichaTreino>>(
+                    stream: database.fichaTreinoDao.observarAtivas(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasError) {
+                        return const Center(
+                          child: Text('Não foi possível carregar as fichas.'),
+                        );
+                      }
+
+                      if (!snapshot.hasData) {
+                        return const Center(child: CircularProgressIndicator());
+                      }
+
+                      final fichas = snapshot.data!;
+
+                      if (fichas.isEmpty) {
+                        return const Center(
+                          child: Padding(
+                            padding: EdgeInsets.all(24),
+                            child: Text(
+                              'Nenhuma ficha ativa disponível.',
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        );
+                      }
+
+                      return ListView.separated(
+                        padding: const EdgeInsets.fromLTRB(12, 0, 12, 20),
+                        itemCount: fichas.length,
+                        separatorBuilder: (_, _) => const Divider(height: 1),
+                        itemBuilder: (context, index) {
+                          final ficha = fichas[index];
+                          final planejada = ficha.id == item.fichaTreinoId;
+                          final escolhida =
+                              ficha.id == _treinoDoDiaController.fichaId;
+
+                          return ListTile(
+                            leading: Icon(
+                              escolhida
+                                  ? Icons.check_circle
+                                  : Icons.fitness_center_outlined,
+                            ),
+                            title: Text(
+                              ficha.nome,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            subtitle: planejada
+                                ? const Text('Treino planejado')
+                                : null,
+                            trailing: const Icon(Icons.chevron_right),
+                            onTap: () {
+                              Navigator.of(sheetContext).pop(ficha);
+                            },
+                          );
+                        },
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+
+    if (fichaSelecionada == null || !mounted) {
+      return;
+    }
+
+    if (fichaSelecionada.id == item.fichaTreinoId) {
+      await _treinoDoDiaController.limpar();
+    } else {
+      await _treinoDoDiaController.definir(
+        fichaId: fichaSelecionada.id,
+        fichaNome: fichaSelecionada.nome,
+      );
+    }
+
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  Future<void> _restaurarTreinoPlanejado() async {
+    await _treinoDoDiaController.limpar();
+
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  Future<void> _registrarConclusaoDoTreinoNoPlano({
+    required PlanoTreinoItem item,
+    required int treinoRealizadoId,
+    required int? fichaExecutadaId,
+  }) async {
+    if (fichaExecutadaId == null) {
+      return;
+    }
+
+    if (item.tipo == TipoPlanoTreinoItem.treino.name &&
+        item.fichaTreinoId == fichaExecutadaId) {
+      await database.planoTreinoDao.registrarTreino(
+        planoTreinoItemId: item.id,
+        treinoRealizadoId: treinoRealizadoId,
+      );
+    } else {
+      await database.planoTreinoDao.registrarSubstituicao(
+        planoTreinoItemId: item.id,
+        treinoRealizadoId: treinoRealizadoId,
+        observacoes: 'Etapa substituída por treino no dia.',
+      );
+    }
+
+    await _treinoDoDiaController.limpar();
   }
 
   Future<void> _continuarTreino(
@@ -226,11 +388,11 @@ class _HomePageState extends State<HomePage> {
       final itemAtual = _resumo?.estadoPlano?.itemAtual;
 
       if (itemAtual != null &&
-          itemAtual.tipo == TipoPlanoTreinoItem.treino.name &&
-          itemAtual.fichaTreinoId == treino.fichaTreinoOrigemId) {
-        await database.planoTreinoDao.registrarTreino(
-          planoTreinoItemId: itemAtual.id,
+          itemAtual.tipo == TipoPlanoTreinoItem.treino.name) {
+        await _registrarConclusaoDoTreinoNoPlano(
+          item: itemAtual,
           treinoRealizadoId: treino.id,
+          fichaExecutadaId: treino.fichaTreinoOrigemId,
         );
       }
     }
@@ -244,7 +406,7 @@ class _HomePageState extends State<HomePage> {
     BuildContext context,
     PlanoTreinoItem item,
   ) async {
-    final fichaTreinoId = item.fichaTreinoId;
+    final fichaTreinoId = _treinoDoDiaController.fichaId ?? item.fichaTreinoId;
 
     if (fichaTreinoId == null) {
       ScaffoldMessenger.of(context)
@@ -281,9 +443,10 @@ class _HomePageState extends State<HomePage> {
       }
 
       if (treinoConcluido == true) {
-        await database.planoTreinoDao.registrarTreino(
-          planoTreinoItemId: item.id,
+        await _registrarConclusaoDoTreinoNoPlano(
+          item: item,
           treinoRealizadoId: treinoRealizadoId,
+          fichaExecutadaId: fichaTreinoId,
         );
       }
 
@@ -430,6 +593,22 @@ class _HomePageState extends State<HomePage> {
                         ?.copyWith(fontWeight: FontWeight.w800),
                   ),
                 ],
+                if (dia.situacao == HomeCalendarioSituacao.hoje &&
+                    _resumo?.estadoPlano?.itemAtual != null) ...[
+                  const SizedBox(height: 18),
+                  SizedBox(
+                    width: double.infinity,
+                    child: OutlinedButton.icon(
+                      onPressed: () {
+                        final item = _resumo!.estadoPlano!.itemAtual!;
+                        Navigator.of(sheetContext).pop();
+                        _selecionarTreinoDoDia(this.context, item);
+                      },
+                      icon: const Icon(Icons.swap_horiz_rounded),
+                      label: const Text('Trocar treino de hoje'),
+                    ),
+                  ),
+                ],
               ],
             ),
           ),
@@ -510,25 +689,12 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Future<void> _abrirBackup(BuildContext context) async {
-    await Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (_) {
-          return BackupPage(database: database);
-        },
-      ),
-    );
-
-    if (mounted) {
-      _carregarDashboard();
-    }
-  }
-
   Future<void> _abrirConfiguracoes(BuildContext context) async {
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (_) {
           return ConfiguracoesPage(
+            database: database,
             themeController: themeController,
             perfilController: perfilController,
           );
@@ -623,22 +789,28 @@ class _HomePageState extends State<HomePage> {
               );
             }
 
-            return HomePlanoHojeCard(
-              estado: resumo.estadoPlano!,
-              onIniciarTreino: () {
-                _iniciarTreinoPlanejado(
-                  context,
-                  resumo.estadoPlano!.itemAtual!,
+            return AnimatedBuilder(
+              animation: _treinoDoDiaController,
+              builder: (context, _) {
+                final item = resumo.estadoPlano!.itemAtual!;
+
+                return HomePlanoHojeCard(
+                  estado: resumo.estadoPlano!,
+                  fichaAlternativaNome: _treinoDoDiaController.fichaNome,
+                  onIniciarTreino: () {
+                    _iniciarTreinoPlanejado(context, item);
+                  },
+                  onConcluirEtapa: () {
+                    _concluirEtapaSemTreino(context, item);
+                  },
+                  onAbrirPlanos: () {
+                    _abrirPlanosTreino(context);
+                  },
+                  onTrocarTreino: () {
+                    _selecionarTreinoDoDia(context, item);
+                  },
+                  onRestaurarTreinoPlanejado: _restaurarTreinoPlanejado,
                 );
-              },
-              onConcluirEtapa: () {
-                _concluirEtapaSemTreino(
-                  context,
-                  resumo.estadoPlano!.itemAtual!,
-                );
-              },
-              onAbrirPlanos: () {
-                _abrirPlanosTreino(context);
               },
             );
           },
@@ -754,7 +926,7 @@ class _HomePageState extends State<HomePage> {
         const SizedBox(height: AppSpacing.lg),
         const _TituloSecao(
           titulo: 'Sistema',
-          subtitulo: 'Preferências e segurança dos dados',
+          subtitulo: 'Preferências do aplicativo',
         ),
         const SizedBox(height: AppSpacing.sm),
         _MenuGrid(
@@ -764,13 +936,6 @@ class _HomePageState extends State<HomePage> {
               titulo: 'Configurações',
               onTap: () {
                 _abrirConfiguracoes(context);
-              },
-            ),
-            _MenuItem(
-              icon: Icons.backup_outlined,
-              titulo: 'Backup',
-              onTap: () {
-                _abrirBackup(context);
               },
             ),
           ],

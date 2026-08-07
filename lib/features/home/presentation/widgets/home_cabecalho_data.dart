@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 
-
 class HomeCabecalhoData extends StatelessWidget {
-  const HomeCabecalhoData({
-    required this.data,
-    required this.nome,
-    super.key,
-  });
+  const HomeCabecalhoData({required this.data, required this.nome, super.key});
 
   final DateTime data;
   final String nome;

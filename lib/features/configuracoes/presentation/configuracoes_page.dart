@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/database/app_database.dart';
+import '../../../features/backup/presentation/backup_page.dart';
 import '../../../features/perfil/data/perfil_local_controller.dart';
 import '../../../shared/theme/theme_controller.dart';
 
 class ConfiguracoesPage extends StatefulWidget {
   const ConfiguracoesPage({
+    required this.database,
     required this.themeController,
     required this.perfilController,
     super.key,
   });
 
+  final AppDatabase database;
   final ThemeController themeController;
   final PerfilLocalController perfilController;
 
@@ -88,6 +92,16 @@ class _ConfiguracoesPageState extends State<ConfiguracoesPage> {
     });
   }
 
+  Future<void> _abrirBackup() async {
+    await Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) {
+          return BackupPage(database: widget.database);
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -157,6 +171,25 @@ class _ConfiguracoesPageState extends State<ConfiguracoesPage> {
                 ),
               );
             },
+          ),
+          const SizedBox(height: 24),
+          Text(
+            'Dados',
+            style: Theme.of(
+              context,
+            ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
+          ),
+          const SizedBox(height: 8),
+          Card(
+            child: ListTile(
+              leading: const Icon(Icons.backup_outlined),
+              title: const Text('Backup e restauração'),
+              subtitle: const Text(
+                'Salvar seus dados ou restaurar um backup do GymControl',
+              ),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: _abrirBackup,
+            ),
           ),
         ],
       ),
