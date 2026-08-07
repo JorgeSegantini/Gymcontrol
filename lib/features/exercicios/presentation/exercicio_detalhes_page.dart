@@ -210,7 +210,9 @@ class _ExercicioDetalhesPageState extends State<ExercicioDetalhesPage> {
                             Text(
                               _texto(exercicio.anotacoesPessoais) ??
                                   'Nenhuma anotação pessoal.',
-                              style: Theme.of(context).textTheme.bodyMedium,
+                              style: Theme.of(
+                                context,
+                              ).textTheme.bodyLarge?.copyWith(height: 1.5),
                             ),
                           ],
                         ),
@@ -262,12 +264,12 @@ class _SecaoDetalhe extends StatelessWidget {
             const SizedBox(height: 10),
             Text(
               texto ?? vazio,
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: temConteudo
                     ? null
                     : Theme.of(context).colorScheme.onSurfaceVariant,
                 fontStyle: temConteudo ? null : FontStyle.italic,
-                height: 1.4,
+                height: 1.5,
               ),
             ),
           ],
