@@ -106,9 +106,7 @@ class _EvolucaoCorporalPageState extends State<EvolucaoCorporalPage> {
         ..showSnackBar(
           SnackBar(
             content: Text(
-              existente == null
-                  ? 'Pesagem registrada.'
-                  : 'Pesagem atualizada.',
+              existente == null ? 'Pesagem registrada.' : 'Pesagem atualizada.',
             ),
           ),
         );
@@ -154,8 +152,8 @@ class _EvolucaoCorporalPageState extends State<EvolucaoCorporalPage> {
                   child: Text(
                     'Últimas pesagens',
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.w800,
-                        ),
+                      fontWeight: FontWeight.w800,
+                    ),
                   ),
                 ),
                 const Divider(height: 1),
@@ -170,7 +168,8 @@ class _EvolucaoCorporalPageState extends State<EvolucaoCorporalPage> {
                       : ListView.separated(
                           padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
                           itemCount: pesos.length,
-                          separatorBuilder: (context, index) => const SizedBox(height: 6),
+                          separatorBuilder: (context, index) =>
+                              const SizedBox(height: 6),
                           itemBuilder: (context, index) {
                             final peso = pesos[index];
                             return Card(
@@ -215,8 +214,8 @@ class _EvolucaoCorporalPageState extends State<EvolucaoCorporalPage> {
                   child: Text(
                     'Avaliações corporais',
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.w800,
-                        ),
+                      fontWeight: FontWeight.w800,
+                    ),
                   ),
                 ),
                 const Divider(height: 1),
@@ -231,7 +230,8 @@ class _EvolucaoCorporalPageState extends State<EvolucaoCorporalPage> {
                       : ListView.separated(
                           padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
                           itemCount: medidas.length,
-                          separatorBuilder: (context, index) => const SizedBox(height: 8),
+                          separatorBuilder: (context, index) =>
+                              const SizedBox(height: 8),
                           itemBuilder: (context, index) {
                             final avaliacao = medidas[index];
                             final quantidade = _contarMedidas(avaliacao);
@@ -281,8 +281,8 @@ class _EvolucaoCorporalPageState extends State<EvolucaoCorporalPage> {
                   child: Text(
                     'Histórico corporal',
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.w800,
-                        ),
+                      fontWeight: FontWeight.w800,
+                    ),
                   ),
                 ),
                 const Divider(height: 1),
@@ -292,7 +292,8 @@ class _EvolucaoCorporalPageState extends State<EvolucaoCorporalPage> {
                       : ListView.separated(
                           padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
                           itemCount: itens.length,
-                          separatorBuilder: (context, index) => const SizedBox(height: 6),
+                          separatorBuilder: (context, index) =>
+                              const SizedBox(height: 6),
                           itemBuilder: (context, index) =>
                               _HistoricoItemCard(item: itens[index]),
                         ),
@@ -317,9 +318,7 @@ class _EvolucaoCorporalPageState extends State<EvolucaoCorporalPage> {
           }
 
           if (snapshot.hasError) {
-            return _EstadoErro(
-              onTentarNovamente: () => setState(_carregar),
-            );
+            return _EstadoErro(onTentarNovamente: () => setState(_carregar));
           }
 
           final dados = snapshot.data ?? const _EvolucaoCorporalDados();
@@ -387,7 +386,8 @@ class _PesoAtualCard extends StatelessWidget {
           : 'Sem variação desde ${_formatarDataCurta(primeiro!.data)}';
     } else {
       iconeVariacao = variacao! < 0 ? Icons.arrow_downward : Icons.arrow_upward;
-      subtitulo = '${_formatarVariacaoPeso(variacao.abs())} desde '
+      subtitulo =
+          '${_formatarVariacaoPeso(variacao.abs())} desde '
           '${_formatarDataCurta(primeiro!.data)}';
     }
 
@@ -399,16 +399,16 @@ class _PesoAtualCard extends StatelessWidget {
           children: [
             Text(
               'Peso atual',
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w800,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
             ),
             const SizedBox(height: 8),
             Text(
               atual == null ? '—' : _formatarPeso(atual.pesoGramas),
-              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    fontWeight: FontWeight.w900,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.w900),
             ),
             const SizedBox(height: 6),
             Row(
@@ -420,6 +420,10 @@ class _PesoAtualCard extends StatelessWidget {
                 Expanded(child: Text(subtitulo)),
               ],
             ),
+            if (pesos.length >= 2) ...[
+              const SizedBox(height: 16),
+              _GraficoPeso(pesos: pesos),
+            ],
             const SizedBox(height: 16),
             Wrap(
               spacing: 8,
@@ -444,6 +448,374 @@ class _PesoAtualCard extends StatelessWidget {
   }
 }
 
+class _GraficoPeso extends StatelessWidget {
+  const _GraficoPeso({required this.pesos});
+
+  final List<PesoCorporal> pesos;
+
+  @override
+  Widget build(BuildContext context) {
+    final selecionados = pesos.take(12).toList().reversed.toList();
+    final pontos = [
+      for (final peso in selecionados)
+        _GraficoPonto(data: peso.data, valor: peso.pesoGramas / 1000),
+    ];
+
+    return Container(
+      padding: const EdgeInsets.fromLTRB(12, 12, 12, 10),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.surfaceContainerHighest,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  'Evolução do peso',
+                  style: Theme.of(
+                    context,
+                  ).textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w800),
+                ),
+              ),
+              Text(
+                '${selecionados.length} ${selecionados.length == 1 ? 'registro' : 'registros'}',
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          SizedBox(
+            height: 120,
+            width: double.infinity,
+            child: _GraficoLinha(
+              pontos: pontos,
+              cor: Theme.of(context).colorScheme.primary,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                _formatarDataCurta(selecionados.first.data),
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+              Text(
+                _formatarDataCurta(selecionados.last.data),
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _EvolucaoMedidasCard extends StatefulWidget {
+  const _EvolucaoMedidasCard({required this.historico});
+
+  final List<MedidaCorporal> historico;
+
+  @override
+  State<_EvolucaoMedidasCard> createState() => _EvolucaoMedidasCardState();
+}
+
+class _EvolucaoMedidasCardState extends State<_EvolucaoMedidasCard> {
+  _MedidaDefinicao? _selecionada;
+
+  List<_MedidaDefinicao> get _disponiveis {
+    return _todasMedidas.where((definicao) {
+      return widget.historico.any(
+        (registro) => definicao.obter(registro) != null,
+      );
+    }).toList();
+  }
+
+  _MedidaDefinicao? _resolverSelecionada(List<_MedidaDefinicao> disponiveis) {
+    if (disponiveis.isEmpty) {
+      return null;
+    }
+
+    if (_selecionada != null && disponiveis.contains(_selecionada)) {
+      return _selecionada;
+    }
+
+    for (final definicao in disponiveis) {
+      if (definicao.rotulo == 'Cintura') {
+        return definicao;
+      }
+    }
+
+    return disponiveis.first;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final disponiveis = _disponiveis;
+    final selecionada = _resolverSelecionada(disponiveis);
+
+    if (selecionada == null) {
+      return const SizedBox.shrink();
+    }
+
+    final registros = <_GraficoPonto>[];
+    for (final registro in widget.historico.reversed) {
+      final valor = selecionada.obter(registro);
+      if (valor != null) {
+        registros.add(_GraficoPonto(data: registro.data, valor: valor / 10));
+      }
+    }
+
+    final atual = registros.isEmpty ? null : registros.last;
+    final primeiro = registros.isEmpty ? null : registros.first;
+    final variacao = atual == null || primeiro == null
+        ? null
+        : ((atual.valor - primeiro.valor) * 10).round();
+
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Evolução das medidas',
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              'Escolha uma medida para acompanhar sua evolução.',
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
+            ),
+            const SizedBox(height: 12),
+            DropdownButton<_MedidaDefinicao>(
+              value: selecionada,
+              isExpanded: true,
+              items: [
+                for (final definicao in disponiveis)
+                  DropdownMenuItem<_MedidaDefinicao>(
+                    value: definicao,
+                    child: Text(definicao.rotulo),
+                  ),
+              ],
+              onChanged: (valor) {
+                if (valor != null) {
+                  setState(() => _selecionada = valor);
+                }
+              },
+            ),
+            const SizedBox(height: 8),
+            if (atual != null) ...[
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    '${atual.valor.toStringAsFixed(1).replaceAll('.', ',')} cm',
+                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                      fontWeight: FontWeight.w900,
+                    ),
+                  ),
+                  if (variacao != null && registros.length >= 2) ...[
+                    const SizedBox(width: 10),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 3),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          if (variacao != 0)
+                            Icon(
+                              variacao > 0
+                                  ? Icons.arrow_upward
+                                  : Icons.arrow_downward,
+                              size: 17,
+                            ),
+                          if (variacao != 0) const SizedBox(width: 2),
+                          Text(
+                            variacao == 0
+                                ? 'sem variação'
+                                : '${_formatarVariacaoMedida(variacao.abs())} desde ${_formatarDataCurta(primeiro!.data)}',
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ],
+              ),
+              const SizedBox(height: 14),
+            ],
+            if (registros.length < 2)
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(14),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Text(
+                  'Registre esta medida em outra data para visualizar o gráfico de evolução.',
+                ),
+              )
+            else ...[
+              SizedBox(
+                height: 150,
+                width: double.infinity,
+                child: _GraficoLinha(
+                  pontos: registros,
+                  cor: Theme.of(context).colorScheme.primary,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    _formatarDataCurta(registros.first.data),
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  Text(
+                    _formatarDataCurta(registros.last.data),
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ],
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _GraficoLinha extends StatelessWidget {
+  const _GraficoLinha({required this.pontos, required this.cor});
+
+  final List<_GraficoPonto> pontos;
+  final Color cor;
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomPaint(
+      painter: _GraficoLinhaPainter(
+        pontos: pontos,
+        cor: cor,
+        grade: Theme.of(context).colorScheme.outlineVariant,
+      ),
+    );
+  }
+}
+
+class _GraficoLinhaPainter extends CustomPainter {
+  _GraficoLinhaPainter({
+    required this.pontos,
+    required this.cor,
+    required this.grade,
+  });
+
+  final List<_GraficoPonto> pontos;
+  final Color cor;
+  final Color grade;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    if (pontos.isEmpty || size.width <= 0 || size.height <= 0) {
+      return;
+    }
+
+    const margemHorizontal = 8.0;
+    const margemVertical = 10.0;
+    final largura = size.width - (margemHorizontal * 2);
+    final altura = size.height - (margemVertical * 2);
+
+    var minimo = pontos.first.valor;
+    var maximo = pontos.first.valor;
+    for (final ponto in pontos.skip(1)) {
+      if (ponto.valor < minimo) minimo = ponto.valor;
+      if (ponto.valor > maximo) maximo = ponto.valor;
+    }
+
+    var intervalo = maximo - minimo;
+    if (intervalo == 0) {
+      intervalo = maximo.abs() * 0.02;
+      if (intervalo == 0) intervalo = 1;
+      minimo -= intervalo;
+      maximo += intervalo;
+      intervalo = maximo - minimo;
+    } else {
+      final folga = intervalo * 0.18;
+      minimo -= folga;
+      maximo += folga;
+      intervalo = maximo - minimo;
+    }
+
+    final tintaGrade = Paint()
+      ..color = grade
+      ..strokeWidth = 1;
+    for (var linha = 0; linha < 3; linha++) {
+      final y = margemVertical + (altura * linha / 2);
+      canvas.drawLine(
+        Offset(margemHorizontal, y),
+        Offset(size.width - margemHorizontal, y),
+        tintaGrade,
+      );
+    }
+
+    final caminho = Path();
+    final offsets = <Offset>[];
+    for (var index = 0; index < pontos.length; index++) {
+      final x = pontos.length == 1
+          ? size.width / 2
+          : margemHorizontal + (largura * index / (pontos.length - 1));
+      final proporcaoY = (pontos[index].valor - minimo) / intervalo;
+      final y = margemVertical + altura - (proporcaoY * altura);
+      final offset = Offset(x, y);
+      offsets.add(offset);
+      if (index == 0) {
+        caminho.moveTo(offset.dx, offset.dy);
+      } else {
+        caminho.lineTo(offset.dx, offset.dy);
+      }
+    }
+
+    final tintaLinha = Paint()
+      ..color = cor
+      ..strokeWidth = 2.5
+      ..style = PaintingStyle.stroke
+      ..strokeCap = StrokeCap.round
+      ..strokeJoin = StrokeJoin.round;
+    canvas.drawPath(caminho, tintaLinha);
+
+    final tintaPonto = Paint()
+      ..color = cor
+      ..style = PaintingStyle.fill;
+    for (final offset in offsets) {
+      canvas.drawCircle(offset, 3.5, tintaPonto);
+    }
+  }
+
+  @override
+  bool shouldRepaint(covariant _GraficoLinhaPainter oldDelegate) {
+    return oldDelegate.pontos != pontos ||
+        oldDelegate.cor != cor ||
+        oldDelegate.grade != grade;
+  }
+}
+
+class _GraficoPonto {
+  const _GraficoPonto({required this.data, required this.valor});
+
+  final DateTime data;
+  final double valor;
+}
+
 class _MedidasSecao extends StatelessWidget {
   const _MedidasSecao({
     required this.medidas,
@@ -464,9 +836,9 @@ class _MedidasSecao extends StatelessWidget {
       children: [
         Text(
           'Medidas corporais',
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.w900,
-              ),
+          style: Theme.of(
+            context,
+          ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900),
         ),
         const SizedBox(height: 4),
         Text(
@@ -474,8 +846,8 @@ class _MedidasSecao extends StatelessWidget {
               ? 'Nenhuma avaliação registrada.'
               : 'Última avaliação: ${_formatarData(ultimaAvaliacao.data)}',
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-              ),
+            color: Theme.of(context).colorScheme.onSurfaceVariant,
+          ),
         ),
         const SizedBox(height: 12),
         Wrap(
@@ -515,6 +887,8 @@ class _MedidasSecao extends StatelessWidget {
             definicoes: _medidasPernas,
             historico: medidas,
           ),
+          const SizedBox(height: 14),
+          _EvolucaoMedidasCard(historico: medidas),
         ],
       ],
     );
@@ -542,16 +916,13 @@ class _GrupoMedidasCard extends StatelessWidget {
           children: [
             Text(
               titulo,
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w800,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
             ),
             const SizedBox(height: 8),
             for (var index = 0; index < definicoes.length; index++) ...[
-              _MedidaLinha(
-                definicao: definicoes[index],
-                historico: historico,
-              ),
+              _MedidaLinha(definicao: definicoes[index], historico: historico),
               if (index < definicoes.length - 1) const Divider(height: 1),
             ],
           ],
@@ -583,7 +954,9 @@ class _MedidaLinha extends StatelessWidget {
 
     final atual = valores.isEmpty ? null : valores.first;
     final anterior = valores.length < 2 ? null : valores[1];
-    final diferenca = atual == null || anterior == null ? null : atual - anterior;
+    final diferenca = atual == null || anterior == null
+        ? null
+        : atual - anterior;
 
     IconData? icone;
     if (diferenca != null && diferenca != 0) {
@@ -617,8 +990,8 @@ class _MedidaLinha extends StatelessWidget {
                     diferenca == null
                         ? '—'
                         : diferenca == 0
-                            ? '0 cm'
-                            : _formatarVariacaoMedida(diferenca.abs()),
+                        ? '0 cm'
+                        : _formatarVariacaoMedida(diferenca.abs()),
                     textAlign: TextAlign.end,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.bodySmall,
@@ -676,16 +1049,16 @@ class _HistoricoSecao extends StatelessWidget {
       children: [
         Text(
           'Histórico',
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.w900,
-              ),
+          style: Theme.of(
+            context,
+          ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900),
         ),
         const SizedBox(height: 4),
         Text(
           'Pesagens e avaliações mais recentes',
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-              ),
+            color: Theme.of(context).colorScheme.onSurfaceVariant,
+          ),
         ),
         const SizedBox(height: 12),
         if (itens.isEmpty)
@@ -812,7 +1185,9 @@ class _PesoDialogState extends State<_PesoDialog> {
   }
 
   void _salvar() {
-    final valor = double.tryParse(_pesoController.text.trim().replaceAll(',', '.'));
+    final valor = double.tryParse(
+      _pesoController.text.trim().replaceAll(',', '.'),
+    );
 
     if (valor == null || valor <= 0) {
       setState(() {
@@ -849,7 +1224,9 @@ class _PesoDialogState extends State<_PesoDialog> {
             TextField(
               controller: _pesoController,
               autofocus: true,
-              keyboardType: const TextInputType.numberWithOptions(decimal: true),
+              keyboardType: const TextInputType.numberWithOptions(
+                decimal: true,
+              ),
               decoration: InputDecoration(
                 labelText: 'Peso',
                 suffixText: 'kg',
@@ -930,7 +1307,10 @@ final List<_MedidaDefinicao> _medidasBracos = [
 ];
 
 final List<_MedidaDefinicao> _medidasPernas = [
-  _MedidaDefinicao(rotulo: 'Coxa direita', obter: (r) => r.coxaDireitaMilimetros),
+  _MedidaDefinicao(
+    rotulo: 'Coxa direita',
+    obter: (r) => r.coxaDireitaMilimetros,
+  ),
   _MedidaDefinicao(
     rotulo: 'Coxa esquerda',
     obter: (r) => r.coxaEsquerdaMilimetros,
@@ -943,6 +1323,12 @@ final List<_MedidaDefinicao> _medidasPernas = [
     rotulo: 'Panturrilha esquerda',
     obter: (r) => r.panturrilhaEsquerdaMilimetros,
   ),
+];
+
+final List<_MedidaDefinicao> _todasMedidas = [
+  ..._medidasTronco,
+  ..._medidasBracos,
+  ..._medidasPernas,
 ];
 
 List<_HistoricoCorporalItem> _montarHistorico(_EvolucaoCorporalDados dados) {
