@@ -8806,6 +8806,1455 @@ class PlanosTreinoExecucoesCompanion
   }
 }
 
+class $PesosCorporaisTable extends PesosCorporais
+    with TableInfo<$PesosCorporaisTable, PesoCorporal> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $PesosCorporaisTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _dataMeta = const VerificationMeta('data');
+  @override
+  late final GeneratedColumn<DateTime> data = GeneratedColumn<DateTime>(
+    'data',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways('UNIQUE'),
+  );
+  static const VerificationMeta _pesoGramasMeta = const VerificationMeta(
+    'pesoGramas',
+  );
+  @override
+  late final GeneratedColumn<int> pesoGramas = GeneratedColumn<int>(
+    'peso_gramas',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _criadoEmMeta = const VerificationMeta(
+    'criadoEm',
+  );
+  @override
+  late final GeneratedColumn<DateTime> criadoEm = GeneratedColumn<DateTime>(
+    'criado_em',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  static const VerificationMeta _atualizadoEmMeta = const VerificationMeta(
+    'atualizadoEm',
+  );
+  @override
+  late final GeneratedColumn<DateTime> atualizadoEm = GeneratedColumn<DateTime>(
+    'atualizado_em',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    data,
+    pesoGramas,
+    criadoEm,
+    atualizadoEm,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'pesos_corporais';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<PesoCorporal> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('data')) {
+      context.handle(
+        _dataMeta,
+        this.data.isAcceptableOrUnknown(data['data']!, _dataMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_dataMeta);
+    }
+    if (data.containsKey('peso_gramas')) {
+      context.handle(
+        _pesoGramasMeta,
+        pesoGramas.isAcceptableOrUnknown(data['peso_gramas']!, _pesoGramasMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_pesoGramasMeta);
+    }
+    if (data.containsKey('criado_em')) {
+      context.handle(
+        _criadoEmMeta,
+        criadoEm.isAcceptableOrUnknown(data['criado_em']!, _criadoEmMeta),
+      );
+    }
+    if (data.containsKey('atualizado_em')) {
+      context.handle(
+        _atualizadoEmMeta,
+        atualizadoEm.isAcceptableOrUnknown(
+          data['atualizado_em']!,
+          _atualizadoEmMeta,
+        ),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  PesoCorporal map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return PesoCorporal(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      data: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}data'],
+      )!,
+      pesoGramas: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}peso_gramas'],
+      )!,
+      criadoEm: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}criado_em'],
+      )!,
+      atualizadoEm: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}atualizado_em'],
+      )!,
+    );
+  }
+
+  @override
+  $PesosCorporaisTable createAlias(String alias) {
+    return $PesosCorporaisTable(attachedDatabase, alias);
+  }
+}
+
+class PesoCorporal extends DataClass implements Insertable<PesoCorporal> {
+  final int id;
+  final DateTime data;
+  final int pesoGramas;
+  final DateTime criadoEm;
+  final DateTime atualizadoEm;
+  const PesoCorporal({
+    required this.id,
+    required this.data,
+    required this.pesoGramas,
+    required this.criadoEm,
+    required this.atualizadoEm,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['data'] = Variable<DateTime>(data);
+    map['peso_gramas'] = Variable<int>(pesoGramas);
+    map['criado_em'] = Variable<DateTime>(criadoEm);
+    map['atualizado_em'] = Variable<DateTime>(atualizadoEm);
+    return map;
+  }
+
+  PesosCorporaisCompanion toCompanion(bool nullToAbsent) {
+    return PesosCorporaisCompanion(
+      id: Value(id),
+      data: Value(data),
+      pesoGramas: Value(pesoGramas),
+      criadoEm: Value(criadoEm),
+      atualizadoEm: Value(atualizadoEm),
+    );
+  }
+
+  factory PesoCorporal.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return PesoCorporal(
+      id: serializer.fromJson<int>(json['id']),
+      data: serializer.fromJson<DateTime>(json['data']),
+      pesoGramas: serializer.fromJson<int>(json['pesoGramas']),
+      criadoEm: serializer.fromJson<DateTime>(json['criadoEm']),
+      atualizadoEm: serializer.fromJson<DateTime>(json['atualizadoEm']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'data': serializer.toJson<DateTime>(data),
+      'pesoGramas': serializer.toJson<int>(pesoGramas),
+      'criadoEm': serializer.toJson<DateTime>(criadoEm),
+      'atualizadoEm': serializer.toJson<DateTime>(atualizadoEm),
+    };
+  }
+
+  PesoCorporal copyWith({
+    int? id,
+    DateTime? data,
+    int? pesoGramas,
+    DateTime? criadoEm,
+    DateTime? atualizadoEm,
+  }) => PesoCorporal(
+    id: id ?? this.id,
+    data: data ?? this.data,
+    pesoGramas: pesoGramas ?? this.pesoGramas,
+    criadoEm: criadoEm ?? this.criadoEm,
+    atualizadoEm: atualizadoEm ?? this.atualizadoEm,
+  );
+  PesoCorporal copyWithCompanion(PesosCorporaisCompanion data) {
+    return PesoCorporal(
+      id: data.id.present ? data.id.value : this.id,
+      data: data.data.present ? data.data.value : this.data,
+      pesoGramas: data.pesoGramas.present
+          ? data.pesoGramas.value
+          : this.pesoGramas,
+      criadoEm: data.criadoEm.present ? data.criadoEm.value : this.criadoEm,
+      atualizadoEm: data.atualizadoEm.present
+          ? data.atualizadoEm.value
+          : this.atualizadoEm,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('PesoCorporal(')
+          ..write('id: $id, ')
+          ..write('data: $data, ')
+          ..write('pesoGramas: $pesoGramas, ')
+          ..write('criadoEm: $criadoEm, ')
+          ..write('atualizadoEm: $atualizadoEm')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, data, pesoGramas, criadoEm, atualizadoEm);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is PesoCorporal &&
+          other.id == this.id &&
+          other.data == this.data &&
+          other.pesoGramas == this.pesoGramas &&
+          other.criadoEm == this.criadoEm &&
+          other.atualizadoEm == this.atualizadoEm);
+}
+
+class PesosCorporaisCompanion extends UpdateCompanion<PesoCorporal> {
+  final Value<int> id;
+  final Value<DateTime> data;
+  final Value<int> pesoGramas;
+  final Value<DateTime> criadoEm;
+  final Value<DateTime> atualizadoEm;
+  const PesosCorporaisCompanion({
+    this.id = const Value.absent(),
+    this.data = const Value.absent(),
+    this.pesoGramas = const Value.absent(),
+    this.criadoEm = const Value.absent(),
+    this.atualizadoEm = const Value.absent(),
+  });
+  PesosCorporaisCompanion.insert({
+    this.id = const Value.absent(),
+    required DateTime data,
+    required int pesoGramas,
+    this.criadoEm = const Value.absent(),
+    this.atualizadoEm = const Value.absent(),
+  }) : data = Value(data),
+       pesoGramas = Value(pesoGramas);
+  static Insertable<PesoCorporal> custom({
+    Expression<int>? id,
+    Expression<DateTime>? data,
+    Expression<int>? pesoGramas,
+    Expression<DateTime>? criadoEm,
+    Expression<DateTime>? atualizadoEm,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (data != null) 'data': data,
+      if (pesoGramas != null) 'peso_gramas': pesoGramas,
+      if (criadoEm != null) 'criado_em': criadoEm,
+      if (atualizadoEm != null) 'atualizado_em': atualizadoEm,
+    });
+  }
+
+  PesosCorporaisCompanion copyWith({
+    Value<int>? id,
+    Value<DateTime>? data,
+    Value<int>? pesoGramas,
+    Value<DateTime>? criadoEm,
+    Value<DateTime>? atualizadoEm,
+  }) {
+    return PesosCorporaisCompanion(
+      id: id ?? this.id,
+      data: data ?? this.data,
+      pesoGramas: pesoGramas ?? this.pesoGramas,
+      criadoEm: criadoEm ?? this.criadoEm,
+      atualizadoEm: atualizadoEm ?? this.atualizadoEm,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (data.present) {
+      map['data'] = Variable<DateTime>(data.value);
+    }
+    if (pesoGramas.present) {
+      map['peso_gramas'] = Variable<int>(pesoGramas.value);
+    }
+    if (criadoEm.present) {
+      map['criado_em'] = Variable<DateTime>(criadoEm.value);
+    }
+    if (atualizadoEm.present) {
+      map['atualizado_em'] = Variable<DateTime>(atualizadoEm.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('PesosCorporaisCompanion(')
+          ..write('id: $id, ')
+          ..write('data: $data, ')
+          ..write('pesoGramas: $pesoGramas, ')
+          ..write('criadoEm: $criadoEm, ')
+          ..write('atualizadoEm: $atualizadoEm')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $MedidasCorporaisTable extends MedidasCorporais
+    with TableInfo<$MedidasCorporaisTable, MedidaCorporal> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $MedidasCorporaisTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _dataMeta = const VerificationMeta('data');
+  @override
+  late final GeneratedColumn<DateTime> data = GeneratedColumn<DateTime>(
+    'data',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways('UNIQUE'),
+  );
+  static const VerificationMeta _pescocoMilimetrosMeta = const VerificationMeta(
+    'pescocoMilimetros',
+  );
+  @override
+  late final GeneratedColumn<int> pescocoMilimetros = GeneratedColumn<int>(
+    'pescoco_milimetros',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _ombrosMilimetrosMeta = const VerificationMeta(
+    'ombrosMilimetros',
+  );
+  @override
+  late final GeneratedColumn<int> ombrosMilimetros = GeneratedColumn<int>(
+    'ombros_milimetros',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _peitoMilimetrosMeta = const VerificationMeta(
+    'peitoMilimetros',
+  );
+  @override
+  late final GeneratedColumn<int> peitoMilimetros = GeneratedColumn<int>(
+    'peito_milimetros',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _cinturaMilimetrosMeta = const VerificationMeta(
+    'cinturaMilimetros',
+  );
+  @override
+  late final GeneratedColumn<int> cinturaMilimetros = GeneratedColumn<int>(
+    'cintura_milimetros',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _abdomenMilimetrosMeta = const VerificationMeta(
+    'abdomenMilimetros',
+  );
+  @override
+  late final GeneratedColumn<int> abdomenMilimetros = GeneratedColumn<int>(
+    'abdomen_milimetros',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _quadrilMilimetrosMeta = const VerificationMeta(
+    'quadrilMilimetros',
+  );
+  @override
+  late final GeneratedColumn<int> quadrilMilimetros = GeneratedColumn<int>(
+    'quadril_milimetros',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _bracoDireitoMilimetrosMeta =
+      const VerificationMeta('bracoDireitoMilimetros');
+  @override
+  late final GeneratedColumn<int> bracoDireitoMilimetros = GeneratedColumn<int>(
+    'braco_direito_milimetros',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _bracoEsquerdoMilimetrosMeta =
+      const VerificationMeta('bracoEsquerdoMilimetros');
+  @override
+  late final GeneratedColumn<int> bracoEsquerdoMilimetros =
+      GeneratedColumn<int>(
+        'braco_esquerdo_milimetros',
+        aliasedName,
+        true,
+        type: DriftSqlType.int,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _coxaDireitaMilimetrosMeta =
+      const VerificationMeta('coxaDireitaMilimetros');
+  @override
+  late final GeneratedColumn<int> coxaDireitaMilimetros = GeneratedColumn<int>(
+    'coxa_direita_milimetros',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _coxaEsquerdaMilimetrosMeta =
+      const VerificationMeta('coxaEsquerdaMilimetros');
+  @override
+  late final GeneratedColumn<int> coxaEsquerdaMilimetros = GeneratedColumn<int>(
+    'coxa_esquerda_milimetros',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _panturrilhaDireitaMilimetrosMeta =
+      const VerificationMeta('panturrilhaDireitaMilimetros');
+  @override
+  late final GeneratedColumn<int> panturrilhaDireitaMilimetros =
+      GeneratedColumn<int>(
+        'panturrilha_direita_milimetros',
+        aliasedName,
+        true,
+        type: DriftSqlType.int,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _panturrilhaEsquerdaMilimetrosMeta =
+      const VerificationMeta('panturrilhaEsquerdaMilimetros');
+  @override
+  late final GeneratedColumn<int> panturrilhaEsquerdaMilimetros =
+      GeneratedColumn<int>(
+        'panturrilha_esquerda_milimetros',
+        aliasedName,
+        true,
+        type: DriftSqlType.int,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _observacoesMeta = const VerificationMeta(
+    'observacoes',
+  );
+  @override
+  late final GeneratedColumn<String> observacoes = GeneratedColumn<String>(
+    'observacoes',
+    aliasedName,
+    true,
+    additionalChecks: GeneratedColumn.checkTextLength(
+      minTextLength: 1,
+      maxTextLength: 1000,
+    ),
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _criadoEmMeta = const VerificationMeta(
+    'criadoEm',
+  );
+  @override
+  late final GeneratedColumn<DateTime> criadoEm = GeneratedColumn<DateTime>(
+    'criado_em',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  static const VerificationMeta _atualizadoEmMeta = const VerificationMeta(
+    'atualizadoEm',
+  );
+  @override
+  late final GeneratedColumn<DateTime> atualizadoEm = GeneratedColumn<DateTime>(
+    'atualizado_em',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    data,
+    pescocoMilimetros,
+    ombrosMilimetros,
+    peitoMilimetros,
+    cinturaMilimetros,
+    abdomenMilimetros,
+    quadrilMilimetros,
+    bracoDireitoMilimetros,
+    bracoEsquerdoMilimetros,
+    coxaDireitaMilimetros,
+    coxaEsquerdaMilimetros,
+    panturrilhaDireitaMilimetros,
+    panturrilhaEsquerdaMilimetros,
+    observacoes,
+    criadoEm,
+    atualizadoEm,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'medidas_corporais';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<MedidaCorporal> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('data')) {
+      context.handle(
+        _dataMeta,
+        this.data.isAcceptableOrUnknown(data['data']!, _dataMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_dataMeta);
+    }
+    if (data.containsKey('pescoco_milimetros')) {
+      context.handle(
+        _pescocoMilimetrosMeta,
+        pescocoMilimetros.isAcceptableOrUnknown(
+          data['pescoco_milimetros']!,
+          _pescocoMilimetrosMeta,
+        ),
+      );
+    }
+    if (data.containsKey('ombros_milimetros')) {
+      context.handle(
+        _ombrosMilimetrosMeta,
+        ombrosMilimetros.isAcceptableOrUnknown(
+          data['ombros_milimetros']!,
+          _ombrosMilimetrosMeta,
+        ),
+      );
+    }
+    if (data.containsKey('peito_milimetros')) {
+      context.handle(
+        _peitoMilimetrosMeta,
+        peitoMilimetros.isAcceptableOrUnknown(
+          data['peito_milimetros']!,
+          _peitoMilimetrosMeta,
+        ),
+      );
+    }
+    if (data.containsKey('cintura_milimetros')) {
+      context.handle(
+        _cinturaMilimetrosMeta,
+        cinturaMilimetros.isAcceptableOrUnknown(
+          data['cintura_milimetros']!,
+          _cinturaMilimetrosMeta,
+        ),
+      );
+    }
+    if (data.containsKey('abdomen_milimetros')) {
+      context.handle(
+        _abdomenMilimetrosMeta,
+        abdomenMilimetros.isAcceptableOrUnknown(
+          data['abdomen_milimetros']!,
+          _abdomenMilimetrosMeta,
+        ),
+      );
+    }
+    if (data.containsKey('quadril_milimetros')) {
+      context.handle(
+        _quadrilMilimetrosMeta,
+        quadrilMilimetros.isAcceptableOrUnknown(
+          data['quadril_milimetros']!,
+          _quadrilMilimetrosMeta,
+        ),
+      );
+    }
+    if (data.containsKey('braco_direito_milimetros')) {
+      context.handle(
+        _bracoDireitoMilimetrosMeta,
+        bracoDireitoMilimetros.isAcceptableOrUnknown(
+          data['braco_direito_milimetros']!,
+          _bracoDireitoMilimetrosMeta,
+        ),
+      );
+    }
+    if (data.containsKey('braco_esquerdo_milimetros')) {
+      context.handle(
+        _bracoEsquerdoMilimetrosMeta,
+        bracoEsquerdoMilimetros.isAcceptableOrUnknown(
+          data['braco_esquerdo_milimetros']!,
+          _bracoEsquerdoMilimetrosMeta,
+        ),
+      );
+    }
+    if (data.containsKey('coxa_direita_milimetros')) {
+      context.handle(
+        _coxaDireitaMilimetrosMeta,
+        coxaDireitaMilimetros.isAcceptableOrUnknown(
+          data['coxa_direita_milimetros']!,
+          _coxaDireitaMilimetrosMeta,
+        ),
+      );
+    }
+    if (data.containsKey('coxa_esquerda_milimetros')) {
+      context.handle(
+        _coxaEsquerdaMilimetrosMeta,
+        coxaEsquerdaMilimetros.isAcceptableOrUnknown(
+          data['coxa_esquerda_milimetros']!,
+          _coxaEsquerdaMilimetrosMeta,
+        ),
+      );
+    }
+    if (data.containsKey('panturrilha_direita_milimetros')) {
+      context.handle(
+        _panturrilhaDireitaMilimetrosMeta,
+        panturrilhaDireitaMilimetros.isAcceptableOrUnknown(
+          data['panturrilha_direita_milimetros']!,
+          _panturrilhaDireitaMilimetrosMeta,
+        ),
+      );
+    }
+    if (data.containsKey('panturrilha_esquerda_milimetros')) {
+      context.handle(
+        _panturrilhaEsquerdaMilimetrosMeta,
+        panturrilhaEsquerdaMilimetros.isAcceptableOrUnknown(
+          data['panturrilha_esquerda_milimetros']!,
+          _panturrilhaEsquerdaMilimetrosMeta,
+        ),
+      );
+    }
+    if (data.containsKey('observacoes')) {
+      context.handle(
+        _observacoesMeta,
+        observacoes.isAcceptableOrUnknown(
+          data['observacoes']!,
+          _observacoesMeta,
+        ),
+      );
+    }
+    if (data.containsKey('criado_em')) {
+      context.handle(
+        _criadoEmMeta,
+        criadoEm.isAcceptableOrUnknown(data['criado_em']!, _criadoEmMeta),
+      );
+    }
+    if (data.containsKey('atualizado_em')) {
+      context.handle(
+        _atualizadoEmMeta,
+        atualizadoEm.isAcceptableOrUnknown(
+          data['atualizado_em']!,
+          _atualizadoEmMeta,
+        ),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  MedidaCorporal map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return MedidaCorporal(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      data: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}data'],
+      )!,
+      pescocoMilimetros: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}pescoco_milimetros'],
+      ),
+      ombrosMilimetros: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ombros_milimetros'],
+      ),
+      peitoMilimetros: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}peito_milimetros'],
+      ),
+      cinturaMilimetros: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}cintura_milimetros'],
+      ),
+      abdomenMilimetros: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}abdomen_milimetros'],
+      ),
+      quadrilMilimetros: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}quadril_milimetros'],
+      ),
+      bracoDireitoMilimetros: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}braco_direito_milimetros'],
+      ),
+      bracoEsquerdoMilimetros: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}braco_esquerdo_milimetros'],
+      ),
+      coxaDireitaMilimetros: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}coxa_direita_milimetros'],
+      ),
+      coxaEsquerdaMilimetros: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}coxa_esquerda_milimetros'],
+      ),
+      panturrilhaDireitaMilimetros: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}panturrilha_direita_milimetros'],
+      ),
+      panturrilhaEsquerdaMilimetros: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}panturrilha_esquerda_milimetros'],
+      ),
+      observacoes: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}observacoes'],
+      ),
+      criadoEm: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}criado_em'],
+      )!,
+      atualizadoEm: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}atualizado_em'],
+      )!,
+    );
+  }
+
+  @override
+  $MedidasCorporaisTable createAlias(String alias) {
+    return $MedidasCorporaisTable(attachedDatabase, alias);
+  }
+}
+
+class MedidaCorporal extends DataClass implements Insertable<MedidaCorporal> {
+  final int id;
+  final DateTime data;
+  final int? pescocoMilimetros;
+  final int? ombrosMilimetros;
+  final int? peitoMilimetros;
+  final int? cinturaMilimetros;
+  final int? abdomenMilimetros;
+  final int? quadrilMilimetros;
+  final int? bracoDireitoMilimetros;
+  final int? bracoEsquerdoMilimetros;
+  final int? coxaDireitaMilimetros;
+  final int? coxaEsquerdaMilimetros;
+  final int? panturrilhaDireitaMilimetros;
+  final int? panturrilhaEsquerdaMilimetros;
+  final String? observacoes;
+  final DateTime criadoEm;
+  final DateTime atualizadoEm;
+  const MedidaCorporal({
+    required this.id,
+    required this.data,
+    this.pescocoMilimetros,
+    this.ombrosMilimetros,
+    this.peitoMilimetros,
+    this.cinturaMilimetros,
+    this.abdomenMilimetros,
+    this.quadrilMilimetros,
+    this.bracoDireitoMilimetros,
+    this.bracoEsquerdoMilimetros,
+    this.coxaDireitaMilimetros,
+    this.coxaEsquerdaMilimetros,
+    this.panturrilhaDireitaMilimetros,
+    this.panturrilhaEsquerdaMilimetros,
+    this.observacoes,
+    required this.criadoEm,
+    required this.atualizadoEm,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['data'] = Variable<DateTime>(data);
+    if (!nullToAbsent || pescocoMilimetros != null) {
+      map['pescoco_milimetros'] = Variable<int>(pescocoMilimetros);
+    }
+    if (!nullToAbsent || ombrosMilimetros != null) {
+      map['ombros_milimetros'] = Variable<int>(ombrosMilimetros);
+    }
+    if (!nullToAbsent || peitoMilimetros != null) {
+      map['peito_milimetros'] = Variable<int>(peitoMilimetros);
+    }
+    if (!nullToAbsent || cinturaMilimetros != null) {
+      map['cintura_milimetros'] = Variable<int>(cinturaMilimetros);
+    }
+    if (!nullToAbsent || abdomenMilimetros != null) {
+      map['abdomen_milimetros'] = Variable<int>(abdomenMilimetros);
+    }
+    if (!nullToAbsent || quadrilMilimetros != null) {
+      map['quadril_milimetros'] = Variable<int>(quadrilMilimetros);
+    }
+    if (!nullToAbsent || bracoDireitoMilimetros != null) {
+      map['braco_direito_milimetros'] = Variable<int>(bracoDireitoMilimetros);
+    }
+    if (!nullToAbsent || bracoEsquerdoMilimetros != null) {
+      map['braco_esquerdo_milimetros'] = Variable<int>(bracoEsquerdoMilimetros);
+    }
+    if (!nullToAbsent || coxaDireitaMilimetros != null) {
+      map['coxa_direita_milimetros'] = Variable<int>(coxaDireitaMilimetros);
+    }
+    if (!nullToAbsent || coxaEsquerdaMilimetros != null) {
+      map['coxa_esquerda_milimetros'] = Variable<int>(coxaEsquerdaMilimetros);
+    }
+    if (!nullToAbsent || panturrilhaDireitaMilimetros != null) {
+      map['panturrilha_direita_milimetros'] = Variable<int>(
+        panturrilhaDireitaMilimetros,
+      );
+    }
+    if (!nullToAbsent || panturrilhaEsquerdaMilimetros != null) {
+      map['panturrilha_esquerda_milimetros'] = Variable<int>(
+        panturrilhaEsquerdaMilimetros,
+      );
+    }
+    if (!nullToAbsent || observacoes != null) {
+      map['observacoes'] = Variable<String>(observacoes);
+    }
+    map['criado_em'] = Variable<DateTime>(criadoEm);
+    map['atualizado_em'] = Variable<DateTime>(atualizadoEm);
+    return map;
+  }
+
+  MedidasCorporaisCompanion toCompanion(bool nullToAbsent) {
+    return MedidasCorporaisCompanion(
+      id: Value(id),
+      data: Value(data),
+      pescocoMilimetros: pescocoMilimetros == null && nullToAbsent
+          ? const Value.absent()
+          : Value(pescocoMilimetros),
+      ombrosMilimetros: ombrosMilimetros == null && nullToAbsent
+          ? const Value.absent()
+          : Value(ombrosMilimetros),
+      peitoMilimetros: peitoMilimetros == null && nullToAbsent
+          ? const Value.absent()
+          : Value(peitoMilimetros),
+      cinturaMilimetros: cinturaMilimetros == null && nullToAbsent
+          ? const Value.absent()
+          : Value(cinturaMilimetros),
+      abdomenMilimetros: abdomenMilimetros == null && nullToAbsent
+          ? const Value.absent()
+          : Value(abdomenMilimetros),
+      quadrilMilimetros: quadrilMilimetros == null && nullToAbsent
+          ? const Value.absent()
+          : Value(quadrilMilimetros),
+      bracoDireitoMilimetros: bracoDireitoMilimetros == null && nullToAbsent
+          ? const Value.absent()
+          : Value(bracoDireitoMilimetros),
+      bracoEsquerdoMilimetros: bracoEsquerdoMilimetros == null && nullToAbsent
+          ? const Value.absent()
+          : Value(bracoEsquerdoMilimetros),
+      coxaDireitaMilimetros: coxaDireitaMilimetros == null && nullToAbsent
+          ? const Value.absent()
+          : Value(coxaDireitaMilimetros),
+      coxaEsquerdaMilimetros: coxaEsquerdaMilimetros == null && nullToAbsent
+          ? const Value.absent()
+          : Value(coxaEsquerdaMilimetros),
+      panturrilhaDireitaMilimetros:
+          panturrilhaDireitaMilimetros == null && nullToAbsent
+          ? const Value.absent()
+          : Value(panturrilhaDireitaMilimetros),
+      panturrilhaEsquerdaMilimetros:
+          panturrilhaEsquerdaMilimetros == null && nullToAbsent
+          ? const Value.absent()
+          : Value(panturrilhaEsquerdaMilimetros),
+      observacoes: observacoes == null && nullToAbsent
+          ? const Value.absent()
+          : Value(observacoes),
+      criadoEm: Value(criadoEm),
+      atualizadoEm: Value(atualizadoEm),
+    );
+  }
+
+  factory MedidaCorporal.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return MedidaCorporal(
+      id: serializer.fromJson<int>(json['id']),
+      data: serializer.fromJson<DateTime>(json['data']),
+      pescocoMilimetros: serializer.fromJson<int?>(json['pescocoMilimetros']),
+      ombrosMilimetros: serializer.fromJson<int?>(json['ombrosMilimetros']),
+      peitoMilimetros: serializer.fromJson<int?>(json['peitoMilimetros']),
+      cinturaMilimetros: serializer.fromJson<int?>(json['cinturaMilimetros']),
+      abdomenMilimetros: serializer.fromJson<int?>(json['abdomenMilimetros']),
+      quadrilMilimetros: serializer.fromJson<int?>(json['quadrilMilimetros']),
+      bracoDireitoMilimetros: serializer.fromJson<int?>(
+        json['bracoDireitoMilimetros'],
+      ),
+      bracoEsquerdoMilimetros: serializer.fromJson<int?>(
+        json['bracoEsquerdoMilimetros'],
+      ),
+      coxaDireitaMilimetros: serializer.fromJson<int?>(
+        json['coxaDireitaMilimetros'],
+      ),
+      coxaEsquerdaMilimetros: serializer.fromJson<int?>(
+        json['coxaEsquerdaMilimetros'],
+      ),
+      panturrilhaDireitaMilimetros: serializer.fromJson<int?>(
+        json['panturrilhaDireitaMilimetros'],
+      ),
+      panturrilhaEsquerdaMilimetros: serializer.fromJson<int?>(
+        json['panturrilhaEsquerdaMilimetros'],
+      ),
+      observacoes: serializer.fromJson<String?>(json['observacoes']),
+      criadoEm: serializer.fromJson<DateTime>(json['criadoEm']),
+      atualizadoEm: serializer.fromJson<DateTime>(json['atualizadoEm']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'data': serializer.toJson<DateTime>(data),
+      'pescocoMilimetros': serializer.toJson<int?>(pescocoMilimetros),
+      'ombrosMilimetros': serializer.toJson<int?>(ombrosMilimetros),
+      'peitoMilimetros': serializer.toJson<int?>(peitoMilimetros),
+      'cinturaMilimetros': serializer.toJson<int?>(cinturaMilimetros),
+      'abdomenMilimetros': serializer.toJson<int?>(abdomenMilimetros),
+      'quadrilMilimetros': serializer.toJson<int?>(quadrilMilimetros),
+      'bracoDireitoMilimetros': serializer.toJson<int?>(bracoDireitoMilimetros),
+      'bracoEsquerdoMilimetros': serializer.toJson<int?>(
+        bracoEsquerdoMilimetros,
+      ),
+      'coxaDireitaMilimetros': serializer.toJson<int?>(coxaDireitaMilimetros),
+      'coxaEsquerdaMilimetros': serializer.toJson<int?>(coxaEsquerdaMilimetros),
+      'panturrilhaDireitaMilimetros': serializer.toJson<int?>(
+        panturrilhaDireitaMilimetros,
+      ),
+      'panturrilhaEsquerdaMilimetros': serializer.toJson<int?>(
+        panturrilhaEsquerdaMilimetros,
+      ),
+      'observacoes': serializer.toJson<String?>(observacoes),
+      'criadoEm': serializer.toJson<DateTime>(criadoEm),
+      'atualizadoEm': serializer.toJson<DateTime>(atualizadoEm),
+    };
+  }
+
+  MedidaCorporal copyWith({
+    int? id,
+    DateTime? data,
+    Value<int?> pescocoMilimetros = const Value.absent(),
+    Value<int?> ombrosMilimetros = const Value.absent(),
+    Value<int?> peitoMilimetros = const Value.absent(),
+    Value<int?> cinturaMilimetros = const Value.absent(),
+    Value<int?> abdomenMilimetros = const Value.absent(),
+    Value<int?> quadrilMilimetros = const Value.absent(),
+    Value<int?> bracoDireitoMilimetros = const Value.absent(),
+    Value<int?> bracoEsquerdoMilimetros = const Value.absent(),
+    Value<int?> coxaDireitaMilimetros = const Value.absent(),
+    Value<int?> coxaEsquerdaMilimetros = const Value.absent(),
+    Value<int?> panturrilhaDireitaMilimetros = const Value.absent(),
+    Value<int?> panturrilhaEsquerdaMilimetros = const Value.absent(),
+    Value<String?> observacoes = const Value.absent(),
+    DateTime? criadoEm,
+    DateTime? atualizadoEm,
+  }) => MedidaCorporal(
+    id: id ?? this.id,
+    data: data ?? this.data,
+    pescocoMilimetros: pescocoMilimetros.present
+        ? pescocoMilimetros.value
+        : this.pescocoMilimetros,
+    ombrosMilimetros: ombrosMilimetros.present
+        ? ombrosMilimetros.value
+        : this.ombrosMilimetros,
+    peitoMilimetros: peitoMilimetros.present
+        ? peitoMilimetros.value
+        : this.peitoMilimetros,
+    cinturaMilimetros: cinturaMilimetros.present
+        ? cinturaMilimetros.value
+        : this.cinturaMilimetros,
+    abdomenMilimetros: abdomenMilimetros.present
+        ? abdomenMilimetros.value
+        : this.abdomenMilimetros,
+    quadrilMilimetros: quadrilMilimetros.present
+        ? quadrilMilimetros.value
+        : this.quadrilMilimetros,
+    bracoDireitoMilimetros: bracoDireitoMilimetros.present
+        ? bracoDireitoMilimetros.value
+        : this.bracoDireitoMilimetros,
+    bracoEsquerdoMilimetros: bracoEsquerdoMilimetros.present
+        ? bracoEsquerdoMilimetros.value
+        : this.bracoEsquerdoMilimetros,
+    coxaDireitaMilimetros: coxaDireitaMilimetros.present
+        ? coxaDireitaMilimetros.value
+        : this.coxaDireitaMilimetros,
+    coxaEsquerdaMilimetros: coxaEsquerdaMilimetros.present
+        ? coxaEsquerdaMilimetros.value
+        : this.coxaEsquerdaMilimetros,
+    panturrilhaDireitaMilimetros: panturrilhaDireitaMilimetros.present
+        ? panturrilhaDireitaMilimetros.value
+        : this.panturrilhaDireitaMilimetros,
+    panturrilhaEsquerdaMilimetros: panturrilhaEsquerdaMilimetros.present
+        ? panturrilhaEsquerdaMilimetros.value
+        : this.panturrilhaEsquerdaMilimetros,
+    observacoes: observacoes.present ? observacoes.value : this.observacoes,
+    criadoEm: criadoEm ?? this.criadoEm,
+    atualizadoEm: atualizadoEm ?? this.atualizadoEm,
+  );
+  MedidaCorporal copyWithCompanion(MedidasCorporaisCompanion data) {
+    return MedidaCorporal(
+      id: data.id.present ? data.id.value : this.id,
+      data: data.data.present ? data.data.value : this.data,
+      pescocoMilimetros: data.pescocoMilimetros.present
+          ? data.pescocoMilimetros.value
+          : this.pescocoMilimetros,
+      ombrosMilimetros: data.ombrosMilimetros.present
+          ? data.ombrosMilimetros.value
+          : this.ombrosMilimetros,
+      peitoMilimetros: data.peitoMilimetros.present
+          ? data.peitoMilimetros.value
+          : this.peitoMilimetros,
+      cinturaMilimetros: data.cinturaMilimetros.present
+          ? data.cinturaMilimetros.value
+          : this.cinturaMilimetros,
+      abdomenMilimetros: data.abdomenMilimetros.present
+          ? data.abdomenMilimetros.value
+          : this.abdomenMilimetros,
+      quadrilMilimetros: data.quadrilMilimetros.present
+          ? data.quadrilMilimetros.value
+          : this.quadrilMilimetros,
+      bracoDireitoMilimetros: data.bracoDireitoMilimetros.present
+          ? data.bracoDireitoMilimetros.value
+          : this.bracoDireitoMilimetros,
+      bracoEsquerdoMilimetros: data.bracoEsquerdoMilimetros.present
+          ? data.bracoEsquerdoMilimetros.value
+          : this.bracoEsquerdoMilimetros,
+      coxaDireitaMilimetros: data.coxaDireitaMilimetros.present
+          ? data.coxaDireitaMilimetros.value
+          : this.coxaDireitaMilimetros,
+      coxaEsquerdaMilimetros: data.coxaEsquerdaMilimetros.present
+          ? data.coxaEsquerdaMilimetros.value
+          : this.coxaEsquerdaMilimetros,
+      panturrilhaDireitaMilimetros: data.panturrilhaDireitaMilimetros.present
+          ? data.panturrilhaDireitaMilimetros.value
+          : this.panturrilhaDireitaMilimetros,
+      panturrilhaEsquerdaMilimetros: data.panturrilhaEsquerdaMilimetros.present
+          ? data.panturrilhaEsquerdaMilimetros.value
+          : this.panturrilhaEsquerdaMilimetros,
+      observacoes: data.observacoes.present
+          ? data.observacoes.value
+          : this.observacoes,
+      criadoEm: data.criadoEm.present ? data.criadoEm.value : this.criadoEm,
+      atualizadoEm: data.atualizadoEm.present
+          ? data.atualizadoEm.value
+          : this.atualizadoEm,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MedidaCorporal(')
+          ..write('id: $id, ')
+          ..write('data: $data, ')
+          ..write('pescocoMilimetros: $pescocoMilimetros, ')
+          ..write('ombrosMilimetros: $ombrosMilimetros, ')
+          ..write('peitoMilimetros: $peitoMilimetros, ')
+          ..write('cinturaMilimetros: $cinturaMilimetros, ')
+          ..write('abdomenMilimetros: $abdomenMilimetros, ')
+          ..write('quadrilMilimetros: $quadrilMilimetros, ')
+          ..write('bracoDireitoMilimetros: $bracoDireitoMilimetros, ')
+          ..write('bracoEsquerdoMilimetros: $bracoEsquerdoMilimetros, ')
+          ..write('coxaDireitaMilimetros: $coxaDireitaMilimetros, ')
+          ..write('coxaEsquerdaMilimetros: $coxaEsquerdaMilimetros, ')
+          ..write(
+            'panturrilhaDireitaMilimetros: $panturrilhaDireitaMilimetros, ',
+          )
+          ..write(
+            'panturrilhaEsquerdaMilimetros: $panturrilhaEsquerdaMilimetros, ',
+          )
+          ..write('observacoes: $observacoes, ')
+          ..write('criadoEm: $criadoEm, ')
+          ..write('atualizadoEm: $atualizadoEm')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    data,
+    pescocoMilimetros,
+    ombrosMilimetros,
+    peitoMilimetros,
+    cinturaMilimetros,
+    abdomenMilimetros,
+    quadrilMilimetros,
+    bracoDireitoMilimetros,
+    bracoEsquerdoMilimetros,
+    coxaDireitaMilimetros,
+    coxaEsquerdaMilimetros,
+    panturrilhaDireitaMilimetros,
+    panturrilhaEsquerdaMilimetros,
+    observacoes,
+    criadoEm,
+    atualizadoEm,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is MedidaCorporal &&
+          other.id == this.id &&
+          other.data == this.data &&
+          other.pescocoMilimetros == this.pescocoMilimetros &&
+          other.ombrosMilimetros == this.ombrosMilimetros &&
+          other.peitoMilimetros == this.peitoMilimetros &&
+          other.cinturaMilimetros == this.cinturaMilimetros &&
+          other.abdomenMilimetros == this.abdomenMilimetros &&
+          other.quadrilMilimetros == this.quadrilMilimetros &&
+          other.bracoDireitoMilimetros == this.bracoDireitoMilimetros &&
+          other.bracoEsquerdoMilimetros == this.bracoEsquerdoMilimetros &&
+          other.coxaDireitaMilimetros == this.coxaDireitaMilimetros &&
+          other.coxaEsquerdaMilimetros == this.coxaEsquerdaMilimetros &&
+          other.panturrilhaDireitaMilimetros ==
+              this.panturrilhaDireitaMilimetros &&
+          other.panturrilhaEsquerdaMilimetros ==
+              this.panturrilhaEsquerdaMilimetros &&
+          other.observacoes == this.observacoes &&
+          other.criadoEm == this.criadoEm &&
+          other.atualizadoEm == this.atualizadoEm);
+}
+
+class MedidasCorporaisCompanion extends UpdateCompanion<MedidaCorporal> {
+  final Value<int> id;
+  final Value<DateTime> data;
+  final Value<int?> pescocoMilimetros;
+  final Value<int?> ombrosMilimetros;
+  final Value<int?> peitoMilimetros;
+  final Value<int?> cinturaMilimetros;
+  final Value<int?> abdomenMilimetros;
+  final Value<int?> quadrilMilimetros;
+  final Value<int?> bracoDireitoMilimetros;
+  final Value<int?> bracoEsquerdoMilimetros;
+  final Value<int?> coxaDireitaMilimetros;
+  final Value<int?> coxaEsquerdaMilimetros;
+  final Value<int?> panturrilhaDireitaMilimetros;
+  final Value<int?> panturrilhaEsquerdaMilimetros;
+  final Value<String?> observacoes;
+  final Value<DateTime> criadoEm;
+  final Value<DateTime> atualizadoEm;
+  const MedidasCorporaisCompanion({
+    this.id = const Value.absent(),
+    this.data = const Value.absent(),
+    this.pescocoMilimetros = const Value.absent(),
+    this.ombrosMilimetros = const Value.absent(),
+    this.peitoMilimetros = const Value.absent(),
+    this.cinturaMilimetros = const Value.absent(),
+    this.abdomenMilimetros = const Value.absent(),
+    this.quadrilMilimetros = const Value.absent(),
+    this.bracoDireitoMilimetros = const Value.absent(),
+    this.bracoEsquerdoMilimetros = const Value.absent(),
+    this.coxaDireitaMilimetros = const Value.absent(),
+    this.coxaEsquerdaMilimetros = const Value.absent(),
+    this.panturrilhaDireitaMilimetros = const Value.absent(),
+    this.panturrilhaEsquerdaMilimetros = const Value.absent(),
+    this.observacoes = const Value.absent(),
+    this.criadoEm = const Value.absent(),
+    this.atualizadoEm = const Value.absent(),
+  });
+  MedidasCorporaisCompanion.insert({
+    this.id = const Value.absent(),
+    required DateTime data,
+    this.pescocoMilimetros = const Value.absent(),
+    this.ombrosMilimetros = const Value.absent(),
+    this.peitoMilimetros = const Value.absent(),
+    this.cinturaMilimetros = const Value.absent(),
+    this.abdomenMilimetros = const Value.absent(),
+    this.quadrilMilimetros = const Value.absent(),
+    this.bracoDireitoMilimetros = const Value.absent(),
+    this.bracoEsquerdoMilimetros = const Value.absent(),
+    this.coxaDireitaMilimetros = const Value.absent(),
+    this.coxaEsquerdaMilimetros = const Value.absent(),
+    this.panturrilhaDireitaMilimetros = const Value.absent(),
+    this.panturrilhaEsquerdaMilimetros = const Value.absent(),
+    this.observacoes = const Value.absent(),
+    this.criadoEm = const Value.absent(),
+    this.atualizadoEm = const Value.absent(),
+  }) : data = Value(data);
+  static Insertable<MedidaCorporal> custom({
+    Expression<int>? id,
+    Expression<DateTime>? data,
+    Expression<int>? pescocoMilimetros,
+    Expression<int>? ombrosMilimetros,
+    Expression<int>? peitoMilimetros,
+    Expression<int>? cinturaMilimetros,
+    Expression<int>? abdomenMilimetros,
+    Expression<int>? quadrilMilimetros,
+    Expression<int>? bracoDireitoMilimetros,
+    Expression<int>? bracoEsquerdoMilimetros,
+    Expression<int>? coxaDireitaMilimetros,
+    Expression<int>? coxaEsquerdaMilimetros,
+    Expression<int>? panturrilhaDireitaMilimetros,
+    Expression<int>? panturrilhaEsquerdaMilimetros,
+    Expression<String>? observacoes,
+    Expression<DateTime>? criadoEm,
+    Expression<DateTime>? atualizadoEm,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (data != null) 'data': data,
+      if (pescocoMilimetros != null) 'pescoco_milimetros': pescocoMilimetros,
+      if (ombrosMilimetros != null) 'ombros_milimetros': ombrosMilimetros,
+      if (peitoMilimetros != null) 'peito_milimetros': peitoMilimetros,
+      if (cinturaMilimetros != null) 'cintura_milimetros': cinturaMilimetros,
+      if (abdomenMilimetros != null) 'abdomen_milimetros': abdomenMilimetros,
+      if (quadrilMilimetros != null) 'quadril_milimetros': quadrilMilimetros,
+      if (bracoDireitoMilimetros != null)
+        'braco_direito_milimetros': bracoDireitoMilimetros,
+      if (bracoEsquerdoMilimetros != null)
+        'braco_esquerdo_milimetros': bracoEsquerdoMilimetros,
+      if (coxaDireitaMilimetros != null)
+        'coxa_direita_milimetros': coxaDireitaMilimetros,
+      if (coxaEsquerdaMilimetros != null)
+        'coxa_esquerda_milimetros': coxaEsquerdaMilimetros,
+      if (panturrilhaDireitaMilimetros != null)
+        'panturrilha_direita_milimetros': panturrilhaDireitaMilimetros,
+      if (panturrilhaEsquerdaMilimetros != null)
+        'panturrilha_esquerda_milimetros': panturrilhaEsquerdaMilimetros,
+      if (observacoes != null) 'observacoes': observacoes,
+      if (criadoEm != null) 'criado_em': criadoEm,
+      if (atualizadoEm != null) 'atualizado_em': atualizadoEm,
+    });
+  }
+
+  MedidasCorporaisCompanion copyWith({
+    Value<int>? id,
+    Value<DateTime>? data,
+    Value<int?>? pescocoMilimetros,
+    Value<int?>? ombrosMilimetros,
+    Value<int?>? peitoMilimetros,
+    Value<int?>? cinturaMilimetros,
+    Value<int?>? abdomenMilimetros,
+    Value<int?>? quadrilMilimetros,
+    Value<int?>? bracoDireitoMilimetros,
+    Value<int?>? bracoEsquerdoMilimetros,
+    Value<int?>? coxaDireitaMilimetros,
+    Value<int?>? coxaEsquerdaMilimetros,
+    Value<int?>? panturrilhaDireitaMilimetros,
+    Value<int?>? panturrilhaEsquerdaMilimetros,
+    Value<String?>? observacoes,
+    Value<DateTime>? criadoEm,
+    Value<DateTime>? atualizadoEm,
+  }) {
+    return MedidasCorporaisCompanion(
+      id: id ?? this.id,
+      data: data ?? this.data,
+      pescocoMilimetros: pescocoMilimetros ?? this.pescocoMilimetros,
+      ombrosMilimetros: ombrosMilimetros ?? this.ombrosMilimetros,
+      peitoMilimetros: peitoMilimetros ?? this.peitoMilimetros,
+      cinturaMilimetros: cinturaMilimetros ?? this.cinturaMilimetros,
+      abdomenMilimetros: abdomenMilimetros ?? this.abdomenMilimetros,
+      quadrilMilimetros: quadrilMilimetros ?? this.quadrilMilimetros,
+      bracoDireitoMilimetros:
+          bracoDireitoMilimetros ?? this.bracoDireitoMilimetros,
+      bracoEsquerdoMilimetros:
+          bracoEsquerdoMilimetros ?? this.bracoEsquerdoMilimetros,
+      coxaDireitaMilimetros:
+          coxaDireitaMilimetros ?? this.coxaDireitaMilimetros,
+      coxaEsquerdaMilimetros:
+          coxaEsquerdaMilimetros ?? this.coxaEsquerdaMilimetros,
+      panturrilhaDireitaMilimetros:
+          panturrilhaDireitaMilimetros ?? this.panturrilhaDireitaMilimetros,
+      panturrilhaEsquerdaMilimetros:
+          panturrilhaEsquerdaMilimetros ?? this.panturrilhaEsquerdaMilimetros,
+      observacoes: observacoes ?? this.observacoes,
+      criadoEm: criadoEm ?? this.criadoEm,
+      atualizadoEm: atualizadoEm ?? this.atualizadoEm,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (data.present) {
+      map['data'] = Variable<DateTime>(data.value);
+    }
+    if (pescocoMilimetros.present) {
+      map['pescoco_milimetros'] = Variable<int>(pescocoMilimetros.value);
+    }
+    if (ombrosMilimetros.present) {
+      map['ombros_milimetros'] = Variable<int>(ombrosMilimetros.value);
+    }
+    if (peitoMilimetros.present) {
+      map['peito_milimetros'] = Variable<int>(peitoMilimetros.value);
+    }
+    if (cinturaMilimetros.present) {
+      map['cintura_milimetros'] = Variable<int>(cinturaMilimetros.value);
+    }
+    if (abdomenMilimetros.present) {
+      map['abdomen_milimetros'] = Variable<int>(abdomenMilimetros.value);
+    }
+    if (quadrilMilimetros.present) {
+      map['quadril_milimetros'] = Variable<int>(quadrilMilimetros.value);
+    }
+    if (bracoDireitoMilimetros.present) {
+      map['braco_direito_milimetros'] = Variable<int>(
+        bracoDireitoMilimetros.value,
+      );
+    }
+    if (bracoEsquerdoMilimetros.present) {
+      map['braco_esquerdo_milimetros'] = Variable<int>(
+        bracoEsquerdoMilimetros.value,
+      );
+    }
+    if (coxaDireitaMilimetros.present) {
+      map['coxa_direita_milimetros'] = Variable<int>(
+        coxaDireitaMilimetros.value,
+      );
+    }
+    if (coxaEsquerdaMilimetros.present) {
+      map['coxa_esquerda_milimetros'] = Variable<int>(
+        coxaEsquerdaMilimetros.value,
+      );
+    }
+    if (panturrilhaDireitaMilimetros.present) {
+      map['panturrilha_direita_milimetros'] = Variable<int>(
+        panturrilhaDireitaMilimetros.value,
+      );
+    }
+    if (panturrilhaEsquerdaMilimetros.present) {
+      map['panturrilha_esquerda_milimetros'] = Variable<int>(
+        panturrilhaEsquerdaMilimetros.value,
+      );
+    }
+    if (observacoes.present) {
+      map['observacoes'] = Variable<String>(observacoes.value);
+    }
+    if (criadoEm.present) {
+      map['criado_em'] = Variable<DateTime>(criadoEm.value);
+    }
+    if (atualizadoEm.present) {
+      map['atualizado_em'] = Variable<DateTime>(atualizadoEm.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MedidasCorporaisCompanion(')
+          ..write('id: $id, ')
+          ..write('data: $data, ')
+          ..write('pescocoMilimetros: $pescocoMilimetros, ')
+          ..write('ombrosMilimetros: $ombrosMilimetros, ')
+          ..write('peitoMilimetros: $peitoMilimetros, ')
+          ..write('cinturaMilimetros: $cinturaMilimetros, ')
+          ..write('abdomenMilimetros: $abdomenMilimetros, ')
+          ..write('quadrilMilimetros: $quadrilMilimetros, ')
+          ..write('bracoDireitoMilimetros: $bracoDireitoMilimetros, ')
+          ..write('bracoEsquerdoMilimetros: $bracoEsquerdoMilimetros, ')
+          ..write('coxaDireitaMilimetros: $coxaDireitaMilimetros, ')
+          ..write('coxaEsquerdaMilimetros: $coxaEsquerdaMilimetros, ')
+          ..write(
+            'panturrilhaDireitaMilimetros: $panturrilhaDireitaMilimetros, ',
+          )
+          ..write(
+            'panturrilhaEsquerdaMilimetros: $panturrilhaEsquerdaMilimetros, ',
+          )
+          ..write('observacoes: $observacoes, ')
+          ..write('criadoEm: $criadoEm, ')
+          ..write('atualizadoEm: $atualizadoEm')
+          ..write(')'))
+        .toString();
+  }
+}
+
 class $BibliotecaMetadataTable extends BibliotecaMetadata
     with TableInfo<$BibliotecaMetadataTable, BibliotecaMetadataRegistro> {
   @override
@@ -17026,6 +18475,10 @@ abstract class _$AppDatabase extends GeneratedDatabase {
       $PlanosTreinoItensTable(this);
   late final $PlanosTreinoExecucoesTable planosTreinoExecucoes =
       $PlanosTreinoExecucoesTable(this);
+  late final $PesosCorporaisTable pesosCorporais = $PesosCorporaisTable(this);
+  late final $MedidasCorporaisTable medidasCorporais = $MedidasCorporaisTable(
+    this,
+  );
   late final $BibliotecaMetadataTable bibliotecaMetadata =
       $BibliotecaMetadataTable(this);
   late final $BibliotecaGruposMuscularesTable bibliotecaGruposMusculares =
@@ -17073,6 +18526,12 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final PlanoTreinoDao planoTreinoDao = PlanoTreinoDao(
     this as AppDatabase,
   );
+  late final PesoCorporalDao pesoCorporalDao = PesoCorporalDao(
+    this as AppDatabase,
+  );
+  late final MedidaCorporalDao medidaCorporalDao = MedidaCorporalDao(
+    this as AppDatabase,
+  );
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -17089,6 +18548,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     planosTreino,
     planosTreinoItens,
     planosTreinoExecucoes,
+    pesosCorporais,
+    medidasCorporais,
     bibliotecaMetadata,
     bibliotecaGruposMusculares,
     bibliotecaCategoriasEquipamentos,
@@ -23812,6 +25273,664 @@ typedef $$PlanosTreinoExecucoesTableProcessedTableManager =
         bool fichaPlanejadaId,
         bool fichaExecutadaId,
       })
+    >;
+typedef $$PesosCorporaisTableCreateCompanionBuilder =
+    PesosCorporaisCompanion Function({
+      Value<int> id,
+      required DateTime data,
+      required int pesoGramas,
+      Value<DateTime> criadoEm,
+      Value<DateTime> atualizadoEm,
+    });
+typedef $$PesosCorporaisTableUpdateCompanionBuilder =
+    PesosCorporaisCompanion Function({
+      Value<int> id,
+      Value<DateTime> data,
+      Value<int> pesoGramas,
+      Value<DateTime> criadoEm,
+      Value<DateTime> atualizadoEm,
+    });
+
+class $$PesosCorporaisTableFilterComposer
+    extends Composer<_$AppDatabase, $PesosCorporaisTable> {
+  $$PesosCorporaisTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get data => $composableBuilder(
+    column: $table.data,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get pesoGramas => $composableBuilder(
+    column: $table.pesoGramas,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get criadoEm => $composableBuilder(
+    column: $table.criadoEm,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get atualizadoEm => $composableBuilder(
+    column: $table.atualizadoEm,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$PesosCorporaisTableOrderingComposer
+    extends Composer<_$AppDatabase, $PesosCorporaisTable> {
+  $$PesosCorporaisTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get data => $composableBuilder(
+    column: $table.data,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get pesoGramas => $composableBuilder(
+    column: $table.pesoGramas,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get criadoEm => $composableBuilder(
+    column: $table.criadoEm,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get atualizadoEm => $composableBuilder(
+    column: $table.atualizadoEm,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$PesosCorporaisTableAnnotationComposer
+    extends Composer<_$AppDatabase, $PesosCorporaisTable> {
+  $$PesosCorporaisTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get data =>
+      $composableBuilder(column: $table.data, builder: (column) => column);
+
+  GeneratedColumn<int> get pesoGramas => $composableBuilder(
+    column: $table.pesoGramas,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get criadoEm =>
+      $composableBuilder(column: $table.criadoEm, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get atualizadoEm => $composableBuilder(
+    column: $table.atualizadoEm,
+    builder: (column) => column,
+  );
+}
+
+class $$PesosCorporaisTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $PesosCorporaisTable,
+          PesoCorporal,
+          $$PesosCorporaisTableFilterComposer,
+          $$PesosCorporaisTableOrderingComposer,
+          $$PesosCorporaisTableAnnotationComposer,
+          $$PesosCorporaisTableCreateCompanionBuilder,
+          $$PesosCorporaisTableUpdateCompanionBuilder,
+          (
+            PesoCorporal,
+            BaseReferences<_$AppDatabase, $PesosCorporaisTable, PesoCorporal>,
+          ),
+          PesoCorporal,
+          PrefetchHooks Function()
+        > {
+  $$PesosCorporaisTableTableManager(
+    _$AppDatabase db,
+    $PesosCorporaisTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$PesosCorporaisTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$PesosCorporaisTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$PesosCorporaisTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<DateTime> data = const Value.absent(),
+                Value<int> pesoGramas = const Value.absent(),
+                Value<DateTime> criadoEm = const Value.absent(),
+                Value<DateTime> atualizadoEm = const Value.absent(),
+              }) => PesosCorporaisCompanion(
+                id: id,
+                data: data,
+                pesoGramas: pesoGramas,
+                criadoEm: criadoEm,
+                atualizadoEm: atualizadoEm,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required DateTime data,
+                required int pesoGramas,
+                Value<DateTime> criadoEm = const Value.absent(),
+                Value<DateTime> atualizadoEm = const Value.absent(),
+              }) => PesosCorporaisCompanion.insert(
+                id: id,
+                data: data,
+                pesoGramas: pesoGramas,
+                criadoEm: criadoEm,
+                atualizadoEm: atualizadoEm,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$PesosCorporaisTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $PesosCorporaisTable,
+      PesoCorporal,
+      $$PesosCorporaisTableFilterComposer,
+      $$PesosCorporaisTableOrderingComposer,
+      $$PesosCorporaisTableAnnotationComposer,
+      $$PesosCorporaisTableCreateCompanionBuilder,
+      $$PesosCorporaisTableUpdateCompanionBuilder,
+      (
+        PesoCorporal,
+        BaseReferences<_$AppDatabase, $PesosCorporaisTable, PesoCorporal>,
+      ),
+      PesoCorporal,
+      PrefetchHooks Function()
+    >;
+typedef $$MedidasCorporaisTableCreateCompanionBuilder =
+    MedidasCorporaisCompanion Function({
+      Value<int> id,
+      required DateTime data,
+      Value<int?> pescocoMilimetros,
+      Value<int?> ombrosMilimetros,
+      Value<int?> peitoMilimetros,
+      Value<int?> cinturaMilimetros,
+      Value<int?> abdomenMilimetros,
+      Value<int?> quadrilMilimetros,
+      Value<int?> bracoDireitoMilimetros,
+      Value<int?> bracoEsquerdoMilimetros,
+      Value<int?> coxaDireitaMilimetros,
+      Value<int?> coxaEsquerdaMilimetros,
+      Value<int?> panturrilhaDireitaMilimetros,
+      Value<int?> panturrilhaEsquerdaMilimetros,
+      Value<String?> observacoes,
+      Value<DateTime> criadoEm,
+      Value<DateTime> atualizadoEm,
+    });
+typedef $$MedidasCorporaisTableUpdateCompanionBuilder =
+    MedidasCorporaisCompanion Function({
+      Value<int> id,
+      Value<DateTime> data,
+      Value<int?> pescocoMilimetros,
+      Value<int?> ombrosMilimetros,
+      Value<int?> peitoMilimetros,
+      Value<int?> cinturaMilimetros,
+      Value<int?> abdomenMilimetros,
+      Value<int?> quadrilMilimetros,
+      Value<int?> bracoDireitoMilimetros,
+      Value<int?> bracoEsquerdoMilimetros,
+      Value<int?> coxaDireitaMilimetros,
+      Value<int?> coxaEsquerdaMilimetros,
+      Value<int?> panturrilhaDireitaMilimetros,
+      Value<int?> panturrilhaEsquerdaMilimetros,
+      Value<String?> observacoes,
+      Value<DateTime> criadoEm,
+      Value<DateTime> atualizadoEm,
+    });
+
+class $$MedidasCorporaisTableFilterComposer
+    extends Composer<_$AppDatabase, $MedidasCorporaisTable> {
+  $$MedidasCorporaisTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get data => $composableBuilder(
+    column: $table.data,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get pescocoMilimetros => $composableBuilder(
+    column: $table.pescocoMilimetros,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get ombrosMilimetros => $composableBuilder(
+    column: $table.ombrosMilimetros,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get peitoMilimetros => $composableBuilder(
+    column: $table.peitoMilimetros,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get cinturaMilimetros => $composableBuilder(
+    column: $table.cinturaMilimetros,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get abdomenMilimetros => $composableBuilder(
+    column: $table.abdomenMilimetros,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get quadrilMilimetros => $composableBuilder(
+    column: $table.quadrilMilimetros,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get bracoDireitoMilimetros => $composableBuilder(
+    column: $table.bracoDireitoMilimetros,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get bracoEsquerdoMilimetros => $composableBuilder(
+    column: $table.bracoEsquerdoMilimetros,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get coxaDireitaMilimetros => $composableBuilder(
+    column: $table.coxaDireitaMilimetros,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get coxaEsquerdaMilimetros => $composableBuilder(
+    column: $table.coxaEsquerdaMilimetros,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get panturrilhaDireitaMilimetros => $composableBuilder(
+    column: $table.panturrilhaDireitaMilimetros,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get panturrilhaEsquerdaMilimetros => $composableBuilder(
+    column: $table.panturrilhaEsquerdaMilimetros,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get observacoes => $composableBuilder(
+    column: $table.observacoes,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get criadoEm => $composableBuilder(
+    column: $table.criadoEm,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get atualizadoEm => $composableBuilder(
+    column: $table.atualizadoEm,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$MedidasCorporaisTableOrderingComposer
+    extends Composer<_$AppDatabase, $MedidasCorporaisTable> {
+  $$MedidasCorporaisTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get data => $composableBuilder(
+    column: $table.data,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get pescocoMilimetros => $composableBuilder(
+    column: $table.pescocoMilimetros,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get ombrosMilimetros => $composableBuilder(
+    column: $table.ombrosMilimetros,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get peitoMilimetros => $composableBuilder(
+    column: $table.peitoMilimetros,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get cinturaMilimetros => $composableBuilder(
+    column: $table.cinturaMilimetros,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get abdomenMilimetros => $composableBuilder(
+    column: $table.abdomenMilimetros,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get quadrilMilimetros => $composableBuilder(
+    column: $table.quadrilMilimetros,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get bracoDireitoMilimetros => $composableBuilder(
+    column: $table.bracoDireitoMilimetros,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get bracoEsquerdoMilimetros => $composableBuilder(
+    column: $table.bracoEsquerdoMilimetros,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get coxaDireitaMilimetros => $composableBuilder(
+    column: $table.coxaDireitaMilimetros,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get coxaEsquerdaMilimetros => $composableBuilder(
+    column: $table.coxaEsquerdaMilimetros,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get panturrilhaDireitaMilimetros => $composableBuilder(
+    column: $table.panturrilhaDireitaMilimetros,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get panturrilhaEsquerdaMilimetros => $composableBuilder(
+    column: $table.panturrilhaEsquerdaMilimetros,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get observacoes => $composableBuilder(
+    column: $table.observacoes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get criadoEm => $composableBuilder(
+    column: $table.criadoEm,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get atualizadoEm => $composableBuilder(
+    column: $table.atualizadoEm,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$MedidasCorporaisTableAnnotationComposer
+    extends Composer<_$AppDatabase, $MedidasCorporaisTable> {
+  $$MedidasCorporaisTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get data =>
+      $composableBuilder(column: $table.data, builder: (column) => column);
+
+  GeneratedColumn<int> get pescocoMilimetros => $composableBuilder(
+    column: $table.pescocoMilimetros,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get ombrosMilimetros => $composableBuilder(
+    column: $table.ombrosMilimetros,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get peitoMilimetros => $composableBuilder(
+    column: $table.peitoMilimetros,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get cinturaMilimetros => $composableBuilder(
+    column: $table.cinturaMilimetros,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get abdomenMilimetros => $composableBuilder(
+    column: $table.abdomenMilimetros,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get quadrilMilimetros => $composableBuilder(
+    column: $table.quadrilMilimetros,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get bracoDireitoMilimetros => $composableBuilder(
+    column: $table.bracoDireitoMilimetros,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get bracoEsquerdoMilimetros => $composableBuilder(
+    column: $table.bracoEsquerdoMilimetros,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get coxaDireitaMilimetros => $composableBuilder(
+    column: $table.coxaDireitaMilimetros,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get coxaEsquerdaMilimetros => $composableBuilder(
+    column: $table.coxaEsquerdaMilimetros,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get panturrilhaDireitaMilimetros => $composableBuilder(
+    column: $table.panturrilhaDireitaMilimetros,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get panturrilhaEsquerdaMilimetros => $composableBuilder(
+    column: $table.panturrilhaEsquerdaMilimetros,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get observacoes => $composableBuilder(
+    column: $table.observacoes,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get criadoEm =>
+      $composableBuilder(column: $table.criadoEm, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get atualizadoEm => $composableBuilder(
+    column: $table.atualizadoEm,
+    builder: (column) => column,
+  );
+}
+
+class $$MedidasCorporaisTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $MedidasCorporaisTable,
+          MedidaCorporal,
+          $$MedidasCorporaisTableFilterComposer,
+          $$MedidasCorporaisTableOrderingComposer,
+          $$MedidasCorporaisTableAnnotationComposer,
+          $$MedidasCorporaisTableCreateCompanionBuilder,
+          $$MedidasCorporaisTableUpdateCompanionBuilder,
+          (
+            MedidaCorporal,
+            BaseReferences<
+              _$AppDatabase,
+              $MedidasCorporaisTable,
+              MedidaCorporal
+            >,
+          ),
+          MedidaCorporal,
+          PrefetchHooks Function()
+        > {
+  $$MedidasCorporaisTableTableManager(
+    _$AppDatabase db,
+    $MedidasCorporaisTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$MedidasCorporaisTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$MedidasCorporaisTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$MedidasCorporaisTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<DateTime> data = const Value.absent(),
+                Value<int?> pescocoMilimetros = const Value.absent(),
+                Value<int?> ombrosMilimetros = const Value.absent(),
+                Value<int?> peitoMilimetros = const Value.absent(),
+                Value<int?> cinturaMilimetros = const Value.absent(),
+                Value<int?> abdomenMilimetros = const Value.absent(),
+                Value<int?> quadrilMilimetros = const Value.absent(),
+                Value<int?> bracoDireitoMilimetros = const Value.absent(),
+                Value<int?> bracoEsquerdoMilimetros = const Value.absent(),
+                Value<int?> coxaDireitaMilimetros = const Value.absent(),
+                Value<int?> coxaEsquerdaMilimetros = const Value.absent(),
+                Value<int?> panturrilhaDireitaMilimetros = const Value.absent(),
+                Value<int?> panturrilhaEsquerdaMilimetros =
+                    const Value.absent(),
+                Value<String?> observacoes = const Value.absent(),
+                Value<DateTime> criadoEm = const Value.absent(),
+                Value<DateTime> atualizadoEm = const Value.absent(),
+              }) => MedidasCorporaisCompanion(
+                id: id,
+                data: data,
+                pescocoMilimetros: pescocoMilimetros,
+                ombrosMilimetros: ombrosMilimetros,
+                peitoMilimetros: peitoMilimetros,
+                cinturaMilimetros: cinturaMilimetros,
+                abdomenMilimetros: abdomenMilimetros,
+                quadrilMilimetros: quadrilMilimetros,
+                bracoDireitoMilimetros: bracoDireitoMilimetros,
+                bracoEsquerdoMilimetros: bracoEsquerdoMilimetros,
+                coxaDireitaMilimetros: coxaDireitaMilimetros,
+                coxaEsquerdaMilimetros: coxaEsquerdaMilimetros,
+                panturrilhaDireitaMilimetros: panturrilhaDireitaMilimetros,
+                panturrilhaEsquerdaMilimetros: panturrilhaEsquerdaMilimetros,
+                observacoes: observacoes,
+                criadoEm: criadoEm,
+                atualizadoEm: atualizadoEm,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required DateTime data,
+                Value<int?> pescocoMilimetros = const Value.absent(),
+                Value<int?> ombrosMilimetros = const Value.absent(),
+                Value<int?> peitoMilimetros = const Value.absent(),
+                Value<int?> cinturaMilimetros = const Value.absent(),
+                Value<int?> abdomenMilimetros = const Value.absent(),
+                Value<int?> quadrilMilimetros = const Value.absent(),
+                Value<int?> bracoDireitoMilimetros = const Value.absent(),
+                Value<int?> bracoEsquerdoMilimetros = const Value.absent(),
+                Value<int?> coxaDireitaMilimetros = const Value.absent(),
+                Value<int?> coxaEsquerdaMilimetros = const Value.absent(),
+                Value<int?> panturrilhaDireitaMilimetros = const Value.absent(),
+                Value<int?> panturrilhaEsquerdaMilimetros =
+                    const Value.absent(),
+                Value<String?> observacoes = const Value.absent(),
+                Value<DateTime> criadoEm = const Value.absent(),
+                Value<DateTime> atualizadoEm = const Value.absent(),
+              }) => MedidasCorporaisCompanion.insert(
+                id: id,
+                data: data,
+                pescocoMilimetros: pescocoMilimetros,
+                ombrosMilimetros: ombrosMilimetros,
+                peitoMilimetros: peitoMilimetros,
+                cinturaMilimetros: cinturaMilimetros,
+                abdomenMilimetros: abdomenMilimetros,
+                quadrilMilimetros: quadrilMilimetros,
+                bracoDireitoMilimetros: bracoDireitoMilimetros,
+                bracoEsquerdoMilimetros: bracoEsquerdoMilimetros,
+                coxaDireitaMilimetros: coxaDireitaMilimetros,
+                coxaEsquerdaMilimetros: coxaEsquerdaMilimetros,
+                panturrilhaDireitaMilimetros: panturrilhaDireitaMilimetros,
+                panturrilhaEsquerdaMilimetros: panturrilhaEsquerdaMilimetros,
+                observacoes: observacoes,
+                criadoEm: criadoEm,
+                atualizadoEm: atualizadoEm,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$MedidasCorporaisTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $MedidasCorporaisTable,
+      MedidaCorporal,
+      $$MedidasCorporaisTableFilterComposer,
+      $$MedidasCorporaisTableOrderingComposer,
+      $$MedidasCorporaisTableAnnotationComposer,
+      $$MedidasCorporaisTableCreateCompanionBuilder,
+      $$MedidasCorporaisTableUpdateCompanionBuilder,
+      (
+        MedidaCorporal,
+        BaseReferences<_$AppDatabase, $MedidasCorporaisTable, MedidaCorporal>,
+      ),
+      MedidaCorporal,
+      PrefetchHooks Function()
     >;
 typedef $$BibliotecaMetadataTableCreateCompanionBuilder =
     BibliotecaMetadataCompanion Function({
@@ -31044,6 +33163,10 @@ class $AppDatabaseManager {
       $$PlanosTreinoItensTableTableManager(_db, _db.planosTreinoItens);
   $$PlanosTreinoExecucoesTableTableManager get planosTreinoExecucoes =>
       $$PlanosTreinoExecucoesTableTableManager(_db, _db.planosTreinoExecucoes);
+  $$PesosCorporaisTableTableManager get pesosCorporais =>
+      $$PesosCorporaisTableTableManager(_db, _db.pesosCorporais);
+  $$MedidasCorporaisTableTableManager get medidasCorporais =>
+      $$MedidasCorporaisTableTableManager(_db, _db.medidasCorporais);
   $$BibliotecaMetadataTableTableManager get bibliotecaMetadata =>
       $$BibliotecaMetadataTableTableManager(_db, _db.bibliotecaMetadata);
   $$BibliotecaGruposMuscularesTableTableManager

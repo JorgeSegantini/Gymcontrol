@@ -17,6 +17,7 @@ import '../../grupos_musculares/presentation/grupos_musculares_page.dart';
 import '../../plano_treino/presentation/planos_treino_page.dart';
 import '../../historico/presentation/historico_treinos_page.dart';
 import '../../evolucao/presentation/evolucao_page.dart';
+import '../../evolucao_corporal/presentation/evolucao_corporal_page.dart';
 import '../../backup/presentation/backup_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -86,7 +87,10 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> _abrirCalendario(BuildContext context) async {
-    var mesSelecionado = DateTime(DateTime.now().year, DateTime.now().month);
+    var mesSelecionado = DateTime(
+      DateTime.now().year,
+      DateTime.now().month,
+    );
     var resumoFuture = _dashboardService.obterResumo(
       mesCalendario: mesSelecionado,
     );
@@ -141,7 +145,9 @@ class _HomePageState extends State<HomePage> {
                         );
                       }
 
-                      return const Center(child: CircularProgressIndicator());
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
                     }
 
                     final resumo = snapshot.data!;
@@ -456,6 +462,16 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  Future<void> _abrirEvolucaoCorporal(BuildContext context) async {
+    await Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) {
+          return EvolucaoCorporalPage(database: database);
+        },
+      ),
+    );
+  }
+
   Future<void> _abrirBackup(BuildContext context) async {
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
@@ -480,14 +496,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  void _mostrarEmDesenvolvimento(BuildContext context, String funcionalidade) {
-    ScaffoldMessenger.of(context)
-      ..hideCurrentSnackBar()
-      ..showSnackBar(
-        SnackBar(content: Text('$funcionalidade em desenvolvimento.')),
-      );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -509,7 +517,9 @@ class _HomePageState extends State<HomePage> {
 
   Widget _construirCorpo(BuildContext context) {
     if (_carregandoDashboard && _resumo == null) {
-      return const Center(child: CircularProgressIndicator());
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
     }
 
     if (_resumo == null) {
@@ -527,176 +537,175 @@ class _HomePageState extends State<HomePage> {
       controller: _scrollController,
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
       children: [
-        HomeCabecalhoData(data: DateTime.now()),
-        const SizedBox(height: 16),
-        _ResumoPlanoAtivo(
-          resumo: resumo,
-          onCalendarioTap: () {
-            _abrirCalendario(context);
-          },
-        ),
-        const SizedBox(height: 12),
-        if (resumo.estadoPlano == null || resumo.estadoPlano!.itemAtual == null)
-          HomeSemPlanoAtivoCard(
-            onAbrirPlanos: () {
-              _abrirPlanosTreino(context);
-            },
-            onEscolherFicha: () {
-              _abrirFichas(context);
-            },
-          )
-        else
-          HomePlanoHojeCard(
-            estado: resumo.estadoPlano!,
-            onIniciarTreino: () {
-              _iniciarTreinoPlanejado(context, resumo.estadoPlano!.itemAtual!);
-            },
-            onConcluirEtapa: () {
-              _concluirEtapaSemTreino(context, resumo.estadoPlano!.itemAtual!);
-            },
-            onAbrirPlanos: () {
-              _abrirPlanosTreino(context);
+          HomeCabecalhoData(data: DateTime.now()),
+          const SizedBox(height: 16),
+          _ResumoPlanoAtivo(
+            resumo: resumo,
+            onCalendarioTap: () {
+              _abrirCalendario(context);
             },
           ),
-        if (resumo.timeline.isNotEmpty) ...[
-          const SizedBox(height: 16),
-          HomeTimeline(
-            itens: resumo.timeline,
-            onItemTap: (item) {
-              if (item.etapa == HomeTimelineEtapa.atual) {
-                final itemAtual = resumo.estadoPlano?.itemAtual;
+          const SizedBox(height: 12),
+          if (resumo.estadoPlano == null ||
+              resumo.estadoPlano!.itemAtual == null)
+            HomeSemPlanoAtivoCard(
+              onAbrirPlanos: () {
+                _abrirPlanosTreino(context);
+              },
+              onEscolherFicha: () {
+                _abrirFichas(context);
+              },
+            )
+          else
+            HomePlanoHojeCard(
+              estado: resumo.estadoPlano!,
+              onIniciarTreino: () {
+                _iniciarTreinoPlanejado(
+                  context,
+                  resumo.estadoPlano!.itemAtual!,
+                );
+              },
+              onConcluirEtapa: () {
+                _concluirEtapaSemTreino(
+                  context,
+                  resumo.estadoPlano!.itemAtual!,
+                );
+              },
+              onAbrirPlanos: () {
+                _abrirPlanosTreino(context);
+              },
+            ),
+          if (resumo.timeline.isNotEmpty) ...[
+            const SizedBox(height: 16),
+            HomeTimeline(
+              itens: resumo.timeline,
+              onItemTap: (item) {
+                if (item.etapa == HomeTimelineEtapa.atual) {
+                  final itemAtual = resumo.estadoPlano?.itemAtual;
 
-                if (itemAtual == null) {
+                  if (itemAtual == null) {
+                    return;
+                  }
+
+                  if (itemAtual.tipo ==
+                      TipoPlanoTreinoItem.treino.name) {
+                    _iniciarTreinoPlanejado(context, itemAtual);
+                  } else {
+                    _concluirEtapaSemTreino(context, itemAtual);
+                  }
+
                   return;
                 }
 
-                if (itemAtual.tipo == TipoPlanoTreinoItem.treino.name) {
-                  _iniciarTreinoPlanejado(context, itemAtual);
-                } else {
-                  _concluirEtapaSemTreino(context, itemAtual);
-                }
+                _abrirPlanosTreino(context);
+              },
+            ),
+          ],
+          const SizedBox(height: 16),
+          HomeResumoSemanal(resumo: resumo.resumoSemana),
+          const SizedBox(height: 16),
 
-                return;
-              }
-
+          const SizedBox(height: 24),
+          const _TituloSecao(
+            titulo: 'Treinos',
+            subtitulo: 'Monte e organize sua rotina',
+          ),
+          const SizedBox(height: 10),
+          _MenuCard(
+            icon: Icons.assignment_outlined,
+            titulo: 'Fichas de treino',
+            subtitulo: 'Criar, editar e organizar exercícios',
+            onTap: () {
+              _abrirFichas(context);
+            },
+          ),
+          const SizedBox(height: 10),
+          _MenuCard(
+            icon: Icons.route_outlined,
+            titulo: 'Planos de treino',
+            subtitulo: 'Organizar a sequência A, B, descanso e outras etapas',
+            onTap: () {
               _abrirPlanosTreino(context);
             },
           ),
-        ],
-        const SizedBox(height: 16),
-        HomeResumoSemanal(resumo: resumo.resumoSemana),
-        const SizedBox(height: 16),
-
-        const SizedBox(height: 24),
-        const _TituloSecao(
-          titulo: 'Treinos',
-          subtitulo: 'Monte e organize sua rotina',
-        ),
-        const SizedBox(height: 10),
-        _MenuCard(
-          icon: Icons.assignment_outlined,
-          titulo: 'Fichas de treino',
-          subtitulo: 'Criar, editar e organizar exercícios',
-          onTap: () {
-            _abrirFichas(context);
-          },
-        ),
-        const SizedBox(height: 10),
-        _MenuCard(
-          icon: Icons.route_outlined,
-          titulo: 'Planos de treino',
-          subtitulo: 'Organizar a sequência A, B, descanso e outras etapas',
-          onTap: () {
-            _abrirPlanosTreino(context);
-          },
-        ),
-        const SizedBox(height: 24),
-        const _TituloSecao(
-          titulo: 'Cadastros',
-          subtitulo: 'Biblioteca e organização dos exercícios',
-        ),
-        const SizedBox(height: 10),
-        _MenuCard(
-          icon: Icons.sports_gymnastics_outlined,
-          titulo: 'Exercícios',
-          subtitulo: 'Consultar e cadastrar exercícios',
-          onTap: () {
-            _abrirExercicios(context);
-          },
-        ),
-        const SizedBox(height: 10),
-        _MenuCard(
-          icon: Icons.fitness_center_outlined,
-          titulo: 'Grupos musculares',
-          subtitulo: 'Organizar os exercícios por grupo',
-          onTap: () {
-            _abrirGruposMusculares(context);
-          },
-        ),
-        const SizedBox(height: 24),
-        const _TituloSecao(
-          titulo: 'Acompanhamento',
-          subtitulo: 'Veja sua evolução ao longo do tempo',
-        ),
-        const SizedBox(height: 10),
-        _MenuCard(
-          icon: Icons.history,
-          titulo: 'Histórico',
-          subtitulo: 'Revise todos os treinos realizados',
-          onTap: () {
-            _abrirHistorico(context);
-          },
-        ),
-        const SizedBox(height: 10),
-        _MenuCard(
-          icon: Icons.trending_up_outlined,
-          titulo: 'Evolução',
-          subtitulo: 'Acompanhe seu progresso por exercício',
-          onTap: () {
-            _abrirEvolucao(context);
-          },
-        ),
-        const SizedBox(height: 10),
-        _MenuCard(
-          icon: Icons.monitor_weight_outlined,
-          titulo: 'Peso corporal',
-          subtitulo: 'Registre e acompanhe seu peso corporal',
-          onTap: () {
-            _mostrarEmDesenvolvimento(context, 'Peso corporal');
-          },
-        ),
-        const SizedBox(height: 10),
-        _MenuCard(
-          icon: Icons.straighten_outlined,
-          titulo: 'Medidas corporais',
-          subtitulo: 'Compare sua evolução corporal ao longo do tempo',
-          onTap: () {
-            _mostrarEmDesenvolvimento(context, 'Medidas corporais');
-          },
-        ),
-        const SizedBox(height: 24),
-        const _TituloSecao(
-          titulo: 'Sistema',
-          subtitulo: 'Preferências e segurança dos dados',
-        ),
-        const SizedBox(height: 10),
-        _MenuCard(
-          icon: Icons.settings_outlined,
-          titulo: 'Configurações',
-          subtitulo: 'Personalize tema, unidades e comportamento',
-          onTap: () {
-            _abrirConfiguracoes(context);
-          },
-        ),
-        const SizedBox(height: 10),
-        _MenuCard(
-          icon: Icons.backup_outlined,
-          titulo: 'Backup',
-          subtitulo: 'Proteja e restaure seus dados localmente',
-          onTap: () {
-            _abrirBackup(context);
-          },
-        ),
+          const SizedBox(height: 24),
+          const _TituloSecao(
+            titulo: 'Cadastros',
+            subtitulo: 'Biblioteca e organização dos exercícios',
+          ),
+          const SizedBox(height: 10),
+          _MenuCard(
+            icon: Icons.sports_gymnastics_outlined,
+            titulo: 'Exercícios',
+            subtitulo: 'Consultar e cadastrar exercícios',
+            onTap: () {
+              _abrirExercicios(context);
+            },
+          ),
+          const SizedBox(height: 10),
+          _MenuCard(
+            icon: Icons.fitness_center_outlined,
+            titulo: 'Grupos musculares',
+            subtitulo: 'Organizar os exercícios por grupo',
+            onTap: () {
+              _abrirGruposMusculares(context);
+            },
+          ),
+          const SizedBox(height: 24),
+          const _TituloSecao(
+            titulo: 'Acompanhamento',
+            subtitulo: 'Veja sua evolução ao longo do tempo',
+          ),
+          const SizedBox(height: 10),
+          _MenuCard(
+            icon: Icons.history,
+            titulo: 'Histórico',
+            subtitulo: 'Revise todos os treinos realizados',
+            onTap: () {
+              _abrirHistorico(context);
+            },
+          ),
+          const SizedBox(height: 10),
+          _MenuCard(
+            icon: Icons.trending_up_outlined,
+            titulo: 'Evolução',
+            subtitulo: 'Acompanhe seu progresso por exercício',
+            onTap: () {
+              _abrirEvolucao(context);
+            },
+          ),
+          const SizedBox(height: 10),
+          _MenuCard(
+            icon: Icons.monitor_weight_outlined,
+            titulo: 'Evolução corporal',
+            subtitulo: 'Acompanhe peso, medidas e histórico corporal',
+            onTap: () {
+              _abrirEvolucaoCorporal(context);
+            },
+          ),
+          const SizedBox(height: 24),
+          const _TituloSecao(
+            titulo: 'Sistema',
+            subtitulo: 'Preferências e segurança dos dados',
+          ),
+          const SizedBox(height: 10),
+          _MenuCard(
+            icon: Icons.settings_outlined,
+            titulo: 'Configurações',
+            subtitulo: 'Personalize tema, unidades e comportamento',
+            onTap: () {
+              _abrirConfiguracoes(context);
+            },
+          ),
+          const SizedBox(height: 10),
+          _MenuCard(
+            icon: Icons.backup_outlined,
+            titulo: 'Backup',
+            subtitulo: 'Proteja e restaure seus dados localmente',
+            onTap: () {
+              _abrirBackup(context);
+            },
+          ),
       ],
     );
   }

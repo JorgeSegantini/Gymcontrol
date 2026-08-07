@@ -5,7 +5,9 @@ import 'database_connection.dart';
 import 'exercicio_dao.dart';
 import 'ficha_treino_dao.dart';
 import 'grupo_muscular_dao.dart';
+import 'medida_corporal_dao.dart';
 import 'plano_treino_dao.dart';
+import 'peso_corporal_dao.dart';
 import 'treino_realizado_dao.dart';
 import 'treino_tables.dart';
 
@@ -341,6 +343,59 @@ class PlanosTreinoExecucoes extends Table {
       dateTime().withDefault(currentDateAndTime)();
 }
 
+@DataClassName('PesoCorporal')
+class PesosCorporais extends Table {
+  IntColumn get id => integer().autoIncrement()();
+
+  DateTimeColumn get data => dateTime().unique()();
+
+  IntColumn get pesoGramas => integer()();
+
+  DateTimeColumn get criadoEm => dateTime().withDefault(currentDateAndTime)();
+
+  DateTimeColumn get atualizadoEm =>
+      dateTime().withDefault(currentDateAndTime)();
+}
+
+@DataClassName('MedidaCorporal')
+class MedidasCorporais extends Table {
+  IntColumn get id => integer().autoIncrement()();
+
+  DateTimeColumn get data => dateTime().unique()();
+
+  IntColumn get pescocoMilimetros => integer().nullable()();
+
+  IntColumn get ombrosMilimetros => integer().nullable()();
+
+  IntColumn get peitoMilimetros => integer().nullable()();
+
+  IntColumn get cinturaMilimetros => integer().nullable()();
+
+  IntColumn get abdomenMilimetros => integer().nullable()();
+
+  IntColumn get quadrilMilimetros => integer().nullable()();
+
+  IntColumn get bracoDireitoMilimetros => integer().nullable()();
+
+  IntColumn get bracoEsquerdoMilimetros => integer().nullable()();
+
+  IntColumn get coxaDireitaMilimetros => integer().nullable()();
+
+  IntColumn get coxaEsquerdaMilimetros => integer().nullable()();
+
+  IntColumn get panturrilhaDireitaMilimetros => integer().nullable()();
+
+  IntColumn get panturrilhaEsquerdaMilimetros => integer().nullable()();
+
+  TextColumn get observacoes =>
+      text().withLength(min: 1, max: 1000).nullable()();
+
+  DateTimeColumn get criadoEm => dateTime().withDefault(currentDateAndTime)();
+
+  DateTimeColumn get atualizadoEm =>
+      dateTime().withDefault(currentDateAndTime)();
+}
+
 @DriftDatabase(
   tables: [
     GruposMusculares,
@@ -354,6 +409,8 @@ class PlanosTreinoExecucoes extends Table {
     PlanosTreino,
     PlanosTreinoItens,
     PlanosTreinoExecucoes,
+    PesosCorporais,
+    MedidasCorporais,
     BibliotecaMetadata,
     BibliotecaGruposMusculares,
     BibliotecaCategoriasEquipamentos,
@@ -376,13 +433,15 @@ class PlanosTreinoExecucoes extends Table {
     FichaTreinoDao,
     TreinoRealizadoDao,
     PlanoTreinoDao,
+    PesoCorporalDao,
+    MedidaCorporalDao,
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(abrirConexaoBanco());
 
   @override
-  int get schemaVersion => 11;
+  int get schemaVersion => 13;
 
   @override
   MigrationStrategy get migration {
@@ -450,6 +509,14 @@ class AppDatabase extends _$AppDatabase {
           await migrator.addColumn(planosTreino, planosTreino.icone);
           await migrator.addColumn(planosTreino, planosTreino.ordem);
           await migrator.addColumn(planosTreino, planosTreino.favorito);
+        }
+
+        if (from < 12) {
+          await migrator.createTable(pesosCorporais);
+        }
+
+        if (from < 13) {
+          await migrator.createTable(medidasCorporais);
         }
       },
       beforeOpen: (details) async {
