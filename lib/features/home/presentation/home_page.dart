@@ -34,9 +34,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late DateTime _mesCalendario;
-  late Future<HomeDashboardModel> _resumoFuture;
-  bool _calendarioVisivel = false;
+  final ScrollController _scrollController = ScrollController();
+
+  HomeDashboardModel? _resumo;
+  bool _carregandoDashboard = true;
 
   AppDatabase get database => widget.database;
   ThemeController get themeController => widget.themeController;
@@ -46,40 +47,144 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    final agora = DateTime.now();
-    _mesCalendario = DateTime(agora.year, agora.month);
-    _recarregarDashboard();
+    _carregarDashboard();
   }
 
-  void _recarregarDashboard() {
-    _resumoFuture = _dashboardService.obterResumo(
-      mesCalendario: _mesCalendario,
+  Future<void> _carregarDashboard() async {
+    final agora = DateTime.now();
+    final mesAtual = DateTime(agora.year, agora.month);
+    final primeiraCarga = _resumo == null;
+
+    if (primeiraCarga && mounted) {
+      setState(() {
+        _carregandoDashboard = true;
+      });
+    }
+
+    try {
+      final resumo = await _dashboardService.obterResumo(
+        mesCalendario: mesAtual,
+      );
+
+      if (!mounted) {
+        return;
+      }
+
+      setState(() {
+        _resumo = resumo;
+        _carregandoDashboard = false;
+      });
+    } catch (_) {
+      if (!mounted) {
+        return;
+      }
+
+      setState(() {
+        _carregandoDashboard = false;
+      });
+    }
+  }
+
+  Future<void> _abrirCalendario(BuildContext context) async {
+    var mesSelecionado = DateTime(
+      DateTime.now().year,
+      DateTime.now().month,
+    );
+    var resumoFuture = _dashboardService.obterResumo(
+      mesCalendario: mesSelecionado,
+    );
+
+    await showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      showDragHandle: true,
+      builder: (sheetContext) {
+        return StatefulBuilder(
+          builder: (context, setSheetState) {
+            void carregarMes(int deslocamento) {
+              mesSelecionado = DateTime(
+                mesSelecionado.year,
+                mesSelecionado.month + deslocamento,
+              );
+
+              setSheetState(() {
+                resumoFuture = _dashboardService.obterResumo(
+                  mesCalendario: mesSelecionado,
+                );
+              });
+            }
+
+            void voltarHoje() {
+              final agora = DateTime.now();
+              mesSelecionado = DateTime(agora.year, agora.month);
+
+              setSheetState(() {
+                resumoFuture = _dashboardService.obterResumo(
+                  mesCalendario: mesSelecionado,
+                );
+              });
+            }
+
+            return SafeArea(
+              child: FractionallySizedBox(
+                heightFactor: 0.82,
+                child: FutureBuilder<HomeDashboardModel>(
+                  future: resumoFuture,
+                  builder: (context, snapshot) {
+                    if (!snapshot.hasData) {
+                      if (snapshot.hasError) {
+                        return const Center(
+                          child: Padding(
+                            padding: EdgeInsets.all(24),
+                            child: Text(
+                              'Não foi possível carregar o calendário.',
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        );
+                      }
+
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+
+                    final resumo = snapshot.data!;
+                    final agora = DateTime.now();
+
+                    return SingleChildScrollView(
+                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+                      child: HomeCalendario(
+                        calendario: resumo.calendario,
+                        podeVoltarAoMesAtual:
+                            mesSelecionado.year != agora.year ||
+                            mesSelecionado.month != agora.month,
+                        onMesAnterior: () {
+                          carregarMes(-1);
+                        },
+                        onProximoMes: () {
+                          carregarMes(1);
+                        },
+                        onVoltarAoMesAtual: voltarHoje,
+                        onDiaTap: (dia) {
+                          _mostrarDetalheDia(sheetContext, dia);
+                        },
+                      ),
+                    );
+                  },
+                ),
+              ),
+            );
+          },
+        );
+      },
     );
   }
 
-  void _alterarMesCalendario(int deslocamento) {
-    setState(() {
-      _mesCalendario = DateTime(
-        _mesCalendario.year,
-        _mesCalendario.month + deslocamento,
-      );
-      _recarregarDashboard();
-    });
-  }
-
-  void _alternarCalendario() {
-    setState(() {
-      _calendarioVisivel = !_calendarioVisivel;
-    });
-  }
-
-  void _voltarMesAtual() {
-    final agora = DateTime.now();
-
-    setState(() {
-      _mesCalendario = DateTime(agora.year, agora.month);
-      _recarregarDashboard();
-    });
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
   }
 
   Future<void> _abrirFichas(BuildContext context) async {
@@ -92,7 +197,7 @@ class _HomePageState extends State<HomePage> {
     );
 
     if (mounted) {
-      setState(_recarregarDashboard);
+      _carregarDashboard();
     }
   }
 
@@ -144,7 +249,7 @@ class _HomePageState extends State<HomePage> {
       }
 
       if (mounted) {
-        setState(_recarregarDashboard);
+        _carregarDashboard();
       }
     } on ArgumentError catch (erro) {
       if (!context.mounted) {
@@ -210,7 +315,7 @@ class _HomePageState extends State<HomePage> {
         ..hideCurrentSnackBar()
         ..showSnackBar(SnackBar(content: Text(mensagem)));
 
-      setState(_recarregarDashboard);
+      _carregarDashboard();
     } on ArgumentError catch (erro) {
       if (!context.mounted) {
         return;
@@ -324,7 +429,7 @@ class _HomePageState extends State<HomePage> {
     );
 
     if (mounted) {
-      setState(_recarregarDashboard);
+      _carregarDashboard();
     }
   }
 
@@ -338,7 +443,7 @@ class _HomePageState extends State<HomePage> {
     );
 
     if (mounted) {
-      setState(_recarregarDashboard);
+      _carregarDashboard();
     }
   }
 
@@ -352,7 +457,7 @@ class _HomePageState extends State<HomePage> {
     );
 
     if (mounted) {
-      setState(_recarregarDashboard);
+      _carregarDashboard();
     }
   }
 
@@ -366,7 +471,7 @@ class _HomePageState extends State<HomePage> {
     );
 
     if (mounted) {
-      setState(_recarregarDashboard);
+      _carregarDashboard();
     }
   }
 
@@ -403,126 +508,100 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: ListView(
-        padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
-        children: [
+      body: _construirCorpo(context),
+    );
+  }
+
+  Widget _construirCorpo(BuildContext context) {
+    if (_carregandoDashboard && _resumo == null) {
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    }
+
+    if (_resumo == null) {
+      return HomePlanoErroCard(
+        onAbrirPlanos: () {
+          _abrirPlanosTreino(context);
+        },
+      );
+    }
+
+    final resumo = _resumo!;
+
+    return ListView(
+      key: const PageStorageKey<String>('home-scroll'),
+      controller: _scrollController,
+      padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
+      children: [
           HomeCabecalhoData(data: DateTime.now()),
           const SizedBox(height: 16),
-          FutureBuilder<HomeDashboardModel>(
-            future: _resumoFuture,
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting &&
-                  !snapshot.hasData) {
-                return const Card(
-                  child: Padding(
-                    padding: EdgeInsets.all(24),
-                    child: Center(child: CircularProgressIndicator()),
-                  ),
-                );
-              }
-
-              if (snapshot.hasError || !snapshot.hasData) {
-                return HomePlanoErroCard(
-                  onAbrirPlanos: () {
-                    _abrirPlanosTreino(context);
-                  },
-                );
-              }
-
-              final resumo = snapshot.data!;
-
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  _ResumoPlanoAtivo(resumo: resumo),
-                  const SizedBox(height: 12),
-                  if (resumo.estadoPlano == null ||
-                      resumo.estadoPlano!.itemAtual == null)
-                    HomeSemPlanoAtivoCard(
-                      onAbrirPlanos: () {
-                        _abrirPlanosTreino(context);
-                      },
-                      onEscolherFicha: () {
-                        _abrirFichas(context);
-                      },
-                    )
-                  else
-                    HomePlanoHojeCard(
-                      estado: resumo.estadoPlano!,
-                      onIniciarTreino: () {
-                        _iniciarTreinoPlanejado(
-                          context,
-                          resumo.estadoPlano!.itemAtual!,
-                        );
-                      },
-                      onConcluirEtapa: () {
-                        _concluirEtapaSemTreino(
-                          context,
-                          resumo.estadoPlano!.itemAtual!,
-                        );
-                      },
-                      onAbrirPlanos: () {
-                        _abrirPlanosTreino(context);
-                      },
-                    ),
-                  if (resumo.timeline.isNotEmpty) ...[
-                    const SizedBox(height: 16),
-                    HomeTimeline(
-                      itens: resumo.timeline,
-                      onItemTap: (item) {
-                        if (item.etapa == HomeTimelineEtapa.atual) {
-                          final itemAtual = resumo.estadoPlano?.itemAtual;
-
-                          if (itemAtual == null) {
-                            return;
-                          }
-
-                          if (itemAtual.tipo ==
-                              TipoPlanoTreinoItem.treino.name) {
-                            _iniciarTreinoPlanejado(context, itemAtual);
-                          } else {
-                            _concluirEtapaSemTreino(context, itemAtual);
-                          }
-
-                          return;
-                        }
-
-                        _abrirPlanosTreino(context);
-                      },
-                    ),
-                  ],
-                  const SizedBox(height: 16),
-                  HomeResumoSemanal(resumo: resumo.resumoSemana),
-                  const SizedBox(height: 16),
-                  _AcessoCalendarioCard(
-                    visivel: _calendarioVisivel,
-                    mes: resumo.calendario.mes,
-                    ano: resumo.calendario.ano,
-                    onTap: _alternarCalendario,
-                  ),
-                  if (_calendarioVisivel) ...[
-                    const SizedBox(height: 10),
-                    HomeCalendario(
-                      calendario: resumo.calendario,
-                      podeVoltarAoMesAtual:
-                          _mesCalendario.year != DateTime.now().year ||
-                          _mesCalendario.month != DateTime.now().month,
-                      onMesAnterior: () {
-                        _alterarMesCalendario(-1);
-                      },
-                      onProximoMes: () {
-                        _alterarMesCalendario(1);
-                      },
-                      onVoltarAoMesAtual: _voltarMesAtual,
-                      onDiaTap: (dia) {
-                        _mostrarDetalheDia(context, dia);
-                      },
-                    ),
-                  ],
-                ],
-              );
+          _ResumoPlanoAtivo(
+            resumo: resumo,
+            onCalendarioTap: () {
+              _abrirCalendario(context);
             },
           ),
+          const SizedBox(height: 12),
+          if (resumo.estadoPlano == null ||
+              resumo.estadoPlano!.itemAtual == null)
+            HomeSemPlanoAtivoCard(
+              onAbrirPlanos: () {
+                _abrirPlanosTreino(context);
+              },
+              onEscolherFicha: () {
+                _abrirFichas(context);
+              },
+            )
+          else
+            HomePlanoHojeCard(
+              estado: resumo.estadoPlano!,
+              onIniciarTreino: () {
+                _iniciarTreinoPlanejado(
+                  context,
+                  resumo.estadoPlano!.itemAtual!,
+                );
+              },
+              onConcluirEtapa: () {
+                _concluirEtapaSemTreino(
+                  context,
+                  resumo.estadoPlano!.itemAtual!,
+                );
+              },
+              onAbrirPlanos: () {
+                _abrirPlanosTreino(context);
+              },
+            ),
+          if (resumo.timeline.isNotEmpty) ...[
+            const SizedBox(height: 16),
+            HomeTimeline(
+              itens: resumo.timeline,
+              onItemTap: (item) {
+                if (item.etapa == HomeTimelineEtapa.atual) {
+                  final itemAtual = resumo.estadoPlano?.itemAtual;
+
+                  if (itemAtual == null) {
+                    return;
+                  }
+
+                  if (itemAtual.tipo ==
+                      TipoPlanoTreinoItem.treino.name) {
+                    _iniciarTreinoPlanejado(context, itemAtual);
+                  } else {
+                    _concluirEtapaSemTreino(context, itemAtual);
+                  }
+
+                  return;
+                }
+
+                _abrirPlanosTreino(context);
+              },
+            ),
+          ],
+          const SizedBox(height: 16),
+          HomeResumoSemanal(resumo: resumo.resumoSemana),
+          const SizedBox(height: 16),
+
           const SizedBox(height: 24),
           const _TituloSecao(
             titulo: 'Treinos',
@@ -633,64 +712,19 @@ class _HomePageState extends State<HomePage> {
               _abrirBackup(context);
             },
           ),
-        ],
-      ),
+      ],
     );
-  }
-}
-
-class _AcessoCalendarioCard extends StatelessWidget {
-  const _AcessoCalendarioCard({
-    required this.visivel,
-    required this.mes,
-    required this.ano,
-    required this.onTap,
-  });
-
-  final bool visivel;
-  final int mes;
-  final int ano;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        leading: const Icon(Icons.calendar_month_outlined),
-        title: const Text(
-          'Calendário',
-          style: TextStyle(fontWeight: FontWeight.w800),
-        ),
-        subtitle: Text('${_nomeMes(mes)} de $ano'),
-        trailing: Icon(visivel ? Icons.expand_less : Icons.expand_more),
-        onTap: onTap,
-      ),
-    );
-  }
-
-  static String _nomeMes(int mes) {
-    return switch (mes) {
-      DateTime.january => 'Janeiro',
-      DateTime.february => 'Fevereiro',
-      DateTime.march => 'Março',
-      DateTime.april => 'Abril',
-      DateTime.may => 'Maio',
-      DateTime.june => 'Junho',
-      DateTime.july => 'Julho',
-      DateTime.august => 'Agosto',
-      DateTime.september => 'Setembro',
-      DateTime.october => 'Outubro',
-      DateTime.november => 'Novembro',
-      DateTime.december => 'Dezembro',
-      _ => '',
-    };
   }
 }
 
 class _ResumoPlanoAtivo extends StatelessWidget {
-  const _ResumoPlanoAtivo({required this.resumo});
+  const _ResumoPlanoAtivo({
+    required this.resumo,
+    required this.onCalendarioTap,
+  });
 
   final HomeDashboardModel resumo;
+  final VoidCallback onCalendarioTap;
 
   @override
   Widget build(BuildContext context) {
@@ -724,11 +758,11 @@ class _ResumoPlanoAtivo extends StatelessWidget {
               ],
             ),
           ),
-          if (plano != null)
-            Icon(
-              Icons.route_outlined,
-              color: Theme.of(context).colorScheme.primary,
-            ),
+          IconButton.filledTonal(
+            tooltip: 'Abrir calendário',
+            onPressed: onCalendarioTap,
+            icon: const Icon(Icons.calendar_month_outlined),
+          ),
         ],
       ),
     );

@@ -46,9 +46,43 @@ class HomePlanoHojeCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                TextButton(
-                  onPressed: onAbrirPlanos,
-                  child: const Text('Plano'),
+                Material(
+                  color: colorScheme.primaryContainer,
+                  borderRadius: BorderRadius.circular(999),
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(999),
+                    onTap: onAbrirPlanos,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 7,
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.route_outlined,
+                            size: 17,
+                            color: colorScheme.onPrimaryContainer,
+                          ),
+                          const SizedBox(width: 6),
+                          Text(
+                            'Ver plano',
+                            style: TextStyle(
+                              color: colorScheme.onPrimaryContainer,
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
+                          const SizedBox(width: 2),
+                          Icon(
+                            Icons.chevron_right,
+                            size: 18,
+                            color: colorScheme.onPrimaryContainer,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../core/database/app_database.dart';
 import '../data/backup_info.dart';
 import '../data/backup_service.dart';
+import '../data/backup_selecionado.dart';
 import '../data/manutencao_banco_info.dart';
 import '../data/manutencao_banco_service.dart';
 import 'widgets/confirmar_limpeza_historico_dialog.dart';
@@ -10,6 +11,7 @@ import 'widgets/informacoes_banco_card.dart';
 import 'widgets/backup_action_button.dart';
 import 'widgets/backup_info_card.dart';
 import 'widgets/backup_status_card.dart';
+import 'widgets/backup_preview_card.dart';
 
 class BackupPage extends StatefulWidget {
   const BackupPage({required this.database, super.key});
@@ -27,6 +29,8 @@ class _BackupPageState extends State<BackupPage> {
   late Future<ManutencaoBancoInfo> _manutencaoInfoFuture;
   bool _limpandoHistorico = false;
   bool _criandoBackup = false;
+  bool _selecionandoBackup = false;
+  BackupSelecionado? _backupSelecionado;
 
   @override
   void initState() {
@@ -137,16 +141,65 @@ class _BackupPageState extends State<BackupPage> {
     }
   }
 
-  void _restaurarBackup() {
-    ScaffoldMessenger.of(context)
-      ..hideCurrentSnackBar()
-      ..showSnackBar(
-        const SnackBar(
-          content: Text(
-            'A restauração de arquivos será adicionada na Etapa 15.2.',
+  Future<void> _selecionarBackup() async {
+    if (_selecionandoBackup) {
+      return;
+    }
+
+    setState(() {
+      _selecionandoBackup = true;
+    });
+
+    try {
+      final backup = await _service.selecionarEValidarBackup();
+
+      if (!mounted) {
+        return;
+      }
+
+      setState(() {
+        _selecionandoBackup = false;
+        _backupSelecionado = backup;
+      });
+
+      if (backup != null) {
+        ScaffoldMessenger.of(context)
+          ..hideCurrentSnackBar()
+          ..showSnackBar(
+            const SnackBar(content: Text('Backup validado com sucesso.')),
+          );
+      }
+    } on BackupValidacaoException catch (erro) {
+      if (!mounted) {
+        return;
+      }
+
+      setState(() {
+        _selecionandoBackup = false;
+        _backupSelecionado = null;
+      });
+
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(SnackBar(content: Text(erro.mensagem)));
+    } catch (erro) {
+      if (!mounted) {
+        return;
+      }
+
+      setState(() {
+        _selecionandoBackup = false;
+        _backupSelecionado = null;
+      });
+
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(
+          SnackBar(
+            content: Text('Não foi possível selecionar o backup: $erro'),
           ),
-        ),
-      );
+        );
+    }
   }
 
   Future<void> _limparHistorico() async {
@@ -251,10 +304,30 @@ class _BackupPageState extends State<BackupPage> {
               const SizedBox(height: 10),
               BackupActionButton(
                 icon: Icons.unarchive_outlined,
-                titulo: 'Restaurar backup',
-                subtitulo: 'Recuperar dados a partir de um arquivo GymControl',
-                onPressed: _restaurarBackup,
+                titulo: _selecionandoBackup
+                    ? 'Selecionando arquivo...'
+                    : 'Selecionar backup',
+                subtitulo: 'Validar um arquivo .gym antes da restauração',
+                onPressed: _selecionandoBackup ? () {} : _selecionarBackup,
               ),
+              if (_backupSelecionado != null) ...[
+                const SizedBox(height: 12),
+                BackupPreviewCard(backup: _backupSelecionado!),
+                const SizedBox(height: 10),
+                Card(
+                  child: ListTile(
+                    leading: const Icon(Icons.lock_clock_outlined),
+                    title: const Text(
+                      'Restauração ainda não executada',
+                      style: TextStyle(fontWeight: FontWeight.w800),
+                    ),
+                    subtitle: const Text(
+                      'O arquivo foi apenas selecionado e validado. '
+                      'A substituição do banco será adicionada na Etapa 15.2B.',
+                    ),
+                  ),
+                ),
+              ],
               const SizedBox(height: 24),
               Text(
                 'Manutenção',

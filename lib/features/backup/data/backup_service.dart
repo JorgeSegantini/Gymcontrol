@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:archive/archive_io.dart';
+import 'package:file_selector/file_selector.dart';
 import 'package:drift/drift.dart';
 import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
@@ -11,6 +12,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../core/database/app_database.dart';
 import 'backup_info.dart';
 import 'backup_manifest.dart';
+import 'backup_selecionado.dart';
 import 'manutencao_banco_service.dart';
 
 class BackupService {
@@ -45,6 +47,139 @@ class BackupService {
         preferences.getString(_chaveCompartilhadoEm),
       ),
     );
+  }
+
+  Future<BackupSelecionado?> selecionarEValidarBackup() async {
+    const grupoTipos = XTypeGroup(
+      label: 'Backup do GymControl',
+      extensions: ['gym'],
+      mimeTypes: ['application/zip', 'application/octet-stream'],
+    );
+
+    final arquivoSelecionado = await openFile(
+      acceptedTypeGroups: const [grupoTipos],
+    );
+
+    if (arquivoSelecionado == null) {
+      return null;
+    }
+
+    final caminho = arquivoSelecionado.path.trim();
+
+    if (caminho.isEmpty) {
+      throw const BackupValidacaoException(
+        'Não foi possível acessar o arquivo selecionado.',
+      );
+    }
+
+    return validarArquivoBackup(File(caminho));
+  }
+
+  Future<BackupSelecionado> validarArquivoBackup(File arquivo) async {
+    if (!await arquivo.exists()) {
+      throw const BackupValidacaoException(
+        'O arquivo selecionado não foi encontrado.',
+      );
+    }
+
+    if (path.extension(arquivo.path).toLowerCase() != '.gym') {
+      throw const BackupValidacaoException(
+        'Selecione um arquivo de backup com extensão .gym.',
+      );
+    }
+
+    final tamanhoBytes = await arquivo.length();
+
+    if (tamanhoBytes <= 0) {
+      throw const BackupValidacaoException('O arquivo selecionado está vazio.');
+    }
+
+    try {
+      final bytes = await arquivo.readAsBytes();
+      final pacote = ZipDecoder().decodeBytes(bytes);
+
+      final manifestoArquivo = pacote.files.cast<ArchiveFile?>().firstWhere(
+        (item) => item?.name == 'manifest.json',
+        orElse: () => null,
+      );
+      final bancoArquivo = pacote.files.cast<ArchiveFile?>().firstWhere(
+        (item) => item?.name == 'database.sqlite',
+        orElse: () => null,
+      );
+
+      if (manifestoArquivo == null || !manifestoArquivo.isFile) {
+        throw const BackupValidacaoException(
+          'O backup não contém o arquivo manifest.json.',
+        );
+      }
+
+      if (bancoArquivo == null ||
+          !bancoArquivo.isFile ||
+          bancoArquivo.size <= 0) {
+        throw const BackupValidacaoException(
+          'O backup não contém um banco SQLite válido.',
+        );
+      }
+
+      final manifestoBytes = manifestoArquivo.readBytes();
+
+      if (manifestoBytes == null || manifestoBytes.isEmpty) {
+        throw const BackupValidacaoException(
+          'O manifesto do backup está vazio.',
+        );
+      }
+
+      final conteudoJson = jsonDecode(utf8.decode(manifestoBytes));
+
+      if (conteudoJson is! Map<String, dynamic>) {
+        throw const BackupValidacaoException(
+          'O manifesto do backup possui formato inválido.',
+        );
+      }
+
+      final manifesto = BackupManifest.fromJson(conteudoJson);
+
+      _validarCompatibilidade(manifesto);
+
+      return BackupSelecionado(
+        arquivo: arquivo,
+        nomeArquivo: path.basename(arquivo.path),
+        tamanhoBytes: tamanhoBytes,
+        manifesto: manifesto,
+        possuiBanco: true,
+      );
+    } on BackupValidacaoException {
+      rethrow;
+    } on FormatException {
+      throw const BackupValidacaoException(
+        'O arquivo selecionado está corrompido ou não é um backup GymControl.',
+      );
+    } catch (erro) {
+      throw BackupValidacaoException(
+        'Não foi possível validar o backup: $erro',
+      );
+    }
+  }
+
+  void _validarCompatibilidade(BackupManifest manifesto) {
+    if (manifesto.aplicativo != 'GymControl') {
+      throw const BackupValidacaoException(
+        'Este arquivo não pertence ao GymControl.',
+      );
+    }
+
+    if (manifesto.versaoFormato != _versaoFormato) {
+      throw BackupValidacaoException(
+        'Formato de backup incompatível. Arquivo: '
+        '${manifesto.versaoFormato}; aplicativo: $_versaoFormato.',
+      );
+    }
+
+    if (manifesto.versaoBanco > _database.schemaVersion) {
+      throw BackupValidacaoException(
+        'Este backup foi criado em uma versão mais nova do GymControl.',
+      );
+    }
   }
 
   Future<BackupCriado> criarArquivoBackup() async {
@@ -285,6 +420,15 @@ class BackupService {
 
 class BackupException implements Exception {
   const BackupException(this.mensagem);
+
+  final String mensagem;
+
+  @override
+  String toString() => mensagem;
+}
+
+class BackupValidacaoException implements Exception {
+  const BackupValidacaoException(this.mensagem);
 
   final String mensagem;
 
